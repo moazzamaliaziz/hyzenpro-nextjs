@@ -1,0 +1,51 @@
+{
+    "authors": [
+        {
+            "slug": "hyzenpro-team",
+            "name": "HyzenPro Team",
+            "role": "Editorial Team",
+            "avatar": "",
+            "bio": "The HyzenPro team consists of AI enthusiasts, tech experts, and professional reviewers dedicated to providing accurate, unbiased reviews of AI tools.",
+            "social": {
+                "twitter": "https://twitter.com/hyzenpro",
+                "linkedin": ""
+            },
+            "verified": true,
+            "expertise": [
+                "AI Tools",
+                "Technology",
+                "Software Reviews"
+            ]
+        },
+        {
+            "slug": "admin",
+            "name": "HyzenPro Admin",
+            "role": "Chief Editor",
+            "avatar": "",
+            "bio": "Leading the HyzenPro editorial team with years of experience in AI and technology journalism.",
+            "social": {
+                "twitter": "",
+                "linkedin": ""
+            },
+            "verified": true,
+            "expertise": [
+                "AI Tools",
+                "Machine Learning",
+                "Tech Reviews"
+            ]
+        }
+    ],
+    "_instructions": {
+        "how_to_add": "Add new authors to the 'authors' array above",
+        "fields": {
+            "slug": "Unique identifier matching WordPress author slug",
+            "name": "Display name",
+            "role": "Job title or role",
+            "avatar": "Optional: URL to avatar image (leave empty for auto-generated)",
+            "bio": "Short biography",
+            "social": "Social media links",
+            "verified": "true/false for verified badge",
+            "expertise": "Array of expertise areas"
+        }
+    }
+}

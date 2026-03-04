@@ -1,0 +1,62 @@
+{
+    "reviews": [
+        {
+            "id": "1",
+            "author": "Alex Chen",
+            "handle": "@alexchen_ai",
+            "avatar": "",
+            "content": "Just discovered HyzenPro for AI tool reviews. The testing methodology is transparent and the comparisons are incredibly helpful. Finally found the right AI writing tool!",
+            "date": "2026-01-28",
+            "likes": 142,
+            "verified": true,
+            "toolSlug": ""
+        },
+        {
+            "id": "2",
+            "author": "Sarah Miller",
+            "handle": "@sarahcodes",
+            "avatar": "",
+            "content": "The AI tools directory on @hyzenpro is a game-changer. Saved me hours of research. Their expert reviews are spot-on! 🔥",
+            "date": "2026-01-25",
+            "likes": 89,
+            "verified": true,
+            "toolSlug": ""
+        },
+        {
+            "id": "3",
+            "author": "David Park",
+            "handle": "@davidpark_dev",
+            "avatar": "",
+            "content": "Finally, an AI tool review site that actually tests the products hands-on. The pros/cons are real and helpful.",
+            "date": "2026-01-22",
+            "likes": 67,
+            "verified": false,
+            "toolSlug": ""
+        },
+        {
+            "id": "4",
+            "author": "Emma Wilson",
+            "handle": "@emmawilson",
+            "avatar": "",
+            "content": "Best resource for discovering new AI tools. The filtering options make it so easy to find exactly what I need.",
+            "date": "2026-01-20",
+            "likes": 112,
+            "verified": true,
+            "toolSlug": ""
+        }
+    ],
+    "_instructions": {
+        "how_to_add": "Add new reviews to the 'reviews' array above",
+        "fields": {
+            "id": "Unique ID (string)",
+            "author": "Display name",
+            "handle": "X/Twitter handle with @",
+            "avatar": "Optional: URL to avatar image (leave empty for auto-generated)",
+            "content": "The review text",
+            "date": "Date in YYYY-MM-DD format",
+            "likes": "Number of likes (optional)",
+            "verified": "true/false for verified badge",
+            "toolSlug": "Optional: tool slug to show this review only on that tool's page (leave empty for homepage)"
+        }
+    }
+}

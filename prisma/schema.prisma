@@ -1,0 +1,147 @@
+// Prisma schema for HyzenPro - MongoDB
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ==========================================
+// AI TOOLS
+// ==========================================
+
+model Tool {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  name             String
+  slug             String   @unique
+  shortDescription String
+  longDescription  String
+  websiteUrl       String
+  pricingType      String   @default("freemium") // free, freemium, paid, enterprise
+  status           String   @default("published") // published, draft
+  logo             String?
+  featured         Boolean  @default(false)
+  views            Int      @default(0)
+  helpfulCount     Int      @default(0)
+  features         String[]
+  pros             String[]
+  cons             String[]
+  categoryIds      String[] @db.ObjectId
+  categories       Category[] @relation(fields: [categoryIds], references: [id])
+  primaryCategory  String?  // slug of the primary category for URL
+  alternativeIds   String[] @db.ObjectId
+  rating           Float?
+  meta             Json?    // Flexible metadata
+  seo              Seo?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Category {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  slug            String   @unique
+  parentId        String?  @db.ObjectId
+  description     String?
+  longDescription String?
+  seoContent      String?
+  icon            String?
+  iconClass       String?
+  toolCount       Int      @default(0)
+  toolIds         String[] @db.ObjectId
+  tools           Tool[]   @relation(fields: [toolIds], references: [id])
+  seo             Seo?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ==========================================
+// BLOG
+// ==========================================
+
+model Post {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  slug          String    @unique
+  excerpt       String?
+  content       String    // HTML content
+  featuredImage String?
+  categories    String[]  // category slugs
+  tags          String[]
+  author        String    @default("HyzenPro Team")
+  status        String    @default("draft") // draft, published
+  postType      String    @default("post") // post, review, comparison, tutorial, page
+  seo           Seo?
+  publishedAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// ==========================================
+// REVIEWS (standalone review pages)
+// ==========================================
+
+model Review {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  toolSlug    String
+  toolName    String
+  title       String
+  slug        String    @unique
+  content     String
+  rating      Float
+  pros        String[]
+  cons        String[]
+  verdict     String?
+  author      String    @default("HyzenPro Team")
+  status      String    @default("draft")
+  seo         Seo?
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// ==========================================
+// AUTH
+// ==========================================
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String    @unique
+  password      String    // bcrypt hashed
+  role          String    @default("admin")
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime
+}
+
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ==========================================
+// EMBEDDED TYPES
+// ==========================================
+
+type Seo {
+  metaTitle       String?
+  metaDescription String?
+  canonicalUrl    String?
+  ogImage         String?
+  noIndex         Boolean?
+  focusKeyword    String?
+}

@@ -1,0 +1,184 @@
+﻿
+> hyzenpro-nextjs@1.0.0 build
+> next build
+
+Γû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 60s
+  Running TypeScript ...
+  Collecting page data using 3 workers ...
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetched 21 posts from GraphQL
+  Generating static pages using 3 workers (0/119) ...
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 18 categories from GraphQL
+Fetched 18 categories from GraphQL
+Fetched 18 categories from GraphQL
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetched 24 AI tools from GraphQL
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetched 18 categories from GraphQL
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetched 18 categories from GraphQL
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 18 categories from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+node.exe : Error occurred prerendering page 
+"/ai-tools/category/ai-coding-tools". Read more: 
+https://nextjs.org/docs/messages/prerender-error
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error occurred  
+   ...prerender-error:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Fetching GraphQL: https://hyzenpro.com/graphql
+TypeError: Cannot read properties of undefined (reading 
+'replace')
+    at Module.h (F:\main theme files\hyzenpro-nextjs\.next\se
+rver\chunks\ssr\_741335cc._.js:1:1381) {
+  digest: '875988734'
+}
+Fetched 24 AI tools from GraphQL
+Fetching GraphQL: https://hyzenpro.com/graphql
+Export encountered an error on 
+/ai-tools/category/[slug]/page: 
+/ai-tools/category/ai-coding-tools, exiting the build.
+Fetched 24 AI tools from GraphQL
+Γ¿» Next.js build worker exited with code: 1 and signal: null
