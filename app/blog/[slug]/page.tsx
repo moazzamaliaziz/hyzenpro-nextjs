@@ -1,19 +1,28 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import AuthorBox from '@/components/eeat/AuthorBox';
 import TableOfContents from '@/components/blog/TableOfContents';
-import { getAllPosts, getPostAuthor } from '@/lib/wordpress';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import prisma from '@/lib/prisma';
+import { getBaseUrl } from '@/lib/utils';
+import { notFound } from 'next/navigation';
 
-export const dynamic = 'force-static';
+export const revalidate = 3600;
 
 // Generate all blog post pages at build time
 export async function generateStaticParams() {
-    const posts = await getAllPosts();
-    return posts.map((post) => ({
-        slug: post.slug,
-    }));
+    try {
+        const posts = await prisma.post.findMany({
+            where: { status: 'published' },
+            select: { slug: true }
+        });
+        return posts.map((post: any) => ({
+            slug: post.slug,
+        }));
+    } catch {
+        return [];
+    }
 }
 
 // Generate metadata for each post
@@ -23,25 +32,36 @@ export async function generateMetadata({
     params: Promise<{ slug: string }>
 }): Promise<Metadata> {
     const { slug } = await params;
-    const posts = await getAllPosts();
-    const post = posts.find(p => p.slug === slug);
 
-    if (!post) {
+    try {
+        const post = await prisma.post.findUnique({
+            where: { slug }
+        });
+
+        if (!post) {
+            return { title: 'Post Not Found | HyzenPro' };
+        }
+
+        const seo = post.seo as any;
+
+        return {
+            title: seo?.metaTitle || `${post.title} | HyzenPro Blog`,
+            description: seo?.metaDescription || post.excerpt,
+            alternates: {
+                canonical: seo?.canonicalUrl || `${getBaseUrl()}/blog/${post.slug}/`,
+            },
+            openGraph: {
+                type: 'article',
+                title: seo?.metaTitle || post.title,
+                description: seo?.metaDescription || post.excerpt || '',
+                images: seo?.ogImage ? [seo.ogImage] : post.featuredImage ? [post.featuredImage] : [],
+                publishedTime: post.publishedAt ? post.publishedAt.toISOString() : post.createdAt.toISOString(),
+                authors: [post.author],
+            },
+        };
+    } catch {
         return { title: 'Post Not Found | HyzenPro' };
     }
-
-    return {
-        title: `${post.title} | HyzenPro Blog`,
-        description: post.excerpt,
-        openGraph: {
-            type: 'article',
-            title: post.title,
-            description: post.excerpt,
-            images: [post.featuredImage],
-            publishedTime: post.date,
-            authors: [post.author],
-        },
-    };
 }
 
 export default async function BlogPostPage({
@@ -50,35 +70,58 @@ export default async function BlogPostPage({
     params: Promise<{ slug: string }>
 }) {
     const { slug } = await params;
-    const posts = await getAllPosts();
-    const post = posts.find(p => p.slug === slug);
-    const author = post ? await getPostAuthor(post) : null;
 
-    if (!post) {
-        return (
-            <div className="dark-bg min-h-screen">
-                <Header />
-                <main className="pt-32 text-center text-white">
-                    <h1 className="font-heading text-6xl">Post Not Found</h1>
-                    <Link href="/blog" className="text-gray-400 mt-4 inline-block hover:text-white">
-                        ← Back to Blog
-                    </Link>
-                </main>
-                <Footer />
-            </div>
-        );
+    let post;
+    try {
+        post = await prisma.post.findUnique({
+            where: { slug }
+        });
+    } catch {
+        notFound();
     }
 
-    // Get related posts
-    const relatedPosts = posts
-        .filter(p => p.id !== post.id)
-        .slice(0, 3);
+    if (!post || post.status !== 'published') {
+        notFound();
+    }
+
+    // Get related posts (same categories)
+    let relatedPosts: any[] = [];
+    try {
+        if (post.categories.length > 0) {
+            relatedPosts = await prisma.post.findMany({
+                where: {
+                    status: 'published',
+                    id: { not: post.id },
+                    categories: { hasSome: post.categories }
+                },
+                take: 3,
+                orderBy: { publishedAt: 'desc' }
+            });
+        }
+    } catch { }
+
+    // Fallback if no category matches
+    if (relatedPosts.length === 0) {
+        try {
+            relatedPosts = await prisma.post.findMany({
+                where: { status: 'published', id: { not: post.id } },
+                take: 3,
+                orderBy: { publishedAt: 'desc' }
+            });
+        } catch { }
+    }
+
+    const authorData = {
+        name: post.author || 'HyzenPro Team',
+        role: 'AI Tool Reviewer & Editor',
+        bio: 'Passionate about artificial intelligence and its practical applications. Writing in-depth reviews and guides to help users navigate the AI landscape.'
+    };
 
     return (
         <div className="dark-bg">
             <Header />
 
-            <main className="pt-24">
+            <main className="pt-24 min-h-screen">
                 {/* Hero */}
                 <section className="section bg-black text-white">
                     <div className="container max-w-4xl">
@@ -93,7 +136,7 @@ export default async function BlogPostPage({
 
                         {/* Categories */}
                         <div className="flex gap-2 mb-6">
-                            {post.categories.map(cat => (
+                            {post.categories.map((cat: string) => (
                                 <span key={cat} className="px-3 py-1 bg-white/10 rounded-full text-sm">
                                     {cat}
                                 </span>
@@ -109,11 +152,11 @@ export default async function BlogPostPage({
                         <div className="flex items-center gap-6 text-gray-400">
                             <span className="flex items-center gap-2">
                                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                                    {post.author.charAt(0)}
+                                    {authorData.name.charAt(0)}
                                 </div>
-                                {post.author}
+                                {authorData.name}
                             </span>
-                            <span>{new Date(post.date).toLocaleDateString('en-US', {
+                            <span>{new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-US', {
                                 year: 'numeric',
                                 month: 'long',
                                 day: 'numeric'
@@ -124,74 +167,52 @@ export default async function BlogPostPage({
                 </section>
 
                 {/* Featured Image */}
-                <section className="bg-black pb-12">
-                    <div className="container max-w-4xl">
-                        <div className="relative h-80 md:h-[500px] rounded-2xl overflow-hidden">
-                            <img
-                                src={post.featuredImage}
-                                alt={post.title}
-                                className="w-full h-full object-cover"
-                            />
+                {post.featuredImage && (
+                    <section className="bg-black pb-12">
+                        <div className="container max-w-4xl">
+                            <div className="relative h-80 md:h-[500px] rounded-2xl overflow-hidden border border-white/5">
+                                <img
+                                    src={post.featuredImage}
+                                    alt={post.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
 
                 {/* Content */}
                 <section className="section bg-white">
                     <div className="container max-w-3xl">
                         <TableOfContents />
                         <article className="prose prose-lg max-w-none">
-                            <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                                {post.excerpt}
-                            </p>
+                            {post.excerpt && (
+                                <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                                    {post.excerpt}
+                                </p>
+                            )}
 
-                            {/* Demo content - would come from WordPress */}
-                            <h2 className="font-heading text-3xl text-black mt-12 mb-6">Introduction</h2>
-                            <p className="text-gray-700 leading-relaxed mb-6">
-                                In the rapidly evolving landscape of artificial intelligence, staying informed about the latest tools and technologies is essential. This comprehensive guide will help you understand the key features, benefits, and potential applications of modern AI solutions.
-                            </p>
-
-                            <h2 className="font-heading text-3xl text-black mt-12 mb-6">Key Takeaways</h2>
-                            <ul className="space-y-3 mb-8">
-                                <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1">✓</span>
-                                    <span className="text-gray-700">AI tools are becoming more accessible to everyday users</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1">✓</span>
-                                    <span className="text-gray-700">Integration with existing workflows is getting easier</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-green-500 mt-1">✓</span>
-                                    <span className="text-gray-700">Cost-effective solutions are now available for small businesses</span>
-                                </li>
-                            </ul>
-
-                            <h2 className="font-heading text-3xl text-black mt-12 mb-6">Conclusion</h2>
-                            <p className="text-gray-700 leading-relaxed mb-6">
-                                As AI continues to advance, we can expect even more innovative tools and applications. Stay tuned to HyzenPro for the latest reviews, comparisons, and guides to help you navigate this exciting landscape.
-                            </p>
+                            {/* Main Content Rendered Safely */}
+                            <div dangerouslySetInnerHTML={{ __html: post.content }} />
                         </article>
 
                         {/* Author Box */}
-                        {author && (
-                            <div className="mt-16 pt-12 border-t border-gray-100">
-                                <h3 className="font-heading text-xl text-gray-500 uppercase tracking-widest mb-8">About the Author</h3>
-                                <AuthorBox author={author} variant="full" />
-                            </div>
-                        )}
+                        <div className="mt-16 pt-12 border-t border-gray-100">
+                            <h3 className="font-heading text-xl text-gray-500 uppercase tracking-widest mb-8">About the Author</h3>
+                            <AuthorBox author={authorData} variant="full" />
+                        </div>
 
                         {/* Share */}
                         <div className="border-t border-gray-200 mt-12 pt-8">
                             <h3 className="font-heading text-xl text-black mb-4">SHARE THIS ARTICLE</h3>
                             <div className="flex gap-4">
-                                <a href={`https://twitter.com/intent/tweet?url=https://hyzenpro.com/blog/${post.slug}&text=${post.title}`}
-                                    target="_blank" rel="noopener"
+                                <a href={`https://twitter.com/intent/tweet?url=${getBaseUrl()}/blog/${post.slug}&text=${post.title}`}
+                                    target="_blank" rel="noopener noreferrer"
                                     className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
                                     Twitter
                                 </a>
-                                <a href={`https://www.linkedin.com/shareArticle?mini=true&url=https://hyzenpro.com/blog/${post.slug}`}
-                                    target="_blank" rel="noopener"
+                                <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${getBaseUrl()}/blog/${post.slug}`}
+                                    target="_blank" rel="noopener noreferrer"
                                     className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
                                     LinkedIn
                                 </a>
@@ -208,23 +229,25 @@ export default async function BlogPostPage({
                                 RELATED ARTICLES
                             </h2>
                             <div className="grid md:grid-cols-3 gap-8">
-                                {relatedPosts.map(relatedPost => (
+                                {relatedPosts.map((relatedPost: any) => (
                                     <article key={relatedPost.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
-                                        <div className="h-48 bg-gray-100 overflow-hidden">
-                                            <img
-                                                src={relatedPost.featuredImage}
-                                                alt={relatedPost.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                            />
-                                        </div>
+                                        {relatedPost.featuredImage && (
+                                            <div className="h-48 bg-gray-100 overflow-hidden">
+                                                <img
+                                                    src={relatedPost.featuredImage}
+                                                    alt={relatedPost.title}
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                />
+                                            </div>
+                                        )}
                                         <div className="p-6">
-                                            <Link href={`/blog/${relatedPost.slug}`}>
+                                            <Link href={`/blog/${relatedPost.slug}/`}>
                                                 <h3 className="font-heading text-xl text-black group-hover:text-accent transition-colors line-clamp-2">
                                                     {relatedPost.title}
                                                 </h3>
                                             </Link>
                                             <p className="text-sm text-gray-500 mt-2">
-                                                {new Date(relatedPost.date).toLocaleDateString()}
+                                                {new Date(relatedPost.publishedAt || relatedPost.createdAt).toLocaleDateString()}
                                             </p>
                                         </div>
                                     </article>
