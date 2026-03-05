@@ -75,13 +75,13 @@ export default async function AIToolsDirectoryPage() {
 
                     {/* Tools Grid with Filters */}
                     <ToolsFilterGrid
-                        tools={tools.map((t) => ({
+                        tools={tools.map((t: any) => ({
                             ...t,
                             rating: t.rating,
                             logo: t.logo,
                             primaryCategory: t.primaryCategory,
                         }))}
-                        categories={categories.map((c) => ({
+                        categories={categories.map((c: any) => ({
                             id: c.id,
                             name: c.name,
                             slug: c.slug,

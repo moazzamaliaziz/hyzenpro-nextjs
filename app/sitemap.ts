@@ -25,7 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             where: { status: 'published' },
             select: { slug: true, primaryCategory: true, updatedAt: true },
         });
-        toolPages = tools.map((tool) => ({
+        toolPages = tools.map((tool: any) => ({
             url: `${siteUrl}/ai-tools-directory/${tool.primaryCategory || 'ai-general-tools'}/${tool.slug}/`,
             lastModified: tool.updatedAt,
             changeFrequency: 'weekly' as const,
@@ -41,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         const categories = await prisma.category.findMany({
             select: { slug: true, updatedAt: true },
         });
-        categoryPages = categories.map((cat) => ({
+        categoryPages = categories.map((cat: any) => ({
             url: `${siteUrl}/ai-tools-directory/${cat.slug}/`,
             lastModified: cat.updatedAt,
             changeFrequency: 'weekly' as const,
@@ -56,7 +56,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             where: { status: 'published' },
             select: { slug: true, updatedAt: true },
         });
-        postPages = posts.map((post) => ({
+        postPages = posts.map((post: any) => ({
             url: `${siteUrl}/${post.slug}/`,
             lastModified: post.updatedAt,
             changeFrequency: 'weekly' as const,

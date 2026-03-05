@@ -60,7 +60,7 @@ export default async function AdminToolsPage() {
                                     </td>
                                 </tr>
                             ) : (
-                                tools.map((tool) => (
+                                tools.map((tool: any) => (
                                     <tr key={tool.id} className="hover:bg-white/[0.02] transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="font-medium text-white">{tool.name}</div>
@@ -73,7 +73,7 @@ export default async function AdminToolsPage() {
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 text-sm text-white/60">
-                                            {tool.categories.map(c => c.name).join(', ') || 'None'}
+                                            {tool.categories.map((c: any) => c.name).join(', ') || 'None'}
                                         </td>
                                         <td className="px-6 py-4 text-sm text-white/60 capitalize">
                                             {tool.pricingType}

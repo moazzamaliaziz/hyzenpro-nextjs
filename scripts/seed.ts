@@ -52,9 +52,9 @@ async function main() {
 
     // Try to get some category IDs for tools
     const dbCategories = await prisma.category.findMany();
-    const videoCat = dbCategories.find(c => c.slug === 'ai-video-tools');
-    const imageCat = dbCategories.find(c => c.slug === 'ai-image-tools');
-    const writingCat = dbCategories.find(c => c.slug === 'ai-writing-tools');
+    const videoCat = dbCategories.find((c: any) => c.slug === 'ai-video-tools');
+    const imageCat = dbCategories.find((c: any) => c.slug === 'ai-image-tools');
+    const writingCat = dbCategories.find((c: any) => c.slug === 'ai-writing-tools');
 
     // 3. Create Sample Tools
     const tools = [

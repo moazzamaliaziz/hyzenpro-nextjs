@@ -47,7 +47,7 @@ export async function generateStaticParams() {
             where: { status: 'published' },
             select: { slug: true, primaryCategory: true },
         });
-        return tools.map((t) => ({
+        return tools.map((t: any) => ({
             category: t.primaryCategory || 'ai-general-tools',
             slug: t.slug,
         }));
@@ -178,7 +178,7 @@ export default async function ToolDetailPage({ params }: Props) {
                                         <div className="bg-green-500/5 border border-green-500/10 rounded-2xl p-6">
                                             <h3 className="font-heading text-xl text-green-400 mb-4">✅ Pros</h3>
                                             <ul className="space-y-2.5">
-                                                {tool.pros.map((pro, i) => (
+                                                {tool.pros.map((pro: string, i: number) => (
                                                     <li key={i} className="flex items-start gap-2 text-sm text-white/50">
                                                         <Check className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                                                         {pro}
@@ -191,7 +191,7 @@ export default async function ToolDetailPage({ params }: Props) {
                                         <div className="bg-red-500/5 border border-red-500/10 rounded-2xl p-6">
                                             <h3 className="font-heading text-xl text-red-400 mb-4">❌ Cons</h3>
                                             <ul className="space-y-2.5">
-                                                {tool.cons.map((con, i) => (
+                                                {tool.cons.map((con: string, i: number) => (
                                                     <li key={i} className="flex items-start gap-2 text-sm text-white/50">
                                                         <X className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
                                                         {con}
@@ -208,7 +208,7 @@ export default async function ToolDetailPage({ params }: Props) {
                                 <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 mb-6">
                                     <h2 className="font-heading text-2xl text-white mb-4">Key Features</h2>
                                     <div className="grid sm:grid-cols-2 gap-3">
-                                        {tool.features.map((feature, i) => (
+                                        {tool.features.map((feature: string, i: number) => (
                                             <div key={i} className="flex items-center gap-2 p-3 bg-white/[0.02] rounded-lg">
                                                 <Check className="w-4 h-4 text-accent flex-shrink-0" />
                                                 <span className="text-sm text-white/50">{feature}</span>

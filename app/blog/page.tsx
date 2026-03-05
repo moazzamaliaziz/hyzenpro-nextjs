@@ -33,7 +33,7 @@ export default async function BlogPage() {
     const posts = await getData();
 
     // Get unique categories
-    const allCategories = [...new Set(posts.flatMap((p) => p.categories))];
+    const allCategories = Array.from(new Set(posts.flatMap((p: any) => p.categories))) as string[];
 
     return (
         <>
@@ -69,7 +69,7 @@ export default async function BlogPage() {
                     {/* Posts Grid */}
                     {posts.length > 0 ? (
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {posts.map((post) => (
+                            {posts.map((post: any) => (
                                 <PostCard key={post.id} post={post} />
                             ))}
                         </div>

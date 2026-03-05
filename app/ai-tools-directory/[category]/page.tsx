@@ -37,7 +37,7 @@ export async function generateStaticParams() {
         const categories = await prisma.category.findMany({
             select: { slug: true },
         });
-        return categories.map((c) => ({ category: c.slug }));
+        return categories.map((c: any) => ({ category: c.slug }));
     } catch {
         return [];
     }

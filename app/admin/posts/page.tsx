@@ -60,7 +60,7 @@ export default async function AdminPostsPage() {
                                     </td>
                                 </tr>
                             ) : (
-                                posts.map((post) => (
+                                posts.map((post: any) => (
                                     <tr key={post.id} className="hover:bg-white/[0.02] transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="font-medium text-white truncate max-w-[300px]">{post.title}</div>

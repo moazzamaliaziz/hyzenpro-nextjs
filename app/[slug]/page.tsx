@@ -50,7 +50,7 @@ export async function generateStaticParams() {
             where: { status: 'published' },
             select: { slug: true },
         });
-        return posts.map((p) => ({ slug: p.slug }));
+        return posts.map((p: { slug: string }) => ({ slug: p.slug }));
     } catch {
         return [];
     }
@@ -92,7 +92,7 @@ export default async function BlogPostPage({ params }: Props) {
 
     return (
         <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateArticleSchema(post)) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateArticleSchema(post as any)) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(breadcrumbs)) }} />
 
             <Header />
@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: Props) {
                         {/* Categories */}
                         {post.categories.length > 0 && (
                             <div className="flex gap-2 mb-4">
-                                {post.categories.map((cat) => (
+                                {post.categories.map((cat: string) => (
                                     <Link
                                         key={cat}
                                         href={`/category/${cat.toLowerCase()}/`}
@@ -187,7 +187,7 @@ export default async function BlogPostPage({ params }: Props) {
                     {/* Tags */}
                     {post.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 py-6 border-t border-white/[0.06]">
-                            {post.tags.map((tag) => (
+                            {post.tags.map((tag: string) => (
                                 <span key={tag} className="px-3 py-1.5 text-xs text-white/30 bg-white/[0.03] border border-white/[0.06] rounded-full">
                                     #{tag}
                                 </span>
@@ -211,7 +211,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <section className="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <h2 className="font-heading text-3xl text-white mb-8">Related Articles</h2>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {relatedPosts.map((p) => (
+                            {relatedPosts.map((p: any) => (
                                 <PostCard key={p.id} post={p} />
                             ))}
                         </div>
