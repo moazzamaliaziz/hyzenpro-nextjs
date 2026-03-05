@@ -15,9 +15,10 @@ interface ToolCardProps {
         views?: number;
         featured?: boolean;
     };
+    priority?: boolean;
 }
 
-export default function ToolCard({ tool }: ToolCardProps) {
+export default function ToolCard({ tool, priority = false }: ToolCardProps) {
     const category = tool.primaryCategory || 'ai-general-tools';
     const toolUrl = `/ai-tools-directory/${category}/${tool.slug}/`;
 
@@ -45,6 +46,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
                                 alt={tool.name}
                                 width={40}
                                 height={40}
+                                priority={priority}
                                 className="object-contain"
                             />
                         ) : (

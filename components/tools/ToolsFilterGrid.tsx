@@ -166,8 +166,8 @@ export default function ToolsFilterGrid({ tools, categories }: ToolsFilterGridPr
             {/* Grid */}
             {filtered.length > 0 ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {filtered.map((tool) => (
-                        <ToolCard key={tool.id} tool={tool} />
+                    {filtered.map((tool, i) => (
+                        <ToolCard key={tool.id} tool={tool} priority={i < 8} />
                     ))}
                 </div>
             ) : (

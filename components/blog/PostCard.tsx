@@ -14,9 +14,10 @@ interface PostCardProps {
         author: string;
         publishedAt?: Date | string | null;
     };
+    priority?: boolean;
 }
 
-export default function PostCard({ post }: PostCardProps) {
+export default function PostCard({ post, priority = false }: PostCardProps) {
     const readingTime = post.content ? calculateReadingTime(post.content) : 5;
     const excerpt = post.excerpt || (post.content ? truncate(stripHtml(post.content), 120) : '');
 
@@ -32,6 +33,7 @@ export default function PostCard({ post }: PostCardProps) {
                         src={post.featuredImage}
                         alt={post.title}
                         fill
+                        priority={priority}
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />

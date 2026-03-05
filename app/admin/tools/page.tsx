@@ -83,7 +83,7 @@ export default async function AdminToolsPage() {
                                                 <Link href={`/ai-tools-directory/${tool.primaryCategory}/${tool.slug}/`} target="_blank" className="p-2 text-white/30 hover:text-white hover:bg-white/10 rounded-lg transition-colors">
                                                     <ExternalLink className="w-4 h-4" />
                                                 </Link>
-                                                <Link href={`/admin/tools/${tool.id}/edit`} className="p-2 text-white/30 hover:text-accent hover:bg-accent/10 rounded-lg transition-colors">
+                                                <Link href={`/admin/tools/${tool.id}`} className="p-2 text-white/30 hover:text-accent hover:bg-accent/10 rounded-lg transition-colors">
                                                     <Edit className="w-4 h-4" />
                                                 </Link>
                                                 <button className="p-2 text-white/30 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors">

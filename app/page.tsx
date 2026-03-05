@@ -181,8 +181,8 @@ export default async function HomePage() {
                             </div>
 
                             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                {(featuredTools.length > 0 ? featuredTools : latestTools).map((tool: any) => (
-                                    <ToolCard key={tool.id} tool={tool} />
+                                {(featuredTools.length > 0 ? featuredTools : latestTools).map((tool: any, i: number) => (
+                                    <ToolCard key={tool.id} tool={tool} priority={i < 4} />
                                 ))}
                             </div>
 
@@ -259,8 +259,8 @@ export default async function HomePage() {
                             </div>
 
                             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {latestPosts.map((post: any) => (
-                                    <PostCard key={post.id} post={post} />
+                                {latestPosts.map((post: any, i: number) => (
+                                    <PostCard key={post.id} post={post} priority={i < 2} />
                                 ))}
                             </div>
                         </div>
