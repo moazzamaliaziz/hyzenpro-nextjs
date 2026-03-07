@@ -216,6 +216,17 @@
 
 /* Utility Styles */
 @layer utilities {
+    .bg-grid-pattern {
+        background-image: linear-gradient(to right, #80808012 1px, transparent 1px),
+            linear-gradient(to bottom, #80808012 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .bg-dot-pattern {
+        background-image: radial-gradient(#80808025 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
     .text-balance {
         text-wrap: balance;
     }

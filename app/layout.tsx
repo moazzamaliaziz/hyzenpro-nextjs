@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Outfit, Bebas_Neue } from 'next/font/google';
+import { SessionProvider } from 'next-auth/react';
+import { CompareProvider } from '@/components/compare/CompareContext';
+import CompareDrawer from '@/components/compare/CompareDrawer';
+import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import './globals.css';
 
 const outfit = Outfit({
@@ -104,7 +108,13 @@ export default function RootLayout({
                     />
                 )}
             </head>
-            <body className="font-body bg-white text-black antialiased">
+            <body className="font-body bg-white dark:bg-gray-950 text-black dark:text-gray-100 antialiased transition-colors duration-300">
+                {/* Anti-flash script — runs before React hydrates */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(){try{var t=localStorage.getItem('hyzenpro-theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`
+                    }}
+                />
                 {/* React Grab — visual element inspector for dev mode */}
                 {process.env.NODE_ENV === 'development' && (
                     <Script
@@ -114,7 +124,14 @@ export default function RootLayout({
                     />
                 )}
 
-                {children}
+                <SessionProvider>
+                    <ThemeProvider>
+                        <CompareProvider>
+                            {children}
+                            <CompareDrawer />
+                        </CompareProvider>
+                    </ThemeProvider>
+                </SessionProvider>
 
                 {/* Google Analytics */}
                 {gaId && (

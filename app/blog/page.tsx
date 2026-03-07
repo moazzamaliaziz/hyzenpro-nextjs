@@ -44,10 +44,10 @@ export default async function BlogPage() {
                     <Breadcrumbs items={[{ label: 'Blog' }]} className="mb-8" />
 
                     <div className="text-center mb-12">
-                        <h1 className="font-heading text-5xl md:text-7xl text-white mb-4">
+                        <h1 className="font-heading text-5xl md:text-7xl text-black mb-4">
                             Blog
                         </h1>
-                        <p className="text-white/40 text-lg max-w-2xl mx-auto">
+                        <p className="text-gray-500 text-lg max-w-2xl mx-auto">
                             Expert reviews, tutorials, and comparisons to help you navigate the AI landscape.
                         </p>
                     </div>
@@ -58,7 +58,7 @@ export default async function BlogPage() {
                             {allCategories.map((cat) => (
                                 <span
                                     key={cat}
-                                    className="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-white/[0.04] border border-white/[0.08] text-white/50 rounded-full hover:bg-white/[0.08] transition-colors"
+                                    className="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-gray-100 border border-gray-200 text-gray-600 rounded-full hover:bg-gray-200 transition-colors cursor-pointer"
                                 >
                                     {cat}
                                 </span>
@@ -74,8 +74,8 @@ export default async function BlogPage() {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center py-20 bg-white/[0.02] border border-white/[0.05] rounded-2xl">
-                            <p className="text-white/30">No posts yet. Check back soon!</p>
+                        <div className="text-center py-20 bg-gray-50 border border-gray-200 rounded-2xl">
+                            <p className="text-gray-400">No posts yet. Check back soon!</p>
                         </div>
                     )}
                 </div>

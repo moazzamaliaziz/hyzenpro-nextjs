@@ -1,158 +1,85 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import TrustBadges from '@/components/eeat/TrustBadges';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'How We Test AI Tools | Our Review Methodology | HyzenPro',
     description: 'Learn about our rigorous testing methodology for AI tools. We use hands-on testing, expert evaluation, and real-world scenarios to provide honest reviews.',
-    openGraph: {
-        title: 'How We Test AI Tools | HyzenPro',
-        description: 'Our rigorous testing methodology ensures you get honest, accurate AI tool reviews.',
-        type: 'website',
-    },
 };
 
 export default function HowWeTestPage() {
     return (
-        <div className="dark-bg">
+        <>
             <Header />
-
-            <main className="pt-24">
+            <main className="pt-28 pb-20 min-h-screen">
                 {/* Hero */}
-                <section className="section bg-black text-white text-center">
-                    <div className="container max-w-4xl">
-                        <span className="section-tag text-gray-400">E-E-A-T METHODOLOGY</span>
-                        <h1 className="heading-lg mb-6">
-                            HOW WE TEST
-                            <span className="block text-gray-500">AI TOOLS</span>
-                        </h1>
-                        <p className="section-description text-gray-400">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <Breadcrumbs items={[{ label: 'How We Test' }]} className="mb-8" />
+
+                    <div className="text-center mb-16">
+                        <span className="inline-block text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold mb-3">E-E-A-T Methodology</span>
+                        <h1 className="font-heading text-5xl md:text-7xl text-black mb-4">How We Test AI Tools</h1>
+                        <p className="text-gray-500 text-lg max-w-2xl mx-auto">
                             Our rigorous testing methodology ensures you get honest, accurate, and helpful reviews based on real experience.
                         </p>
                     </div>
-                </section>
-
-                {/* Trust Badges */}
-                <section className="py-12 bg-white">
-                    <div className="container max-w-4xl">
-                        <TrustBadges showMethodology={false} />
-                    </div>
-                </section>
+                </div>
 
                 {/* Testing Process */}
-                <section className="section bg-[#f5f5f5]">
-                    <div className="container max-w-4xl">
-                        <h2 className="font-heading text-4xl text-black text-center mb-12">OUR TESTING PROCESS</h2>
+                <section className="py-16 bg-gray-50 border-y border-gray-100">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h2 className="font-heading text-4xl text-black text-center mb-12">Our Testing Process</h2>
 
-                        <div className="space-y-12">
-                            {/* Step 1 */}
-                            <div className="flex gap-6">
-                                <div className="flex-shrink-0 w-16 h-16 bg-black text-white rounded-xl flex items-center justify-center font-heading text-2xl">
-                                    1
+                        <div className="space-y-10">
+                            {[
+                                { step: '1', title: 'Hands-on Testing', desc: 'We don\'t just read the marketing copy – we actually use each tool. Our team spends hours exploring features, testing edge cases, and evaluating real-world performance.' },
+                                { step: '2', title: 'Feature Analysis', desc: 'We document every feature, noting strengths and limitations. We compare promised features against actual functionality and evaluate the quality of output or results.' },
+                                { step: '3', title: 'Pricing Evaluation', desc: 'We analyze pricing models to determine value for money. We consider free tiers, trial periods, subscription costs, and compare pricing against competitors.' },
+                                { step: '4', title: 'User Experience Assessment', desc: 'We evaluate the overall user experience including interface design, learning curve, documentation quality, and customer support responsiveness.' },
+                                { step: '5', title: 'Honest Scoring', desc: 'We compile our findings into a balanced score that reflects the tool\'s overall value. We highlight both pros and cons, helping you understand exactly what you\'re getting.' },
+                            ].map((item) => (
+                                <div key={item.step} className="flex gap-6">
+                                    <div className="flex-shrink-0 w-14 h-14 bg-black text-white rounded-xl flex items-center justify-center font-heading text-2xl">
+                                        {item.step}
+                                    </div>
+                                    <div>
+                                        <h3 className="font-heading text-2xl text-black mb-2">{item.title}</h3>
+                                        <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-heading text-2xl text-black mb-2">Hands-on Testing</h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        We don't just read the marketing copy – we actually use each tool. Our team spends hours exploring features, testing edge cases, and evaluating real-world performance. Every tool we review has been personally tested by our expert team.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Step 2 */}
-                            <div className="flex gap-6">
-                                <div className="flex-shrink-0 w-16 h-16 bg-black text-white rounded-xl flex items-center justify-center font-heading text-2xl">
-                                    2
-                                </div>
-                                <div>
-                                    <h3 className="font-heading text-2xl text-black mb-2">Feature Analysis</h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        We document every feature, noting strengths and limitations. We compare promised features against actual functionality and evaluate the quality of output or results.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Step 3 */}
-                            <div className="flex gap-6">
-                                <div className="flex-shrink-0 w-16 h-16 bg-black text-white rounded-xl flex items-center justify-center font-heading text-2xl">
-                                    3
-                                </div>
-                                <div>
-                                    <h3 className="font-heading text-2xl text-black mb-2">Pricing Evaluation</h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        We analyze pricing models to determine value for money. We consider free tiers, trial periods, subscription costs, and compare pricing against competitors to help you make informed decisions.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Step 4 */}
-                            <div className="flex gap-6">
-                                <div className="flex-shrink-0 w-16 h-16 bg-black text-white rounded-xl flex items-center justify-center font-heading text-2xl">
-                                    4
-                                </div>
-                                <div>
-                                    <h3 className="font-heading text-2xl text-black mb-2">User Experience Assessment</h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        We evaluate the overall user experience including interface design, learning curve, documentation quality, and customer support responsiveness. A powerful tool is only useful if you can actually use it.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Step 5 */}
-                            <div className="flex gap-6">
-                                <div className="flex-shrink-0 w-16 h-16 bg-black text-white rounded-xl flex items-center justify-center font-heading text-2xl">
-                                    5
-                                </div>
-                                <div>
-                                    <h3 className="font-heading text-2xl text-black mb-2">Honest Scoring</h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        We compile our findings into a balanced score that reflects the tool's overall value. We highlight both pros and cons, helping you understand exactly what you're getting before you commit.
-                                    </p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </section>
 
                 {/* Our Commitment */}
-                <section className="section bg-white">
-                    <div className="container max-w-4xl">
-                        <h2 className="font-heading text-4xl text-black text-center mb-12">OUR COMMITMENT TO YOU</h2>
+                <section className="py-16">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h2 className="font-heading text-4xl text-black text-center mb-12">Our Commitment to You</h2>
 
-                        <div className="grid md:grid-cols-2 gap-8">
+                        <div className="grid md:grid-cols-2 gap-6">
                             <div className="p-6 bg-green-50 border border-green-100 rounded-xl">
                                 <h3 className="font-heading text-xl text-green-700 mb-3">✓ Independence</h3>
-                                <p className="text-gray-600">Our rankings are not influenced by sponsorships or affiliate relationships. We always prioritize reader value.</p>
+                                <p className="text-gray-600 text-sm">Our rankings are not influenced by sponsorships or affiliate relationships. We always prioritize reader value.</p>
                             </div>
                             <div className="p-6 bg-blue-50 border border-blue-100 rounded-xl">
                                 <h3 className="font-heading text-xl text-blue-700 mb-3">✓ Transparency</h3>
-                                <p className="text-gray-600">We clearly disclose affiliate links and sponsored content. You always know when we may earn a commission.</p>
+                                <p className="text-gray-600 text-sm">We clearly disclose affiliate links and sponsored content. You always know when we may earn a commission.</p>
                             </div>
                             <div className="p-6 bg-purple-50 border border-purple-100 rounded-xl">
                                 <h3 className="font-heading text-xl text-purple-700 mb-3">✓ Regular Updates</h3>
-                                <p className="text-gray-600">AI tools evolve rapidly. We regularly re-test and update our reviews to ensure accuracy.</p>
+                                <p className="text-gray-600 text-sm">AI tools evolve rapidly. We regularly re-test and update our reviews to ensure accuracy.</p>
                             </div>
-                            <div className="p-6 bg-orange-50 border border-orange-100 rounded-xl">
-                                <h3 className="font-heading text-xl text-orange-700 mb-3">✓ Expert Team</h3>
-                                <p className="text-gray-600">Our reviewers are experienced professionals with backgrounds in AI, software development, and content creation.</p>
+                            <div className="p-6 bg-amber-50 border border-amber-100 rounded-xl">
+                                <h3 className="font-heading text-xl text-amber-700 mb-3">✓ Expert Team</h3>
+                                <p className="text-gray-600 text-sm">Our reviewers are experienced professionals with backgrounds in AI, software development, and content creation.</p>
                             </div>
                         </div>
                     </div>
                 </section>
-
-                {/* CTA */}
-                <section className="section bg-black text-white text-center">
-                    <div className="container max-w-3xl">
-                        <h2 className="font-heading text-4xl mb-6">READY TO FIND YOUR PERFECT AI TOOL?</h2>
-                        <p className="text-gray-400 mb-8">Browse our curated directory of expert-reviewed AI tools.</p>
-                        <a href="/ai-tools-directory" className="btn-primary inline-block">
-                            Explore AI Tools Directory
-                        </a>
-                    </div>
-                </section>
             </main>
-
             <Footer />
-        </div>
+        </>
     );
 }

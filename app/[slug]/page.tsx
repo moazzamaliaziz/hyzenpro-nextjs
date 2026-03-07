@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: Props) {
                                     <Link
                                         key={cat}
                                         href={`/category/${cat.toLowerCase()}/`}
-                                        className="text-[10px] font-bold uppercase tracking-widest text-accent hover:text-accent/80 transition-colors"
+                                        className="text-[10px] font-bold uppercase tracking-widest text-black hover:text-gray-600 transition-colors"
                                     >
                                         {cat}
                                     </Link>
@@ -124,15 +124,15 @@ export default async function BlogPostPage({ params }: Props) {
                             </div>
                         )}
 
-                        <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+                        <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-black leading-tight mb-6">
                             {post.title}
                         </h1>
 
                         {post.excerpt && (
-                            <p className="text-white/40 text-lg leading-relaxed mb-6">{post.excerpt}</p>
+                            <p className="text-gray-500 text-lg leading-relaxed mb-6">{post.excerpt}</p>
                         )}
 
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-white/30 pb-6 border-b border-white/[0.06]">
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 pb-6 border-b border-gray-200">
                             <span className="flex items-center gap-1.5">
                                 <User className="w-3.5 h-3.5" />
                                 {post.author}
@@ -152,7 +152,7 @@ export default async function BlogPostPage({ params }: Props) {
 
                     {/* Featured Image */}
                     {post.featuredImage && (
-                        <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-10 border border-white/[0.06]">
+                        <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-10 border border-gray-200">
                             <Image
                                 src={post.featuredImage}
                                 alt={post.title}
@@ -168,17 +168,17 @@ export default async function BlogPostPage({ params }: Props) {
 
                     {/* Article Content */}
                     <article
-                        className="prose prose-invert prose-lg max-w-none mb-12
-              prose-headings:font-heading prose-headings:text-white
+                        className="prose prose-lg max-w-none mb-12
+              prose-headings:font-heading prose-headings:text-black
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:text-white/55 prose-p:leading-relaxed
-              prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-              prose-strong:text-white/80
-              prose-ul:text-white/50 prose-ol:text-white/50
-              prose-li:marker:text-accent
-              prose-blockquote:border-accent/50 prose-blockquote:text-white/40
-              prose-img:rounded-xl prose-img:border prose-img:border-white/10"
+              prose-p:text-gray-600 prose-p:leading-relaxed
+              prose-a:text-black prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-gray-800
+              prose-ul:text-gray-600 prose-ol:text-gray-600
+              prose-li:marker:text-black
+              prose-blockquote:border-gray-300 prose-blockquote:text-gray-500
+              prose-img:rounded-xl prose-img:border prose-img:border-gray-200"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 
@@ -186,9 +186,9 @@ export default async function BlogPostPage({ params }: Props) {
 
                     {/* Tags */}
                     {post.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 py-6 border-t border-white/[0.06]">
+                        <div className="flex flex-wrap gap-2 py-6 border-t border-gray-200">
                             {post.tags.map((tag: string) => (
-                                <span key={tag} className="px-3 py-1.5 text-xs text-white/30 bg-white/[0.03] border border-white/[0.06] rounded-full">
+                                <span key={tag} className="px-3 py-1.5 text-xs text-gray-500 bg-gray-100 border border-gray-200 rounded-full">
                                     #{tag}
                                 </span>
                             ))}
@@ -199,7 +199,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <div className="mt-8">
                         <Link
                             href="/blog/"
-                            className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-accent transition-colors font-medium"
+                            className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-black transition-colors font-medium"
                         >
                             <ArrowLeft className="w-4 h-4" /> Back to Blog
                         </Link>
@@ -209,7 +209,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {/* Related Posts */}
                 {relatedPosts.length > 0 && (
                     <section className="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="font-heading text-3xl text-white mb-8">Related Articles</h2>
+                        <h2 className="font-heading text-3xl text-black mb-8">Related Articles</h2>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {relatedPosts.map((p: any) => (
                                 <PostCard key={p.id} post={p} />

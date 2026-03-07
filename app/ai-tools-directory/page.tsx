@@ -65,10 +65,10 @@ export default async function AIToolsDirectoryPage() {
 
                     {/* Hero */}
                     <div className="text-center mb-12">
-                        <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-white mb-4">
+                        <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-black mb-4">
                             AI Tools Directory
                         </h1>
-                        <p className="text-white/40 text-lg max-w-2xl mx-auto">
+                        <p className="text-gray-500 text-lg max-w-2xl mx-auto">
                             Discover, compare, and choose from our curated collection of the best AI tools across {categories.length} categories.
                         </p>
                     </div>

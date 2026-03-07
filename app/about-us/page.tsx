@@ -16,9 +16,9 @@ export default function AboutPage() {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <Breadcrumbs items={[{ label: 'About Us' }]} className="mb-8" />
 
-                    <h1 className="font-heading text-5xl md:text-6xl text-white mb-8">About HyzenPro</h1>
+                    <h1 className="font-heading text-5xl md:text-6xl text-black mb-8">About HyzenPro</h1>
 
-                    <div className="prose prose-invert prose-lg max-w-none prose-headings:font-heading prose-headings:text-white prose-a:text-accent">
+                    <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-black prose-a:text-black prose-a:font-semibold prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-800">
                         <p>
                             HyzenPro was created to cut through the noise in the AI world. With thousands of tools launching every year, it's easy to feel lost. We provide clear, honest reviews and tutorials to help creators, startups, and businesses make the right AI choices.
                         </p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
 
                         <h2>Why Trust Us?</h2>
                         <p>
-                            Every tool featured on HyzenPro undergoes rigorous testing. We don't just list features; we evaluate usability, pricing, and real-world performance to ensure you get the most accurate information.
+                            Every tool featured on HyzenPro undergoes rigorous testing. We don&apos;t just list features; we evaluate usability, pricing, and real-world performance to ensure you get the most accurate information.
                         </p>
                     </div>
                 </div>

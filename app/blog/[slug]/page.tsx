@@ -1,16 +1,18 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import AuthorBox from '@/components/eeat/AuthorBox';
 import TableOfContents from '@/components/blog/TableOfContents';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import prisma from '@/lib/prisma';
-import { getBaseUrl } from '@/lib/utils';
+import { getBaseUrl, formatDate, calculateReadingTime } from '@/lib/utils';
 import { notFound } from 'next/navigation';
+import { Calendar, Clock, User } from 'lucide-react';
 
 export const revalidate = 3600;
 
-// Generate all blog post pages at build time
 export async function generateStaticParams() {
     try {
         const posts = await prisma.post.findMany({
@@ -25,7 +27,6 @@ export async function generateStaticParams() {
     }
 }
 
-// Generate metadata for each post
 export async function generateMetadata({
     params
 }: {
@@ -84,6 +85,8 @@ export default async function BlogPostPage({
         notFound();
     }
 
+    const readingTime = calculateReadingTime(post.content);
+
     // Get related posts (same categories)
     let relatedPosts: any[] = [];
     try {
@@ -118,119 +121,124 @@ export default async function BlogPostPage({
     };
 
     return (
-        <div className="dark-bg">
+        <>
             <Header />
 
-            <main className="pt-24 min-h-screen">
-                {/* Hero */}
-                <section className="section bg-black text-white">
-                    <div className="container max-w-4xl">
-                        {/* Breadcrumbs */}
-                        <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-                            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                            <span>/</span>
-                            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-                            <span>/</span>
-                            <span className="text-white line-clamp-1">{post.title}</span>
-                        </div>
+            <main className="pt-28 pb-20 min-h-screen">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Breadcrumbs */}
+                    <Breadcrumbs
+                        items={[
+                            { label: 'Blog', href: '/blog/' },
+                            { label: post.title },
+                        ]}
+                        className="mb-8"
+                    />
 
+                    {/* Article Header */}
+                    <header className="mb-10">
                         {/* Categories */}
-                        <div className="flex gap-2 mb-6">
-                            {post.categories.map((cat: string) => (
-                                <span key={cat} className="px-3 py-1 bg-white/10 rounded-full text-sm">
-                                    {cat}
-                                </span>
-                            ))}
-                        </div>
+                        {post.categories.length > 0 && (
+                            <div className="flex gap-2 mb-4">
+                                {post.categories.map((cat: string) => (
+                                    <span key={cat} className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-600">
+                                        {cat}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
 
                         {/* Title */}
-                        <h1 className="font-heading text-4xl md:text-6xl mb-6 leading-tight">
+                        <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-black leading-tight mb-6">
                             {post.title}
                         </h1>
 
+                        {post.excerpt && (
+                            <p className="text-gray-500 text-lg leading-relaxed mb-6">{post.excerpt}</p>
+                        )}
+
                         {/* Meta */}
-                        <div className="flex items-center gap-6 text-gray-400">
-                            <span className="flex items-center gap-2">
-                                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                                    {authorData.name.charAt(0)}
-                                </div>
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 pb-6 border-b border-gray-200">
+                            <span className="flex items-center gap-1.5">
+                                <User className="w-3.5 h-3.5" />
                                 {authorData.name}
                             </span>
-                            <span>{new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            })}</span>
-                            <span>5 min read</span>
+                            <span className="flex items-center gap-1.5">
+                                <Calendar className="w-3.5 h-3.5" />
+                                {formatDate(post.publishedAt || post.createdAt)}
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                                <Clock className="w-3.5 h-3.5" />
+                                {readingTime} min read
+                            </span>
+                        </div>
+                    </header>
+
+                    {/* Featured Image */}
+                    {post.featuredImage && (
+                        <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-10 border border-gray-200">
+                            <Image
+                                src={post.featuredImage}
+                                alt={post.title}
+                                fill
+                                className="object-cover"
+                                priority
+                                sizes="(max-width: 768px) 100vw, 800px"
+                            />
+                        </div>
+                    )}
+
+                    {/* Table of Contents */}
+                    <TableOfContents />
+
+                    {/* Article Content */}
+                    <article
+                        className="prose prose-lg max-w-none mb-12
+              prose-headings:font-heading prose-headings:text-black
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:text-gray-600 prose-p:leading-relaxed
+              prose-a:text-black prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-gray-800
+              prose-ul:text-gray-600 prose-ol:text-gray-600
+              prose-li:marker:text-black
+              prose-blockquote:border-gray-300 prose-blockquote:text-gray-500
+              prose-img:rounded-xl prose-img:border prose-img:border-gray-200"
+                        dangerouslySetInnerHTML={{ __html: post.content }}
+                    />
+
+                    {/* Author Box */}
+                    <div className="mt-16 pt-12 border-t border-gray-200">
+                        <h3 className="font-heading text-sm text-gray-400 uppercase tracking-widest mb-6">About the Author</h3>
+                        <AuthorBox author={authorData} variant="full" />
+                    </div>
+
+                    {/* Share */}
+                    <div className="border-t border-gray-200 mt-12 pt-8">
+                        <h3 className="font-heading text-sm text-gray-400 uppercase tracking-widest mb-4">Share This Article</h3>
+                        <div className="flex gap-3">
+                            <a href={`https://twitter.com/intent/tweet?url=${getBaseUrl()}/blog/${post.slug}&text=${post.title}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="px-5 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-gray-800 transition-colors">
+                                Twitter
+                            </a>
+                            <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${getBaseUrl()}/blog/${post.slug}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="px-5 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-gray-800 transition-colors">
+                                LinkedIn
+                            </a>
                         </div>
                     </div>
-                </section>
-
-                {/* Featured Image */}
-                {post.featuredImage && (
-                    <section className="bg-black pb-12">
-                        <div className="container max-w-4xl">
-                            <div className="relative h-80 md:h-[500px] rounded-2xl overflow-hidden border border-white/5">
-                                <img
-                                    src={post.featuredImage}
-                                    alt={post.title}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </div>
-                    </section>
-                )}
-
-                {/* Content */}
-                <section className="section bg-white">
-                    <div className="container max-w-3xl">
-                        <TableOfContents />
-                        <article className="prose prose-lg max-w-none">
-                            {post.excerpt && (
-                                <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                                    {post.excerpt}
-                                </p>
-                            )}
-
-                            {/* Main Content Rendered Safely */}
-                            <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                        </article>
-
-                        {/* Author Box */}
-                        <div className="mt-16 pt-12 border-t border-gray-100">
-                            <h3 className="font-heading text-xl text-gray-500 uppercase tracking-widest mb-8">About the Author</h3>
-                            <AuthorBox author={authorData} variant="full" />
-                        </div>
-
-                        {/* Share */}
-                        <div className="border-t border-gray-200 mt-12 pt-8">
-                            <h3 className="font-heading text-xl text-black mb-4">SHARE THIS ARTICLE</h3>
-                            <div className="flex gap-4">
-                                <a href={`https://twitter.com/intent/tweet?url=${getBaseUrl()}/blog/${post.slug}&text=${post.title}`}
-                                    target="_blank" rel="noopener noreferrer"
-                                    className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
-                                    Twitter
-                                </a>
-                                <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${getBaseUrl()}/blog/${post.slug}`}
-                                    target="_blank" rel="noopener noreferrer"
-                                    className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
-                                    LinkedIn
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                </div>
 
                 {/* Related Posts */}
                 {relatedPosts.length > 0 && (
-                    <section className="section bg-[#f5f5f5]">
-                        <div className="container">
-                            <h2 className="font-heading text-4xl text-black text-center mb-12">
-                                RELATED ARTICLES
-                            </h2>
-                            <div className="grid md:grid-cols-3 gap-8">
+                    <section className="mt-16 py-16 bg-gray-50 border-t border-gray-100">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <h2 className="font-heading text-3xl text-black text-center mb-10">Related Articles</h2>
+                            <div className="grid md:grid-cols-3 gap-6">
                                 {relatedPosts.map((relatedPost: any) => (
-                                    <article key={relatedPost.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+                                    <article key={relatedPost.id} className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group">
                                         {relatedPost.featuredImage && (
                                             <div className="h-48 bg-gray-100 overflow-hidden">
                                                 <img
@@ -242,12 +250,12 @@ export default async function BlogPostPage({
                                         )}
                                         <div className="p-6">
                                             <Link href={`/blog/${relatedPost.slug}/`}>
-                                                <h3 className="font-heading text-xl text-black group-hover:text-accent transition-colors line-clamp-2">
+                                                <h3 className="font-heading text-xl text-black group-hover:text-gray-600 transition-colors line-clamp-2">
                                                     {relatedPost.title}
                                                 </h3>
                                             </Link>
-                                            <p className="text-sm text-gray-500 mt-2">
-                                                {new Date(relatedPost.publishedAt || relatedPost.createdAt).toLocaleDateString()}
+                                            <p className="text-xs text-gray-400 mt-2">
+                                                {formatDate(relatedPost.publishedAt || relatedPost.createdAt)}
                                             </p>
                                         </div>
                                     </article>
@@ -259,6 +267,6 @@ export default async function BlogPostPage({
             </main>
 
             <Footer />
-        </div>
+        </>
     );
 }

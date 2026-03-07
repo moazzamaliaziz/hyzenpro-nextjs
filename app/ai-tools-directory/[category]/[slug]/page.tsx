@@ -8,6 +8,7 @@ import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import AdSlot from '@/components/ads/AdSlot';
 import ToolCard from '@/components/tools/ToolCard';
+import ViewTracker from '@/components/tools/ViewTracker';
 import prisma from '@/lib/prisma';
 import { getBaseUrl, getCategoryIcon, getPricingLabel, getPricingColor, formatDate } from '@/lib/utils';
 import { generateToolSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
@@ -105,6 +106,7 @@ export default async function ToolDetailPage({ params }: Props) {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(breadcrumbs)) }} />
 
             <Header />
+            <ViewTracker toolId={tool.id} />
 
             <main className="pt-28 pb-20 min-h-screen">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,9 +123,9 @@ export default async function ToolDetailPage({ params }: Props) {
                         {/* Main Content */}
                         <div className="lg:col-span-2">
                             {/* Tool Header */}
-                            <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 mb-6">
+                            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 mb-6">
                                 <div className="flex items-start gap-6 mb-6">
-                                    <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-white/[0.06] border border-white/10 overflow-hidden flex items-center justify-center">
+                                    <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-white border border-gray-200 overflow-hidden flex items-center justify-center">
                                         {tool.logo ? (
                                             <Image src={tool.logo} alt={tool.name} width={56} height={56} className="object-contain" />
                                         ) : (
@@ -131,19 +133,19 @@ export default async function ToolDetailPage({ params }: Props) {
                                         )}
                                     </div>
                                     <div className="flex-1">
-                                        <h1 className="font-heading text-4xl md:text-5xl text-white mb-2">{tool.name}</h1>
-                                        <p className="text-white/50 text-lg">{tool.shortDescription}</p>
+                                        <h1 className="font-heading text-4xl md:text-5xl text-black mb-2">{tool.name}</h1>
+                                        <p className="text-gray-500 text-lg">{tool.shortDescription}</p>
                                         <div className="flex flex-wrap items-center gap-3 mt-4">
                                             {tool.rating && (
-                                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+                                                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-lg">
                                                     <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                                                    <span className="text-sm font-bold text-amber-400">{tool.rating.toFixed(1)}/5</span>
+                                                    <span className="text-sm font-bold text-amber-600">{tool.rating.toFixed(1)}/5</span>
                                                 </div>
                                             )}
                                             <span className={`px-3 py-1.5 text-xs font-bold uppercase rounded-lg ${getPricingColor(tool.pricingType)}`}>
                                                 {getPricingLabel(tool.pricingType)}
                                             </span>
-                                            <span className="flex items-center gap-1 text-xs text-white/25">
+                                            <span className="flex items-center gap-1 text-xs text-gray-400">
                                                 <Eye className="w-3 h-3" /> {tool.views?.toLocaleString()} views
                                             </span>
                                         </div>
@@ -155,7 +157,7 @@ export default async function ToolDetailPage({ params }: Props) {
                                     href={tool.websiteUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-bold uppercase tracking-wider text-sm rounded-lg hover:bg-accent/80 transition-all"
+                                    className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold uppercase tracking-wider text-sm rounded-lg hover:bg-gray-800 transition-all"
                                 >
                                     <Globe className="w-4 h-4" /> Visit {tool.name}
                                     <ExternalLink className="w-3.5 h-3.5" />
@@ -163,10 +165,10 @@ export default async function ToolDetailPage({ params }: Props) {
                             </div>
 
                             {/* Description */}
-                            <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 mb-6">
-                                <h2 className="font-heading text-2xl text-white mb-4">About {tool.name}</h2>
+                            <div className="bg-white border border-gray-200 rounded-2xl p-8 mb-6">
+                                <h2 className="font-heading text-2xl text-black mb-4">About {tool.name}</h2>
                                 <div
-                                    className="prose prose-invert prose-sm max-w-none text-white/60 leading-relaxed"
+                                    className="prose prose-sm max-w-none text-gray-600 leading-relaxed"
                                     dangerouslySetInnerHTML={{ __html: tool.longDescription }}
                                 />
                             </div>
@@ -175,12 +177,12 @@ export default async function ToolDetailPage({ params }: Props) {
                             {(tool.pros.length > 0 || tool.cons.length > 0) && (
                                 <div className="grid md:grid-cols-2 gap-4 mb-6">
                                     {tool.pros.length > 0 && (
-                                        <div className="bg-green-500/5 border border-green-500/10 rounded-2xl p-6">
-                                            <h3 className="font-heading text-xl text-green-400 mb-4">✅ Pros</h3>
+                                        <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
+                                            <h3 className="font-heading text-xl text-green-700 mb-4">✅ Pros</h3>
                                             <ul className="space-y-2.5">
                                                 {tool.pros.map((pro: string, i: number) => (
-                                                    <li key={i} className="flex items-start gap-2 text-sm text-white/50">
-                                                        <Check className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                                                    <li key={i} className="flex items-start gap-2 text-sm text-green-800">
+                                                        <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                                                         {pro}
                                                     </li>
                                                 ))}
@@ -188,12 +190,12 @@ export default async function ToolDetailPage({ params }: Props) {
                                         </div>
                                     )}
                                     {tool.cons.length > 0 && (
-                                        <div className="bg-red-500/5 border border-red-500/10 rounded-2xl p-6">
-                                            <h3 className="font-heading text-xl text-red-400 mb-4">❌ Cons</h3>
+                                        <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+                                            <h3 className="font-heading text-xl text-red-700 mb-4">❌ Cons</h3>
                                             <ul className="space-y-2.5">
                                                 {tool.cons.map((con: string, i: number) => (
-                                                    <li key={i} className="flex items-start gap-2 text-sm text-white/50">
-                                                        <X className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
+                                                    <li key={i} className="flex items-start gap-2 text-sm text-red-800">
+                                                        <X className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
                                                         {con}
                                                     </li>
                                                 ))}
@@ -205,13 +207,13 @@ export default async function ToolDetailPage({ params }: Props) {
 
                             {/* Features */}
                             {tool.features.length > 0 && (
-                                <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8 mb-6">
-                                    <h2 className="font-heading text-2xl text-white mb-4">Key Features</h2>
+                                <div className="bg-white border border-gray-200 rounded-2xl p-8 mb-6">
+                                    <h2 className="font-heading text-2xl text-black mb-4">Key Features</h2>
                                     <div className="grid sm:grid-cols-2 gap-3">
                                         {tool.features.map((feature: string, i: number) => (
-                                            <div key={i} className="flex items-center gap-2 p-3 bg-white/[0.02] rounded-lg">
-                                                <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                                                <span className="text-sm text-white/50">{feature}</span>
+                                            <div key={i} className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+                                                <Check className="w-4 h-4 text-black flex-shrink-0" />
+                                                <span className="text-sm text-gray-700">{feature}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -224,28 +226,28 @@ export default async function ToolDetailPage({ params }: Props) {
                         {/* Sidebar */}
                         <div className="space-y-6">
                             {/* Tool Info Card */}
-                            <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 sticky top-28">
-                                <h3 className="font-heading text-lg text-white mb-4">Quick Info</h3>
+                            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sticky top-28">
+                                <h3 className="font-heading text-lg text-black mb-4">Quick Info</h3>
                                 <div className="space-y-3 text-sm">
-                                    <div className="flex justify-between py-2 border-b border-white/[0.05]">
-                                        <span className="text-white/30">Pricing</span>
-                                        <span className="text-white font-medium">{getPricingLabel(tool.pricingType)}</span>
+                                    <div className="flex justify-between py-2 border-b border-gray-200">
+                                        <span className="text-gray-400">Pricing</span>
+                                        <span className="text-black font-medium">{getPricingLabel(tool.pricingType)}</span>
                                     </div>
                                     {tool.rating && (
-                                        <div className="flex justify-between py-2 border-b border-white/[0.05]">
-                                            <span className="text-white/30">Rating</span>
-                                            <span className="text-white font-medium">{tool.rating.toFixed(1)}/5</span>
+                                        <div className="flex justify-between py-2 border-b border-gray-200">
+                                            <span className="text-gray-400">Rating</span>
+                                            <span className="text-black font-medium">{tool.rating.toFixed(1)}/5</span>
                                         </div>
                                     )}
                                     {toolCategories.length > 0 && (
-                                        <div className="py-2 border-b border-white/[0.05]">
-                                            <span className="text-white/30 block mb-2">Categories</span>
+                                        <div className="py-2 border-b border-gray-200">
+                                            <span className="text-gray-400 block mb-2">Categories</span>
                                             <div className="flex flex-wrap gap-1.5">
                                                 {toolCategories.map((c) => (
                                                     <Link
                                                         key={c.id}
                                                         href={`/ai-tools-directory/${c.slug}/`}
-                                                        className="text-xs px-2 py-1 bg-white/[0.05] border border-white/10 rounded text-white/60 hover:text-white transition-colors"
+                                                        className="text-xs px-2 py-1 bg-white border border-gray-200 rounded text-gray-600 hover:text-black hover:border-gray-400 transition-colors"
                                                     >
                                                         {c.name}
                                                     </Link>
@@ -254,8 +256,8 @@ export default async function ToolDetailPage({ params }: Props) {
                                         </div>
                                     )}
                                     <div className="flex justify-between py-2">
-                                        <span className="text-white/30">Updated</span>
-                                        <span className="text-white/60 text-xs">{formatDate(tool.updatedAt)}</span>
+                                        <span className="text-gray-400">Updated</span>
+                                        <span className="text-gray-600 text-xs">{formatDate(tool.updatedAt)}</span>
                                     </div>
                                 </div>
 
@@ -263,7 +265,7 @@ export default async function ToolDetailPage({ params }: Props) {
                                     href={tool.websiteUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-6 w-full flex items-center justify-center gap-2 px-4 py-3 bg-accent text-white font-bold uppercase tracking-wider text-xs rounded-lg hover:bg-accent/80 transition-all"
+                                    className="mt-6 w-full flex items-center justify-center gap-2 px-4 py-3 bg-black text-white font-bold uppercase tracking-wider text-xs rounded-lg hover:bg-gray-800 transition-all"
                                 >
                                     Visit Website <ExternalLink className="w-3.5 h-3.5" />
                                 </a>
@@ -276,7 +278,7 @@ export default async function ToolDetailPage({ params }: Props) {
                     {/* Related Tools */}
                     {relatedTools.length > 0 && (
                         <section className="mt-16">
-                            <h2 className="font-heading text-3xl text-white mb-8">
+                            <h2 className="font-heading text-3xl text-black mb-8">
                                 Similar Tools in {catName}
                             </h2>
                             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">

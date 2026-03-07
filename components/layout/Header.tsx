@@ -4,7 +4,10 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import CommandPalette from './CommandPalette';
+import ThemeToggle from '@/components/theme/ThemeToggle';
 
 const navLinks = [
     { href: '/', label: 'Home' },
@@ -22,6 +25,7 @@ const navLinks = [
         ],
     },
     { href: '/blog', label: 'Blog' },
+    { href: '/find-tools', label: 'Find Tools' },
     { href: '/about-us', label: 'About' },
     { href: '/contact', label: 'Contact' },
 ];
@@ -30,6 +34,7 @@ export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+    const { data: session } = useSession();
     const pathname = usePathname();
 
     useEffect(() => {
@@ -57,7 +62,7 @@ export default function Header() {
         <>
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? 'py-3 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm'
+                    ? 'py-3 bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-sm'
                     : 'py-5 bg-transparent'
                     }`}
             >
@@ -74,7 +79,7 @@ export default function Header() {
                                 priority
                             />
                         </div>
-                        <span className="font-heading text-2xl tracking-wider text-black">
+                        <span className="font-heading text-2xl tracking-wider text-black dark:text-white">
                             HYZENPRO
                         </span>
                     </Link>
@@ -92,8 +97,8 @@ export default function Header() {
                                     href={link.href}
                                     prefetch={true}
                                     className={`group relative px-4 py-2 text-sm font-medium tracking-wider uppercase transition-all duration-300 flex items-center gap-1 rounded-lg ${isActive(link.href)
-                                        ? 'text-black bg-gray-100'
-                                        : 'text-gray-500 hover:text-black hover:bg-gray-50'
+                                        ? 'text-black dark:text-white bg-gray-100 dark:bg-white/10'
+                                        : 'text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5'
                                         }`}
                                 >
                                     {link.label}
@@ -118,12 +123,34 @@ export default function Header() {
                         ))}
                     </div>
 
-                    {/* CTA + Mobile Toggle */}
+                    {/* Command Palette + CTA + Mobile Toggle */}
                     <div className="flex items-center gap-3">
+                        <CommandPalette />
+                        <ThemeToggle />
+
+                        {session && (
+                            <>
+                                <Link
+                                    href="/my-stack"
+                                    prefetch={true}
+                                    className="hidden lg:inline-flex px-4 py-2 text-sm font-medium tracking-wider uppercase text-black hover:bg-gray-100 rounded-lg transition-colors"
+                                >
+                                    My Stack
+                                </Link>
+                                <Link
+                                    href="/vendor"
+                                    prefetch={true}
+                                    className="hidden lg:inline-flex px-4 py-2 text-sm font-medium tracking-wider uppercase text-black hover:bg-gray-100 rounded-lg transition-colors"
+                                >
+                                    Vendor
+                                </Link>
+                            </>
+                        )}
+
                         <Link
                             href="/submit-ai-tool"
                             prefetch={true}
-                            className="hidden lg:inline-flex px-5 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-widest hover:bg-gray-800 transition-all duration-300 rounded-lg"
+                            className="hidden lg:inline-flex px-5 py-2.5 bg-black dark:bg-white text-white dark:text-black text-xs font-bold uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 rounded-lg"
                         >
                             Submit Tool
                         </Link>
@@ -164,6 +191,25 @@ export default function Header() {
                                     </Link>
                                 </div>
                             ))}
+
+                            {session && (
+                                <div
+                                    className="animate-slide-up"
+                                    style={{ animationDelay: `${navLinks.length * 0.08}s` }}
+                                >
+                                    <Link
+                                        href="/my-stack"
+                                        prefetch={true}
+                                        className={`block font-heading text-5xl md:text-7xl transition-all duration-300 ${isActive('/my-stack')
+                                            ? 'text-black'
+                                            : 'text-gray-300 hover:text-black hover:translate-x-4'
+                                            }`}
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        My Stack
+                                    </Link>
+                                </div>
+                            )}
                         </nav>
 
                         <div className="mt-12 animate-slide-up" style={{ animationDelay: '0.5s' }}>

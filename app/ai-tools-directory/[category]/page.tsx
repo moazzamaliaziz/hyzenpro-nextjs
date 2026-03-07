@@ -92,17 +92,17 @@ export default async function CategoryPage({ params }: Props) {
                     {/* Category Hero */}
                     <div className="text-center mb-12">
                         <span className="text-5xl mb-4 block">{getCategoryIcon(category)}</span>
-                        <h1 className="font-heading text-5xl md:text-6xl text-white mb-4">{cat.name}</h1>
+                        <h1 className="font-heading text-5xl md:text-6xl text-black mb-4">{cat.name}</h1>
                         {cat.description && (
-                            <p className="text-white/40 text-lg max-w-2xl mx-auto">{cat.description}</p>
+                            <p className="text-gray-500 text-lg max-w-2xl mx-auto">{cat.description}</p>
                         )}
-                        <p className="text-white/20 text-sm mt-4">{tools.length} tool{tools.length !== 1 ? 's' : ''} in this category</p>
+                        <p className="text-gray-400 text-sm mt-4">{tools.length} tool{tools.length !== 1 ? 's' : ''} in this category</p>
                     </div>
 
                     {/* Long Description / SEO Content */}
                     {cat.longDescription && (
-                        <div className="bg-white/[0.02] border border-white/[0.05] rounded-2xl p-8 mb-8">
-                            <div className="prose prose-invert prose-sm max-w-none text-white/50" dangerouslySetInnerHTML={{ __html: cat.longDescription }} />
+                        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 mb-8">
+                            <div className="prose prose-sm max-w-none text-gray-600" dangerouslySetInnerHTML={{ __html: cat.longDescription }} />
                         </div>
                     )}
 
@@ -114,15 +114,15 @@ export default async function CategoryPage({ params }: Props) {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center py-20 bg-white/[0.02] border border-white/[0.05] rounded-2xl">
-                            <p className="text-white/30">No tools found in this category yet.</p>
+                        <div className="text-center py-20 bg-gray-50 border border-gray-200 rounded-2xl">
+                            <p className="text-gray-400">No tools found in this category yet.</p>
                         </div>
                     )}
 
                     {/* SEO Content */}
                     {cat.seoContent && (
-                        <div className="mt-12 bg-white/[0.02] border border-white/[0.05] rounded-2xl p-8">
-                            <div className="prose prose-invert prose-sm max-w-none text-white/40" dangerouslySetInnerHTML={{ __html: cat.seoContent }} />
+                        <div className="mt-12 bg-gray-50 border border-gray-200 rounded-2xl p-8">
+                            <div className="prose prose-sm max-w-none text-gray-500" dangerouslySetInnerHTML={{ __html: cat.seoContent }} />
                         </div>
                     )}
                 </div>
