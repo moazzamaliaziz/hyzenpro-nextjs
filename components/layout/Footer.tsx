@@ -31,9 +31,9 @@ const footerLinks = {
 
 export default function Footer() {
     return (
-        <footer className="bg-black border-t border-white/5">
+        <footer className="bg-black text-white">
             {/* Newsletter Bar */}
-            <div className="border-b border-white/5">
+            <div className="border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                         <div>
@@ -53,7 +53,7 @@ export default function Footer() {
                             />
                             <button
                                 type="submit"
-                                className="px-6 py-3 bg-white text-black font-bold text-sm uppercase tracking-wider rounded-lg hover:bg-accent hover:text-white transition-all duration-300 whitespace-nowrap"
+                                className="px-6 py-3 bg-white text-black font-bold text-sm uppercase tracking-wider rounded-lg hover:bg-gray-100 transition-all duration-300 whitespace-nowrap"
                             >
                                 Subscribe
                             </button>
@@ -74,7 +74,7 @@ export default function Footer() {
                                 width={32}
                                 height={32}
                             />
-                            <span className="font-heading text-xl tracking-wider">
+                            <span className="font-heading text-xl tracking-wider text-white">
                                 HYZENPRO
                             </span>
                         </Link>
@@ -108,7 +108,7 @@ export default function Footer() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="border-t border-white/5">
+            <div className="border-t border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-white/30 text-xs">
                         © {new Date().getFullYear()} HyzenPro. All rights reserved.

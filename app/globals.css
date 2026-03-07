@@ -1,4 +1,4 @@
-/* HyzenPro Next.js - Global Styles */
+/* HyzenPro Next.js - Global Styles — Minimal White & Black */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -19,7 +19,7 @@
     --gray-700: #404040;
     --gray-800: #262626;
     --gray-900: #171717;
-    --accent: #ff6b35;
+    --accent: #111111;
 
     --transition-base: 0.3s ease;
     --transition-smooth: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -41,39 +41,39 @@
 
     body {
         font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background-color: var(--black);
-        color: var(--white);
+        background-color: var(--white);
+        color: var(--black);
         overflow-x: hidden;
         line-height: 1.6;
     }
 
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 8px;
     }
 
     ::-webkit-scrollbar-track {
-        background: var(--gray-900);
+        background: var(--gray-100);
     }
 
     ::-webkit-scrollbar-thumb {
-        background: var(--gray-700);
-        border-radius: 5px;
+        background: var(--gray-300);
+        border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: var(--gray-600);
+        background: var(--gray-400);
     }
 
     /* Selection */
     ::selection {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.9);
         color: var(--white);
     }
 
     /* Focus styles */
     :focus-visible {
-        outline: 2px solid var(--white);
+        outline: 2px solid var(--black);
         outline-offset: 2px;
     }
 }
@@ -89,63 +89,63 @@
     }
 
     .section-tag {
-        @apply text-xs uppercase tracking-[0.25em] mb-4 block font-medium;
+        @apply text-xs uppercase tracking-[0.25em] mb-4 block font-medium text-gray-500;
     }
 
     .section-title {
-        @apply font-heading text-4xl sm:text-5xl md:text-6xl leading-tight mb-6;
+        @apply font-heading text-4xl sm:text-5xl md:text-6xl leading-tight mb-6 text-black;
     }
 
     .section-description {
-        @apply text-lg max-w-2xl mx-auto leading-relaxed;
+        @apply text-lg max-w-2xl mx-auto leading-relaxed text-gray-600;
     }
 
     /* Buttons */
     .btn {
-        @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300;
+        @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300 rounded-lg;
     }
 
     .btn-primary {
-        @apply bg-white text-black hover:bg-gray-100 px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300;
+        @apply bg-black text-white hover:bg-gray-800 px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300 rounded-lg;
     }
 
     .btn-outline {
-        @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300;
+        @apply bg-transparent border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300 rounded-lg;
     }
 
     .btn-dark {
-        @apply bg-black text-white hover:bg-gray-800 px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300;
+        @apply bg-black text-white hover:bg-gray-800 px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all duration-300 rounded-lg;
     }
 
     /* Typography */
     .heading-xl {
-        @apply font-heading text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none;
+        @apply font-heading text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none text-black;
     }
 
     .heading-lg {
-        @apply font-heading text-5xl sm:text-6xl md:text-7xl leading-tight;
+        @apply font-heading text-5xl sm:text-6xl md:text-7xl leading-tight text-black;
     }
 
     .heading-md {
-        @apply font-heading text-4xl sm:text-5xl leading-tight;
+        @apply font-heading text-4xl sm:text-5xl leading-tight text-black;
     }
 
     .heading-sm {
-        @apply font-heading text-2xl sm:text-3xl leading-tight;
+        @apply font-heading text-2xl sm:text-3xl leading-tight text-black;
     }
 
     /* Cards */
     .card {
-        @apply bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300;
+        @apply bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300;
     }
 
     .card-dark {
-        @apply bg-white/5 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300;
+        @apply bg-gray-900 text-white rounded-2xl overflow-hidden hover:bg-gray-800 transition-all duration-300;
     }
 
     /* Links */
     .link-underline {
-        @apply relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+        @apply relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full;
     }
 
     /* Backgrounds */
@@ -158,7 +158,7 @@
     }
 
     .gray-bg {
-        @apply bg-[#f5f5f5] text-black;
+        @apply bg-[#fafafa] text-black;
     }
 
     /* Form elements */
@@ -167,7 +167,7 @@
     }
 
     .input-dark {
-        @apply w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-white/30 focus:outline-none transition-colors;
+        @apply w-full px-4 py-4 rounded-xl bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:border-gray-500 focus:outline-none transition-colors;
     }
 
     /* Prose */
@@ -269,7 +269,6 @@
     }
 }
 
-/* Page transition */
 @keyframes page-enter {
     from {
         opacity: 0;
@@ -305,7 +304,7 @@ main {
 }
 
 /* =================================
-   TOOL CARD STYLES (Icon-based)
+   TOOL CARD STYLES (White/Black)
    ================================= */
 .tool-card {
     @apply bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300;
@@ -361,14 +360,14 @@ main {
 }
 
 /* =================================
-   BLOG CARD STYLES (Article-based)
+   BLOG CARD STYLES (White/Black)
    ================================= */
 .blog-card {
-    @apply bg-white rounded-2xl overflow-hidden shadow-sm transition-all duration-300;
+    @apply bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-300;
 }
 
 .blog-card:hover {
-    @apply shadow-xl;
+    @apply shadow-xl border-gray-200;
 }
 
 .blog-card-image {
@@ -384,7 +383,7 @@ main {
 }
 
 .blog-card-category-pill {
-    @apply text-xs font-medium text-white bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full;
+    @apply text-xs font-medium text-white bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full;
 }
 
 .blog-card-content {
@@ -631,24 +630,22 @@ main {
 }
 
 .newsletter-message.success {
-    @apply text-green-400;
+    @apply text-green-600;
 }
 
 .newsletter-message.error {
-    @apply text-red-400;
+    @apply text-red-600;
 }
 
 /* =================================
    SELECTION & LOGO FIXES
    ================================= */
-
-/* Fix text selection highlight - make it more visible */
 ::selection {
     background: rgba(0, 0, 0, 0.9);
     color: #ffffff;
 }
 
-/* For dark backgrounds */
+/* For dark background sections */
 .dark-bg ::selection,
 .bg-black ::selection {
     background: rgba(255, 255, 255, 0.9);

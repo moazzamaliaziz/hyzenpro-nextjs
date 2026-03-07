@@ -25,12 +25,17 @@ const config: Config = {
                     foreground: '#ffffff',
                 },
                 accent: {
-                    DEFAULT: '#ff6b35',
+                    DEFAULT: '#111111',
                     foreground: '#ffffff',
                 },
                 muted: {
-                    DEFAULT: '#f5f5f5',
+                    DEFAULT: '#fafafa',
                     foreground: '#666666',
+                },
+                surface: {
+                    DEFAULT: '#ffffff',
+                    hover: '#fafafa',
+                    border: '#e5e5e5',
                 },
             },
             fontFamily: {

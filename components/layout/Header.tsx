@@ -57,15 +57,14 @@ export default function Header() {
         <>
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                        ? 'py-3 bg-black/95 backdrop-blur-xl border-b border-white/5 shadow-2xl shadow-black/50'
-                        : 'py-5 bg-transparent'
+                    ? 'py-3 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm'
+                    : 'py-5 bg-transparent'
                     }`}
             >
                 <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="relative z-10 flex items-center gap-3 group" prefetch={true}>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <Image
                                 src="/images/logo.png"
                                 alt="HyzenPro"
@@ -75,7 +74,7 @@ export default function Header() {
                                 priority
                             />
                         </div>
-                        <span className="font-heading text-2xl tracking-wider text-white">
+                        <span className="font-heading text-2xl tracking-wider text-black">
                             HYZENPRO
                         </span>
                     </Link>
@@ -93,8 +92,8 @@ export default function Header() {
                                     href={link.href}
                                     prefetch={true}
                                     className={`group relative px-4 py-2 text-sm font-medium tracking-wider uppercase transition-all duration-300 flex items-center gap-1 rounded-lg ${isActive(link.href)
-                                            ? 'text-white bg-white/10'
-                                            : 'text-white/60 hover:text-white hover:bg-white/5'
+                                        ? 'text-black bg-gray-100'
+                                        : 'text-gray-500 hover:text-black hover:bg-gray-50'
                                         }`}
                                 >
                                     {link.label}
@@ -103,12 +102,12 @@ export default function Header() {
 
                                 {/* Dropdown */}
                                 {link.children && dropdownOpen === link.href && (
-                                    <div className="absolute top-full left-0 mt-1 w-56 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 animate-fade-in">
+                                    <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-xl shadow-xl py-2 animate-fade-in">
                                         {link.children.map((child) => (
                                             <Link
                                                 key={child.href}
                                                 href={child.href}
-                                                className="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                                className="block px-4 py-2.5 text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition-all"
                                             >
                                                 {child.label}
                                             </Link>
@@ -124,13 +123,13 @@ export default function Header() {
                         <Link
                             href="/submit-ai-tool"
                             prefetch={true}
-                            className="hidden lg:inline-flex px-5 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-all duration-300 rounded-lg"
+                            className="hidden lg:inline-flex px-5 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-widest hover:bg-gray-800 transition-all duration-300 rounded-lg"
                         >
                             Submit Tool
                         </Link>
 
                         <button
-                            className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"
+                            className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-black"
                             onClick={() => setMenuOpen(!menuOpen)}
                             aria-label="Toggle menu"
                             aria-expanded={menuOpen}
@@ -143,7 +142,7 @@ export default function Header() {
 
             {/* Mobile Menu Overlay */}
             {menuOpen && (
-                <div className="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl animate-fade-in">
+                <div className="fixed inset-0 z-40 bg-white animate-fade-in">
                     <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center">
                         <nav className="space-y-4">
                             {navLinks.map((link, index) => (
@@ -156,8 +155,8 @@ export default function Header() {
                                         href={link.href}
                                         prefetch={true}
                                         className={`block font-heading text-5xl md:text-7xl transition-all duration-300 ${isActive(link.href)
-                                                ? 'text-white'
-                                                : 'text-white/40 hover:text-white hover:translate-x-4'
+                                            ? 'text-black'
+                                            : 'text-gray-300 hover:text-black hover:translate-x-4'
                                             }`}
                                         onClick={() => setMenuOpen(false)}
                                     >
@@ -171,7 +170,7 @@ export default function Header() {
                             <Link
                                 href="/submit-ai-tool"
                                 prefetch={true}
-                                className="inline-block px-8 py-4 bg-white text-black font-bold uppercase tracking-widest rounded-lg hover:bg-accent hover:text-white transition-all duration-300"
+                                className="inline-block px-8 py-4 bg-black text-white font-bold uppercase tracking-widest rounded-lg hover:bg-gray-800 transition-all duration-300"
                                 onClick={() => setMenuOpen(false)}
                             >
                                 Submit AI Tool

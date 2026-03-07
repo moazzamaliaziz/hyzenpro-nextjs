@@ -104,7 +104,7 @@ export default function RootLayout({
                     />
                 )}
             </head>
-            <body className="font-body bg-black text-white antialiased">
+            <body className="font-body bg-white text-black antialiased">
                 {children}
 
                 {/* Google Analytics */}
