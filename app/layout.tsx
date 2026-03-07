@@ -105,6 +105,15 @@ export default function RootLayout({
                 )}
             </head>
             <body className="font-body bg-white text-black antialiased">
+                {/* React Grab — visual element inspector for dev mode */}
+                {process.env.NODE_ENV === 'development' && (
+                    <Script
+                        src="//unpkg.com/react-grab/dist/index.global.js"
+                        crossOrigin="anonymous"
+                        strategy="beforeInteractive"
+                    />
+                )}
+
                 {children}
 
                 {/* Google Analytics */}
