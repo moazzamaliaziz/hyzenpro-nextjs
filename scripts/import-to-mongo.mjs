@@ -13,6 +13,28 @@
 
 import { PrismaClient } from '@prisma/client';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Load .env.local manually (since we're running outside of Next.js)
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const envPath = path.join(__dirname, '..', '.env.local');
+if (fs.existsSync(envPath)) {
+    const envContent = fs.readFileSync(envPath, 'utf-8');
+    for (const line of envContent.split('\n')) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+        const eqIdx = trimmed.indexOf('=');
+        if (eqIdx === -1) continue;
+        const key = trimmed.substring(0, eqIdx).trim();
+        let value = trimmed.substring(eqIdx + 1).trim();
+        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+            value = value.slice(1, -1);
+        }
+        if (!process.env[key]) process.env[key] = value;
+    }
+    console.log('✅ Loaded environment from .env.local');
+}
 
 const prisma = new PrismaClient();
 
@@ -387,12 +409,17 @@ const TOOLS = [
 async function main() {
     console.log('🚀 Starting MongoDB Import...\n');
 
-    // Read blog posts from migration data
+    // Read blog posts from live site scraped data (preferred) or migration data
     let blogPosts = [];
+    const liveSiteDataPath = 'F:/main theme files/hyzenpro-nextjs/scripts/live-site-data.json';
     const migrationDataPath = 'F:/main theme files/hyzenpro-nextjs/scripts/migration-data.json';
-    if (fs.existsSync(migrationDataPath)) {
+    if (fs.existsSync(liveSiteDataPath)) {
+        const data = JSON.parse(fs.readFileSync(liveSiteDataPath, 'utf-8'));
+        blogPosts = data.posts.filter(p => p.slug && p.content && p.content.length > 100);
+        console.log(`📝 Loaded ${blogPosts.length} blog posts from LIVE SITE data`);
+    } else if (fs.existsSync(migrationDataPath)) {
         const data = JSON.parse(fs.readFileSync(migrationDataPath, 'utf-8'));
-        blogPosts = data.posts.filter(p => p.slug !== 'hello-world'); // Skip default WP post
+        blogPosts = data.posts.filter(p => p.slug !== 'hello-world');
         console.log(`📝 Loaded ${blogPosts.length} blog posts from migration data`);
     }
 
@@ -480,20 +507,43 @@ async function main() {
             .replace(/\\n/g, '\n')
             .trim();
 
+        // Determine post type from slug/title patterns
+        let postType = 'post';
+        const slug = post.slug.toLowerCase();
+        const title = (post.title || '').toLowerCase();
+        if (slug.includes('review') || title.includes('review')) postType = 'review';
+        else if (slug.includes('-vs-') || title.includes(' vs ') || title.includes('comparison')) postType = 'comparison';
+        else if (slug.includes('tutorial') || title.includes('tutorial') || title.includes('how to')) postType = 'tutorial';
+        else if (slug.includes('best-') || title.includes('best ')) postType = 'review';
+
+        // Determine categories from content/title
+        const cats = post.categories || [];
+        if (postType === 'review' && !cats.includes('reviews')) cats.push('reviews');
+        if (postType === 'comparison' && !cats.includes('comparisons')) cats.push('comparisons');
+        if (postType === 'tutorial' && !cats.includes('tutorials')) cats.push('tutorials');
+        if (cats.length === 0) cats.push('blog');
+
         await prisma.post.create({
             data: {
                 title: post.title,
                 slug: post.slug,
                 content: cleanContent,
                 excerpt: post.excerpt || cleanContent.substring(0, 200).replace(/<[^>]*>/g, '') + '...',
-                categories: post.categories || ['Blog'],
+                featuredImage: post.featuredImage || null,
+                categories: cats,
                 tags: post.tags || [],
                 author: 'HyzenPro Team',
                 status: 'published',
-                publishedAt: new Date(post.publishedAt),
+                postType,
+                seo: {
+                    metaTitle: post.metaTitle || post.title,
+                    metaDescription: post.metaDescription || post.excerpt || '',
+                    ogImage: post.featuredImage || null,
+                },
+                publishedAt: post.publishedAt ? new Date(post.publishedAt) : new Date(),
             }
         });
-        console.log(`   ✅ "${post.title}" → /${post.slug}/`);
+        console.log(`   ✅ [${postType}] "${post.title}" → /${post.slug}/`);
     }
 
     // Final summary
