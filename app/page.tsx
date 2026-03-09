@@ -247,10 +247,10 @@ export default async function HomePage() {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-6">
-                        <div className="md:col-span-2 bg-gradient-to-tr from-gray-50/50 dark:from-gray-900/50 to-white dark:to-gray-950 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-500 group overflow-hidden relative">
+                        <div className="md:col-span-2 bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-8 hover:shadow-[12px_12px_0px_#000] dark:hover:shadow-[12px_12px_0px_#fff] transition-all duration-300 group overflow-hidden relative">
                             <div className="relative z-10 max-w-sm">
-                                <div className="w-12 h-12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-                                    <Shield className="w-5 h-5 text-black dark:text-white dark:text-black dark:text-white" />
+                                <div className="w-12 h-12 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                                    <Shield className="w-5 h-5 text-black dark:text-white" />
                                 </div>
                                 <h3 className="font-heading text-2xl text-black dark:text-white mb-2">Verified & Indexed Data</h3>
                                 <p className="text-gray-500 dark:text-gray-400 text-sm">Every tool in our directory undergoes a rigorous verification process for pricing accuracy, compliance, and API reliability.</p>
@@ -260,9 +260,9 @@ export default async function HomePage() {
                             </div>
                         </div>
 
-                        <div className="bg-gradient-to-br from-white dark:from-gray-950 to-gray-50/50 dark:to-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-500 group relative">
-                            <div className="w-12 h-12 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <BarChart3 className="w-5 h-5 text-black dark:text-white dark:text-black dark:text-white" />
+                        <div className="bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-8 hover:shadow-[12px_12px_0px_#000] dark:hover:shadow-[12px_12px_0px_#fff] transition-all duration-300 group relative">
+                            <div className="w-12 h-12 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <BarChart3 className="w-5 h-5 text-black dark:text-white" />
                             </div>
                             <h3 className="font-heading text-2xl text-black dark:text-white mb-2">Deep Analytics</h3>
                             <p className="text-gray-500 dark:text-gray-400 text-sm">Track trending models globally and view sentiment analysis across verified user reviews before integrating.</p>
@@ -288,7 +288,7 @@ export default async function HomePage() {
                             </div>
                             <h2 id="trending-heading" className="font-heading text-4xl sm:text-5xl tracking-tight text-gray-400 dark:text-gray-500">Most Viewed Platforms</h2>
                         </div>
-                        <Link href="/ai-tools-directory/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-black dark:text-white dark:text-black dark:text-white hover:text-indigo-800 dark:hover:text-black dark:text-white transition-colors border-b border-indigo-600 dark:border-indigo-400 pb-1">
+                        <Link href="/ai-tools-directory/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-400 transition-colors border-b border-black dark:border-white pb-1">
                             View All Rankings <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
@@ -351,7 +351,7 @@ export default async function HomePage() {
                                 <Link
                                     key={i}
                                     href="/ai-tools-directory/"
-                                    className="px-6 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-sm font-semibold text-black dark:text-white hover:border-indigo-400 hover:text-black dark:text-white dark:hover:text-black dark:text-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                                    className="px-6 py-3 bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-sm font-semibold text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300"
                                 >
                                     {cat}
                                 </Link>
@@ -404,18 +404,18 @@ export default async function HomePage() {
                                 </Link>
                             </div>
 
-                            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-2xl relative">
+                            <div className="bg-gray-950 border border-gray-800 p-6 shadow-[16px_16px_0px_#fff] relative">
                                 <div className="flex items-center justify-between border-b border-gray-800 pb-4 mb-4">
                                     <div className="flex items-center gap-2">
-                                        <div className="w-8 h-8 rounded-lg bg-black dark:bg-white/20 flex items-center justify-center border border-gray-300 dark:border-gray-700">
-                                            <span className="text-black dark:text-white font-heading">A</span>
+                                        <div className="w-8 h-8 rounded-none bg-black border border-gray-700 flex items-center justify-center">
+                                            <span className="text-white font-heading">A</span>
                                         </div>
                                         <span className="font-semibold text-sm">ChatGPT Plus</span>
                                     </div>
                                     <span className="text-gray-600 text-sm italic font-mono">VS</span>
                                     <div className="flex items-center gap-2 flex-row-reverse">
-                                        <div className="w-8 h-8 rounded-lg bg-gray-300 dark:bg-gray-700/20 flex items-center justify-center border border-gray-300 dark:border-gray-700">
-                                            <span className="text-gray-500 dark:text-gray-400 font-heading">C</span>
+                                        <div className="w-8 h-8 rounded-none bg-gray-800 border border-gray-700 flex items-center justify-center">
+                                            <span className="text-gray-400 font-heading">C</span>
                                         </div>
                                         <span className="font-semibold text-sm">Claude 3 Opus</span>
                                     </div>
@@ -428,9 +428,9 @@ export default async function HomePage() {
                                     ].map((stat, i) => (
                                         <div key={i} className="text-xs font-mono">
                                             <div className="flex justify-between text-gray-400 mb-1"><span>{stat.label}</span></div>
-                                            <div className="flex gap-2 h-2 rounded-full overflow-hidden bg-gray-800">
-                                                <div className="bg-black dark:bg-white h-full rounded-full transition-all duration-1000" style={{ width: stat.a }} />
-                                                <div className="bg-gray-300 dark:bg-gray-700 h-full rounded-full transition-all duration-1000" style={{ width: stat.b }} />
+                                            <div className="flex gap-2 h-2 rounded-none overflow-hidden bg-gray-800">
+                                                <div className="bg-white h-full rounded-none transition-all duration-1000" style={{ width: stat.a }} />
+                                                <div className="bg-gray-500 h-full rounded-none transition-all duration-1000" style={{ width: stat.b }} />
                                             </div>
                                         </div>
                                     ))}
@@ -441,10 +441,10 @@ export default async function HomePage() {
                 </section>
 
                 {/* ═══ SECTION 9.5: ABOUT HYZENPRO (Editable) ═════ */}
-                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-100 dark:border-gray-800 relative overflow-hidden" aria-labelledby="about-heading">
+                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-200 dark:border-gray-800 relative overflow-hidden" aria-labelledby="about-heading">
                     {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-black dark:bg-white/5 dark:bg-black dark:bg-white/10 rounded-full blur-3xl pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-gray-300 dark:bg-gray-700/5 dark:bg-gray-300 dark:bg-gray-700/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] border border-gray-100 dark:border-gray-900 rounded-full opacity-50 pointer-events-none -mr-40 -mt-40" />
+                    <div className="absolute bottom-0 left-0 w-[300px] h-[300px] border border-gray-100 dark:border-gray-900 rounded-full opacity-50 pointer-events-none -ml-20 -mb-20" />
 
                     <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
                         <div className="lg:col-span-5">
@@ -493,9 +493,9 @@ export default async function HomePage() {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {latestPosts.map((post) => (
-                            <Link key={post.id} href={`/blog/${post.slug}/`} className="group flex flex-col">
+                            <Link key={post.id} href={`/blog/${post.slug}/`} className="group flex flex-col bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-5 hover:border-black dark:hover:border-white hover:shadow-[8px_8px_0px_#000] dark:hover:shadow-[8px_8px_0px_#fff] transition-all duration-300">
                                 {post.featuredImage && (
-                                    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-100 dark:border-gray-800 mb-4">
+                                    <div className="relative w-full aspect-[4/3] rounded-none overflow-hidden bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 mb-4">
                                         <Image
                                             src={post.featuredImage}
                                             alt={post.title}
@@ -527,7 +527,7 @@ export default async function HomePage() {
 
                 {/* ═══ SECTION 11: FINAL CTA ══════════════════════════ */}
                 <section className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" aria-label="Call to Action">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-black dark:bg-white text-white dark:text-black text-white mb-8 relative shadow-[0_0_40px_-5px_rgba(79,70,229,0.4)]">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-none bg-black dark:bg-white text-white dark:text-black mb-8 relative border border-gray-800 dark:border-gray-200 shadow-[8px_8px_0px_rgba(0,0,0,0.1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,0.1)]">
                         <Terminal className="w-8 h-8 relative z-10" />
                     </div>
                     <h2 className="font-heading text-5xl md:text-7xl tracking-tighter text-black dark:text-white mb-6">
@@ -536,7 +536,7 @@ export default async function HomePage() {
                     <p className="text-gray-500 dark:text-gray-400 text-lg mb-10 max-w-xl mx-auto">
                         {ctaSubtitle}
                     </p>
-                    <Link href="/submit-ai-tool/" className="inline-flex items-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black text-white font-bold uppercase tracking-wider text-sm rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.4)] transition-all duration-300">
+                    <Link href="/submit-ai-tool/" className="inline-flex items-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black font-bold uppercase tracking-wider text-sm hover:-translate-y-1 hover:shadow-[6px_6px_0px_#000] dark:hover:shadow-[6px_6px_0px_#fff] border border-transparent hover:border-black dark:hover:border-white transition-all duration-300">
                         Submit Your AI Tool <ArrowRight className="w-4 h-4" />
                     </Link>
                 </section>

@@ -12,11 +12,11 @@ interface TweetCardProps {
 
 export default function TweetCard({ avatar, name, handle, text, date, likes, retweets }: TweetCardProps) {
     return (
-        <div className="group bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg transition-all duration-500 hover:-translate-y-1">
+        <div className="group bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-6 hover:border-black dark:hover:border-white hover:shadow-[8px_8px_0px_#000] dark:hover:shadow-[8px_8px_0px_#fff] transition-all duration-300 hover:-translate-y-1">
             {/* Header */}
             <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden flex-shrink-0 border border-gray-200 dark:border-gray-700">
+                    <div className="w-11 h-11 bg-gray-100 dark:bg-gray-900 overflow-hidden flex-shrink-0 border border-gray-200 dark:border-gray-800">
                         {avatar ? (
                             <Image src={avatar} alt={name} width={44} height={44} className="object-cover w-full h-full" />
                         ) : (
@@ -31,7 +31,7 @@ export default function TweetCard({ avatar, name, handle, text, date, likes, ret
                     </div>
                 </div>
                 {/* X logo */}
-                <svg className="w-5 h-5 text-gray-300 dark:text-gray-600 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-5 h-5 text-black dark:text-white opacity-20 group-hover:opacity-100 transition-opacity flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
             </div>

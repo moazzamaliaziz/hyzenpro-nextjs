@@ -27,7 +27,7 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
 
     return (
         <div
-            className="group relative flex flex-col bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.3)]"
+            className="group relative flex flex-col bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-black dark:hover:border-white hover:shadow-[8px_8px_0px_#000] dark:hover:shadow-[8px_8px_0px_#fff]"
         >
             <Link
                 href={toolUrl}
@@ -36,15 +36,15 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
                 aria-label={tool.name}
             />
 
-            {/* Subtle Gradient Hover Reveal */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 dark:from-gray-800/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0" />
+            {/* Subtle Solid Hover Reveal */}
+            <div className="absolute inset-0 bg-gray-50/50 dark:bg-gray-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
 
             {/* Content Container */}
             <div className="relative z-10 p-6 flex-1 flex flex-col">
 
                 <div className="absolute top-3 right-3 z-20 flex gap-2 items-center">
                     {tool.featured && (
-                        <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-black text-white rounded-full">
+                        <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-black dark:bg-white text-white dark:text-black border border-black dark:border-white">
                             Featured
                         </span>
                     )}
@@ -60,7 +60,7 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
 
                 {/* Header: Logo + Name */}
                 <div className="flex items-start gap-4 mb-4">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 overflow-hidden flex items-center justify-center">
+                    <div className="flex-shrink-0 w-14 h-14 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 overflow-hidden flex items-center justify-center">
                         {tool.logo ? (
                             <Image
                                 src={tool.logo}
@@ -80,8 +80,8 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
                         </h3>
                         {tool.rating && (
                             <div className="flex items-center gap-1 mt-1">
-                                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                                <span className="text-xs font-semibold text-amber-600">
+                                <Star className="w-3.5 h-3.5 fill-black dark:fill-white text-black dark:text-white" />
+                                <span className="text-xs font-bold text-black dark:text-white">
                                     {tool.rating.toFixed(1)}
                                 </span>
                             </div>
@@ -95,9 +95,9 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
                 </p>
 
                 {/* Footer */}
-                <div className="mt-auto pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
                     <span
-                        className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full ${getPricingColor(tool.pricingType)}`}
+                        className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 ${getPricingColor(tool.pricingType)}`}
                     >
                         {getPricingLabel(tool.pricingType)}
                     </span>
