@@ -2,20 +2,27 @@ import type { NextAuthConfig } from 'next-auth';
 
 export const authConfig = {
     pages: {
-        signIn: '/admin/login',
+        signIn: '/portal-auth',
     },
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
             const isOnAdmin = nextUrl.pathname.startsWith('/admin');
-            const isLoginPage = nextUrl.pathname.startsWith('/admin/login');
+            const isLoginPage = nextUrl.pathname.startsWith('/portal-auth');
 
-            if (isOnAdmin && !isLoginPage) {
+            // 1. Protect Admin Routes
+            if (isOnAdmin) {
                 if (isLoggedIn) return true;
-                return false; // Redirect unauthenticated users to login page
-            } else if (isLoggedIn && isLoginPage) {
+                // Sneaky: Instead of bouncing unauthenticated users to the login screen,
+                // we bounce them to the homepage so the portal-auth URL is never exposed.
+                return Response.redirect(new URL('/', nextUrl));
+            } 
+            
+            // 2. Protect Login Page
+            if (isLoginPage && isLoggedIn) {
                 return Response.redirect(new URL('/admin/', nextUrl));
             }
+
             return true;
         },
         async jwt({ token, user }) {

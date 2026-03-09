@@ -14,7 +14,7 @@ export default async function MyStackPage() {
     const session = await auth();
 
     if (!session?.user?.email) {
-        redirect('/admin/login?callbackUrl=/my-stack');
+        redirect('/portal-auth');
     }
 
     const user = await prisma.user.findUnique({

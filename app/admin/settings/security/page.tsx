@@ -10,7 +10,7 @@ export const metadata = {
 export default async function SecuritySettingsPage() {
     const session = await auth();
     if (!session?.user?.id) {
-        redirect('/admin/login');
+        redirect('/portal-auth');
     }
 
     const user = await prisma.user.findUnique({
@@ -22,7 +22,7 @@ export default async function SecuritySettingsPage() {
     });
 
     if (!user) {
-        redirect('/admin/login');
+        redirect('/portal-auth');
     }
 
     return (

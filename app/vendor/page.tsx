@@ -43,7 +43,7 @@ export default function VendorDashboardPage() {
 
     useEffect(() => {
         if (authStatus === 'unauthenticated') {
-            router.push('/admin/login');
+            router.push('/portal-auth');
         }
     }, [authStatus, router]);
 

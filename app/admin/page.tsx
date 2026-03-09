@@ -26,7 +26,7 @@ export default async function AdminDashboardPage() {
     const session = await auth();
 
     if (!session?.user) {
-        redirect('/admin/login');
+        redirect('/portal-auth');
     }
 
     const stats = await getStats();

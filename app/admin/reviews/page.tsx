@@ -21,7 +21,7 @@ async function getReviews() {
 
 export default async function AdminReviewsPage() {
     const session = await auth();
-    if (!session?.user) redirect('/admin/login');
+    if (!session?.user) redirect('/portal-auth');
 
     const reviews = await getReviews();
 

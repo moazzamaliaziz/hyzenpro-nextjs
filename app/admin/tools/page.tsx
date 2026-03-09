@@ -21,7 +21,7 @@ async function getTools() {
 
 export default async function AdminToolsPage() {
     const session = await auth();
-    if (!session?.user) redirect('/admin/login');
+    if (!session?.user) redirect('/portal-auth');
 
     const tools = await getTools();
 

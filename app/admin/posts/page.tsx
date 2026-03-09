@@ -21,7 +21,7 @@ async function getPosts() {
 
 export default async function AdminPostsPage() {
     const session = await auth();
-    if (!session?.user) redirect('/admin/login');
+    if (!session?.user) redirect('/portal-auth');
 
     const posts = await getPosts();
 
