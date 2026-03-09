@@ -86,6 +86,7 @@ export default async function HomePage() {
     const socialSection = getSection('social-proof');
     const aboutSection = getSection('about');
     const ctaSection = getSection('cta');
+    const compareSection = getSection('compare');
 
     const heroTitle = heroSection?.title || 'Simplifying AI for Everyone';
     const heroSubtitle = heroSection?.subtitle || 'Browse, compare, and choose the best AI tools with expert reviews, real comparisons, and practical guides — built for creators, marketers, and teams.';
@@ -99,6 +100,13 @@ export default async function HomePage() {
 
     const ctaTitle = ctaSection?.title || 'Build with the Best.';
     const ctaSubtitle = ctaSection?.subtitle || 'Are you building the next generation of AI tools? Index your platform on HyzenPro to reach thousands of decision-makers and developers daily.';
+
+    // Compare Section Defaults
+    const compareBadge = (compareSection?.content as any)?.badge || 'Advanced Feature';
+    const compareTitle1 = compareSection?.title || 'Don\'t Guess.';
+    const compareTitle2 = compareSection?.subtitle || 'Compare.';
+    const compareP = (compareSection?.content as any)?.description || 'Select up to three tools from the directory to view a dynamic, side-by-side feature matrix. Compare APIs, token pricing, compliance, and execution speeds instantly.';
+    const compareCta = (compareSection?.content as any)?.ctaText || 'Try Comparison Engine';
 
     const categories = [
         "AI Video Generators", "AI Writing Assistants", "AI Image Generators",
@@ -388,24 +396,24 @@ export default async function HomePage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="grid md:grid-cols-2 gap-16 items-center">
                             <div>
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black dark:bg-white/20 border border-gray-300 dark:border-gray-700 text-xs font-semibold uppercase tracking-wider text-black dark:text-white mb-6">
-                                    <BarChart3 className="w-3.5 h-3.5" />
-                                    Advanced Feature
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-widest text-white mb-6">
+                                    <BarChart3 className="w-4 h-4" />
+                                    {compareBadge}
                                 </div>
-                                <h2 id="compare-heading" className="font-heading text-5xl md:text-7xl tracking-tight mb-6 leading-none">
-                                    Don&apos;t Guess.<br />
-                                    <span className="text-black dark:text-white">Compare.</span>
+                                <h2 id="compare-heading" className="font-heading text-5xl md:text-7xl tracking-tight mb-6 leading-none text-gray-400">
+                                    {compareTitle1}<br />
+                                    <span className="text-white">{compareTitle2}</span>
                                 </h2>
                                 <p className="text-gray-400 text-lg mb-8 leading-relaxed max-w-md">
-                                    Select up to three tools from the directory to view a dynamic, side-by-side feature matrix. Compare APIs, token pricing, compliance, and execution speeds instantly.
+                                    {compareP}
                                 </p>
-                                <Link href="/compare/" className="inline-flex items-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black text-white font-bold uppercase text-sm tracking-wider rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 hover:shadow-xl transition-all duration-300">
-                                    Try Comparison Engine
+                                <Link href="/compare/" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-bold uppercase tracking-wider text-sm hover:-translate-y-1 hover:shadow-[6px_6px_0px_rgba(255,255,255,0.2)] border border-transparent hover:border-white transition-all duration-300">
+                                    {compareCta}
                                 </Link>
                             </div>
 
-                            <div className="bg-gray-950 border border-gray-800 p-6 shadow-[16px_16px_0px_#fff] relative">
-                                <div className="flex items-center justify-between border-b border-gray-800 pb-4 mb-4">
+                            <div className="bg-gray-950 border border-gray-800 p-8 shadow-[16px_16px_0px_#fff] relative">
+                                <div className="flex items-center justify-between border-b border-gray-800 pb-6 mb-6">
                                     <div className="flex items-center gap-2">
                                         <div className="w-8 h-8 rounded-none bg-black border border-gray-700 flex items-center justify-center">
                                             <span className="text-white font-heading">A</span>
