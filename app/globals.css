@@ -513,7 +513,7 @@ main {
 }
 
 .author-verified-badge {
-    @apply text-blue-500;
+    @apply text-black dark:text-white;
 }
 
 .author-box-bio {

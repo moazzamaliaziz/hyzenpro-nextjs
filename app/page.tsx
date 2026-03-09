@@ -157,13 +157,13 @@ export default async function HomePage() {
                 <section className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden" aria-label="Hero">
                     {/* Gradient Mesh Background */}
                     <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-indigo-500/8 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
-                        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-violet-500/6 dark:bg-violet-500/4 rounded-full blur-[100px]" />
+                        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-black dark:bg-white/8 dark:bg-black dark:bg-white/5 rounded-full blur-[120px]" />
+                        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gray-300 dark:bg-gray-700/6 dark:bg-gray-300 dark:bg-gray-700/4 rounded-full blur-[100px]" />
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 dark:via-gray-950/60 to-white dark:to-gray-950" />
                     </div>
 
                     <div className="container relative z-10 max-w-5xl text-center px-4">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8 animate-fade-in-up">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 dark:bg-gray-900 dark:bg-black dark:bg-white/10 border border-gray-200 dark:border-gray-700 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-black dark:text-white dark:text-black dark:text-white mb-8 animate-fade-in-up">
                             <Sparkles className="w-3.5 h-3.5" />
                             {toolCount}+ AI Tools Indexed
                         </div>
@@ -190,7 +190,7 @@ export default async function HomePage() {
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                             <Link
                                 href="/ai-tools-directory/"
-                                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm uppercase tracking-wider rounded-xl transition-all duration-300 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.4)] flex items-center gap-2"
+                                className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 text-white font-bold text-sm uppercase tracking-wider rounded-xl transition-all duration-300 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.4)] flex items-center gap-2"
                             >
                                 Browse AI Tools <ArrowRight className="w-4 h-4" />
                             </Link>
@@ -211,7 +211,7 @@ export default async function HomePage() {
                                 { icon: TrendingUp, label: 'Categories', value: 17, suffix: '' },
                             ].map((stat, i) => (
                                 <div key={i} className="text-center">
-                                    <stat.icon className="w-5 h-5 text-indigo-500 mx-auto mb-2" />
+                                    <stat.icon className="w-5 h-5 text-black dark:text-white mx-auto mb-2" />
                                     <div className="font-heading text-3xl md:text-4xl text-black dark:text-white">
                                         <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                                     </div>
@@ -251,7 +251,7 @@ export default async function HomePage() {
                         <div className="md:col-span-2 bg-gradient-to-tr from-gray-50/50 dark:from-gray-900/50 to-white dark:to-gray-950 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-500 group overflow-hidden relative">
                             <div className="relative z-10 max-w-sm">
                                 <div className="w-12 h-12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-                                    <Shield className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                                    <Shield className="w-5 h-5 text-black dark:text-white dark:text-black dark:text-white" />
                                 </div>
                                 <h3 className="font-heading text-2xl text-black dark:text-white mb-2">Verified & Indexed Data</h3>
                                 <p className="text-gray-500 dark:text-gray-400 text-sm">Every tool in our directory undergoes a rigorous verification process for pricing accuracy, compliance, and API reliability.</p>
@@ -263,7 +263,7 @@ export default async function HomePage() {
 
                         <div className="bg-gradient-to-br from-white dark:from-gray-950 to-gray-50/50 dark:to-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-500 group relative">
                             <div className="w-12 h-12 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <BarChart3 className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                                <BarChart3 className="w-5 h-5 text-black dark:text-white dark:text-black dark:text-white" />
                             </div>
                             <h3 className="font-heading text-2xl text-black dark:text-white mb-2">Deep Analytics</h3>
                             <p className="text-gray-500 dark:text-gray-400 text-sm">Track trending models globally and view sentiment analysis across verified user reviews before integrating.</p>
@@ -284,12 +284,12 @@ export default async function HomePage() {
                     <div className="flex items-end justify-between mb-10">
                         <div>
                             <div className="flex items-center gap-2 mb-2">
-                                <Flame className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                                <Flame className="w-5 h-5 text-black dark:text-white dark:text-black dark:text-white" />
                                 <span className="font-heading text-2xl tracking-widest uppercase text-black dark:text-white">Trending Now</span>
                             </div>
                             <h2 id="trending-heading" className="font-heading text-4xl sm:text-5xl tracking-tight text-gray-400 dark:text-gray-500">Most Viewed Platforms</h2>
                         </div>
-                        <Link href="/ai-tools-directory/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors border-b border-indigo-600 dark:border-indigo-400 pb-1">
+                        <Link href="/ai-tools-directory/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-black dark:text-white dark:text-black dark:text-white hover:text-indigo-800 dark:hover:text-black dark:text-white transition-colors border-b border-indigo-600 dark:border-indigo-400 pb-1">
                             View All Rankings <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
@@ -297,7 +297,7 @@ export default async function HomePage() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {trendingTools.map((tool, index) => (
                             <div key={tool.id} className="relative">
-                                <div className="absolute top-3 left-3 z-30 flex items-center gap-1.5 px-2.5 py-1 bg-indigo-600/90 backdrop-blur-sm text-white rounded-full text-[10px] font-bold uppercase tracking-widest">
+                                <div className="absolute top-3 left-3 z-30 flex items-center gap-1.5 px-2.5 py-1 bg-black dark:bg-white text-white dark:text-black/90 backdrop-blur-sm text-white rounded-full text-[10px] font-bold uppercase tracking-widest">
                                     <Flame className="w-3 h-3" />
                                     #{index + 1}
                                     <span className="mx-1 opacity-30">|</span>
@@ -352,7 +352,7 @@ export default async function HomePage() {
                                 <Link
                                     key={i}
                                     href="/ai-tools-directory/"
-                                    className="px-6 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-sm font-semibold text-black dark:text-white hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                                    className="px-6 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-sm font-semibold text-black dark:text-white hover:border-indigo-400 hover:text-black dark:text-white dark:hover:text-black dark:text-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                                 >
                                     {cat}
                                 </Link>
@@ -377,7 +377,7 @@ export default async function HomePage() {
                     </div>
 
                     <div className="mt-12 text-center md:hidden">
-                        <Link href="/ai-tools-directory/" className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white text-sm font-bold uppercase tracking-wider rounded-xl hover:bg-indigo-700 transition-colors">
+                        <Link href="/ai-tools-directory/" className="inline-flex items-center gap-2 px-6 py-3 bg-black dark:bg-white text-white dark:text-black text-white text-sm font-bold uppercase tracking-wider rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors">
                             Explore All Tools <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
@@ -389,18 +389,18 @@ export default async function HomePage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="grid md:grid-cols-2 gap-16 items-center">
                             <div>
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-6">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black dark:bg-white/20 border border-gray-300 dark:border-gray-700 text-xs font-semibold uppercase tracking-wider text-black dark:text-white mb-6">
                                     <BarChart3 className="w-3.5 h-3.5" />
                                     Advanced Feature
                                 </div>
                                 <h2 id="compare-heading" className="font-heading text-5xl md:text-7xl tracking-tight mb-6 leading-none">
                                     Don&apos;t Guess.<br />
-                                    <span className="text-indigo-400">Compare.</span>
+                                    <span className="text-black dark:text-white">Compare.</span>
                                 </h2>
                                 <p className="text-gray-400 text-lg mb-8 leading-relaxed max-w-md">
                                     Select up to three tools from the directory to view a dynamic, side-by-side feature matrix. Compare APIs, token pricing, compliance, and execution speeds instantly.
                                 </p>
-                                <Link href="/compare/" className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white font-bold uppercase text-sm tracking-wider rounded-xl hover:bg-indigo-700 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.5)] transition-all duration-300">
+                                <Link href="/compare/" className="inline-flex items-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black text-white font-bold uppercase text-sm tracking-wider rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 hover:shadow-xl transition-all duration-300">
                                     Try Comparison Engine
                                 </Link>
                             </div>
@@ -408,15 +408,15 @@ export default async function HomePage() {
                             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-2xl relative">
                                 <div className="flex items-center justify-between border-b border-gray-800 pb-4 mb-4">
                                     <div className="flex items-center gap-2">
-                                        <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
-                                            <span className="text-indigo-400 font-heading">A</span>
+                                        <div className="w-8 h-8 rounded-lg bg-black dark:bg-white/20 flex items-center justify-center border border-gray-300 dark:border-gray-700">
+                                            <span className="text-black dark:text-white font-heading">A</span>
                                         </div>
                                         <span className="font-semibold text-sm">ChatGPT Plus</span>
                                     </div>
                                     <span className="text-gray-600 text-sm italic font-mono">VS</span>
                                     <div className="flex items-center gap-2 flex-row-reverse">
-                                        <div className="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center border border-violet-500/30">
-                                            <span className="text-violet-400 font-heading">C</span>
+                                        <div className="w-8 h-8 rounded-lg bg-gray-300 dark:bg-gray-700/20 flex items-center justify-center border border-gray-300 dark:border-gray-700">
+                                            <span className="text-gray-500 dark:text-gray-400 font-heading">C</span>
                                         </div>
                                         <span className="font-semibold text-sm">Claude 3 Opus</span>
                                     </div>
@@ -430,8 +430,8 @@ export default async function HomePage() {
                                         <div key={i} className="text-xs font-mono">
                                             <div className="flex justify-between text-gray-400 mb-1"><span>{stat.label}</span></div>
                                             <div className="flex gap-2 h-2 rounded-full overflow-hidden bg-gray-800">
-                                                <div className="bg-indigo-500 h-full rounded-full transition-all duration-1000" style={{ width: stat.a }} />
-                                                <div className="bg-violet-500 h-full rounded-full transition-all duration-1000" style={{ width: stat.b }} />
+                                                <div className="bg-black dark:bg-white h-full rounded-full transition-all duration-1000" style={{ width: stat.a }} />
+                                                <div className="bg-gray-300 dark:bg-gray-700 h-full rounded-full transition-all duration-1000" style={{ width: stat.b }} />
                                             </div>
                                         </div>
                                     ))}
@@ -444,19 +444,19 @@ export default async function HomePage() {
                 {/* ═══ SECTION 9.5: ABOUT HYZENPRO (Editable) ═════ */}
                 <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-100 dark:border-gray-800 relative overflow-hidden" aria-labelledby="about-heading">
                     {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-violet-500/5 dark:bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-black dark:bg-white/5 dark:bg-black dark:bg-white/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-gray-300 dark:bg-gray-700/5 dark:bg-gray-300 dark:bg-gray-700/10 rounded-full blur-3xl pointer-events-none" />
 
                     <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
                         <div className="lg:col-span-5">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-900 dark:bg-black dark:bg-white/10 border border-gray-200 dark:border-gray-700 dark:border-gray-800 text-xs font-semibold uppercase tracking-wider text-black dark:text-white dark:text-black dark:text-white mb-6">
                                 <Shield className="w-3.5 h-3.5" />
                                 {aboutSubtitle}
                             </div>
                             <h2 id="about-heading" className="font-heading text-5xl md:text-6xl tracking-tight text-black dark:text-white mb-6">
                                 {aboutTitle}
                             </h2>
-                            <div className="w-20 h-1.5 bg-indigo-600 rounded-full mb-8"></div>
+                            <div className="w-20 h-1.5 bg-black dark:bg-white text-white dark:text-black rounded-full mb-8"></div>
                         </div>
 
                         <div className="lg:col-span-7 space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light">
@@ -466,7 +466,7 @@ export default async function HomePage() {
                             <div className="pt-4 flex items-center gap-6">
                                 <div className="flex -space-x-3">
                                     {[1, 2, 3, 4].map(i => (
-                                        <div key={i} className={`w-10 h-10 rounded-full border-2 border-white dark:border-gray-950 bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold ${i === 1 ? 'text-indigo-500' : 'text-gray-400'}`}>
+                                        <div key={i} className={`w-10 h-10 rounded-full border-2 border-white dark:border-gray-950 bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold ${i === 1 ? 'text-black dark:text-white' : 'text-gray-400'}`}>
                                             {i === 1 ? <Users className="w-4 h-4" /> : null}
                                         </div>
                                     ))}
@@ -487,7 +487,7 @@ export default async function HomePage() {
                             <h2 id="blog-heading" className="font-heading text-4xl sm:text-5xl tracking-tight text-black dark:text-white mb-2">Intelligence & Insights</h2>
                             <p className="text-gray-500 dark:text-gray-400">Read our latest deep dives and industry analyses.</p>
                         </div>
-                        <Link href="/blog/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors border-b border-indigo-600 dark:border-indigo-400 pb-1">
+                        <Link href="/blog/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-black dark:text-white dark:text-black dark:text-white hover:text-indigo-800 dark:hover:text-black dark:text-white transition-colors border-b border-indigo-600 dark:border-indigo-400 pb-1">
                             Read All Articles <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
@@ -510,7 +510,7 @@ export default async function HomePage() {
                                     <Clock className="w-3 h-3" />
                                     {new Date(post.publishedAt || post.createdAt).toLocaleDateString()}
                                 </div>
-                                <h3 className="font-heading text-2xl text-black dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
+                                <h3 className="font-heading text-2xl text-black dark:text-white group-hover:text-black dark:text-white dark:group-hover:text-black dark:text-white transition-colors line-clamp-2">
                                     {post.title}
                                 </h3>
                             </Link>
@@ -528,7 +528,7 @@ export default async function HomePage() {
 
                 {/* ═══ SECTION 11: FINAL CTA ══════════════════════════ */}
                 <section className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" aria-label="Call to Action">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-600 text-white mb-8 relative shadow-[0_0_40px_-5px_rgba(79,70,229,0.4)]">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-black dark:bg-white text-white dark:text-black text-white mb-8 relative shadow-[0_0_40px_-5px_rgba(79,70,229,0.4)]">
                         <Terminal className="w-8 h-8 relative z-10" />
                     </div>
                     <h2 className="font-heading text-5xl md:text-7xl tracking-tighter text-black dark:text-white mb-6">
@@ -537,7 +537,7 @@ export default async function HomePage() {
                     <p className="text-gray-500 dark:text-gray-400 text-lg mb-10 max-w-xl mx-auto">
                         {ctaSubtitle}
                     </p>
-                    <Link href="/submit-ai-tool/" className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white font-bold uppercase tracking-wider text-sm rounded-xl hover:bg-indigo-700 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.4)] transition-all duration-300">
+                    <Link href="/submit-ai-tool/" className="inline-flex items-center gap-2 px-8 py-4 bg-black dark:bg-white text-white dark:text-black text-white font-bold uppercase tracking-wider text-sm rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.4)] transition-all duration-300">
                         Submit Your AI Tool <ArrowRight className="w-4 h-4" />
                     </Link>
                 </section>

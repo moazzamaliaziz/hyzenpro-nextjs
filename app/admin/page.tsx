@@ -39,7 +39,7 @@ export default async function AdminDashboardPage() {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {[
-                    { label: 'Total Tools', value: stats.toolsCount, icon: Box, color: 'text-blue-400', bg: 'bg-blue-400/10' },
+                    { label: 'Total Tools', value: stats.toolsCount, icon: Box, color: 'text-black dark:text-white', bg: 'bg-blue-400/10' },
                     { label: 'Blog Posts', value: stats.postsCount, icon: FileText, color: 'text-green-400', bg: 'bg-green-400/10' },
                     { label: 'Categories', value: stats.categoriesCount, icon: Users, color: 'text-purple-400', bg: 'bg-purple-400/10' },
                     { label: 'Reviews', value: stats.reviewsCount, icon: MessageSquare, color: 'text-orange-400', bg: 'bg-orange-400/10' },

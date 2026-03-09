@@ -63,8 +63,8 @@ export default function HowWeTestPage() {
                                 <h3 className="font-heading text-xl text-green-700 mb-3">✓ Independence</h3>
                                 <p className="text-gray-600 text-sm">Our rankings are not influenced by sponsorships or affiliate relationships. We always prioritize reader value.</p>
                             </div>
-                            <div className="p-6 bg-blue-50 border border-blue-100 rounded-xl">
-                                <h3 className="font-heading text-xl text-blue-700 mb-3">✓ Transparency</h3>
+                            <div className="p-6 bg-gray-100 dark:bg-gray-900 border border-blue-100 rounded-xl">
+                                <h3 className="font-heading text-xl text-black dark:text-white mb-3">✓ Transparency</h3>
                                 <p className="text-gray-600 text-sm">We clearly disclose affiliate links and sponsored content. You always know when we may earn a commission.</p>
                             </div>
                             <div className="p-6 bg-purple-50 border border-purple-100 rounded-xl">

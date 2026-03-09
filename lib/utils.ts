@@ -92,7 +92,7 @@ export function getPricingLabel(pricing: string): string {
 export function getPricingColor(pricing: string): string {
     const colors: Record<string, string> = {
         free: 'text-green-600 bg-green-50',
-        freemium: 'text-blue-600 bg-blue-50',
+        freemium: 'text-black dark:text-white bg-gray-100 dark:bg-gray-900',
         paid: 'text-orange-600 bg-orange-50',
         enterprise: 'text-purple-600 bg-purple-50',
     };

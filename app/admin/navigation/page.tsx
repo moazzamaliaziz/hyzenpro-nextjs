@@ -154,7 +154,7 @@ export default function AdminNavigationPage() {
                                     <input type="text" value={link.href} onChange={(e) => updateHeaderLink(i, 'href', e.target.value)} placeholder="URL (e.g. /)" className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm" />
                                 </div>
                                 <div className="flex items-center gap-2 mt-1">
-                                    <button onClick={() => addHeaderSublink(i)} className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg" title="Add Dropdown Link"><Plus className="w-4 h-4" /></button>
+                                    <button onClick={() => addHeaderSublink(i)} className="p-2 text-black dark:text-white hover:bg-gray-100 dark:bg-gray-900 rounded-lg" title="Add Dropdown Link"><Plus className="w-4 h-4" /></button>
                                     <button onClick={() => removeHeaderLink(i)} className="p-2 text-red-500 hover:bg-red-50 rounded-lg"><Trash2 className="w-4 h-4" /></button>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@ export default function AdminNavigationPage() {
                                     onBlur={(e) => renameFooterCategory(cat, e.target.value)}
                                     className="flex-1 font-heading text-lg bg-transparent border-b border-gray-300 focus:border-black focus:outline-none py-1"
                                 />
-                                <button onClick={() => addFooterLink(cat)} className="p-1.5 text-indigo-600 hover:bg-indigo-50 rounded-lg"><Plus className="w-4 h-4" /></button>
+                                <button onClick={() => addFooterLink(cat)} className="p-1.5 text-black dark:text-white hover:bg-gray-100 dark:bg-gray-900 rounded-lg"><Plus className="w-4 h-4" /></button>
                                 <button onClick={() => removeFooterCategory(cat)} className="p-1.5 text-red-500 hover:bg-red-50 rounded-lg"><Trash2 className="w-4 h-4" /></button>
                             </div>
 

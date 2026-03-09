@@ -218,7 +218,7 @@ export default function HeaderClient({ navLinks }: { navLinks: NavLink[] }) {
                             <Link
                                 href="/submit-ai-tool"
                                 prefetch={true}
-                                className="inline-flex w-full justify-center px-8 py-4 bg-indigo-600 text-white font-bold uppercase tracking-widest rounded-xl hover:bg-indigo-700 transition-all duration-300 shadow-lg shadow-indigo-600/20"
+                                className="inline-flex w-full justify-center px-8 py-4 bg-black dark:bg-white text-white dark:text-black text-white font-bold uppercase tracking-widest rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 shadow-lg shadow-black/10 dark:shadow-white/10"
                                 onClick={() => setMenuOpen(false)}
                             >
                                 Submit AI Tool

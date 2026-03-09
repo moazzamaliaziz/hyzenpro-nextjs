@@ -66,7 +66,7 @@ export default function CompareDrawer() {
 
                     <Link
                         href="/compare"
-                        className={`flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-[11px] font-bold uppercase tracking-widest rounded-full transition-all ${selectedTools.length < 2 ? 'opacity-50 pointer-events-none' : ''}`}
+                        className={`flex items-center gap-1.5 px-4 py-2 bg-black dark:bg-white text-white dark:text-black hover:bg-blue-500 text-white text-[11px] font-bold uppercase tracking-widest rounded-full transition-all ${selectedTools.length < 2 ? 'opacity-50 pointer-events-none' : ''}`}
                     >
                         <Scale className="w-3 h-3" />
                         Compare

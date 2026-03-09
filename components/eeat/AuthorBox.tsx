@@ -75,7 +75,7 @@ export default function AuthorBox({ author, showBio = true, variant = 'full' }: 
                     Expert Verified
                 </div>
                 <div className="author-trust-badge">
-                    <span className="text-blue-500">🔬</span>
+                    <span className="text-black dark:text-white">🔬</span>
                     Hands-on Testing
                 </div>
             </div>

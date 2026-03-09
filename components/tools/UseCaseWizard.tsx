@@ -263,7 +263,7 @@ export default function UseCaseWizard() {
                                                 <span className="text-xl font-heading text-black">{tool.name.charAt(0)}</span>
                                             )}
                                         </div>
-                                        <h3 className="font-bold text-black text-base mb-1 group-hover:text-blue-600 transition-colors">{tool.name}</h3>
+                                        <h3 className="font-bold text-black text-base mb-1 group-hover:text-black dark:text-white transition-colors">{tool.name}</h3>
                                         <p className="text-xs text-gray-500 line-clamp-2 mb-3">{tool.shortDescription}</p>
                                         <div className="flex items-center gap-2">
                                             <span className="text-[10px] px-2 py-0.5 bg-gray-100 text-gray-600 rounded-md font-bold uppercase">{tool.pricingType}</span>

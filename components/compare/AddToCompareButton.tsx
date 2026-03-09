@@ -37,8 +37,8 @@ export default function AddToCompareButton({ tool, className = '' }: { tool: Com
         <button
             onClick={handleToggle}
             className={`flex items-center justify-center p-2 rounded-full transition-all duration-300 ${isSelected
-                    ? 'bg-blue-600 border-blue-600 text-white hover:bg-blue-700'
-                    : 'bg-white border border-gray-200 text-gray-400 hover:border-blue-600 hover:text-blue-600'
+                    ? 'bg-black dark:bg-white text-white dark:text-black border-blue-600 text-white hover:bg-gray-800 dark:hover:bg-gray-200'
+                    : 'bg-white border border-gray-200 text-gray-400 hover:border-blue-600 hover:text-black dark:text-white'
                 } ${className}`}
             aria-label={isSelected ? "Remove from Compare" : "Add to Compare"}
             title={isSelected ? "Remove from Compare" : "Add to Compare"}

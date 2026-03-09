@@ -96,7 +96,7 @@ export default function ComparePage() {
                                         <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">Pricing & Category</div>
                                         <div className="flex gap-2 mt-1">
                                             <span className="text-xs px-2.5 py-1 bg-gray-100 text-gray-600 rounded-lg font-bold uppercase tracking-wider">{tool.pricingType}</span>
-                                            <span className="text-xs px-2.5 py-1 bg-blue-50 text-blue-600 rounded-lg font-bold uppercase tracking-wider">{tool.primaryCategory}</span>
+                                            <span className="text-xs px-2.5 py-1 bg-gray-100 dark:bg-gray-900 text-black dark:text-white rounded-lg font-bold uppercase tracking-wider">{tool.primaryCategory}</span>
                                         </div>
                                     </div>
 
