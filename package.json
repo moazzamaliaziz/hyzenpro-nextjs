@@ -17,10 +17,12 @@
     "@auth/prisma-adapter": "^2.0.0",
     "@prisma/client": "^6.0.0",
     "@radix-ui/react-slot": "^1.2.0",
+    "@react-three/fiber": "^9.5.0",
     "@tiptap/extension-image": "^2.11.0",
     "@tiptap/extension-link": "^2.11.0",
     "@tiptap/react": "^2.11.0",
     "@tiptap/starter-kit": "^2.11.0",
+    "@types/three": "^0.183.1",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -30,7 +32,8 @@
     "next-auth": "beta",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwind-merge": "^2.2.0"
+    "tailwind-merge": "^2.2.0",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.0",

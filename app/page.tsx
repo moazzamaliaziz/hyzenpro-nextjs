@@ -7,6 +7,7 @@ import ToolCard from '@/components/tools/ToolCard';
 import AdSlot from '@/components/ads/AdSlot';
 import TweetCard from '@/components/social/TweetCard';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
+import NeuralGlobe from '@/components/ui/NeuralGlobe';
 import {
     Terminal, Search, ArrowRight, Zap, Shield, Eye,
     BarChart3, Flame, Clock, Sparkles, LayoutGrid, CheckCircle2,
@@ -154,27 +155,25 @@ export default async function HomePage() {
             <main className="overflow-hidden">
 
                 {/* ═══ SECTION 1: HERO ═══════════════════════════════════ */}
-                <section className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden" aria-label="Hero">
-                    {/* Gradient Mesh Background */}
-                    <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-black dark:bg-white/8 dark:bg-black dark:bg-white/5 rounded-full blur-[120px]" />
-                        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gray-300 dark:bg-gray-700/6 dark:bg-gray-300 dark:bg-gray-700/4 rounded-full blur-[100px]" />
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 dark:via-gray-950/60 to-white dark:to-gray-950" />
-                    </div>
+                <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden" aria-label="Hero">
+                    {/* 3D Animated AI Background */}
+                    <NeuralGlobe />
 
                     <div className="container relative z-10 max-w-5xl text-center px-4">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 dark:bg-gray-900 dark:bg-black dark:bg-white/10 border border-gray-200 dark:border-gray-700 dark:border-gray-800 text-xs font-bold uppercase tracking-widest text-black dark:text-white dark:text-black dark:text-white mb-8 animate-fade-in-up">
-                            <Sparkles className="w-3.5 h-3.5" />
-                            {toolCount}+ AI Tools Indexed
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-md border border-gray-200 dark:border-gray-800 mb-8 mx-auto shadow-sm animate-fade-in-up">
+                            <Sparkles className="w-3.5 h-3.5 text-black dark:text-white" />
+                            <span className="text-xs font-bold text-black dark:text-white uppercase tracking-widest">
+                                {toolCount}+ AI Tools Indexed
+                            </span>
                         </div>
 
-                        <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tighter text-black dark:text-white mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                        <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tighter text-black dark:text-white mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                             {heroTitle.split(' ').map((word, i) => {
                                 const accentWords = ['AI', 'Everyone', 'Perfect', 'Best'];
                                 return (
                                     <span key={i}>
                                         {accentWords.includes(word) ? (
-                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">{word}</span>
+                                            <span className="text-gray-500 dark:text-gray-400 italic font-light">{word}</span>
                                         ) : word}
                                         {' '}
                                     </span>
@@ -182,7 +181,7 @@ export default async function HomePage() {
                             })}
                         </h1>
 
-                        <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 text-balance mx-auto max-w-2xl mb-10 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                        <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 text-balance mx-auto max-w-2xl mb-12 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                             {heroSubtitle}
                         </p>
 
@@ -190,13 +189,13 @@ export default async function HomePage() {
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                             <Link
                                 href="/ai-tools-directory/"
-                                className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 text-white font-bold text-sm uppercase tracking-wider rounded-xl transition-all duration-300 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.4)] flex items-center gap-2"
+                                className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black font-bold text-sm uppercase tracking-wider rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center gap-2"
                             >
                                 Browse AI Tools <ArrowRight className="w-4 h-4" />
                             </Link>
                             <Link
                                 href="/compare/"
-                                className="px-8 py-4 bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 text-black dark:text-white font-bold text-sm uppercase tracking-wider rounded-xl hover:border-indigo-300 dark:hover:border-indigo-500 hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+                                className="px-8 py-4 bg-white/50 dark:bg-black/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-800 text-black dark:text-white font-bold text-sm uppercase tracking-wider rounded-xl hover:border-black dark:hover:border-white hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-300 flex items-center gap-2"
                             >
                                 <Zap className="w-4 h-4" /> Compare Tools
                             </Link>
