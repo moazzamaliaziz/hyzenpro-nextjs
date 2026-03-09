@@ -141,6 +141,22 @@ model VerificationToken {
 }
 
 // ==========================================
+// SITE CONTENT (Dashboard-editable homepage sections)
+// ==========================================
+
+model SiteContent {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  sectionId String   @unique // e.g. "hero", "stats", "social-proof", "cta"
+  title     String?
+  subtitle  String?
+  content   Json?    // Flexible JSON for section-specific data
+  enabled   Boolean  @default(true)
+  sortOrder Int      @default(0)
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
+
+// ==========================================
 // EMBEDDED TYPES
 // ==========================================
 

@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import { LayoutDashboard, Box, Tags, FileText, Settings, LogOut, MessageSquare } from 'lucide-react';
+import { LayoutDashboard, Box, Tags, FileText, Settings, LogOut, MessageSquare, Home, Menu as MenuIcon } from 'lucide-react';
 import { signOut } from '@/lib/auth';
 
 const navItems = [
     { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
+    { href: '/admin/homepage', label: 'Homepage', icon: Home },
+    { href: '/admin/navigation', label: 'Navigation', icon: MenuIcon },
     { href: '/admin/tools', label: 'AI Tools', icon: Box },
     { href: '/admin/categories', label: 'Categories', icon: Tags },
     { href: '/admin/posts', label: 'Blog Posts', icon: FileText },

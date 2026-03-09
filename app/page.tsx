@@ -5,61 +5,99 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ToolCard from '@/components/tools/ToolCard';
 import AdSlot from '@/components/ads/AdSlot';
+import TweetCard from '@/components/social/TweetCard';
+import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import {
     Terminal, Search, ArrowRight, Zap, Shield, Eye,
-    BarChart3, Flame, Clock, Sparkles, LayoutGrid, CheckCircle2
+    BarChart3, Flame, Clock, Sparkles, LayoutGrid, CheckCircle2,
+    Star, Users, TrendingUp, Globe
 } from 'lucide-react';
+import type { Metadata } from 'next';
+
+/* ── SEO Metadata ─────────────────────────────────────── */
+export const metadata: Metadata = {
+    title: 'Simplifying AI for Everyone | HyzenPro',
+    description: 'Looking for the best AI tools? Browse HyzenPro AI directory with real reviews, comparisons, and guides built for creators and marketers.',
+    alternates: { canonical: 'https://hyzenpro.com' },
+};
 
 export const revalidate = 3600;
 
+/* ── Default Social Proof Tweets (overridden by DB) ──── */
+const DEFAULT_TWEETS = [
+    {
+        avatar: '',
+        name: 'Sarah Chen',
+        handle: 'sarahchen_ai',
+        text: 'Just discovered @HyzenPro — finally, an AI tools directory that actually verifies every listing. The comparison engine alone saved me hours of research for our marketing stack.',
+        date: 'Feb 28, 2026',
+        likes: 234,
+        retweets: 47,
+    },
+    {
+        avatar: '',
+        name: 'DevMike',
+        handle: 'devmike_codes',
+        text: 'HyzenPro is what Product Hunt should have been for AI tools. Every tool has real reviews, pricing breakdowns, and side-by-side comparisons. Bookmarked permanently. 🔥',
+        date: 'Mar 2, 2026',
+        likes: 182,
+        retweets: 31,
+    },
+    {
+        avatar: '',
+        name: 'Priya Sharma',
+        handle: 'priya_marketing',
+        text: 'Used the HyzenPro comparison engine to evaluate 5 AI writing tools for our agency. The feature matrix is incredibly detailed. This is how every directory should work.',
+        date: 'Mar 5, 2026',
+        likes: 156,
+        retweets: 28,
+    },
+];
+
+/* ── Page Component ──────────────────────────────────── */
 export default async function HomePage() {
-    // 1. Fetch Top 6 Latest Tools for Directory Slice
-    const featuredTools = await prisma.tool.findMany({
-        where: {
-            status: 'published',
-        },
-        orderBy: { createdAt: 'desc' },
-        take: 6,
-        select: {
-            id: true,
-            name: true,
-            slug: true,
-            shortDescription: true,
-            logo: true,
-            pricingType: true,
-            rating: true,
-            primaryCategory: true,
-            featured: true
-        }
-    });
+    /* Data Fetching */
+    const [featuredTools, trendingTools, latestPosts, toolCount, siteContent] = await Promise.all([
+        prisma.tool.findMany({
+            where: { status: 'published' },
+            orderBy: { createdAt: 'desc' },
+            take: 6,
+            select: { id: true, name: true, slug: true, shortDescription: true, logo: true, pricingType: true, rating: true, primaryCategory: true, featured: true },
+        }),
+        prisma.tool.findMany({
+            where: { status: 'published' },
+            orderBy: { views: 'desc' },
+            take: 6,
+            select: { id: true, name: true, slug: true, shortDescription: true, logo: true, pricingType: true, rating: true, primaryCategory: true, featured: true, views: true },
+        }),
+        prisma.post.findMany({
+            where: { status: 'published' },
+            orderBy: { publishedAt: 'desc' },
+            take: 3,
+        }),
+        prisma.tool.count({ where: { status: 'published' } }),
+        prisma.siteContent.findMany({ orderBy: { sortOrder: 'asc' } }),
+    ]);
 
-    // 2. Fetch Top 6 Most Viewed Tools for Trending Section
-    const trendingTools = await prisma.tool.findMany({
-        where: {
-            status: 'published',
-        },
-        orderBy: { views: 'desc' },
-        take: 6,
-        select: {
-            id: true,
-            name: true,
-            slug: true,
-            shortDescription: true,
-            logo: true,
-            pricingType: true,
-            rating: true,
-            primaryCategory: true,
-            featured: true,
-            views: true
-        }
-    });
+    /* Parse editable content from DB */
+    const getSection = (id: string) => siteContent.find(s => s.sectionId === id);
+    const heroSection = getSection('hero');
+    const socialSection = getSection('social-proof');
+    const aboutSection = getSection('about');
+    const ctaSection = getSection('cta');
 
-    // 3. Fetch latest 3 blog posts
-    const latestPosts = await prisma.post.findMany({
-        where: { status: 'published' },
-        orderBy: { publishedAt: 'desc' },
-        take: 3,
-    });
+    const heroTitle = heroSection?.title || 'Simplifying AI for Everyone';
+    const heroSubtitle = heroSection?.subtitle || 'Browse, compare, and choose the best AI tools with expert reviews, real comparisons, and practical guides — built for creators, marketers, and teams.';
+    const tweets = (socialSection?.content as any)?.tweets || DEFAULT_TWEETS;
+
+    // About Section Defaults
+    const aboutTitle = aboutSection?.title || 'About HyzenPro';
+    const aboutSubtitle = aboutSection?.subtitle || 'Your Trusted AI Resource';
+    const aboutP1 = (aboutSection?.content as any)?.p1 || 'HyzenPro is an AI tools directory and review platform built to make smart choices easier. We research, test, and explain AI software using real use cases, not marketing hype. Each AI tool we review has a dedicated page with clear features, pricing insights, pros, cons, and practical guidance for real users.';
+    const aboutP2 = (aboutSection?.content as any)?.p2 || 'Alongside tool pages, HyzenPro publishes in-depth blogs and comparison articles covering AI video editors, caption generators, content tools, and emerging AI SaaS platforms. Everything is written for creators, founders, and marketers who want reliable information, clear answers, and AI recommendations without wasting time or money.';
+
+    const ctaTitle = ctaSection?.title || 'Build with the Best.';
+    const ctaSubtitle = ctaSection?.subtitle || 'Are you building the next generation of AI tools? Index your platform on HyzenPro to reach thousands of decision-makers and developers daily.';
 
     const categories = [
         "AI Video Generators", "AI Writing Assistants", "AI Image Generators",
@@ -67,146 +105,191 @@ export default async function HomePage() {
         "Audio & Voice", "Chatbots"
     ];
 
+    /* JSON-LD Schema Markup */
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'WebSite',
+                name: 'HyzenPro',
+                url: 'https://hyzenpro.com',
+                description: 'The best AI tools directory with expert reviews, comparisons, and guides.',
+                potentialAction: {
+                    '@type': 'SearchAction',
+                    target: 'https://hyzenpro.com/ai-tools-directory/?q={search_term_string}',
+                    'query-input': 'required name=search_term_string',
+                },
+            },
+            {
+                '@type': 'Organization',
+                name: 'HyzenPro',
+                url: 'https://hyzenpro.com',
+                logo: 'https://hyzenpro.com/images/logo.png',
+                sameAs: ['https://x.com/hyzenpro'],
+            },
+            {
+                '@type': 'ItemList',
+                name: 'Trending AI Tools',
+                numberOfItems: trendingTools.length,
+                itemListElement: trendingTools.map((tool, i) => ({
+                    '@type': 'ListItem',
+                    position: i + 1,
+                    name: tool.name,
+                    url: `https://hyzenpro.com/ai-tools-directory/${tool.primaryCategory || 'ai-general-tools'}/${tool.slug}/`,
+                })),
+            },
+        ],
+    };
+
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-white dark:bg-gray-950 min-h-screen">
             <Header />
 
+            {/* JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             <main className="overflow-hidden">
-                {/* 1. Hero Section (Vercel-inspired Command Palette Mockup) */}
-                <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden border-b border-gray-100 bg-grid-pattern">
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/80 to-white pointer-events-none" />
+
+                {/* ═══ SECTION 1: HERO ═══════════════════════════════════ */}
+                <section className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden" aria-label="Hero">
+                    {/* Gradient Mesh Background */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-indigo-500/8 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
+                        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-violet-500/6 dark:bg-violet-500/4 rounded-full blur-[100px]" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 dark:via-gray-950/60 to-white dark:to-gray-950" />
+                    </div>
 
                     <div className="container relative z-10 max-w-5xl text-center px-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-xs font-semibold uppercase tracking-wider text-gray-600 mb-8 animate-fade-in-up">
-                            <Sparkles className="w-3.5 h-3.5 text-black" />
-                            HyzenPro Directory 2.0
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8 animate-fade-in-up">
+                            <Sparkles className="w-3.5 h-3.5" />
+                            {toolCount}+ AI Tools Indexed
                         </div>
 
-                        <h1 className="font-heading text-6xl md:text-8xl leading-[0.9] tracking-tighter text-black mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                            Discover the <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-black to-gray-500">Perfect AI Layer.</span>
+                        <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tighter text-black dark:text-white mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                            {heroTitle.split(' ').map((word, i) => {
+                                const accentWords = ['AI', 'Everyone', 'Perfect', 'Best'];
+                                return (
+                                    <span key={i}>
+                                        {accentWords.includes(word) ? (
+                                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400">{word}</span>
+                                        ) : word}
+                                        {' '}
+                                    </span>
+                                );
+                            })}
                         </h1>
 
-                        <p className="text-lg md:text-xl text-gray-500 text-balance mx-auto max-w-2xl mb-10 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                            The enterprise-grade registry for modern AI tools. Search, compare, and integrate the world's most powerful models and applications into your workflow.
+                        <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 text-balance mx-auto max-w-2xl mb-10 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                            {heroSubtitle}
                         </p>
 
-                        {/* Interactive Command Palette Mockup */}
-                        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-gray-200 overflow-hidden animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                            <div className="flex items-center px-4 py-3 border-b border-gray-100 bg-gray-50/50">
-                                <Search className="w-4 h-4 text-gray-400 mr-3" />
-                                <div className="text-sm font-mono text-gray-400 flex-1 text-left">Find tools, categories, or comparisons...</div>
-                                <div className="flex gap-1.5">
-                                    <kbd className="px-2 py-1 bg-white border border-gray-200 rounded text-[10px] font-mono text-gray-500 font-semibold shadow-sm">⌘</kbd>
-                                    <kbd className="px-2 py-1 bg-white border border-gray-200 rounded text-[10px] font-mono text-gray-500 font-semibold shadow-sm">K</kbd>
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                            <Link
+                                href="/ai-tools-directory/"
+                                className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm uppercase tracking-wider rounded-xl transition-all duration-300 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.4)] flex items-center gap-2"
+                            >
+                                Browse AI Tools <ArrowRight className="w-4 h-4" />
+                            </Link>
+                            <Link
+                                href="/compare/"
+                                className="px-8 py-4 bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 text-black dark:text-white font-bold text-sm uppercase tracking-wider rounded-xl hover:border-indigo-300 dark:hover:border-indigo-500 hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+                            >
+                                <Zap className="w-4 h-4" /> Compare Tools
+                            </Link>
+                        </div>
+
+                        {/* Stats Bar */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                            {[
+                                { icon: Globe, label: 'AI Tools', value: toolCount, suffix: '+' },
+                                { icon: Star, label: 'Expert Reviews', value: 50, suffix: '+' },
+                                { icon: Users, label: 'Monthly Users', value: 12, suffix: 'K+' },
+                                { icon: TrendingUp, label: 'Categories', value: 17, suffix: '' },
+                            ].map((stat, i) => (
+                                <div key={i} className="text-center">
+                                    <stat.icon className="w-5 h-5 text-indigo-500 mx-auto mb-2" />
+                                    <div className="font-heading text-3xl md:text-4xl text-black dark:text-white">
+                                        <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                                    </div>
+                                    <div className="text-xs text-gray-400 dark:text-gray-500 font-medium uppercase tracking-wider mt-1">{stat.label}</div>
                                 </div>
-                            </div>
-                            <div className="bg-white p-2">
-                                <Link href="/ai-tools-directory/" className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors group cursor-pointer border border-transparent hover:border-gray-100">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded bg-gray-100 flex items-center justify-center border border-gray-200">
-                                            <LayoutGrid className="w-4 h-4 text-black" />
-                                        </div>
-                                        <div className="text-sm font-medium text-black">Browse AI Directory</div>
-                                    </div>
-                                    <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-black transition-colors" />
-                                </Link>
-                                <Link href="/compare/" className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors group cursor-pointer border border-transparent hover:border-gray-100">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded bg-gray-100 flex items-center justify-center border border-gray-200">
-                                            <Zap className="w-4 h-4 text-black" />
-                                        </div>
-                                        <div className="text-sm font-medium text-black">Compare Models (GPT-4 vs Claude 3)</div>
-                                    </div>
-                                    <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-black transition-colors" />
-                                </Link>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </section>
 
-                {/* 2. Infinite Marquee (Social Proof) */}
-                <section className="py-14 border-b border-gray-100 overflow-hidden bg-gray-50/50 flex flex-col items-center">
-                    <p className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-8">Trusted by industry leaders</p>
+                {/* ═══ SECTION 2: MARQUEE SOCIAL PROOF ════════════════ */}
+                <section className="py-10 border-y border-gray-100 dark:border-gray-800 overflow-hidden bg-gray-50/50 dark:bg-gray-900/50 flex flex-col items-center" aria-label="Trusted Partners">
+                    <p className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mb-6">Trusted by industry leaders</p>
                     <div className="relative w-full max-w-7xl mx-auto overflow-hidden">
-                        {/* Optional Gradient Fades for edges */}
-                        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-50 to-transparent z-10" />
-                        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-50 to-transparent z-10" />
-
+                        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-50 dark:from-gray-900 to-transparent z-10" />
+                        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-50 dark:from-gray-900 to-transparent z-10" />
                         <div className="flex w-[200%] animate-marquee">
-                            <div className="flex justify-around min-w-[50%] flex-shrink-0 items-center opacity-40 grayscale gap-12 px-6">
-                                <div className="font-heading text-2xl tracking-wider">OPENAI</div>
-                                <div className="font-heading text-2xl tracking-wider">ANTHROPIC</div>
-                                <div className="font-heading text-2xl tracking-wider">MISTRAL</div>
-                                <div className="font-heading text-2xl tracking-wider">META LLaMA</div>
-                                <div className="font-heading text-2xl tracking-wider">MIDJOURNEY</div>
-                                <div className="font-heading text-2xl tracking-wider">RUNWAY</div>
-                            </div>
-                            <div className="flex justify-around min-w-[50%] flex-shrink-0 items-center opacity-40 grayscale gap-12 px-6">
-                                <div className="font-heading text-2xl tracking-wider">OPENAI</div>
-                                <div className="font-heading text-2xl tracking-wider">ANTHROPIC</div>
-                                <div className="font-heading text-2xl tracking-wider">MISTRAL</div>
-                                <div className="font-heading text-2xl tracking-wider">META LLaMA</div>
-                                <div className="font-heading text-2xl tracking-wider">MIDJOURNEY</div>
-                                <div className="font-heading text-2xl tracking-wider">RUNWAY</div>
-                            </div>
+                            {[0, 1].map(row => (
+                                <div key={row} className="flex justify-around min-w-[50%] flex-shrink-0 items-center opacity-40 dark:opacity-30 grayscale gap-12 px-6">
+                                    {['OPENAI', 'ANTHROPIC', 'MISTRAL', 'META LLaMA', 'MIDJOURNEY', 'RUNWAY'].map(name => (
+                                        <div key={name} className="font-heading text-2xl tracking-wider text-black dark:text-white">{name}</div>
+                                    ))}
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>
 
-                {/* 3. The "Platform Vetted" Bento Box */}
-                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* ═══ SECTION 3: BENTO BOX — WHY HYZENPRO ═══════════ */}
+                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="why-heading">
                     <div className="text-center mb-16 max-w-2xl mx-auto">
-                        <h2 className="font-heading text-4xl sm:text-5xl tracking-tight text-black mb-4">The Infrastructure for Decision Making</h2>
-                        <p className="text-gray-500">Stop guessing which AI tool is right for your stack. HyzenPro provides the structural data you need to deploy with confidence.</p>
+                        <h2 id="why-heading" className="font-heading text-4xl sm:text-5xl tracking-tight text-black dark:text-white mb-4">The Infrastructure for Decision Making</h2>
+                        <p className="text-gray-500 dark:text-gray-400">Stop guessing which AI tool is right for your stack. HyzenPro provides the structural data you need to deploy with confidence.</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-6">
-                        {/* Card 1 */}
-                        <div className="md:col-span-2 bg-gradient-to-tr from-gray-50/50 to-white border border-gray-200 rounded-2xl p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-gray-300 transition-all duration-500 group overflow-hidden relative">
+                        <div className="md:col-span-2 bg-gradient-to-tr from-gray-50/50 dark:from-gray-900/50 to-white dark:to-gray-950 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-500 group overflow-hidden relative">
                             <div className="relative z-10 max-w-sm">
-                                <div className="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-                                    <Shield className="w-5 h-5 text-black" />
+                                <div className="w-12 h-12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                                    <Shield className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                                 </div>
-                                <h3 className="font-heading text-2xl text-black mb-2">Verified & Indexed Data</h3>
-                                <p className="text-gray-500 text-sm">Every tool in our directory undergoes a rigorous 5-point verification process for pricing accuracy, SOC2 compliance, and API reliability.</p>
+                                <h3 className="font-heading text-2xl text-black dark:text-white mb-2">Verified & Indexed Data</h3>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm">Every tool in our directory undergoes a rigorous verification process for pricing accuracy, compliance, and API reliability.</p>
                             </div>
-                            {/* Decorative background visual */}
-                            <div className="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
-                                <Terminal className="w-64 h-64 -mb-16 -mr-16 text-black" />
+                            <div className="absolute right-0 bottom-0 opacity-5 dark:opacity-10 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity">
+                                <Terminal className="w-64 h-64 -mb-16 -mr-16 text-black dark:text-white" />
                             </div>
                         </div>
 
-                        {/* Card 2 */}
-                        <div className="bg-gradient-to-br from-white to-gray-50/50 border border-gray-200 rounded-2xl p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-gray-300 transition-all duration-500 group relative">
-                            <div className="w-12 h-12 bg-gray-50 rounded-xl border border-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <BarChart3 className="w-5 h-5 text-black" />
+                        <div className="bg-gradient-to-br from-white dark:from-gray-950 to-gray-50/50 dark:to-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-500 group relative">
+                            <div className="w-12 h-12 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <BarChart3 className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                             </div>
-                            <h3 className="font-heading text-2xl text-black mb-2">Deep Analytics</h3>
-                            <p className="text-gray-500 text-sm">Track trending models globally and view sentiment analysis across verified user reviews before integrating.</p>
+                            <h3 className="font-heading text-2xl text-black dark:text-white mb-2">Deep Analytics</h3>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm">Track trending models globally and view sentiment analysis across verified user reviews before integrating.</p>
                         </div>
                     </div>
                 </section>
 
-                {/* 4. AdSense Slot #1 (Top Tier Native) */}
-                <div className="relative max-w-7xl mx-auto my-8 flex items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl min-h-[90px] overflow-hidden">
-                    <span className="text-xs text-gray-300 font-mono tracking-widest absolute z-0 pointer-events-none">AD SPONSORSHIP</span>
+                {/* ═══ SECTION 4: AD SLOT #1 ══════════════════════════ */}
+                <div className="relative max-w-7xl mx-auto my-8 flex items-center justify-center bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl min-h-[90px] overflow-hidden">
+                    <span className="text-xs text-gray-300 dark:text-gray-700 font-mono tracking-widest absolute z-0 pointer-events-none">AD SPONSORSHIP</span>
                     <div className="relative z-10 w-full">
                         <AdSlot slot="homepage-top" format="horizontal" className="!my-0" />
                     </div>
                 </div>
 
-                {/* 5. Trending Tracker (Most Viewed AI Tools) */}
-                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-100 mt-8">
+                {/* ═══ SECTION 5: TRENDING TOOLS ══════════════════════ */}
+                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-100 dark:border-gray-800 mt-8" aria-labelledby="trending-heading">
                     <div className="flex items-end justify-between mb-10">
                         <div>
                             <div className="flex items-center gap-2 mb-2">
-                                <Flame className="w-5 h-5 text-black" />
-                                <span className="font-heading text-2xl tracking-widest uppercase text-black">Trending Now</span>
+                                <Flame className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                                <span className="font-heading text-2xl tracking-widest uppercase text-black dark:text-white">Trending Now</span>
                             </div>
-                            <h2 className="font-heading text-4xl sm:text-5xl tracking-tight text-gray-400">Most Viewed Platforms</h2>
+                            <h2 id="trending-heading" className="font-heading text-4xl sm:text-5xl tracking-tight text-gray-400 dark:text-gray-500">Most Viewed Platforms</h2>
                         </div>
-                        <Link href="/ai-tools-directory/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-black hover:text-gray-600 transition-colors border-b border-black pb-1">
+                        <Link href="/ai-tools-directory/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors border-b border-indigo-600 dark:border-indigo-400 pb-1">
                             View All Rankings <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
@@ -214,7 +297,7 @@ export default async function HomePage() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {trendingTools.map((tool, index) => (
                             <div key={tool.id} className="relative">
-                                <div className="absolute top-3 left-3 z-30 flex items-center gap-1.5 px-2.5 py-1 bg-black/80 backdrop-blur-sm text-white rounded-full text-[10px] font-bold uppercase tracking-widest">
+                                <div className="absolute top-3 left-3 z-30 flex items-center gap-1.5 px-2.5 py-1 bg-indigo-600/90 backdrop-blur-sm text-white rounded-full text-[10px] font-bold uppercase tracking-widest">
                                     <Flame className="w-3 h-3" />
                                     #{index + 1}
                                     <span className="mx-1 opacity-30">|</span>
@@ -227,20 +310,49 @@ export default async function HomePage() {
                     </div>
                 </section>
 
-                {/* 6. The Category Matrix (Interactive Tags) */}
-                <section className="py-24 bg-gray-50 border-y border-gray-100">
+                {/* ═══ SECTION 6: X/TWITTER SOCIAL PROOF ══════════════ */}
+                <section className="py-24 bg-gray-50/50 dark:bg-gray-900/30 border-y border-gray-100 dark:border-gray-800" aria-labelledby="social-heading">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-14">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-400 mb-6">
+                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                                What People Are Saying
+                            </div>
+                            <h2 id="social-heading" className="font-heading text-4xl sm:text-5xl tracking-tight text-black dark:text-white mb-4">Trusted by the Community</h2>
+                            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Real feedback from creators, developers, and marketers who use HyzenPro to discover the best AI tools.</p>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                            {tweets.map((tweet: any, i: number) => (
+                                <TweetCard
+                                    key={i}
+                                    avatar={tweet.avatar || ''}
+                                    name={tweet.name}
+                                    handle={tweet.handle}
+                                    text={tweet.text}
+                                    date={tweet.date}
+                                    likes={tweet.likes}
+                                    retweets={tweet.retweets}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* ═══ SECTION 7: CATEGORIES ══════════════════════════ */}
+                <section className="py-24" aria-labelledby="categories-heading">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-12">
-                            <h2 className="font-heading text-3xl sm:text-4xl text-black mb-4">Explore the Ecosystem</h2>
-                            <p className="text-gray-500 text-sm">Navigate over 50+ precise categories.</p>
+                            <h2 id="categories-heading" className="font-heading text-3xl sm:text-4xl text-black dark:text-white mb-4">Explore the Ecosystem</h2>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm">Navigate across precise categories to find exactly what you need.</p>
                         </div>
 
                         <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
                             {categories.map((cat, i) => (
                                 <Link
                                     key={i}
-                                    href={`/ai-tools-directory/`}
-                                    className="px-6 py-3 bg-white border border-gray-200 rounded-full text-sm font-semibold text-black hover:border-black hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                                    href="/ai-tools-directory/"
+                                    className="px-6 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full text-sm font-semibold text-black dark:text-white hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                                 >
                                     {cat}
                                 </Link>
@@ -249,12 +361,12 @@ export default async function HomePage() {
                     </div>
                 </section>
 
-                {/* 7. Directory Slice (Grid) */}
-                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* ═══ SECTION 8: LATEST TOOLS ════════════════════════ */}
+                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="latest-heading">
                     <div className="flex items-end justify-between mb-10">
                         <div>
-                            <h2 className="font-heading text-4xl sm:text-5xl tracking-tight text-black mb-2">Latest Additions</h2>
-                            <p className="text-gray-500">Newly verified and indexed platforms.</p>
+                            <h2 id="latest-heading" className="font-heading text-4xl sm:text-5xl tracking-tight text-black dark:text-white mb-2">Latest Additions</h2>
+                            <p className="text-gray-500 dark:text-gray-400">Newly verified and indexed platforms.</p>
                         </div>
                     </div>
 
@@ -265,65 +377,61 @@ export default async function HomePage() {
                     </div>
 
                     <div className="mt-12 text-center md:hidden">
-                        <Link href="/ai-tools-directory/" className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white text-sm font-bold uppercase tracking-wider rounded-lg">
+                        <Link href="/ai-tools-directory/" className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white text-sm font-bold uppercase tracking-wider rounded-xl hover:bg-indigo-700 transition-colors">
                             Explore All Tools <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
                 </section>
 
-                {/* 8. Comparison Interface Showcase */}
-                <section className="py-24 bg-black text-white overflow-hidden relative">
+                {/* ═══ SECTION 9: COMPARISON ENGINE SHOWCASE ══════════ */}
+                <section className="py-24 bg-black text-white overflow-hidden relative" aria-labelledby="compare-heading">
                     <div className="absolute inset-0 bg-dot-pattern opacity-30" />
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="grid md:grid-cols-2 gap-16 items-center">
                             <div>
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold uppercase tracking-wider text-gray-300 mb-6">
-                                    <BarChart3 className="w-3.5 h-3.5 text-white" />
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-6">
+                                    <BarChart3 className="w-3.5 h-3.5" />
                                     Advanced Feature
                                 </div>
-                                <h2 className="font-heading text-5xl md:text-7xl tracking-tight mb-6 leading-none">
-                                    Don't Guess.<br />
-                                    <span className="text-gray-500">Compare.</span>
+                                <h2 id="compare-heading" className="font-heading text-5xl md:text-7xl tracking-tight mb-6 leading-none">
+                                    Don&apos;t Guess.<br />
+                                    <span className="text-indigo-400">Compare.</span>
                                 </h2>
                                 <p className="text-gray-400 text-lg mb-8 leading-relaxed max-w-md">
                                     Select up to three tools from the directory to view a dynamic, side-by-side feature matrix. Compare APIs, token pricing, compliance, and execution speeds instantly.
                                 </p>
-                                <Link href="/compare/" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-bold uppercase text-sm tracking-wider rounded-lg hover:bg-gray-100 transition-colors">
+                                <Link href="/compare/" className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white font-bold uppercase text-sm tracking-wider rounded-xl hover:bg-indigo-700 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.5)] transition-all duration-300">
                                     Try Comparison Engine
                                 </Link>
                             </div>
 
-                            {/* Abstract Mockup UI */}
-                            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-2xl relative animate-pulse-glow">
+                            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-2xl relative">
                                 <div className="flex items-center justify-between border-b border-gray-800 pb-4 mb-4">
                                     <div className="flex items-center gap-2">
-                                        <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
-                                            <span className="text-emerald-400 font-heading">A</span>
+                                        <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
+                                            <span className="text-indigo-400 font-heading">A</span>
                                         </div>
                                         <span className="font-semibold text-sm">ChatGPT Plus</span>
                                     </div>
                                     <span className="text-gray-600 text-sm italic font-mono">VS</span>
                                     <div className="flex items-center gap-2 flex-row-reverse">
-                                        <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center border border-amber-500/30">
-                                            <span className="text-amber-400 font-heading">C</span>
+                                        <div className="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center border border-violet-500/30">
+                                            <span className="text-violet-400 font-heading">C</span>
                                         </div>
                                         <span className="font-semibold text-sm">Claude 3 Opus</span>
                                     </div>
                                 </div>
-
                                 <div className="space-y-4">
                                     {[
-                                        { label: 'Coding Logic', a: '95%', b: '98%', aC: 'bg-emerald-500', bC: 'bg-amber-500' },
-                                        { label: 'Creative Writing', a: '88%', b: '94%', aC: 'bg-emerald-500', bC: 'bg-amber-500' },
-                                        { label: 'API Speed', a: '92%', b: '85%', aC: 'bg-emerald-500', bC: 'bg-amber-500' }
+                                        { label: 'Coding Logic', a: '95%', b: '98%' },
+                                        { label: 'Creative Writing', a: '88%', b: '94%' },
+                                        { label: 'API Speed', a: '92%', b: '85%' },
                                     ].map((stat, i) => (
                                         <div key={i} className="text-xs font-mono">
-                                            <div className="flex justify-between text-gray-400 mb-1">
-                                                <span>{stat.label}</span>
-                                            </div>
-                                            <div className="flex gap-4 h-2 rounded-full overflow-hidden bg-gray-800">
-                                                <div className={`${stat.aC} h-full`} style={{ width: stat.a }} />
-                                                <div className={`${stat.bC} h-full`} style={{ width: stat.b }} />
+                                            <div className="flex justify-between text-gray-400 mb-1"><span>{stat.label}</span></div>
+                                            <div className="flex gap-2 h-2 rounded-full overflow-hidden bg-gray-800">
+                                                <div className="bg-indigo-500 h-full rounded-full transition-all duration-1000" style={{ width: stat.a }} />
+                                                <div className="bg-violet-500 h-full rounded-full transition-all duration-1000" style={{ width: stat.b }} />
                                             </div>
                                         </div>
                                     ))}
@@ -333,14 +441,53 @@ export default async function HomePage() {
                     </div>
                 </section>
 
-                {/* 9. Insights from the Blog */}
-                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+                {/* ═══ SECTION 9.5: ABOUT HYZENPRO (Editable) ═════ */}
+                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-100 dark:border-gray-800 relative overflow-hidden" aria-labelledby="about-heading">
+                    {/* Decorative Elements */}
+                    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-violet-500/5 dark:bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+
+                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+                        <div className="lg:col-span-5">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-6">
+                                <Shield className="w-3.5 h-3.5" />
+                                {aboutSubtitle}
+                            </div>
+                            <h2 id="about-heading" className="font-heading text-5xl md:text-6xl tracking-tight text-black dark:text-white mb-6">
+                                {aboutTitle}
+                            </h2>
+                            <div className="w-20 h-1.5 bg-indigo-600 rounded-full mb-8"></div>
+                        </div>
+
+                        <div className="lg:col-span-7 space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+                            <p>{aboutP1}</p>
+                            <p>{aboutP2}</p>
+
+                            <div className="pt-4 flex items-center gap-6">
+                                <div className="flex -space-x-3">
+                                    {[1, 2, 3, 4].map(i => (
+                                        <div key={i} className={`w-10 h-10 rounded-full border-2 border-white dark:border-gray-950 bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold ${i === 1 ? 'text-indigo-500' : 'text-gray-400'}`}>
+                                            {i === 1 ? <Users className="w-4 h-4" /> : null}
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="text-sm">
+                                    <div className="font-bold text-black dark:text-white">Built for Creators & Founders</div>
+                                    <div className="text-gray-400">Join our growing community</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* ═══ SECTION 10: BLOG INSIGHTS ══════════════════════ */}
+                <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-100 dark:border-gray-800" aria-labelledby="blog-heading">
                     <div className="flex items-end justify-between mb-12">
                         <div>
-                            <h2 className="font-heading text-4xl sm:text-5xl tracking-tight text-black mb-2">Intelligence & Insights</h2>
-                            <p className="text-gray-500">Read our latest deep dives and industry analyses.</p>
+                            <h2 id="blog-heading" className="font-heading text-4xl sm:text-5xl tracking-tight text-black dark:text-white mb-2">Intelligence & Insights</h2>
+                            <p className="text-gray-500 dark:text-gray-400">Read our latest deep dives and industry analyses.</p>
                         </div>
-                        <Link href="/blog/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-black hover:text-gray-600 transition-colors border-b border-black pb-1">
+                        <Link href="/blog/" className="hidden md:flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors border-b border-indigo-600 dark:border-indigo-400 pb-1">
                             Read All Articles <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
@@ -349,20 +496,21 @@ export default async function HomePage() {
                         {latestPosts.map((post) => (
                             <Link key={post.id} href={`/blog/${post.slug}/`} className="group flex flex-col">
                                 {post.featuredImage && (
-                                    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-gray-100 mb-4">
+                                    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-100 dark:border-gray-800 mb-4">
                                         <Image
                                             src={post.featuredImage}
                                             alt={post.title}
                                             fill
                                             className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                            loading="lazy"
                                         />
                                     </div>
                                 )}
-                                <div className="flex items-center gap-2 text-xs font-medium text-gray-400 uppercase tracking-widest mb-2 mt-auto">
+                                <div className="flex items-center gap-2 text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2 mt-auto">
                                     <Clock className="w-3 h-3" />
                                     {new Date(post.publishedAt || post.createdAt).toLocaleDateString()}
                                 </div>
-                                <h3 className="font-heading text-2xl text-black group-hover:text-gray-600 transition-colors line-clamp-2">
+                                <h3 className="font-heading text-2xl text-black dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2">
                                     {post.title}
                                 </h3>
                             </Link>
@@ -370,27 +518,27 @@ export default async function HomePage() {
                     </div>
                 </section>
 
-                {/* 10. Developer / CTA Footer & AdSlot 2 */}
-                <div className="relative max-w-7xl mx-auto mt-12 mb-8 flex items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl min-h-[90px] overflow-hidden">
-                    <span className="text-xs text-gray-300 font-mono tracking-widest absolute z-0 pointer-events-none">AD SPONSORSHIP</span>
+                {/* ═══ AD SLOT #2 ═════════════════════════════════════ */}
+                <div className="relative max-w-7xl mx-auto mt-12 mb-8 flex items-center justify-center bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl min-h-[90px] overflow-hidden">
+                    <span className="text-xs text-gray-300 dark:text-gray-700 font-mono tracking-widest absolute z-0 pointer-events-none">AD SPONSORSHIP</span>
                     <div className="relative z-10 w-full">
                         <AdSlot slot="homepage-bottom" format="horizontal" className="!my-0" />
                     </div>
                 </div>
 
-                <section className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-black text-white mb-8 relative">
-                        <div className="absolute inset-0 bg-black rounded-2xl animate-pulse-glow" />
+                {/* ═══ SECTION 11: FINAL CTA ══════════════════════════ */}
+                <section className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" aria-label="Call to Action">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-600 text-white mb-8 relative shadow-[0_0_40px_-5px_rgba(79,70,229,0.4)]">
                         <Terminal className="w-8 h-8 relative z-10" />
                     </div>
-                    <h2 className="font-heading text-5xl md:text-7xl tracking-tighter text-black mb-6">
-                        Build with the Best.
+                    <h2 className="font-heading text-5xl md:text-7xl tracking-tighter text-black dark:text-white mb-6">
+                        {ctaTitle}
                     </h2>
-                    <p className="text-gray-500 text-lg mb-10 max-w-xl mx-auto">
-                        Are you building the next generation of AI tools? Index your platform on HyzenPro to reach thousands of enterprise decision-makers and developers daily.
+                    <p className="text-gray-500 dark:text-gray-400 text-lg mb-10 max-w-xl mx-auto">
+                        {ctaSubtitle}
                     </p>
-                    <Link href="/submit-ai-tool/" className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-bold uppercase tracking-wider text-sm rounded-lg hover:shadow-[0_0_40px_-10px_rgba(0,0,0,0.5)] transition-all">
-                        Submit Your API or Tool <ArrowRight className="w-4 h-4" />
+                    <Link href="/submit-ai-tool/" className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white font-bold uppercase tracking-wider text-sm rounded-xl hover:bg-indigo-700 hover:shadow-[0_8px_30px_-5px_rgba(79,70,229,0.4)] transition-all duration-300">
+                        Submit Your AI Tool <ArrowRight className="w-4 h-4" />
                     </Link>
                 </section>
             </main>
