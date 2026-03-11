@@ -29,20 +29,14 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
         <div
             className="group relative flex flex-col bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-black dark:hover:border-white hover:shadow-[8px_8px_0px_#000] dark:hover:shadow-[8px_8px_0px_#fff]"
         >
-            <Link
-                href={toolUrl}
-                prefetch={true}
-                className="absolute inset-0 z-10"
-                aria-label={tool.name}
-            />
-
             {/* Subtle Solid Hover Reveal */}
             <div className="absolute inset-0 bg-gray-50/50 dark:bg-gray-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
 
             {/* Content Container */}
             <div className="relative z-10 p-6 flex-1 flex flex-col">
 
-                <div className="absolute top-3 right-3 z-20 flex gap-2 items-center">
+                {/* We elevate interactive absolute action buttons */}
+                <div className="absolute top-3 right-3 z-30 flex gap-2 items-center">
                     {tool.featured && (
                         <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-black dark:bg-white text-white dark:text-black border border-black dark:border-white">
                             Featured
@@ -76,7 +70,10 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
                     </div>
                     <div className="flex-1 min-w-0">
                         <h3 className="font-heading text-xl text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors duration-300 truncate">
-                            {tool.name}
+                            <Link href={toolUrl} prefetch={true} className="focus:outline-none" aria-label={`View details for ${tool.name}`}>
+                                <span className="absolute inset-0 z-20" aria-hidden="true" />
+                                {tool.name}
+                            </Link>
                         </h3>
                         {tool.rating && (
                             <div className="flex items-center gap-1 mt-1">

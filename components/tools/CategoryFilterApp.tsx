@@ -44,7 +44,8 @@ export default function CategoryFilterApp({ initialTools, allPricingTypes, allFe
 
             // Features Filter (Tool must have AT LEAST ONE of the selected features)
             if (selectedFeatures.length > 0) {
-                const hasFeature = selectedFeatures.some(f => tool.features.includes(f));
+                const toolFeatures = Array.isArray(tool.features) ? tool.features : [];
+                const hasFeature = selectedFeatures.some(f => toolFeatures.includes(f));
                 if (!hasFeature) return false;
             }
 
@@ -57,7 +58,7 @@ export default function CategoryFilterApp({ initialTools, allPricingTypes, allFe
         const tools = [...filteredTools];
         switch (sortBy) {
             case 'popular':
-                return tools.sort((a, b) => b.views - a.views);
+                return tools.sort((a, b) => (b.views || 0) - (a.views || 0));
             case 'newest':
                 // In a real app we'd sort by createdAt. Assuming views roughly correlates or we default to initial state
                 return tools;
@@ -133,6 +134,12 @@ export default function CategoryFilterApp({ initialTools, allPricingTypes, allFe
                         <div className="space-y-3">
                             {allPricingTypes.map(pricing => (
                                 <label key={pricing} className="flex items-center gap-3 cursor-pointer group">
+                                    <input 
+                                        type="checkbox" 
+                                        className="sr-only" 
+                                        checked={selectedPricing.includes(pricing)}
+                                        onChange={() => togglePricing(pricing)} 
+                                    />
                                     <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${
                                         selectedPricing.includes(pricing)
                                             ? 'bg-black border-black dark:bg-white dark:border-white'
@@ -154,6 +161,12 @@ export default function CategoryFilterApp({ initialTools, allPricingTypes, allFe
                         <div className="space-y-3">
                             {allFeatures.map(feature => (
                                 <label key={feature} className="flex items-center gap-3 cursor-pointer group">
+                                    <input 
+                                        type="checkbox" 
+                                        className="sr-only" 
+                                        checked={selectedFeatures.includes(feature)}
+                                        onChange={() => toggleFeature(feature)} 
+                                    />
                                     <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${
                                         selectedFeatures.includes(feature)
                                             ? 'bg-black border-black dark:bg-white dark:border-white'
