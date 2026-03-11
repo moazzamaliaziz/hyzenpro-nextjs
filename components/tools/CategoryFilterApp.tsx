@@ -8,15 +8,16 @@ interface Tool {
     id: string;
     name: string;
     slug: string;
-    tagline: string;
-    description: string;
-    logoUrl: string | null;
+    shortDescription: string;
+    logo?: string | null;
     pricingType: string;
-    pricingPlans: any[];
-    features: string[];
+    rating?: number | null;
+    primaryCategory?: string | null;
     views: number;
-    metrics: any;
-    status: string;
+    featured?: boolean;
+    features: string[];
+    status?: string;
+    longDescription?: string;
 }
 
 interface CategoryFilterAppProps {
