@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
@@ -17,10 +18,16 @@ export const metadata: Metadata = {
     },
 };
 
-async function getData() {
+async function getData(category?: string) {
     try {
+        const whereClause: any = { status: 'published' };
+        
+        if (category) {
+            whereClause.categories = { has: category };
+        }
+
         const posts = await prisma.post.findMany({
-            where: { status: 'published' },
+            where: whereClause,
             orderBy: { publishedAt: 'desc' },
         });
         return posts;
@@ -29,11 +36,20 @@ async function getData() {
     }
 }
 
-export default async function BlogPage() {
-    const posts = await getData();
+export default async function BlogPage({
+    searchParams,
+}: {
+    searchParams: Promise<{ category?: string }>;
+}) {
+    const { category } = await searchParams;
+    const posts = await getData(category);
 
-    // Get unique categories
-    const allCategories = Array.from(new Set(posts.flatMap((p: any) => p.categories))) as string[];
+    // Get unique categories from ALL posts for the filter pills, not just the filtered ones
+    const allPosts = await prisma.post.findMany({
+        where: { status: 'published' },
+        select: { categories: true }
+    });
+    const allCategories = Array.from(new Set(allPosts.flatMap((p: any) => p.categories))) as string[];
 
     return (
         <>
@@ -55,13 +71,28 @@ export default async function BlogPage() {
                     {/* Category Pills */}
                     {allCategories.length > 0 && (
                         <div className="flex flex-wrap justify-center gap-2 mb-10">
+                            <Link
+                                href="/blog"
+                                prefetch={true}
+                                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition-colors ${!category
+                                    ? 'bg-black border-black text-white hover:bg-gray-800'
+                                    : 'bg-gray-100 border-gray-200 text-gray-600 hover:bg-gray-200'
+                                    }`}
+                            >
+                                All Posts
+                            </Link>
                             {allCategories.map((cat) => (
-                                <span
+                                <Link
                                     key={cat}
-                                    className="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-gray-100 border border-gray-200 text-gray-600 rounded-full hover:bg-gray-200 transition-colors cursor-pointer"
+                                    href={`/blog?category=${encodeURIComponent(cat)}`}
+                                    prefetch={true}
+                                    className={`px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition-colors cursor-pointer ${category === cat
+                                        ? 'bg-black border-black text-white hover:bg-gray-800'
+                                        : 'bg-gray-100 border-gray-200 text-gray-600 hover:bg-gray-200'
+                                        }`}
                                 >
                                     {cat}
-                                </span>
+                                </Link>
                             ))}
                         </div>
                     )}

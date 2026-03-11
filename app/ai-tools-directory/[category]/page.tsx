@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ToolCard from '@/components/tools/ToolCard';
+import CategoryFilterApp from '@/components/tools/CategoryFilterApp';
 import prisma from '@/lib/prisma';
 import { getBaseUrl, getCategoryIcon } from '@/lib/utils';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
@@ -106,15 +107,15 @@ export default async function CategoryPage({ params }: Props) {
                         </div>
                     )}
 
-                    {/* Tools Grid */}
+                    {/* Tools Grid / Advanced Filters */}
                     {tools.length > 0 ? (
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                            {tools.map((tool) => (
-                                <ToolCard key={tool.id} tool={tool} />
-                            ))}
-                        </div>
+                        <CategoryFilterApp 
+                            initialTools={tools}
+                            allPricingTypes={Array.from(new Set(tools.map(t => t.pricingType).filter(Boolean))) as string[]}
+                            allFeatures={Array.from(new Set(tools.flatMap(t => t.features || []))).sort()}
+                        />
                     ) : (
-                        <div className="text-center py-20 bg-gray-50 border border-gray-200 rounded-2xl">
+                        <div className="text-center py-20 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl">
                             <p className="text-gray-400">No tools found in this category yet.</p>
                         </div>
                     )}
