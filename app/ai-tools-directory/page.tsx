@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ToolsFilterGrid from '@/components/tools/ToolsFilterGrid';
+import AIToolsSEOContent from '@/components/tools/AIToolsSEOContent';
 import prisma from '@/lib/prisma';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import { getBaseUrl } from '@/lib/utils';
@@ -89,6 +90,9 @@ export default async function AIToolsDirectoryPage() {
                         }))}
                     />
                 </div>
+                
+                {/* SEO Content Block (Below the Fold) */}
+                <AIToolsSEOContent />
             </main>
 
             <Footer />
