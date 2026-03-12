@@ -1,58 +1,37 @@
 import React from 'react';
+import prisma from '@/lib/prisma';
 
-export default function AIToolsSEOContent() {
+export default async function AIToolsSEOContent() {
+    // 1. Fetch dynamic SEO content from SiteContent collection
+    const seoSection = await prisma.siteContent.findUnique({
+        where: { sectionId: 'directory-seo' }
+    });
+
+    // 2. If disabled or non-existent, don't render
+    if (!seoSection || !seoSection.enabled) {
+        return null;
+    }
+
+    // 3. Extract HTML content
+    const content = seoSection.content as { html?: string } | null;
+    const html = content?.html;
+
+    if (!html) {
+        return null;
+    }
+
     return (
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 mt-16 border-t border-gray-200">
-            <div className="prose prose-lg prose-gray max-w-none
-                prose-headings:font-heading prose-headings:text-black
-                prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-gray-600 prose-p:leading-relaxed
-                prose-ul:text-gray-600 prose-li:marker:text-black
-                prose-strong:text-black hover:prose-a:text-gray-600">
-                
-                <h2 id="ultimate-guide-ai-tools">Your Ultimate Guide to the Best AI Tools in 2026</h2>
-                <p>
-                    Welcome to the <strong>HyzenPro AI Tools Directory</strong>, the internet's most comprehensive and constantly updated database for discovering the best artificial intelligence software. Whether you are a solo entrepreneur automating your workflows, a marketer generating high-converting copy, or an enterprise team scaling operations, choosing the right AI application is critical for staying competitive.
-                </p>
-                <p>
-                    The artificial intelligence landscape is evolving at a breakneck pace. From highly specialized natural language processors to generative image platforms and autonomous AI agents, keeping track of the latest innovations is nearly impossible without a centralized, curated index. Our directory solves this by providing verified reviews, detailed feature breakdowns, and real-time popularity metrics.
-                </p>
-
-                <h3 id="how-to-choose-ai">How to Choose the Right AI Software for Your Specific Needs</h3>
-                <p>
-                    With thousands of platforms claiming to revolutionize your productivity, selecting the right one requires careful evaluation. When browsing our AI software directory, we recommend applying three core criteria:
-                </p>
-                <ul>
-                    <li><strong>Primary Use Case:</strong> Ensure the tool is purpose-built for your exact problem. A generalized LLM (Large Language Model) might write decent code, but a dedicated AI coding assistant will offer native IDE integrations and superior context awareness.</li>
-                    <li><strong>Data Privacy & Enterprise Security:</strong> If you are processing sensitive customer data or proprietary codebases, prioritize tools that offer SOC-2 compliance, zero-data-retention policies, and private cloud deployment options.</li>
-                    <li><strong>Integration Capabilities:</strong> The best AI tools don't operate in silos. Look for solutions that seamlessly connect with your existing tech stack—such as Slack, Zapier, Salesforce, or your custom CRM via REST APIs.</li>
-                </ul>
-
-                <h3 id="understanding-ai-pricing">Understanding AI Pricing Models (Free vs Freemium vs Paid)</h3>
-                <p>
-                    Navigating generative AI pricing structures can be complex due to the compute-heavy nature of the technology. Utilize our advanced pricing filters to find solutions that match your budget:
-                </p>
-                <ul>
-                    <li><strong>Free AI Tools:</strong> Ideal for beginners or casual users. These typically offer full access to foundational models (like GPT-3.5) but may restrict output length, image resolution, or generation speed during peak network hours.</li>
-                    <li><strong>Freemium & Credit-Based:</strong> The most common SaaS model. You receive a monthly allowance of "credits" or "tokens." Generative tasks explicitly consume these credits (e.g., 1 credit per image, 10 credits per deep-research query).</li>
-                    <li><strong>Paid & Enterprise Tiers:</strong> Designed for power users and businesses. These subscriptions unlock priority access to frontier models (like GPT-4, Claude 3 Opus, or Midjourney v6), dedicated API endpoints, custom model fine-tuning, and robust multi-seat team management.</li>
-                </ul>
-
-                <h3 id="top-ai-categories">Top AI Categories Driving the Future of Work</h3>
-                <p>
-                    Our directory is meticulously organized into specialized categories to help you pinpoint exact solutions. Some of the most disruptive and high-growth sectors include:
-                </p>
-                <ul>
-                    <li><strong>AI Copywriting & SEO:</strong> Scale your content marketing with tools that generate SEO-optimized blogs, ad copy, and social media captions in seconds.</li>
-                    <li><strong>AI Image & Video Generation:</strong> Transform text prompts into photorealistic visuals, animated avatars, and full-length marketing videos without a production studio.</li>
-                    <li><strong>Workflow Automation & AI Agents:</strong> Deploy autonomous agents that can read your emails, update your databases, and execute multi-step logic chains while you sleep.</li>
-                    <li><strong>AI Developer Assistants:</strong> Accelerate your engineering sprints with platforms that auto-complete boilerplate code, write unit tests, and translate legacy codebases instantly.</li>
-                </ul>
-                <p>
-                    Start exploring our interactive index above. Use the sophisticated filters to sort by category, popularity, or price. Bookmark your favorite solutions to build a personalized tech stack, and read our unbiased editorial reviews to make highly informed purchasing decisions.
-                </p>
-            </div>
+            <div 
+                className="prose prose-lg prose-gray max-w-none
+                    prose-headings:font-heading prose-headings:text-black
+                    prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+                    prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+                    prose-p:text-gray-600 prose-p:leading-relaxed
+                    prose-ul:text-gray-600 prose-li:marker:text-black
+                    prose-strong:text-black hover:prose-a:text-gray-600"
+                dangerouslySetInnerHTML={{ __html: html }}
+            />
         </section>
     );
 }

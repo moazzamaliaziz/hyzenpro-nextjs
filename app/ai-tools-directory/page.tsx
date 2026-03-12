@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ToolsFilterGrid from '@/components/tools/ToolsFilterGrid';
+import DirectoryCTA from '@/components/tools/DirectoryCTA';
 import AIToolsSEOContent from '@/components/tools/AIToolsSEOContent';
 import prisma from '@/lib/prisma';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
@@ -91,6 +92,9 @@ export default async function AIToolsDirectoryPage() {
                     />
                 </div>
                 
+                {/* Find Tools / Compare Engine CTA Block */}
+                <DirectoryCTA />
+
                 {/* SEO Content Block (Below the Fold) */}
                 <AIToolsSEOContent />
             </main>
