@@ -81,6 +81,12 @@ const nextConfig = {
                 destination: '/ai-tools-directory/:category/',
                 permanent: true,
             },
+            // Legacy WordPress Blog Categories
+            {
+                source: '/category/:slug/',
+                destination: '/blog/?category=:slug',
+                permanent: true,
+            },
         ];
     },
 };
