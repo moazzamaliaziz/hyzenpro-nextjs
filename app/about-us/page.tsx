@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, ArrowRight, Shield, Microscope, Palette, Brain, Target, Users } from 'lucide-react';
+import { Mail, ArrowRight, Shield, Microscope, Palette, Brain, Target, Users, Layers, Search, GitMerge, TrendingUp, Bookmark } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'About Us — The People Behind HyzenPro',
@@ -177,6 +177,60 @@ export default function AboutPage() {
                                 <div className="text-2xl font-heading text-gray-200 mb-3">0{i + 1}</div>
                                 <h3 className="font-bold text-sm text-black mb-1">{item.title}</h3>
                                 <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* The HyzenPro Platform */}
+                <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4">Platform Features</p>
+                    <h2 className="font-heading text-4xl text-black mb-6">More than just a directory.</h2>
+                    <p className="text-gray-500 leading-relaxed mb-10 max-w-2xl">
+                        HyzenPro isn't just a static list of links. We've built an interactive, data-driven platform designed to help you discover, compare, and organize your AI workflow seamlessly. Our custom-built infrastructure ensures you find exactly what you need.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {[
+                            {
+                                icon: Layers,
+                                title: 'The Complete AI Directory',
+                                desc: 'A meticulously categorized and searchable database of thousands of AI tools, complete with pricing details, genuine reviews, and trusted user ratings.'
+                            },
+                            {
+                                icon: Search,
+                                title: 'Smart Recommendation Wizard',
+                                desc: 'Our unique "Find Tools" engine. Answer three quick questions about your workflow, budget, and goals to get instant, personalized AI tool recommendations.'
+                            },
+                            {
+                                icon: GitMerge,
+                                title: 'Side-by-Side Comparison Engine',
+                                desc: 'Select multiple tools and generate dynamic comparison matrices. Instantly evaluate features, pros, cons, and pricing to make confident purchasing decisions.'
+                            },
+                            {
+                                icon: Bookmark,
+                                title: 'My Tech Stack Builder',
+                                desc: 'Create a free account to build, organize, and track your personalized "AI Tech Stack." Save tools you use, want to try, or are evaluating in one unified dashboard.'
+                            },
+                            {
+                                icon: TrendingUp,
+                                title: 'Live Trending Tracker',
+                                desc: 'Our algorithms track community interest and tool adoption in real-time, showing you exactly which tools are surging in popularity across the AI landscape.'
+                            },
+                            {
+                                icon: Users,
+                                title: 'Vendor Portal & Analytics',
+                                desc: 'For AI founders, our dedicated vendor portal provides real-time traffic analytics, letting you track views and engagement for your submitted platforms.'
+                            }
+                        ].map((feature, i) => (
+                            <div key={i} className="flex gap-4 p-6 bg-white border border-gray-200 hover:border-black rounded-2xl transition-colors duration-300">
+                                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center shrink-0 border border-gray-100">
+                                    <feature.icon className="w-5 h-5 text-black" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-black text-sm mb-2">{feature.title}</h3>
+                                    <p className="text-sm text-gray-500 leading-relaxed">{feature.desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
