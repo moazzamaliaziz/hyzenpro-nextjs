@@ -1,369 +1,223 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import type { Metadata } from 'next';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import VendorDashboard from '@/components/vendor/VendorDashboard';
 import Link from 'next/link';
+import prisma from '@/lib/prisma';
+import { auth } from '@/lib/auth';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import {
-    Plus, Package, Eye, Star, Clock, ExternalLink,
-    BarChart3, Send, ArrowLeft, CheckCircle2, AlertCircle, Loader2
+    ArrowRight, Shield, BarChart3, Users, Zap, Eye, Rocket, Star,
+    CheckCircle2, Globe
 } from 'lucide-react';
 
-interface VendorTool {
-    id: string;
-    name: string;
-    slug: string;
-    shortDescription: string;
-    logo?: string | null;
-    pricingType: string;
-    status: string;
-    views: number;
-    rating?: number | null;
-    primaryCategory?: string | null;
-    createdAt: string;
-    updatedAt: string;
+export const metadata: Metadata = {
+    title: 'Submit Your AI Tool — Get Listed on HyzenPro\'s AI Directory | Free',
+    description: 'Submit your AI tool to HyzenPro\'s curated directory. Reach thousands of decision-makers, developers, and creators searching for the best AI software. Free listing with premium upgrade options.',
+    keywords: [
+        'submit ai tool', 'list ai tool', 'ai tool directory listing', 'ai software submission',
+        'promote ai tool', 'ai startup directory', 'ai tool vendor', 'get listed ai directory',
+    ],
+    openGraph: {
+        title: 'Submit Your AI Tool — HyzenPro Directory',
+        description: 'Get your AI platform in front of thousands of qualified buyers. Free listing available.',
+        type: 'website',
+    },
+    alternates: {
+        canonical: '/vendor/',
+    },
+};
+
+async function getStats() {
+    try {
+        const [toolsCount, totalViews] = await Promise.all([
+            prisma.tool.count({ where: { status: 'published' } }),
+            prisma.tool.aggregate({ _sum: { views: true } }),
+        ]);
+        return { toolsCount, totalViews: totalViews._sum.views || 0 };
+    } catch {
+        return { toolsCount: 100, totalViews: 50000 };
+    }
 }
 
-export default function VendorDashboardPage() {
-    const { data: session, status: authStatus } = useSession();
-    const router = useRouter();
-    const [tools, setTools] = useState<VendorTool[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [showForm, setShowForm] = useState(false);
-    const [submitting, setSubmitting] = useState(false);
-    const [submitSuccess, setSubmitSuccess] = useState(false);
-    const [submitError, setSubmitError] = useState('');
+export default async function VendorPage() {
+    const session = await auth();
+    const stats = await getStats();
+    const isLoggedIn = !!session?.user;
 
-    // Form state
-    const [formName, setFormName] = useState('');
-    const [formUrl, setFormUrl] = useState('');
-    const [formDescription, setFormDescription] = useState('');
-    const [formPricing, setFormPricing] = useState('freemium');
-    const [formCategory, setFormCategory] = useState('');
-
-    useEffect(() => {
-        if (authStatus === 'unauthenticated') {
-            router.push('/portal-auth');
-        }
-    }, [authStatus, router]);
-
-    useEffect(() => {
-        if (authStatus === 'authenticated') {
-            fetchTools();
-        }
-    }, [authStatus]);
-
-    const fetchTools = async () => {
-        setLoading(true);
-        try {
-            const res = await fetch('/api/vendor/tools');
-            if (res.ok) {
-                const data = await res.json();
-                setTools(data);
-            }
-        } catch (error) {
-            console.error('Failed to fetch tools:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setSubmitting(true);
-        setSubmitError('');
-        setSubmitSuccess(false);
-
-        try {
-            const res = await fetch('/api/vendor/tools', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: formName,
-                    websiteUrl: formUrl,
-                    shortDescription: formDescription,
-                    pricingType: formPricing,
-                    primaryCategory: formCategory || null,
-                }),
-            });
-
-            if (res.ok) {
-                setSubmitSuccess(true);
-                setFormName('');
-                setFormUrl('');
-                setFormDescription('');
-                setFormPricing('freemium');
-                setFormCategory('');
-                fetchTools(); // Refresh the list
-                setTimeout(() => {
-                    setShowForm(false);
-                    setSubmitSuccess(false);
-                }, 2000);
-            } else {
-                const data = await res.json();
-                setSubmitError(data.error || 'Failed to submit tool');
-            }
-        } catch (error) {
-            setSubmitError('Network error. Please try again.');
-        } finally {
-            setSubmitting(false);
-        }
-    };
-
-    if (authStatus === 'loading') {
-        return (
-            <div className="min-h-screen bg-white flex items-center justify-center">
-                <Loader2 className="w-8 h-8 text-gray-400 animate-spin" />
-            </div>
-        );
-    }
-
-    if (authStatus === 'unauthenticated') return null;
-
-    const totalViews = tools.reduce((sum, t) => sum + (t.views || 0), 0);
-    const publishedCount = tools.filter(t => t.status === 'published').length;
-    const draftCount = tools.filter(t => t.status === 'draft').length;
+    const breadcrumbs = [
+        { name: 'Home', url: '/' },
+        { name: 'Vendor Portal', url: '/vendor' },
+    ];
 
     return (
-        <div className="min-h-screen bg-gray-50/50">
-            {/* Dashboard Header */}
-            <div className="bg-white border-b border-gray-200">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <Link href="/" className="flex items-center gap-2 text-sm text-gray-400 hover:text-black transition-colors mb-3">
-                                <ArrowLeft className="w-4 h-4" /> Back to HyzenPro
-                            </Link>
-                            <h1 className="font-heading text-3xl text-black">Vendor Dashboard</h1>
-                            <p className="text-gray-500 text-sm mt-1">Manage your submitted AI tools and track performance.</p>
-                        </div>
-                        <button
-                            onClick={() => setShowForm(!showForm)}
-                            className="flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm font-bold rounded-xl hover:bg-gray-800 transition-colors"
-                        >
-                            <Plus className="w-4 h-4" /> Submit New Tool
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <>
+            {/* If logged in, show full dashboard mode */}
+            {isLoggedIn ? (
+                <VendorDashboard />
+            ) : (
+                <>
+                    <Header />
+                    <main className="pt-32 pb-24 min-h-screen bg-white">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {/* Stats Row */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                        <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">
-                            <Package className="w-3.5 h-3.5" /> Total Tools
-                        </div>
-                        <div className="font-heading text-3xl text-black">{tools.length}</div>
-                    </div>
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                        <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">
-                            <CheckCircle2 className="w-3.5 h-3.5" /> Published
-                        </div>
-                        <div className="font-heading text-3xl text-green-600">{publishedCount}</div>
-                    </div>
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                        <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">
-                            <Clock className="w-3.5 h-3.5" /> In Review
-                        </div>
-                        <div className="font-heading text-3xl text-amber-500">{draftCount}</div>
-                    </div>
-                    <div className="bg-white rounded-2xl border border-gray-200 p-5">
-                        <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">
-                            <Eye className="w-3.5 h-3.5" /> Total Views
-                        </div>
-                        <div className="font-heading text-3xl text-black">{totalViews.toLocaleString()}</div>
-                    </div>
-                </div>
+                            <Breadcrumbs items={breadcrumbs} />
 
-                {/* Submission Form */}
-                {showForm && (
-                    <div className="bg-white rounded-2xl border border-gray-200 p-8 mb-8">
-                        <h2 className="font-heading text-xl text-black mb-6">Submit a New AI Tool</h2>
-
-                        {submitSuccess && (
-                            <div className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm mb-6">
-                                <CheckCircle2 className="w-4 h-4" /> Tool submitted successfully! It will be reviewed by our team.
-                            </div>
-                        )}
-
-                        {submitError && (
-                            <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm mb-6">
-                                <AlertCircle className="w-4 h-4" /> {submitError}
-                            </div>
-                        )}
-
-                        <form onSubmit={handleSubmit} className="space-y-5">
-                            <div className="grid md:grid-cols-2 gap-5">
-                                <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Tool Name *</label>
-                                    <input
-                                        type="text"
-                                        value={formName}
-                                        onChange={(e) => setFormName(e.target.value)}
-                                        placeholder="e.g. ChatGPT, Midjourney..."
-                                        required
-                                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors"
-                                    />
+                            {/* Hero Section */}
+                            <div className="text-center mb-20">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-xs font-semibold uppercase tracking-wider text-gray-600 mb-6">
+                                    <Rocket className="w-3.5 h-3.5 text-black" />
+                                    For AI Tool Builders
                                 </div>
-                                <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Website URL *</label>
-                                    <input
-                                        type="url"
-                                        value={formUrl}
-                                        onChange={(e) => setFormUrl(e.target.value)}
-                                        placeholder="https://example.com"
-                                        required
-                                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors"
-                                    />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Short Description *</label>
-                                <textarea
-                                    value={formDescription}
-                                    onChange={(e) => setFormDescription(e.target.value)}
-                                    placeholder="Briefly describe what this AI tool does..."
-                                    required
-                                    rows={3}
-                                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors resize-none"
-                                />
-                            </div>
-
-                            <div className="grid md:grid-cols-2 gap-5">
-                                <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Pricing Type</label>
-                                    <select
-                                        value={formPricing}
-                                        onChange={(e) => setFormPricing(e.target.value)}
-                                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-black focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors"
+                                <h1 className="font-heading text-5xl md:text-7xl tracking-tight text-black mb-4">
+                                    Get Your AI Tool<br />In Front of Thousands
+                                </h1>
+                                <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
+                                    Submit your platform to HyzenPro's curated AI tools directory. Reach {stats.totalViews.toLocaleString()}+ monthly visitors actively searching for AI software solutions.
+                                </p>
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                                    <Link
+                                        href="/portal-auth/"
+                                        className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white text-sm font-bold rounded-xl hover:bg-gray-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-black/20"
                                     >
-                                        <option value="free">Free</option>
-                                        <option value="freemium">Freemium</option>
-                                        <option value="paid">Paid</option>
-                                        <option value="enterprise">Enterprise</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Primary Category</label>
-                                    <select
-                                        value={formCategory}
-                                        onChange={(e) => setFormCategory(e.target.value)}
-                                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-black focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors"
+                                        Submit Your Tool — Free <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                    <Link
+                                        href="/ai-tools-directory/"
+                                        className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm font-bold rounded-xl border border-gray-200 hover:border-black transition-all"
                                     >
-                                        <option value="">Select a category</option>
-                                        <option value="ai-video-tools">Video Tools</option>
-                                        <option value="ai-writing-tools">Writing Tools</option>
-                                        <option value="ai-image-tools">Image Tools</option>
-                                        <option value="ai-code-tools">Code Tools</option>
-                                        <option value="ai-marketing-tools">Marketing Tools</option>
-                                        <option value="ai-chatbot-tools">Chatbot Tools</option>
-                                        <option value="ai-audio-tools">Audio & Voice</option>
-                                        <option value="ai-seo-tools">SEO Tools</option>
-                                        <option value="ai-automation-tools">Automation Tools</option>
-                                    </select>
+                                        Browse Directory <ArrowRight className="w-4 h-4" />
+                                    </Link>
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3 pt-2">
-                                <button
-                                    type="submit"
-                                    disabled={submitting}
-                                    className="flex items-center gap-2 px-6 py-3 bg-black text-white text-sm font-bold rounded-xl hover:bg-gray-800 transition-colors disabled:opacity-50"
-                                >
-                                    {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
-                                    {submitting ? 'Submitting...' : 'Submit for Review'}
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => setShowForm(false)}
-                                    className="px-6 py-3 text-sm font-medium text-gray-500 hover:text-black transition-colors"
-                                >
-                                    Cancel
-                                </button>
+                            {/* Social Proof Stats */}
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
+                                {[
+                                    { value: `${stats.toolsCount}+`, label: 'Listed Tools', icon: Globe },
+                                    { value: `${Math.round(stats.totalViews / 1000)}K+`, label: 'Monthly Views', icon: Eye },
+                                    { value: '9+', label: 'Categories', icon: BarChart3 },
+                                    { value: 'Free', label: 'Basic Listing', icon: CheckCircle2 },
+                                ].map((stat, i) => (
+                                    <div key={i} className="text-center p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                                        <stat.icon className="w-6 h-6 text-black mx-auto mb-3" />
+                                        <div className="font-heading text-3xl text-black mb-1">{stat.value}</div>
+                                        <div className="text-xs font-medium text-gray-500 uppercase tracking-widest">{stat.label}</div>
+                                    </div>
+                                ))}
                             </div>
-                        </form>
-                    </div>
-                )}
 
-                {/* Tools List */}
-                <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
-                    <div className="px-6 py-4 border-b border-gray-100">
-                        <h2 className="font-heading text-lg text-black">Your Submitted Tools</h2>
-                    </div>
-
-                    {loading ? (
-                        <div className="p-8 text-center">
-                            <Loader2 className="w-6 h-6 text-gray-400 animate-spin mx-auto mb-3" />
-                            <p className="text-sm text-gray-400">Loading your tools...</p>
-                        </div>
-                    ) : tools.length === 0 ? (
-                        <div className="p-12 text-center">
-                            <Package className="w-12 h-12 text-gray-200 mx-auto mb-4" />
-                            <p className="text-gray-500 text-sm mb-4">You haven&apos;t submitted any tools yet.</p>
-                            <button
-                                onClick={() => setShowForm(true)}
-                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-sm font-bold rounded-xl hover:bg-gray-800 transition-colors"
-                            >
-                                <Plus className="w-4 h-4" /> Submit Your First Tool
-                            </button>
-                        </div>
-                    ) : (
-                        <div className="divide-y divide-gray-100">
-                            {tools.map((tool) => (
-                                <div key={tool.id} className="flex items-center gap-4 px-6 py-4 hover:bg-gray-50/50 transition-colors">
-                                    <div className="w-12 h-12 bg-gray-50 rounded-xl border border-gray-100 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                                        {tool.logo ? (
-                                            <img src={tool.logo} alt={tool.name} className="w-full h-full object-cover" />
-                                        ) : (
-                                            <span className="text-lg font-heading text-gray-400">{tool.name.charAt(0)}</span>
-                                        )}
-                                    </div>
-
-                                    <div className="flex-1 min-w-0">
-                                        <div className="flex items-center gap-2 mb-0.5">
-                                            <h3 className="font-bold text-sm text-black truncate">{tool.name}</h3>
-                                            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest ${tool.status === 'published'
-                                                    ? 'bg-green-50 text-green-600 border border-green-200'
-                                                    : 'bg-amber-50 text-amber-600 border border-amber-200'
-                                                }`}>
-                                                {tool.status === 'published' ? 'Live' : 'In Review'}
-                                            </span>
-                                        </div>
-                                        <p className="text-xs text-gray-400 truncate">{tool.shortDescription}</p>
-                                    </div>
-
-                                    <div className="hidden md:flex items-center gap-6 text-xs text-gray-500 flex-shrink-0">
-                                        <div className="flex items-center gap-1">
-                                            <Eye className="w-3.5 h-3.5" /> {tool.views?.toLocaleString() || 0}
-                                        </div>
-                                        {tool.rating && (
-                                            <div className="flex items-center gap-1">
-                                                <Star className="w-3.5 h-3.5 text-yellow-500" /> {tool.rating.toFixed(1)}
-                                            </div>
-                                        )}
-                                        <div className="flex items-center gap-1 text-gray-400">
-                                            <Clock className="w-3.5 h-3.5" />
-                                            {new Date(tool.createdAt).toLocaleDateString()}
-                                        </div>
-                                    </div>
-
-                                    {tool.status === 'published' && (
-                                        <Link
-                                            href={`/ai-tools-directory/${tool.primaryCategory || 'ai-general-tools'}/${tool.slug}`}
-                                            className="flex-shrink-0 p-2 text-gray-400 hover:text-black transition-colors"
-                                            title="View Live Page"
-                                        >
-                                            <ExternalLink className="w-4 h-4" />
-                                        </Link>
-                                    )}
+                            {/* How It Works */}
+                            <section className="mb-24">
+                                <div className="text-center mb-12">
+                                    <h2 className="font-heading text-4xl text-black mb-3">How It Works</h2>
+                                    <p className="text-gray-500 max-w-xl mx-auto">Three simple steps to get your AI tool listed and generating qualified traffic.</p>
                                 </div>
-                            ))}
+                                <div className="grid md:grid-cols-3 gap-8">
+                                    {[
+                                        {
+                                            step: '01',
+                                            title: 'Create an Account',
+                                            description: 'Sign up for a free vendor account using your email. It takes less than 30 seconds.',
+                                            icon: Users,
+                                        },
+                                        {
+                                            step: '02',
+                                            title: 'Submit Your Tool',
+                                            description: 'Fill in your tool name, website URL, description, pricing model, and primary category.',
+                                            icon: Rocket,
+                                        },
+                                        {
+                                            step: '03',
+                                            title: 'Get Discovered',
+                                            description: 'Once approved by our editorial team, your tool goes live across our directory, comparisons, and recommendations.',
+                                            icon: Star,
+                                        },
+                                    ].map((item, i) => (
+                                        <div key={i} className="relative p-8 bg-white rounded-2xl border border-gray-200 hover:border-black hover:shadow-xl transition-all duration-300">
+                                            <div className="text-5xl font-heading text-gray-100 mb-4">{item.step}</div>
+                                            <item.icon className="w-6 h-6 text-black mb-3" />
+                                            <h3 className="font-bold text-lg text-black mb-2">{item.title}</h3>
+                                            <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+
+                            {/* Benefits */}
+                            <section className="mb-24">
+                                <div className="text-center mb-12">
+                                    <h2 className="font-heading text-4xl text-black mb-3">Why List on HyzenPro?</h2>
+                                    <p className="text-gray-500 max-w-xl mx-auto">Join the fastest-growing AI tools directory trusted by developers, marketers, and founders.</p>
+                                </div>
+                                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {[
+                                        { icon: Eye, title: 'High-Intent Traffic', text: 'Our visitors are actively searching for AI solutions — not just browsing. Every view is a qualified lead.' },
+                                        { icon: Shield, title: 'Editorial Review', text: 'Every listing is manually reviewed by our team. This ensures quality and builds developer trust in your product.' },
+                                        { icon: BarChart3, title: 'Performance Analytics', text: 'Track views, impressions, and click-through rates on your vendor dashboard in real time.' },
+                                        { icon: Zap, title: 'Featured in Comparisons', text: 'Your tool appears in our side-by-side comparison engine, helping users evaluate you against competitors.' },
+                                        { icon: Globe, title: 'SEO-Optimized Listing', text: 'Each tool gets a dedicated page with structured data, meta tags, and semantic HTML optimized for Google.' },
+                                        { icon: Star, title: 'User Reviews', text: 'Collect authentic reviews from real users. Social proof dramatically increases conversion rates for your product.' },
+                                    ].map((benefit, i) => (
+                                        <div key={i} className="p-6 bg-white rounded-2xl border border-gray-200 hover:border-gray-300 transition-colors">
+                                            <benefit.icon className="w-6 h-6 text-black mb-3" />
+                                            <h3 className="font-bold text-sm text-black mb-2">{benefit.title}</h3>
+                                            <p className="text-sm text-gray-500 leading-relaxed">{benefit.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+
+                            {/* SEO Content Block */}
+                            <section className="max-w-3xl mx-auto mb-20">
+                                <div className="prose prose-lg prose-gray max-w-none prose-headings:font-heading prose-headings:text-black prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-black">
+                                    <h2>Submit Your AI Tool to the Leading Directory</h2>
+                                    <p>
+                                        <strong>HyzenPro</strong> is a premier AI tools directory serving thousands of monthly visitors who are actively researching, comparing, and selecting artificial intelligence software for their businesses and creative workflows.
+                                    </p>
+                                    <p>
+                                        Whether you've built an AI video editor, a GPT-powered writing assistant, an autonomous coding agent, or a workflow automation platform — listing on HyzenPro positions your product directly in front of qualified buyers at the exact moment they are making purchasing decisions.
+                                    </p>
+                                    <h3>What Makes HyzenPro Different?</h3>
+                                    <p>
+                                        Unlike generic software directories, HyzenPro is <strong>exclusively focused on AI tools</strong>. Our audience consists of tech-savvy creators, SaaS founders, digital marketers, and enterprise teams who understand AI's transformative potential and are ready to invest in the right solutions.
+                                    </p>
+                                    <p>
+                                        Every submission goes through our editorial review process where we verify your tool's claims, test core features, and create an optimized listing page with structured data markup — ensuring maximum visibility on Google, Bing, and other search engines.
+                                    </p>
+                                </div>
+                            </section>
+
+                            {/* Final CTA */}
+                            <section className="mb-8">
+                                <div className="bg-gradient-to-br from-black via-gray-900 to-black rounded-3xl p-8 md:p-14 text-center border border-gray-800 relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-blue-500 rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
+                                    <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-purple-500 rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
+
+                                    <h2 className="font-heading text-4xl md:text-5xl text-white mb-4 relative z-10">Ready to Grow Your AI Product?</h2>
+                                    <p className="text-gray-400 max-w-xl mx-auto mb-8 relative z-10">
+                                        Create your free vendor account and submit your first tool in under 2 minutes. Our team reviews every submission within 48 hours.
+                                    </p>
+                                    <Link
+                                        href="/portal-auth/"
+                                        className="relative z-10 inline-flex items-center gap-2 px-8 py-4 bg-white text-black text-sm font-bold rounded-xl hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                                    >
+                                        Get Started — It's Free <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                </div>
+                            </section>
                         </div>
-                    )}
-                </div>
-            </div>
-        </div>
+                    </main>
+                    <Footer />
+                </>
+            )}
+
+            {/* Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(breadcrumbs)) }}
+            />
+        </>
     );
 }
