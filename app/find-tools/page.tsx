@@ -42,8 +42,12 @@ export default async function FindToolsPage() {
     const stats = await getQuickStats();
 
     const breadcrumbs = [
+        { label: 'Find Tools' },
+    ];
+
+    const schemaBreadcrumbs = [
         { name: 'Home', url: '/' },
-        { name: 'Find Tools', url: '/find-tools' },
+        { name: 'Find Tools', url: '/find-tools/' },
     ];
 
     const faqSchema = {
@@ -188,7 +192,7 @@ export default async function FindToolsPage() {
             {/* Structured Data */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(breadcrumbs)) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(schemaBreadcrumbs)) }}
             />
             <script
                 type="application/ld+json"

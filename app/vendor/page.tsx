@@ -47,8 +47,12 @@ export default async function VendorPage() {
     const isLoggedIn = !!session?.user;
 
     const breadcrumbs = [
+        { label: 'Vendor Portal' },
+    ];
+
+    const schemaBreadcrumbs = [
         { name: 'Home', url: '/' },
-        { name: 'Vendor Portal', url: '/vendor' },
+        { name: 'Vendor Portal', url: '/vendor/' },
     ];
 
     return (
@@ -216,7 +220,7 @@ export default async function VendorPage() {
             {/* Structured Data */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(breadcrumbs)) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(schemaBreadcrumbs)) }}
             />
         </>
     );
