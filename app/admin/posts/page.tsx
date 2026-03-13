@@ -2,7 +2,8 @@ import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import prisma from '@/lib/prisma';
 import Link from 'next/link';
-import { Edit, Trash2, ExternalLink, Plus } from 'lucide-react';
+import { Edit, ExternalLink, Plus } from 'lucide-react';
+import DeletePostButton from '@/components/admin/DeletePostButton';
 import { formatDateShort } from '@/lib/utils';
 
 export const metadata = {
@@ -86,9 +87,7 @@ export default async function AdminPostsPage() {
                                                 <Link href={`/admin/posts/${post.id}`} className="p-2 text-white/30 hover:text-accent hover:bg-accent/10 rounded-lg transition-colors">
                                                     <Edit className="w-4 h-4" />
                                                 </Link>
-                                                <button className="p-2 text-white/30 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors">
-                                                    <Trash2 className="w-4 h-4" />
-                                                </button>
+                                                <DeletePostButton postId={post.id} postTitle={post.title} />
                                             </div>
                                         </td>
                                     </tr>
