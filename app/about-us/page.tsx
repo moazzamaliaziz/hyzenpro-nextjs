@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, ArrowRight, Shield, Microscope, Palette, Brain, Target, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -48,8 +49,14 @@ export default function AboutPage() {
                         <div className="bg-gray-50 rounded-3xl p-8 md:p-10 border border-gray-100 relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-black/[0.02] rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-700" />
                             <div className="relative">
-                                <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center font-heading text-2xl mb-6">
-                                    AM
+                                <div className="w-16 h-16 rounded-2xl bg-gray-100 mb-6 overflow-hidden relative">
+                                    <Image
+                                        src="https://hyzenpro.com/wp-content/uploads/2025/06/wmremove-transformed.jpeg"
+                                        alt="Ali Malik"
+                                        fill
+                                        className="object-cover"
+                                        sizes="64px"
+                                    />
                                 </div>
                                 <h2 className="font-heading text-2xl text-black mb-1">Ali Malik</h2>
                                 <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Founder & Lead Strategist</p>
@@ -70,8 +77,14 @@ export default function AboutPage() {
                         <div className="bg-gray-50 rounded-3xl p-8 md:p-10 border border-gray-100 relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-black/[0.02] rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-700" />
                             <div className="relative">
-                                <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center font-heading text-2xl mb-6">
-                                    RA
+                                <div className="w-16 h-16 rounded-2xl bg-gray-100 mb-6 overflow-hidden relative">
+                                    <Image
+                                        src="https://hyzenpro.com/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-25-at-12.24.30-AM.jpeg"
+                                        alt="Rana Aqib"
+                                        fill
+                                        className="object-cover"
+                                        sizes="64px"
+                                    />
                                 </div>
                                 <h2 className="font-heading text-2xl text-black mb-1">Rana Aqib</h2>
                                 <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Head of Research & QA</p>
