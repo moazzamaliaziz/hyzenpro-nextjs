@@ -2,46 +2,199 @@ import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import Link from 'next/link';
+import { Mail, ArrowRight, Shield, Microscope, Palette, Brain, Target, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'About Us',
-    description: 'Learn about HyzenPro, the premier AI tools directory helping creators, developers, and businesses discover the best AI tools.',
+    title: 'About Us — The People Behind HyzenPro',
+    description: 'Meet the team behind HyzenPro. We audit, review, and curate the best AI tools so creators, developers, and businesses can make informed decisions.',
+    openGraph: {
+        title: 'About Us — HyzenPro',
+        description: 'Real humans behind the intelligence. Meet the team that builds the internet\'s most trusted AI tools directory.',
+    },
+    alternates: {
+        canonical: '/about-us/',
+    },
 };
 
 export default function AboutPage() {
     return (
         <>
             <Header />
-            <main className="pt-28 pb-20 min-h-screen">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <Breadcrumbs items={[{ label: 'About Us' }]} className="mb-8" />
+            <main className="pt-28 pb-20 min-h-screen bg-white">
 
-                    <h1 className="font-heading text-5xl md:text-6xl text-black mb-8">About HyzenPro</h1>
+                {/* Hero */}
+                <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+                    <Breadcrumbs items={[{ label: 'About Us' }]} className="mb-10" />
 
-                    <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-black prose-a:text-black prose-a:font-semibold prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-800">
-                        <p>
-                            HyzenPro was created to cut through the noise in the AI world. With thousands of tools launching every year, it's easy to feel lost. We provide clear, honest reviews and tutorials to help creators, startups, and businesses make the right AI choices.
-                        </p>
-
-                        <h2>Our Mission</h2>
-                        <p>
-                            Make AI accessible, practical, and understandable for everyone.
-                        </p>
-
-                        <h2>What We Cover</h2>
-                        <ul>
-                            <li><strong>AI Tool Reviews:</strong> In-depth, hands-on testing of the latest tools.</li>
-                            <li><strong>Tool Comparisons:</strong> Side-by-side analysis of top competitors.</li>
-                            <li><strong>Tutorials:</strong> Step-by-step guides on how to use AI tools effectively.</li>
-                            <li><strong>AI Use Cases:</strong> Real-world applications for various industries.</li>
-                        </ul>
-
-                        <h2>Why Trust Us?</h2>
-                        <p>
-                            Every tool featured on HyzenPro undergoes rigorous testing. We don&apos;t just list features; we evaluate usability, pricing, and real-world performance to ensure you get the most accurate information.
+                    <div className="max-w-3xl">
+                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4">About HyzenPro</p>
+                        <h1 className="font-heading text-5xl md:text-7xl text-black leading-[0.95] mb-6">
+                            Real Human<br />
+                            Behind The<br />
+                            Intelligence<span className="text-gray-300">®</span>
+                        </h1>
+                        <p className="text-lg text-gray-500 leading-relaxed max-w-xl">
+                            Helping creators and brands navigate the noise. We audit tools and interfaces that attract, build trust across the modern AI ecosystem, and deliver reviews that solve real problems.
                         </p>
                     </div>
-                </div>
+                </section>
+
+                {/* Team Section */}
+                <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+                    <div className="grid md:grid-cols-2 gap-8">
+
+                        {/* Ali Malik */}
+                        <div className="bg-gray-50 rounded-3xl p-8 md:p-10 border border-gray-100 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-black/[0.02] rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-700" />
+                            <div className="relative">
+                                <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center font-heading text-2xl mb-6">
+                                    AM
+                                </div>
+                                <h2 className="font-heading text-2xl text-black mb-1">Ali Malik</h2>
+                                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Founder & Lead Strategist</p>
+                                <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                                    Ali leads the vision for HyzenPro, bridging the gap between technical complexity and user utility. He specializes in vetting large-scale generative workflows and ethical AI scaling.
+                                </p>
+                                <a
+                                    href="mailto:alimalik@hyzenpro.com"
+                                    className="inline-flex items-center gap-2 text-sm text-black font-medium hover:underline"
+                                >
+                                    <Mail className="w-3.5 h-3.5" />
+                                    alimalik@hyzenpro.com
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Rana Aqib */}
+                        <div className="bg-gray-50 rounded-3xl p-8 md:p-10 border border-gray-100 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-black/[0.02] rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-700" />
+                            <div className="relative">
+                                <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center font-heading text-2xl mb-6">
+                                    RA
+                                </div>
+                                <h2 className="font-heading text-2xl text-black mb-1">Rana Aqib</h2>
+                                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Head of Research & QA</p>
+                                <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                                    Rana oversees the rigorous &ldquo;HyzenPro Gold Standard&rdquo; protocol. His background in algorithmic research ensures our verification data remains the most trusted in the industry.
+                                </p>
+                                <a
+                                    href="mailto:ranaaqib@hyzenpro.com"
+                                    className="inline-flex items-center gap-2 text-sm text-black font-medium hover:underline"
+                                >
+                                    <Mail className="w-3.5 h-3.5" />
+                                    ranaaqib@hyzenpro.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Expertise Grid */}
+                <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-8">Our Expertise</p>
+                    <div className="grid sm:grid-cols-3 gap-6">
+                        <div className="border border-gray-200 rounded-2xl p-6 hover:border-black transition-colors duration-300">
+                            <Brain className="w-6 h-6 text-black mb-4" />
+                            <h3 className="font-bold text-black text-sm mb-2">Prompt Engineering</h3>
+                            <p className="text-sm text-gray-500 leading-relaxed">
+                                Specialized in chain-of-thought and few-shot prompting for complex automation workflows.
+                            </p>
+                        </div>
+                        <div className="border border-gray-200 rounded-2xl p-6 hover:border-black transition-colors duration-300">
+                            <Microscope className="w-6 h-6 text-black mb-4" />
+                            <h3 className="font-bold text-black text-sm mb-2">LLM Auditing</h3>
+                            <p className="text-sm text-gray-500 leading-relaxed">
+                                Stress-testing models for bias, latency, and real-world utility before we recommend them.
+                            </p>
+                        </div>
+                        <div className="border border-gray-200 rounded-2xl p-6 hover:border-black transition-colors duration-300">
+                            <Palette className="w-6 h-6 text-black mb-4" />
+                            <h3 className="font-bold text-black text-sm mb-2">AI UX Design</h3>
+                            <p className="text-sm text-gray-500 leading-relaxed">
+                                Crafting interfaces that make artificial intelligence feel natural and invisible to end users.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* What We Do */}
+                <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+                    <div className="grid md:grid-cols-2 gap-16 items-start">
+                        <div>
+                            <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4">What We Do</p>
+                            <h2 className="font-heading text-4xl text-black mb-6">We test tools so you don&apos;t waste time.</h2>
+                            <p className="text-gray-500 leading-relaxed mb-6">
+                                HyzenPro was created to cut through the noise. With thousands of AI tools launching every year, picking the right one shouldn&apos;t require hours of research. We do the legwork — testing features, comparing pricing, benchmarking performance — so you get honest answers fast.
+                            </p>
+                            <p className="text-gray-500 leading-relaxed">
+                                Every tool on our directory undergoes hands-on evaluation. We don&apos;t republish press releases. If a tool doesn&apos;t work as advertised, we say so.
+                            </p>
+                        </div>
+                        <div className="space-y-4">
+                            {[
+                                { icon: Shield, title: 'Honest Reviews', text: 'No sponsored rankings. Every review is based on real testing, not affiliate payments.' },
+                                { icon: Target, title: 'Practical Focus', text: 'We evaluate tools through the lens of real use cases — not theoretical benchmarks.' },
+                                { icon: Users, title: 'Community-Driven', text: 'User ratings and reviews supplement our editorial evaluations for balanced perspectives.' },
+                            ].map((item, i) => (
+                                <div key={i} className="flex gap-4 p-5 rounded-2xl border border-gray-100 bg-gray-50/50">
+                                    <item.icon className="w-5 h-5 text-black mt-0.5 shrink-0" />
+                                    <div>
+                                        <h3 className="font-bold text-sm text-black mb-1">{item.title}</h3>
+                                        <p className="text-sm text-gray-500 leading-relaxed">{item.text}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* What We Cover */}
+                <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4">Coverage Areas</p>
+                    <h2 className="font-heading text-4xl text-black mb-10">From reviews to real-world guides.</h2>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        {[
+                            { title: 'AI Tool Reviews', description: 'In-depth, hands-on testing with honest verdicts.' },
+                            { title: 'Tool Comparisons', description: 'Side-by-side analysis of direct competitors.' },
+                            { title: 'Tutorials', description: 'Step-by-step guides on real workflows.' },
+                            { title: 'Use Cases', description: 'Industry-specific AI applications.' },
+                        ].map((item, i) => (
+                            <div key={i} className="p-5 border border-gray-200 rounded-2xl hover:border-black hover:-translate-y-0.5 transition-all duration-300">
+                                <div className="text-2xl font-heading text-gray-200 mb-3">0{i + 1}</div>
+                                <h3 className="font-bold text-sm text-black mb-1">{item.title}</h3>
+                                <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* CTA */}
+                <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                    <div className="bg-black rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                        <div>
+                            <h2 className="font-heading text-3xl text-white mb-2">Want to work with us?</h2>
+                            <p className="text-gray-400 text-sm max-w-md">
+                                Whether you&apos;re a tool builder looking to get listed, or a brand seeking an honest review — we&apos;d love to hear from you.
+                            </p>
+                        </div>
+                        <div className="flex items-center gap-3 shrink-0">
+                            <Link
+                                href="/contact/"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-bold rounded-xl hover:bg-gray-100 transition-colors"
+                            >
+                                Get in Touch <ArrowRight className="w-4 h-4" />
+                            </Link>
+                            <Link
+                                href="/submit-ai-tool/"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white text-sm font-bold rounded-xl border border-white/10 hover:bg-white/20 transition-colors"
+                            >
+                                Submit a Tool
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+
             </main>
             <Footer />
         </>
