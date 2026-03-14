@@ -73,7 +73,9 @@ model Post {
   featuredImage String?
   categories    String[]  // category slugs
   tags          String[]
-  author        String    @default("HyzenPro Team")
+  author        String    @default("HyzenPro Team") // legacy simple string
+  authorId      String?   @db.ObjectId
+  authorModel   Author?   @relation(fields: [authorId], references: [id])
   status        String    @default("draft") // draft, published
   postType      String    @default("post") // post, review, comparison, tutorial, page
   seo           Seo?
@@ -140,6 +142,23 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+// ==========================================
+// AUTHORS (For Blog/Reviews)
+// ==========================================
+
+model Author {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  slug        String   @unique
+  role        String?
+  bio         String?
+  image       String?
+  socialLinks Json?    // { twitter, linkedin, website }
+  posts       Post[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 // ==========================================

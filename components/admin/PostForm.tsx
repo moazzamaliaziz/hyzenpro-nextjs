@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Save, Loader2, Plus, X } from 'lucide-react';
 import Link from 'next/link';
@@ -29,8 +29,17 @@ export default function PostForm({ initialData, isEditing }: PostFormProps) {
     const [tags, setTags] = useState<string[]>(initialData?.tags || []);
     const [status, setStatus] = useState(initialData?.status || 'draft');
     const [postType, setPostType] = useState(initialData?.postType || 'post');
+    const [authorId, setAuthorId] = useState(initialData?.authorId || '');
     const [seo, setSeo] = useState(initialData?.seo || {});
     const [tagInput, setTagInput] = useState('');
+    const [authors, setAuthors] = useState<any[]>([]);
+
+    useEffect(() => {
+        fetch('/api/admin/authors')
+            .then(res => res.json())
+            .then(data => setAuthors(data))
+            .catch(err => console.error(err));
+    }, []);
 
     const addTag = () => {
         if (tagInput.trim() && !tags.includes(tagInput.trim())) {
@@ -52,7 +61,8 @@ export default function PostForm({ initialData, isEditing }: PostFormProps) {
             const body = {
                 title, slug, excerpt, content, featuredImage,
                 categories, tags, status, postType,
-                author: 'HyzenPro Team',
+                authorId: authorId || null,
+                author: 'HyzenPro Team', // Fallback for backwards compat
                 seo: Object.keys(seo).length > 0 ? seo : undefined,
             };
 
@@ -140,6 +150,16 @@ export default function PostForm({ initialData, isEditing }: PostFormProps) {
                 {/* Sidebar */}
                 <div className="space-y-6">
                     <div className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 space-y-4">
+                        <div>
+                            <label className="block text-sm text-white/60 mb-1.5">Author</label>
+                            <select value={authorId} onChange={(e) => setAuthorId(e.target.value)}
+                                className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none">
+                                <option value="">Default (HyzenPro Team)</option>
+                                {authors.map(a => (
+                                    <option key={a.id} value={a.id}>{a.name}</option>
+                                ))}
+                            </select>
+                        </div>
                         <div>
                             <label className="block text-sm text-white/60 mb-1.5">Post Type</label>
                             <select value={postType} onChange={(e) => setPostType(e.target.value)}

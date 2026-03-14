@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
         const body = await request.json();
         const {
             title, slug, excerpt, content, featuredImage,
-            categories, tags, author, status, postType, seo,
+            categories, tags, author, authorId, status, postType, seo,
         } = body;
 
         const post = await prisma.post.create({
@@ -43,6 +43,7 @@ export async function POST(request: NextRequest) {
                 categories: categories || [],
                 tags: tags || [],
                 author: author || 'HyzenPro Team',
+                authorId: authorId || undefined,
                 status: status || 'draft',
                 postType: postType || 'post',
                 seo: seo || undefined,

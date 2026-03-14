@@ -17,10 +17,9 @@ export default function TableOfContents() {
         if (!article) return;
 
         const headings = Array.from(article.querySelectorAll('h2, h3'));
-        const items = headings.map((heading, index) => {
+        const items = headings.map((heading) => {
             const text = heading.textContent || '';
-            const id = heading.id || text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-            heading.id = id;
+            const id = heading.id; // ID is now guaranteed to be set by the server
 
             return {
                 id,

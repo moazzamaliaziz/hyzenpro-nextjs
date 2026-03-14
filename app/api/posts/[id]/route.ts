@@ -34,7 +34,7 @@ export async function PUT(
         const body = await request.json();
         const {
             title, slug, excerpt, content, featuredImage,
-            categories, tags, author, status, postType, seo, publishedAt,
+            categories, tags, author, authorId, status, postType, seo, publishedAt,
         } = body;
 
         const existingPost = await prisma.post.findUnique({ where: { id } });
@@ -50,6 +50,7 @@ export async function PUT(
                 categories: categories || [],
                 tags: tags || [],
                 author,
+                authorId: authorId || null,
                 status,
                 postType,
                 seo: seo || undefined,
