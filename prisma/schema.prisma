@@ -76,10 +76,14 @@ model Post {
   author        String    @default("HyzenPro Team") // legacy simple string
   authorId      String?   @db.ObjectId
   authorModel   Author?   @relation(fields: [authorId], references: [id])
-  status        String    @default("draft") // draft, published
+  status        String    @default("draft") // draft, published, scheduled, trash
   postType      String    @default("post") // post, review, comparison, tutorial, page
   seo           Seo?
+  views         Int       @default(0)
+  readingTime   Int?      // estimated minutes to read
   publishedAt   DateTime?
+  scheduledAt   DateTime? // for scheduled publishing
+  trashedAt     DateTime? // soft-delete timestamp
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
@@ -162,6 +166,25 @@ model Author {
 }
 
 // ==========================================
+// CTA (Reusable Call-to-Action blocks for blog posts)
+// ==========================================
+
+model CTA {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String   @unique  // internal label
+  slug        String   @unique  // shortcode reference
+  headline    String?  // CTA heading text
+  description String?  // CTA body text
+  buttonText  String   // e.g. "Try Free" or "Get 50% Off"
+  buttonUrl   String   // affiliate or destination URL
+  style       String   @default("default") // default, highlight, banner, minimal
+  isActive    Boolean  @default(true)
+  usageCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ==========================================
 // SITE CONTENT (Dashboard-editable homepage sections)
 // ==========================================
 
@@ -186,6 +209,9 @@ type Seo {
   metaDescription String?
   canonicalUrl    String?
   ogImage         String?
+  ogTitle         String?
+  ogDescription   String?
+  twitterCard     String?  // summary, summary_large_image
   noIndex         Boolean?
   focusKeyword    String?
 }

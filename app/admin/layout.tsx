@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LayoutDashboard, Box, Tags, FileText, Settings, LogOut, MessageSquare, Home, Menu as MenuIcon, Users } from 'lucide-react';
+import { LayoutDashboard, Box, Tags, FileText, Settings, LogOut, MessageSquare, Home, Menu as MenuIcon, Users, Megaphone, BarChart3 } from 'lucide-react';
 import { signOut } from '@/lib/auth';
 
 const navItems = [
@@ -10,7 +10,9 @@ const navItems = [
     { href: '/admin/categories', label: 'Categories', icon: Tags },
     { href: '/admin/posts', label: 'Blog Posts', icon: FileText },
     { href: '/admin/authors', label: 'Authors', icon: Users },
+    { href: '/admin/ctas', label: 'CTAs', icon: Megaphone },
     { href: '/admin/reviews', label: 'Reviews', icon: MessageSquare },
+    { href: '/admin/directory', label: 'Directory SEO', icon: BarChart3 },
     { href: '/admin/settings', label: 'Settings', icon: Settings },
 ];
 
