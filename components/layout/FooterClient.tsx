@@ -7,7 +7,7 @@ interface FooterLinks {
     [category: string]: { href: string; label: string }[];
 }
 
-export default function FooterClient({ footerLinks }: { footerLinks: FooterLinks }) {
+export default function FooterClient({ footerLinks, globalSettings }: { footerLinks: FooterLinks, globalSettings: any }) {
     return (
         <footer className="bg-black text-white">
             {/* Newsletter Bar */}
@@ -45,15 +45,15 @@ export default function FooterClient({ footerLinks }: { footerLinks: FooterLinks
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
                     {/* Brand */}
                     <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-4 lg:mb-0">
-                        <Link href="/" className="flex items-center gap-2 mb-4">
-                            <Image
-                                src="/images/logo.png"
-                                alt="HyzenPro"
-                                width={32}
-                                height={32}
+                        <Link href="/" className="flex items-center gap-3 mb-4">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={globalSettings?.logoUrl || '/images/logo.png'}
+                                alt={globalSettings?.siteName || 'HyzenPro'}
+                                className="w-10 h-10 object-contain"
                             />
-                            <span className="font-heading text-xl tracking-wider text-white">
-                                HYZENPRO
+                            <span className="font-heading text-xl tracking-wider text-white uppercase">
+                                {globalSettings?.siteName || 'HYZENPRO'}
                             </span>
                         </Link>
                         <p className="text-white/40 text-sm leading-relaxed mb-6">
@@ -89,7 +89,7 @@ export default function FooterClient({ footerLinks }: { footerLinks: FooterLinks
             <div className="border-t border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-white/30 text-xs">
-                        © {new Date().getFullYear()} HyzenPro. All rights reserved.
+                        © {new Date().getFullYear()} {globalSettings?.siteName || 'HyzenPro'}. All rights reserved.
                     </p>
                     <p className="text-white/20 text-xs">
                         Made with ❤️ for the AI community

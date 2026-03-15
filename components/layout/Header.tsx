@@ -24,16 +24,23 @@ const defaultNavLinks = [
 
 export default async function Header() {
     let navLinks = defaultNavLinks;
+    let globalSettings = { siteName: 'HyzenPro', logoUrl: '/images/logo.png' };
+    
     try {
-        const navContent = await prisma.siteContent.findUnique({
-            where: { sectionId: 'header-nav' }
-        });
+        const [navContent, globalContent] = await Promise.all([
+            prisma.siteContent.findUnique({ where: { sectionId: 'header-nav' } }),
+            prisma.siteContent.findUnique({ where: { sectionId: 'global-settings' } })
+        ]);
+        
         if (navContent?.content && Array.isArray((navContent.content as any).links)) {
             navLinks = (navContent.content as any).links;
+        }
+        if (globalContent?.content) {
+            globalSettings = globalContent.content as any;
         }
     } catch (e) {
         console.error('Failed to load header nav:', e);
     }
 
-    return <HeaderClient navLinks={navLinks} />;
+    return <HeaderClient navLinks={navLinks} globalSettings={globalSettings} />;
 }

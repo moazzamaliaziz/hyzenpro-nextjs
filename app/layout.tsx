@@ -22,66 +22,75 @@ const bebasNeue = Bebas_Neue({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hyzenpro.com';
 
-export const metadata: Metadata = {
-    metadataBase: new URL(siteUrl),
-    title: {
-        default: 'HyzenPro - Best AI Tools Directory & Reviews 2026',
-        template: '%s | HyzenPro',
-    },
-    description:
-        'Discover the best AI tools with expert reviews, detailed comparisons, and practical guidance. Find your perfect AI tool today.',
-    keywords: [
-        'AI tools',
-        'AI directory',
-        'AI reviews',
-        'artificial intelligence',
-        'AI software',
-        'best AI tools 2026',
-    ],
-    authors: [{ name: 'HyzenPro Team' }],
-    creator: 'HyzenPro',
-    publisher: 'HyzenPro',
-    openGraph: {
-        type: 'website',
-        locale: 'en_US',
-        url: siteUrl,
-        siteName: 'HyzenPro',
-        title: 'HyzenPro - Best AI Tools Directory & Reviews',
-        description:
-            'Discover the best AI tools with expert reviews and comparisons.',
-        images: [
-            {
-                url: '/images/og-default.jpg',
-                width: 1200,
-                height: 630,
-                alt: 'HyzenPro - AI Tools Directory',
-            },
-        ],
-    },
-    twitter: {
-        card: 'summary_large_image',
-        site: '@hyzenpro',
-        creator: '@hyzenpro',
-    },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
+import prisma from '@/lib/prisma';
+
+export async function generateMetadata(): Promise<Metadata> {
+    let siteName = 'HyzenPro - Best AI Tools Directory & Reviews 2026';
+    let faviconUrl = '/favicon.ico';
+
+    try {
+        const globalContent = await prisma.siteContent.findUnique({
+            where: { sectionId: 'global-settings' }
+        });
+        if (globalContent?.content) {
+            const settings = globalContent.content as any;
+            if (settings.siteName) siteName = `${settings.siteName} - Best AI Tools Directory & Reviews 2026`;
+            if (settings.faviconUrl) faviconUrl = settings.faviconUrl;
+        }
+    } catch (e) {
+        console.error('Failed to load global-settings for metadata:', e);
+    }
+
+    return {
+        metadataBase: new URL(siteUrl),
+        title: {
+            default: siteName,
+            template: '%s | ' + (siteName.split('-')[0] || 'HyzenPro'),
+        },
+        description: 'Discover the best AI tools with expert reviews, detailed comparisons, and practical guidance. Find your perfect AI tool today.',
+        keywords: ['AI tools', 'AI directory', 'AI reviews', 'artificial intelligence', 'AI software', 'best AI tools 2026'],
+        icons: {
+            icon: faviconUrl,
+            shortcut: faviconUrl,
+            apple: faviconUrl,
+        },
+        openGraph: {
+            type: 'website',
+            locale: 'en_US',
+            url: siteUrl,
+            siteName: siteName.split('-')[0].trim() || 'HyzenPro',
+            title: siteName,
+            description: 'Discover the best AI tools with expert reviews and comparisons.',
+            images: [
+                {
+                    url: '/images/og-default.jpg',
+                    width: 1200,
+                    height: 630,
+                    alt: siteName,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            site: '@hyzenpro',
+            creator: '@hyzenpro',
+        },
+        robots: {
             index: true,
             follow: true,
-            'max-video-preview': -1,
-            'max-image-preview': 'large',
-            'max-snippet': -1,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
         },
-    },
-    alternates: {
-        canonical: siteUrl,
-    },
-    verification: {
-        // Add google/bing/yandex verification codes here
-        // google: 'your-google-verification-code',
-    },
-};
+        alternates: {
+            canonical: siteUrl,
+        },
+    };
+}
 
 export default function RootLayout({
     children,

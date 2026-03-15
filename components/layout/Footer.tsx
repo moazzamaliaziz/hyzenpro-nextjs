@@ -31,16 +31,23 @@ const defaultFooterLinks = {
 
 export default async function Footer() {
     let footerLinks = defaultFooterLinks;
+    let globalSettings = { siteName: 'HyzenPro', logoUrl: '/images/logo.png' };
+    
     try {
-        const navContent = await prisma.siteContent.findUnique({
-            where: { sectionId: 'footer-nav' }
-        });
+        const [navContent, globalContent] = await Promise.all([
+            prisma.siteContent.findUnique({ where: { sectionId: 'footer-nav' } }),
+            prisma.siteContent.findUnique({ where: { sectionId: 'global-settings' } })
+        ]);
+        
         if (navContent?.content && (navContent.content as any).links) {
             footerLinks = (navContent.content as any).links;
+        }
+        if (globalContent?.content) {
+            globalSettings = globalContent.content as any;
         }
     } catch (e) {
         console.error('Failed to load footer nav:', e);
     }
 
-    return <FooterClient footerLinks={footerLinks} />;
+    return <FooterClient footerLinks={footerLinks} globalSettings={globalSettings} />;
 }

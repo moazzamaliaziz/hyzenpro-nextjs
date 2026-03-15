@@ -15,7 +15,7 @@ interface NavLink {
     children?: { href: string; label: string }[];
 }
 
-export default function HeaderClient({ navLinks }: { navLinks: NavLink[] }) {
+export default function HeaderClient({ navLinks, globalSettings }: { navLinks: NavLink[], globalSettings: any }) {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
@@ -55,17 +55,16 @@ export default function HeaderClient({ navLinks }: { navLinks: NavLink[] }) {
                     {/* Logo */}
                     <Link href="/" className="relative z-10 flex items-center gap-3 group" prefetch={true}>
                         <div className="relative">
-                            <Image
-                                src="/images/logo.png"
-                                alt="HyzenPro"
-                                width={scrolled ? 32 : 40}
-                                height={scrolled ? 32 : 40}
-                                className="transition-all duration-300 relative z-10"
-                                priority
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={globalSettings?.logoUrl || '/images/logo.png'}
+                                alt={globalSettings?.siteName || 'HyzenPro'}
+                                className="transition-all duration-300 relative z-10 object-contain"
+                                style={{ width: scrolled ? 44 : 56, height: scrolled ? 44 : 56 }}
                             />
                         </div>
-                        <span className="font-heading text-2xl tracking-wider text-black dark:text-white">
-                            HYZENPRO
+                        <span className="font-heading text-2xl tracking-wider text-black dark:text-white uppercase truncate max-w-[150px] sm:max-w-none">
+                            {globalSettings?.siteName || 'HYZENPRO'}
                         </span>
                     </Link>
 
