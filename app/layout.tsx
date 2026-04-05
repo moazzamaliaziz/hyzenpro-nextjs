@@ -5,6 +5,7 @@ import { SessionProvider } from 'next-auth/react';
 import { CompareProvider } from '@/components/compare/CompareContext';
 import CompareDrawer from '@/components/compare/CompareDrawer';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const outfit = Outfit({
@@ -159,6 +160,9 @@ export default function RootLayout({
                         </Script>
                     </>
                 )}
+
+                {/* Vercel Web Analytics */}
+                <Analytics />
             </body>
         </html>
     );
