@@ -5,6 +5,7 @@ import { SessionProvider } from 'next-auth/react';
 import { CompareProvider } from '@/components/compare/CompareContext';
 import CompareDrawer from '@/components/compare/CompareDrawer';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
 const outfit = Outfit({
@@ -159,6 +160,9 @@ export default function RootLayout({
                         </Script>
                     </>
                 )}
+
+                {/* Vercel Speed Insights */}
+                <SpeedInsights />
             </body>
         </html>
     );
