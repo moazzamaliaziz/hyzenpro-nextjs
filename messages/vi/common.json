@@ -1,169 +1,177 @@
-{
-  "site": {
-    "name": "HyzenPro",
-    "tagline": "Đơn giản hóa AI cho mọi người"
-  },
-  "nav": {
-    "home": "Trang chủ",
-    "tools": "Công cụ AI",
-    "blog": "Blog",
-    "compare": "So sánh",
-    "about": "Về chúng tôi",
-    "contact": "Liên hệ",
-    "categories": "Categories",
-    "find_tools": "Find Tools",
-    "submit_tool": "Submit AI tool",
-    "popular_categories": "Popular Categories",
-    "discover": "Discover",
-    "all_tools": "All Tools",
-    "all_tools_desc": "Browse the full directory",
-    "find_tools_desc": "Take the guided matcher quiz",
-    "video_tools": "AI Video Tools",
-    "video_tools_desc": "Editors, generators, captions",
-    "writing_tools": "AI Writing Tools",
-    "writing_tools_desc": "Content, copy, and SEO writing",
-    "coding_tools": "AI Coding Tools",
-    "coding_tools_desc": "Assistants for developers",
-    "image_tools": "AI Image Tools",
-    "image_tools_desc": "Art generators, editors",
-    "automation_tools": "AI Automation",
-    "automation_tools_desc": "Workflow and task automation",
-    "from_the_blog": "From the Blog",
-    "latest_insights": "Latest insights on AI tools",
-    "read_article": "Read article"
-  },
-  "homepage": {
-    "hero_title": "Tìm công cụ AI tốt nhất",
-    "hero_subtitle": "Đánh giá độc lập, so sánh trực quan và hướng dẫn mua sắm thực tế cho người sáng tạo, nhà tiếp thị và nhóm nhỏ.",
-    "trending": "Xu hướng",
-    "featured": "Nổi bật",
-    "categories": "Danh mục",
-    "guides": "Hướng dẫn mới nhất",
-    "faq": "Câu hỏi thường gặp",
-    "newsletter": "Bản tin",
-    "quiz_cta": "Không chắc bắt đầu từ đâu? Làm bài trắc nghiệm.",
-    "quiz_button": "Bắt đầu trắc nghiệm",
-    "how_we_review": "Cách chúng tôi đánh giá",
-    "no_fluff": "Không sáo rỗng, chỉ có sự thật",
-    "browse_categories": "Duyệt danh mục",
-    "pick_category": "Chọn danh mục để khám phá",
-    "use_cases_title": "Trường hợp sử dụng",
-    "use_cases_subtitle": "Xem các nhóm sử dụng công cụ này như thế nào",
-    "head_to_head": "Đối đầu trực tiếp",
-    "editors_pick": "Lựa chọn của biên tập viên",
-    "latest_guides": "Hướng dẫn mới nhất",
-    "long_reads": "Bài viết dài",
-    "changelog": "Nhật ký thay đổi",
-    "last_30_days": "30 ngày qua",
-    "stats_tools": "Công cụ đã đánh giá",
-    "stats_guides": "Hướng dẫn đã xuất bản",
-    "stats_categories": "Danh mục",
-    "faq_title": "Câu hỏi thường gặp",
-    "faq_subtitle": "Mọi thứ bạn cần biết",
-    "newsletter_title": "Cập nhật tin mới",
-    "newsletter_subtitle": "Nhận đánh giá và hướng dẫn công cụ AI mới nhất ngay trong hộp thư của bạn.",
-    "email_placeholder": "Nhập email của bạn",
-    "footer_description": "Đánh giá và so sánh độc lập về công cụ AI giúp bạn đưa ra quyết định tốt hơn.",
-    "all_rights": "Bảo lưu mọi quyền.",
-    "independent": "Độc lập và khách quan",
-    "review_steps": {
-      "test": {
-        "title": "Thử nghiệm",
-        "desc": "Chúng tôi sử dụng mỗi công cụ trong dự án thực tế ít nhất một tuần."
-      },
-      "score": {
-        "title": "Chấm điểm",
-        "desc": "Giá cả, trải nghiệm người dùng, chất lượng đầu ra, hỗ trợ — được chấm điểm so với đối thủ."
-      },
-      "publish": {
-        "title": "Xuất bản",
-        "desc": "Nhận định trung thực với ưu điểm, nhược điểm và thực sự dành cho ai."
-      }
-    },
-    "category_names": {
-      "video": "Công cụ Video AI",
-      "writing": "Công cụ Viết AI",
-      "coding": "Công cụ Lập trình AI",
-      "automation": "Tự động hóa AI",
-      "image": "Công cụ Hình ảnh AI",
-      "all": "Tất cả Công cụ"
-    },
-    "use_cases": {
-      "creators": {
-        "role": "Người sáng tạo",
-        "title": "Người sáng tạo & YouTuber",
-        "desc": "Phụ đề, chỉnh sửa, hình thu nhỏ và lồng tiếng — bộ công cụ tạo video thực sự."
-      },
-      "marketing": {
-        "role": "Tiếp thị",
-        "title": "Nhà tiếp thị & Tăng trưởng",
-        "desc": "Từ viết SEO đến sáng tạo quảng cáo, tìm công cụ đã được kiểm chứng trong chiến dịch thực, không phải bản demo."
-      },
-      "developers": {
-        "role": "Nhà phát triển",
-        "title": "Nhà phát triển & Indie Hackers",
-        "desc": "Trợ lý lập trình, tác tử và công cụ phát triển được xếp hạng theo chi phí thực tế khi mở rộng."
-      },
-      "founders": {
-        "role": "Nhà sáng lập",
-        "title": "Nhà sáng lập & Nhóm nhỏ",
-        "desc": "Thay thế 3 đăng ký SaaS bằng 1 quy trình làm việc AI — không có bất ngờ khóa quyền."
-      },
-      "education": {
-        "role": "Giáo dục",
-        "title": "Học sinh & Giáo viên",
-        "desc": "Mức miễn phí, bạn đồng hành học tập và công cụ viết không gây rắc rối."
-      },
-      "agencies": {
-        "role": "Agency",
-        "title": "Agency & Tư vấn",
-        "desc": "Công cụ an toàn cho khách hàng với gói nhóm, kiểm soát dữ liệu và tùy chọn xuất phù hợp."
-      }
-    },
-    "h2h_verdicts": {
-      "opus_vs_codex": "Lập trình tác tử so với quy trình làm việc terminal-first",
-      "sonnet_vs_glm": "Chất lượng gần hạng nhất so với chi phí open-weight",
-      "fable_vs_mythos": "Cùng trọng số, các tầng truy cập khác nhau"
-    }
-  },
-  "common": {
-    "read_more": "Đọc thêm",
-    "view_all": "Xem tất cả",
-    "loading": "Đang tải...",
-    "error": "Đã xảy ra lỗi",
-    "search": "Tìm kiếm",
-    "subscribe": "Đăng ký",
-    "free": "Miễn phí",
-    "paid": "Trả phí",
-    "vs": "vs",
-    "open_comparison": "Mở so sánh",
-    "build_own": "Tạo của riêng bạn",
-    "read_review": "Đọc đánh giá",
-    "visit": "Truy cập",
-    "all_tools": "Tất cả công cụ",
-    "start_quiz": "Bắt đầu trắc nghiệm",
-    "see_picks": "Xem lựa chọn",
-    "listed_on": "Listed On",
-    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
-    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
-    "footer_ai_tools": "AI Tools",
-    "footer_compare": "Compare",
-    "footer_resources": "Resources",
-    "footer_company": "Company",
-    "footer_side_by_side": "Side-by-side Compare",
-    "footer_find_quiz": "Find Tools Quiz",
-    "footer_editors_choice": "Editor's choice",
-    "footer_buyers_quiz": "Buyer's quiz",
-    "footer_how_we_review": "How we review",
-    "footer_submit": "Submit AI Tool",
-    "footer_about": "About HyzenPro",
-    "footer_advertise": "Advertise",
-    "footer_privacy": "Privacy Policy",
-    "footer_terms": "Terms of Service",
-    "footer_privacy_short": "Privacy",
-    "footer_terms_short": "Terms",
-    "footer_contact": "Contact",
-    "footer_submit_short": "Submit Tool",
-    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
-  }
+﻿{
+    "site":  {
+                 "name":  "HyzenPro",
+                 "tagline":  "ÄÆ¡n giáº£n hÃ³a AI cho má»i ngÆ°á»i"
+             },
+    "nav":  {
+                "home":  "Trang chá»§",
+                "tools":  "CÃ´ng cá»¥ AI",
+                "blog":  "Blog",
+                "compare":  "So sÃ¡nh",
+                "about":  "Vá» chÃºng tÃ´i",
+                "contact":  "LiÃªn há»‡",
+                "categories":  "Categories",
+                "find_tools":  "Find Tools",
+                "submit_tool":  "Submit AI tool",
+                "popular_categories":  "Popular Categories",
+                "discover":  "Discover",
+                "all_tools":  "All Tools",
+                "all_tools_desc":  "Browse the full directory",
+                "find_tools_desc":  "Take the guided matcher quiz",
+                "video_tools":  "AI Video Tools",
+                "video_tools_desc":  "Editors, generators, captions",
+                "writing_tools":  "AI Writing Tools",
+                "writing_tools_desc":  "Content, copy, and SEO writing",
+                "coding_tools":  "AI Coding Tools",
+                "coding_tools_desc":  "Assistants for developers",
+                "image_tools":  "AI Image Tools",
+                "image_tools_desc":  "Art generators, editors",
+                "automation_tools":  "AI Automation",
+                "automation_tools_desc":  "Workflow and task automation",
+                "from_the_blog":  "From the Blog",
+                "latest_insights":  "Latest insights on AI tools",
+                "read_article":  "Read article"
+            },
+    "homepage":  {
+                     "hero_title":  "TÃ¬m cÃ´ng cá»¥ AI tá»‘t nháº¥t",
+                     "hero_subtitle":  "ÄÃ¡nh giÃ¡ Ä‘á»™c láº­p, so sÃ¡nh trá»±c quan vÃ  hÆ°á»›ng dáº«n mua sáº¯m thá»±c táº¿ cho ngÆ°á»i sÃ¡ng táº¡o, nhÃ  tiáº¿p thá»‹ vÃ  nhÃ³m nhá».",
+                     "trending":  "Xu hÆ°á»›ng",
+                     "featured":  "Ná»•i báº­t",
+                     "categories":  "Danh má»¥c",
+                     "guides":  "HÆ°á»›ng dáº«n má»›i nháº¥t",
+                     "faq":  "CÃ¢u há»i thÆ°á»ng gáº·p",
+                     "newsletter":  "Báº£n tin",
+                     "quiz_cta":  "KhÃ´ng cháº¯c báº¯t Ä‘áº§u tá»« Ä‘Ã¢u? LÃ m bÃ i tráº¯c nghiá»‡m.",
+                     "quiz_button":  "Báº¯t Ä‘áº§u tráº¯c nghiá»‡m",
+                     "how_we_review":  "CÃ¡ch chÃºng tÃ´i Ä‘Ã¡nh giÃ¡",
+                     "no_fluff":  "KhÃ´ng sÃ¡o rá»—ng, chá»‰ cÃ³ sá»± tháº­t",
+                     "browse_categories":  "Duyá»‡t danh má»¥c",
+                     "pick_category":  "Chá»n danh má»¥c Ä‘á»ƒ khÃ¡m phÃ¡",
+                     "use_cases_title":  "TrÆ°á»ng há»£p sá»­ dá»¥ng",
+                     "use_cases_subtitle":  "Xem cÃ¡c nhÃ³m sá»­ dá»¥ng cÃ´ng cá»¥ nÃ y nhÆ° tháº¿ nÃ o",
+                     "head_to_head":  "Äá»‘i Ä‘áº§u trá»±c tiáº¿p",
+                     "editors_pick":  "Lá»±a chá»n cá»§a biÃªn táº­p viÃªn",
+                     "latest_guides":  "HÆ°á»›ng dáº«n má»›i nháº¥t",
+                     "long_reads":  "BÃ i viáº¿t dÃ i",
+                     "changelog":  "Nháº­t kÃ½ thay Ä‘á»•i",
+                     "last_30_days":  "30 ngÃ y qua",
+                     "stats_tools":  "CÃ´ng cá»¥ Ä‘Ã£ Ä‘Ã¡nh giÃ¡",
+                     "stats_guides":  "HÆ°á»›ng dáº«n Ä‘Ã£ xuáº¥t báº£n",
+                     "stats_categories":  "Danh má»¥c",
+                     "faq_title":  "CÃ¢u há»i thÆ°á»ng gáº·p",
+                     "faq_subtitle":  "Má»i thá»© báº¡n cáº§n biáº¿t",
+                     "newsletter_title":  "Cáº­p nháº­t tin má»›i",
+                     "newsletter_subtitle":  "Nháº­n Ä‘Ã¡nh giÃ¡ vÃ  hÆ°á»›ng dáº«n cÃ´ng cá»¥ AI má»›i nháº¥t ngay trong há»™p thÆ° cá»§a báº¡n.",
+                     "email_placeholder":  "Nháº­p email cá»§a báº¡n",
+                     "footer_description":  "ÄÃ¡nh giÃ¡ vÃ  so sÃ¡nh Ä‘á»™c láº­p vá» cÃ´ng cá»¥ AI giÃºp báº¡n Ä‘Æ°a ra quyáº¿t Ä‘á»‹nh tá»‘t hÆ¡n.",
+                     "all_rights":  "Báº£o lÆ°u má»i quyá»n.",
+                     "independent":  "Äá»™c láº­p vÃ  khÃ¡ch quan",
+                     "review_steps":  {
+                                          "test":  {
+                                                       "title":  "Thá»­ nghiá»‡m",
+                                                       "desc":  "ChÃºng tÃ´i sá»­ dá»¥ng má»—i cÃ´ng cá»¥ trong dá»± Ã¡n thá»±c táº¿ Ã­t nháº¥t má»™t tuáº§n."
+                                                   },
+                                          "score":  {
+                                                        "title":  "Cháº¥m Ä‘iá»ƒm",
+                                                        "desc":  "GiÃ¡ cáº£, tráº£i nghiá»‡m ngÆ°á»i dÃ¹ng, cháº¥t lÆ°á»£ng Ä‘áº§u ra, há»— trá»£ â€” Ä‘Æ°á»£c cháº¥m Ä‘iá»ƒm so vá»›i Ä‘á»‘i thá»§."
+                                                    },
+                                          "publish":  {
+                                                          "title":  "Xuáº¥t báº£n",
+                                                          "desc":  "Nháº­n Ä‘á»‹nh trung thá»±c vá»›i Æ°u Ä‘iá»ƒm, nhÆ°á»£c Ä‘iá»ƒm vÃ  thá»±c sá»± dÃ nh cho ai."
+                                                      }
+                                      },
+                     "category_names":  {
+                                            "video":  "CÃ´ng cá»¥ Video AI",
+                                            "writing":  "CÃ´ng cá»¥ Viáº¿t AI",
+                                            "coding":  "CÃ´ng cá»¥ Láº­p trÃ¬nh AI",
+                                            "automation":  "Tá»± Ä‘á»™ng hÃ³a AI",
+                                            "image":  "CÃ´ng cá»¥ HÃ¬nh áº£nh AI",
+                                            "all":  "Táº¥t cáº£ CÃ´ng cá»¥"
+                                        },
+                     "use_cases":  {
+                                       "creators":  {
+                                                        "role":  "NgÆ°á»i sÃ¡ng táº¡o",
+                                                        "title":  "NgÆ°á»i sÃ¡ng táº¡o \u0026 YouTuber",
+                                                        "desc":  "Phá»¥ Ä‘á», chá»‰nh sá»­a, hÃ¬nh thu nhá» vÃ  lá»“ng tiáº¿ng â€” bá»™ cÃ´ng cá»¥ táº¡o video thá»±c sá»±."
+                                                    },
+                                       "marketing":  {
+                                                         "role":  "Tiáº¿p thá»‹",
+                                                         "title":  "NhÃ  tiáº¿p thá»‹ \u0026 TÄƒng trÆ°á»Ÿng",
+                                                         "desc":  "Tá»« viáº¿t SEO Ä‘áº¿n sÃ¡ng táº¡o quáº£ng cÃ¡o, tÃ¬m cÃ´ng cá»¥ Ä‘Ã£ Ä‘Æ°á»£c kiá»ƒm chá»©ng trong chiáº¿n dá»‹ch thá»±c, khÃ´ng pháº£i báº£n demo."
+                                                     },
+                                       "developers":  {
+                                                          "role":  "NhÃ  phÃ¡t triá»ƒn",
+                                                          "title":  "NhÃ  phÃ¡t triá»ƒn \u0026 Indie Hackers",
+                                                          "desc":  "Trá»£ lÃ½ láº­p trÃ¬nh, tÃ¡c tá»­ vÃ  cÃ´ng cá»¥ phÃ¡t triá»ƒn Ä‘Æ°á»£c xáº¿p háº¡ng theo chi phÃ­ thá»±c táº¿ khi má»Ÿ rá»™ng."
+                                                      },
+                                       "founders":  {
+                                                        "role":  "NhÃ  sÃ¡ng láº­p",
+                                                        "title":  "NhÃ  sÃ¡ng láº­p \u0026 NhÃ³m nhá»",
+                                                        "desc":  "Thay tháº¿ 3 Ä‘Äƒng kÃ½ SaaS báº±ng 1 quy trÃ¬nh lÃ m viá»‡c AI â€” khÃ´ng cÃ³ báº¥t ngá» khÃ³a quyá»n."
+                                                    },
+                                       "education":  {
+                                                         "role":  "GiÃ¡o dá»¥c",
+                                                         "title":  "Há»c sinh \u0026 GiÃ¡o viÃªn",
+                                                         "desc":  "Má»©c miá»…n phÃ­, báº¡n Ä‘á»“ng hÃ nh há»c táº­p vÃ  cÃ´ng cá»¥ viáº¿t khÃ´ng gÃ¢y ráº¯c rá»‘i."
+                                                     },
+                                       "agencies":  {
+                                                        "role":  "Agency",
+                                                        "title":  "Agency \u0026 TÆ° váº¥n",
+                                                        "desc":  "CÃ´ng cá»¥ an toÃ n cho khÃ¡ch hÃ ng vá»›i gÃ³i nhÃ³m, kiá»ƒm soÃ¡t dá»¯ liá»‡u vÃ  tÃ¹y chá»n xuáº¥t phÃ¹ há»£p."
+                                                    }
+                                   },
+                     "h2h_verdicts":  {
+                                          "opus_vs_codex":  "Láº­p trÃ¬nh tÃ¡c tá»­ so vá»›i quy trÃ¬nh lÃ m viá»‡c terminal-first",
+                                          "sonnet_vs_glm":  "Cháº¥t lÆ°á»£ng gáº§n háº¡ng nháº¥t so vá»›i chi phÃ­ open-weight",
+                                          "fable_vs_mythos":  "CÃ¹ng trá»ng sá»‘, cÃ¡c táº§ng truy cáº­p khÃ¡c nhau"
+                                      }
+                 },
+    "common":  {
+                   "read_more":  "Äá»c thÃªm",
+                   "view_all":  "Xem táº¥t cáº£",
+                   "loading":  "Äang táº£i...",
+                   "error":  "ÄÃ£ xáº£y ra lá»—i",
+                   "search":  "TÃ¬m kiáº¿m",
+                   "subscribe":  "ÄÄƒng kÃ½",
+                   "free":  "Miá»…n phÃ­",
+                   "paid":  "Tráº£ phÃ­",
+                   "vs":  "vs",
+                   "open_comparison":  "Má»Ÿ so sÃ¡nh",
+                   "build_own":  "Táº¡o cá»§a riÃªng báº¡n",
+                   "read_review":  "Äá»c Ä‘Ã¡nh giÃ¡",
+                   "visit":  "Truy cáº­p",
+                   "all_tools":  "Táº¥t cáº£ cÃ´ng cá»¥",
+                   "start_quiz":  "Báº¯t Ä‘áº§u tráº¯c nghiá»‡m",
+                   "see_picks":  "Xem lá»±a chá»n",
+                   "listed_on":  "Listed On",
+                   "all_rights":  "All rights reserved. AI tool ratings are based on independent testing.",
+                   "independent":  "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+                   "footer_ai_tools":  "AI Tools",
+                   "footer_compare":  "Compare",
+                   "footer_resources":  "Resources",
+                   "footer_company":  "Company",
+                   "footer_side_by_side":  "Side-by-side Compare",
+                   "footer_find_quiz":  "Find Tools Quiz",
+                   "footer_editors_choice":  "Editor\u0027s choice",
+                   "footer_buyers_quiz":  "Buyer\u0027s quiz",
+                   "footer_how_we_review":  "How we review",
+                   "footer_submit":  "Submit AI Tool",
+                   "footer_about":  "About HyzenPro",
+                   "footer_advertise":  "Advertise",
+                   "footer_privacy":  "Privacy Policy",
+                   "footer_terms":  "Terms of Service",
+                   "footer_privacy_short":  "Privacy",
+                   "footer_terms_short":  "Terms",
+                   "footer_contact":  "Contact",
+                   "footer_submit_short":  "Submit Tool",
+                   "footer_tagline":  "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded â€” never pay-to-play.",
+                   "blog":  "Blog",
+                   "writing_tools":  "AI Writing Tools",
+                   "contact":  "Contact",
+                   "video_tools":  "AI Video Tools",
+                   "tools":  "AI Tools Directory",
+                   "coding_tools":  "AI Coding Tools",
+                   "automation_tools":  "AI Automation",
+                   "image_tools":  "AI Image Tools"
+               }
 }

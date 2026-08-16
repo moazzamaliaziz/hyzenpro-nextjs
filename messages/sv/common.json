@@ -1,169 +1,177 @@
-{
-  "site": {
-    "name": "HyzenPro",
-    "tagline": "Förenklar AI för alla"
-  },
-  "nav": {
-    "home": "Hem",
-    "tools": "AI-verktyg",
-    "blog": "Blogg",
-    "compare": "Jämför",
-    "about": "Om oss",
-    "contact": "Kontakt",
-    "categories": "Categories",
-    "find_tools": "Find Tools",
-    "submit_tool": "Submit AI tool",
-    "popular_categories": "Popular Categories",
-    "discover": "Discover",
-    "all_tools": "All Tools",
-    "all_tools_desc": "Browse the full directory",
-    "find_tools_desc": "Take the guided matcher quiz",
-    "video_tools": "AI Video Tools",
-    "video_tools_desc": "Editors, generators, captions",
-    "writing_tools": "AI Writing Tools",
-    "writing_tools_desc": "Content, copy, and SEO writing",
-    "coding_tools": "AI Coding Tools",
-    "coding_tools_desc": "Assistants for developers",
-    "image_tools": "AI Image Tools",
-    "image_tools_desc": "Art generators, editors",
-    "automation_tools": "AI Automation",
-    "automation_tools_desc": "Workflow and task automation",
-    "from_the_blog": "From the Blog",
-    "latest_insights": "Latest insights on AI tools",
-    "read_article": "Read article"
-  },
-  "homepage": {
-    "hero_title": "Hitta de bästa AI-verktygen",
-    "hero_subtitle": "Oberoende recensioner, sidan-vid-sidan-jämförelser och praktisk köpvägledning för skapare, marknadsförare och små team.",
-    "trending": "Trendande",
-    "featured": "Utvalda",
-    "categories": "Kategorier",
-    "guides": "Senaste guider",
-    "faq": "Vanliga frågor",
-    "newsletter": "Nyhetsbrev",
-    "quiz_cta": "Osäker på var du ska börja? Gör quizet.",
-    "quiz_button": "Starta quizet",
-    "how_we_review": "Hur vi testar",
-    "no_fluff": "Inget fluff, bara fakta",
-    "browse_categories": "Bläddra i kategorier",
-    "pick_category": "Välj en kategori att utforska",
-    "use_cases_title": "Användningsfall",
-    "use_cases_subtitle": "Se hur team använder dessa verktyg",
-    "head_to_head": "Direkt jämförelse",
-    "editors_pick": "Redaktionens val",
-    "latest_guides": "Senaste guider",
-    "long_reads": "Långa artiklar",
-    "changelog": "Ändringslogg",
-    "last_30_days": "Senaste 30 dagarna",
-    "stats_tools": "Testade verktyg",
-    "stats_guides": "Publicerade guider",
-    "stats_categories": "Kategorier",
-    "faq_title": "Vanliga frågor",
-    "faq_subtitle": "Allt du behöver veta",
-    "newsletter_title": "Håll dig uppdaterad",
-    "newsletter_subtitle": "Få de senaste AI-verktygsrecensionerna och guiderna direkt i din inkorg.",
-    "email_placeholder": "Ange din e-postadress",
-    "footer_description": "Oberoende recensioner och jämförelser av AI-verktyg som hjälper dig fatta bättre beslut.",
-    "all_rights": "Alla rättigheter förbehållna.",
-    "independent": "Oberoende och opartisk",
-    "review_steps": {
-      "test": {
-        "title": "Testa",
-        "desc": "Vi testar varje verktyg i ett riktigt projekt i minst en vecka."
-      },
-      "score": {
-        "title": "Betyg",
-        "desc": "Pris, användarupplevelse, utdatakvalitet, support — bedöms jämfört med konkurrenter."
-      },
-      "publish": {
-        "title": "Publicera",
-        "desc": "Ärlig bedömning med fördelar, nackdelar och för vem det verkligen är avsett."
-      }
-    },
-    "category_names": {
-      "video": "AI-videoverktyg",
-      "writing": "AI-skrivverktyg",
-      "coding": "AI-kodningsverktyg",
-      "automation": "AI-automatisering",
-      "image": "AI-bildverktyg",
-      "all": "Alla verktyg"
-    },
-    "use_cases": {
-      "creators": {
-        "role": "Skapare",
-        "title": "Skapare & YouTubers",
-        "desc": "Undertexter, redigering, miniatyrbilder och röstinspelning — stacken som faktiskt producerar videor."
-      },
-      "marketing": {
-        "role": "Marknadsföring",
-        "title": "Marknadsförare & Tillväxt",
-        "desc": "Från SEO-skrivning till annonskreativitet, hitta verktyg som testats på riktiga kampanjer, inte demoer."
-      },
-      "developers": {
-        "role": "Utvecklare",
-        "title": "Utvecklare & Indie-hackare",
-        "desc": "Kodningsco-piloter, agenter och utvecklingsverktyg rankade efter deras faktiska kostnad vid skalning."
-      },
-      "founders": {
-        "role": "Grundare",
-        "title": "Grundare & Små team",
-        "desc": "Ersätt 3 SaaS-prenumerationer med 1 AI-arbetsflöde — utan låsningsoverraskningar."
-      },
-      "education": {
-        "role": "Utbildning",
-        "title": "Studenter & Utbildare",
-        "desc": "Gratis nivåer, studiekamrater och skrivverktyg som inte ger dig problem."
-      },
-      "agencies": {
-        "role": "Byråer",
-        "title": "Byråer & Konsulter",
-        "desc": "Kundsäkra verktyg med teamplaner, datakontroller och lämpliga exportalternativ."
-      }
-    },
-    "h2h_verdicts": {
-      "opus_vs_codex": "Agentic kodning vs terminal-first arbetsflöden",
-      "sonnet_vs_glm": "Nästan flaggskeppskvalitet vs open-weight-kostnad",
-      "fable_vs_mythos": "Samma vikter, olika åtkomstnivåer"
-    }
-  },
-  "common": {
-    "read_more": "Läs mer",
-    "view_all": "Visa alla",
-    "loading": "Laddar...",
-    "error": "Något gick fel",
-    "search": "Sök",
-    "subscribe": "Prenumerera",
-    "free": "Gratis",
-    "paid": "Betald",
-    "vs": "vs",
-    "open_comparison": "Öppna jämförelse",
-    "build_own": "Skapa din egen",
-    "read_review": "Läs recension",
-    "visit": "Besök",
-    "all_tools": "Alla verktyg",
-    "start_quiz": "Starta quizet",
-    "see_picks": "Se utval",
-    "listed_on": "Listed On",
-    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
-    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
-    "footer_ai_tools": "AI Tools",
-    "footer_compare": "Compare",
-    "footer_resources": "Resources",
-    "footer_company": "Company",
-    "footer_side_by_side": "Side-by-side Compare",
-    "footer_find_quiz": "Find Tools Quiz",
-    "footer_editors_choice": "Editor's choice",
-    "footer_buyers_quiz": "Buyer's quiz",
-    "footer_how_we_review": "How we review",
-    "footer_submit": "Submit AI Tool",
-    "footer_about": "About HyzenPro",
-    "footer_advertise": "Advertise",
-    "footer_privacy": "Privacy Policy",
-    "footer_terms": "Terms of Service",
-    "footer_privacy_short": "Privacy",
-    "footer_terms_short": "Terms",
-    "footer_contact": "Contact",
-    "footer_submit_short": "Submit Tool",
-    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
-  }
+﻿{
+    "site":  {
+                 "name":  "HyzenPro",
+                 "tagline":  "FÃ¶renklar AI fÃ¶r alla"
+             },
+    "nav":  {
+                "home":  "Hem",
+                "tools":  "AI-verktyg",
+                "blog":  "Blogg",
+                "compare":  "JÃ¤mfÃ¶r",
+                "about":  "Om oss",
+                "contact":  "Kontakt",
+                "categories":  "Categories",
+                "find_tools":  "Find Tools",
+                "submit_tool":  "Submit AI tool",
+                "popular_categories":  "Popular Categories",
+                "discover":  "Discover",
+                "all_tools":  "All Tools",
+                "all_tools_desc":  "Browse the full directory",
+                "find_tools_desc":  "Take the guided matcher quiz",
+                "video_tools":  "AI Video Tools",
+                "video_tools_desc":  "Editors, generators, captions",
+                "writing_tools":  "AI Writing Tools",
+                "writing_tools_desc":  "Content, copy, and SEO writing",
+                "coding_tools":  "AI Coding Tools",
+                "coding_tools_desc":  "Assistants for developers",
+                "image_tools":  "AI Image Tools",
+                "image_tools_desc":  "Art generators, editors",
+                "automation_tools":  "AI Automation",
+                "automation_tools_desc":  "Workflow and task automation",
+                "from_the_blog":  "From the Blog",
+                "latest_insights":  "Latest insights on AI tools",
+                "read_article":  "Read article"
+            },
+    "homepage":  {
+                     "hero_title":  "Hitta de bÃ¤sta AI-verktygen",
+                     "hero_subtitle":  "Oberoende recensioner, sidan-vid-sidan-jÃ¤mfÃ¶relser och praktisk kÃ¶pvÃ¤gledning fÃ¶r skapare, marknadsfÃ¶rare och smÃ¥ team.",
+                     "trending":  "Trendande",
+                     "featured":  "Utvalda",
+                     "categories":  "Kategorier",
+                     "guides":  "Senaste guider",
+                     "faq":  "Vanliga frÃ¥gor",
+                     "newsletter":  "Nyhetsbrev",
+                     "quiz_cta":  "OsÃ¤ker pÃ¥ var du ska bÃ¶rja? GÃ¶r quizet.",
+                     "quiz_button":  "Starta quizet",
+                     "how_we_review":  "Hur vi testar",
+                     "no_fluff":  "Inget fluff, bara fakta",
+                     "browse_categories":  "BlÃ¤ddra i kategorier",
+                     "pick_category":  "VÃ¤lj en kategori att utforska",
+                     "use_cases_title":  "AnvÃ¤ndningsfall",
+                     "use_cases_subtitle":  "Se hur team anvÃ¤nder dessa verktyg",
+                     "head_to_head":  "Direkt jÃ¤mfÃ¶relse",
+                     "editors_pick":  "Redaktionens val",
+                     "latest_guides":  "Senaste guider",
+                     "long_reads":  "LÃ¥nga artiklar",
+                     "changelog":  "Ã„ndringslogg",
+                     "last_30_days":  "Senaste 30 dagarna",
+                     "stats_tools":  "Testade verktyg",
+                     "stats_guides":  "Publicerade guider",
+                     "stats_categories":  "Kategorier",
+                     "faq_title":  "Vanliga frÃ¥gor",
+                     "faq_subtitle":  "Allt du behÃ¶ver veta",
+                     "newsletter_title":  "HÃ¥ll dig uppdaterad",
+                     "newsletter_subtitle":  "FÃ¥ de senaste AI-verktygsrecensionerna och guiderna direkt i din inkorg.",
+                     "email_placeholder":  "Ange din e-postadress",
+                     "footer_description":  "Oberoende recensioner och jÃ¤mfÃ¶relser av AI-verktyg som hjÃ¤lper dig fatta bÃ¤ttre beslut.",
+                     "all_rights":  "Alla rÃ¤ttigheter fÃ¶rbehÃ¥llna.",
+                     "independent":  "Oberoende och opartisk",
+                     "review_steps":  {
+                                          "test":  {
+                                                       "title":  "Testa",
+                                                       "desc":  "Vi testar varje verktyg i ett riktigt projekt i minst en vecka."
+                                                   },
+                                          "score":  {
+                                                        "title":  "Betyg",
+                                                        "desc":  "Pris, anvÃ¤ndarupplevelse, utdatakvalitet, support â€” bedÃ¶ms jÃ¤mfÃ¶rt med konkurrenter."
+                                                    },
+                                          "publish":  {
+                                                          "title":  "Publicera",
+                                                          "desc":  "Ã„rlig bedÃ¶mning med fÃ¶rdelar, nackdelar och fÃ¶r vem det verkligen Ã¤r avsett."
+                                                      }
+                                      },
+                     "category_names":  {
+                                            "video":  "AI-videoverktyg",
+                                            "writing":  "AI-skrivverktyg",
+                                            "coding":  "AI-kodningsverktyg",
+                                            "automation":  "AI-automatisering",
+                                            "image":  "AI-bildverktyg",
+                                            "all":  "Alla verktyg"
+                                        },
+                     "use_cases":  {
+                                       "creators":  {
+                                                        "role":  "Skapare",
+                                                        "title":  "Skapare \u0026 YouTubers",
+                                                        "desc":  "Undertexter, redigering, miniatyrbilder och rÃ¶stinspelning â€” stacken som faktiskt producerar videor."
+                                                    },
+                                       "marketing":  {
+                                                         "role":  "MarknadsfÃ¶ring",
+                                                         "title":  "MarknadsfÃ¶rare \u0026 TillvÃ¤xt",
+                                                         "desc":  "FrÃ¥n SEO-skrivning till annonskreativitet, hitta verktyg som testats pÃ¥ riktiga kampanjer, inte demoer."
+                                                     },
+                                       "developers":  {
+                                                          "role":  "Utvecklare",
+                                                          "title":  "Utvecklare \u0026 Indie-hackare",
+                                                          "desc":  "Kodningsco-piloter, agenter och utvecklingsverktyg rankade efter deras faktiska kostnad vid skalning."
+                                                      },
+                                       "founders":  {
+                                                        "role":  "Grundare",
+                                                        "title":  "Grundare \u0026 SmÃ¥ team",
+                                                        "desc":  "ErsÃ¤tt 3 SaaS-prenumerationer med 1 AI-arbetsflÃ¶de â€” utan lÃ¥sningsoverraskningar."
+                                                    },
+                                       "education":  {
+                                                         "role":  "Utbildning",
+                                                         "title":  "Studenter \u0026 Utbildare",
+                                                         "desc":  "Gratis nivÃ¥er, studiekamrater och skrivverktyg som inte ger dig problem."
+                                                     },
+                                       "agencies":  {
+                                                        "role":  "ByrÃ¥er",
+                                                        "title":  "ByrÃ¥er \u0026 Konsulter",
+                                                        "desc":  "KundsÃ¤kra verktyg med teamplaner, datakontroller och lÃ¤mpliga exportalternativ."
+                                                    }
+                                   },
+                     "h2h_verdicts":  {
+                                          "opus_vs_codex":  "Agentic kodning vs terminal-first arbetsflÃ¶den",
+                                          "sonnet_vs_glm":  "NÃ¤stan flaggskeppskvalitet vs open-weight-kostnad",
+                                          "fable_vs_mythos":  "Samma vikter, olika Ã¥tkomstnivÃ¥er"
+                                      }
+                 },
+    "common":  {
+                   "read_more":  "LÃ¤s mer",
+                   "view_all":  "Visa alla",
+                   "loading":  "Laddar...",
+                   "error":  "NÃ¥got gick fel",
+                   "search":  "SÃ¶k",
+                   "subscribe":  "Prenumerera",
+                   "free":  "Gratis",
+                   "paid":  "Betald",
+                   "vs":  "vs",
+                   "open_comparison":  "Ã–ppna jÃ¤mfÃ¶relse",
+                   "build_own":  "Skapa din egen",
+                   "read_review":  "LÃ¤s recension",
+                   "visit":  "BesÃ¶k",
+                   "all_tools":  "Alla verktyg",
+                   "start_quiz":  "Starta quizet",
+                   "see_picks":  "Se utval",
+                   "listed_on":  "Listed On",
+                   "all_rights":  "All rights reserved. AI tool ratings are based on independent testing.",
+                   "independent":  "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+                   "footer_ai_tools":  "AI Tools",
+                   "footer_compare":  "Compare",
+                   "footer_resources":  "Resources",
+                   "footer_company":  "Company",
+                   "footer_side_by_side":  "Side-by-side Compare",
+                   "footer_find_quiz":  "Find Tools Quiz",
+                   "footer_editors_choice":  "Editor\u0027s choice",
+                   "footer_buyers_quiz":  "Buyer\u0027s quiz",
+                   "footer_how_we_review":  "How we review",
+                   "footer_submit":  "Submit AI Tool",
+                   "footer_about":  "About HyzenPro",
+                   "footer_advertise":  "Advertise",
+                   "footer_privacy":  "Privacy Policy",
+                   "footer_terms":  "Terms of Service",
+                   "footer_privacy_short":  "Privacy",
+                   "footer_terms_short":  "Terms",
+                   "footer_contact":  "Contact",
+                   "footer_submit_short":  "Submit Tool",
+                   "footer_tagline":  "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded â€” never pay-to-play.",
+                   "blog":  "Blog",
+                   "writing_tools":  "AI Writing Tools",
+                   "contact":  "Contact",
+                   "video_tools":  "AI Video Tools",
+                   "tools":  "AI Tools Directory",
+                   "coding_tools":  "AI Coding Tools",
+                   "automation_tools":  "AI Automation",
+                   "image_tools":  "AI Image Tools"
+               }
 }

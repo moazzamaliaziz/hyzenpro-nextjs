@@ -1,169 +1,177 @@
-{
-  "site": {
-    "name": "HyzenPro",
-    "tagline": "Simplificando la IA para todos"
-  },
-  "nav": {
-    "home": "Inicio",
-    "tools": "Herramientas IA",
-    "blog": "Blog",
-    "compare": "Comparar",
-    "about": "Sobre nosotros",
-    "contact": "Contacto",
-    "categories": "Categorías",
-    "find_tools": "Encontrar herramientas",
-    "submit_tool": "Enviar herramienta IA",
-    "popular_categories": "Categorías populares",
-    "discover": "Descubrir",
-    "all_tools": "Todas las herramientas",
-    "all_tools_desc": "Explorar el directorio completo",
-    "find_tools_desc": "Participar en el cuestionario de selección guiada",
-    "video_tools": "Herramientas de video IA",
-    "video_tools_desc": "Editores, generadores, subtítulos",
-    "writing_tools": "Herramientas de escritura IA",
-    "writing_tools_desc": "Contenido, copias y redacción SEO",
-    "coding_tools": "Herramientas de codificación IA",
-    "coding_tools_desc": "Asistentes para desarrolladores",
-    "image_tools": "Herramientas de imagen IA",
-    "image_tools_desc": "Generadores de arte, editores",
-    "automation_tools": "Automatización IA",
-    "automation_tools_desc": "Automatización de flujos de trabajo y tareas",
-    "from_the_blog": "Del blog",
-    "latest_insights": "Últimas ideas sobre herramientas IA",
-    "read_article": "Leer artículo"
-  },
-  "homepage": {
-    "hero_title": "Encuentra las mejores herramientas de IA",
-    "hero_subtitle": "Reseñas independientes, comparativas lado a lado y orientación práctica de compra para creadores, marketers y pequeños equipos.",
-    "trending": "Tendencias",
-    "featured": "Destacadas",
-    "categories": "Categorías",
-    "guides": "Últimas guías",
-    "faq": "Preguntas frecuentes",
-    "newsletter": "Boletín",
-    "quiz_cta": "¿No sabes por dónde empezar? Haz el cuestionario.",
-    "quiz_button": "Iniciar cuestionario",
-    "how_we_review": "Cómo revisamos",
-    "no_fluff": "Sin relleno, solo hechos",
-    "browse_categories": "Explorar categorías",
-    "pick_category": "Elige una categoría para explorar",
-    "use_cases_title": "Casos de uso",
-    "use_cases_subtitle": "Mira cómo los equipos usan estas herramientas",
-    "head_to_head": "Cara a cara",
-    "editors_pick": "Selección del editor",
-    "latest_guides": "Últimas guías",
-    "long_reads": "Lecturas extensas",
-    "changelog": "Registro de cambios",
-    "last_30_days": "Últimos 30 días",
-    "stats_tools": "Herramientas reseñadas",
-    "stats_guides": "Guías publicadas",
-    "stats_categories": "Categorías",
-    "faq_title": "Preguntas frecuentes",
-    "faq_subtitle": "Todo lo que necesitas saber",
-    "newsletter_title": "Mantente al día",
-    "newsletter_subtitle": "Recibe las últimas reseñas y guías de herramientas de IA en tu correo.",
-    "email_placeholder": "Ingresa tu correo electrónico",
-    "footer_description": "Reseñas y comparativas independientes de herramientas de IA para ayudarte a tomar mejores decisiones.",
-    "all_rights": "Todos los derechos reservados.",
-    "independent": "Independiente y sin sesgos",
-    "review_steps": {
-      "test": {
-        "title": "Test",
-        "desc": "Probamos cada herramienta en un proyecto real durante al menos una semana."
-      },
-      "score": {
-        "title": "Puntuación",
-        "desc": "Precio, experiencia de usuario, calidad del resultado, soporte — puntuados frente a la competencia."
-      },
-      "publish": {
-        "title": "Publicar",
-        "desc": "Veredicto honesto con pros, contras y para quién es realmente."
-      }
-    },
-    "category_names": {
-      "video": "Herramientas de Video IA",
-      "writing": "Herramientas de Escritura IA",
-      "coding": "Herramientas de Programación IA",
-      "automation": "Automatización IA",
-      "image": "Herramientas de Imagen IA",
-      "all": "Todas las Herramientas"
-    },
-    "use_cases": {
-      "creators": {
-        "role": "Creadores",
-        "title": "Creadores y YouTubers",
-        "desc": "Subtítulos, edición, miniaturas y voces en off — el stack que realmente produce videos."
-      },
-      "marketing": {
-        "role": "Marketing",
-        "title": "Marketers y Crecimiento",
-        "desc": "Desde escritura SEO hasta creatividad publicitaria, encuentra herramientas probadas en campañas reales, no en demos."
-      },
-      "developers": {
-        "role": "Desarrolladores",
-        "title": "Desarrolladores y Hackers Individuales",
-        "desc": "Copilotos de código, agentes y herramientas de desarrollo clasificados por su coste real a escala."
-      },
-      "founders": {
-        "role": "Fundadores",
-        "title": "Fundadores y Pequeños Equipos",
-        "desc": "Reemplaza 3 suscripciones SaaS con 1 flujo de trabajo IA — sin sorpresas de bloqueo."
-      },
-      "education": {
-        "role": "Educación",
-        "title": "Estudiantes y Educadores",
-        "desc": "Niveles gratuitos, compañeros de estudio y ayudas de escritura que no te traerán problemas."
-      },
-      "agencies": {
-        "role": "Agencias",
-        "title": "Agencias y Consultorías",
-        "desc": "Herramientas seguras para clientes con planes de equipo, controles de datos y opciones de exportación adecuadas."
-      }
-    },
-    "h2h_verdicts": {
-      "opus_vs_codex": "Codificación agéntica vs flujos de trabajo de terminal primero",
-      "sonnet_vs_glm": "Calidad casi insignia vs costo de peso abierto",
-      "fable_vs_mythos": "Mismos pesos, diferentes niveles de acceso"
-    }
-  },
-  "common": {
-    "read_more": "Leer más",
-    "view_all": "Ver todo",
-    "loading": "Cargando...",
-    "error": "Algo salió mal",
-    "search": "Buscar",
-    "subscribe": "Suscribirse",
-    "free": "Gratis",
-    "paid": "De pago",
-    "vs": "vs",
-    "open_comparison": "Abrir comparación",
-    "build_own": "Crear la tuya",
-    "read_review": "Leer reseña",
-    "visit": "Visitar",
-    "all_tools": "Todas las herramientas",
-    "start_quiz": "Iniciar cuestionario",
-    "see_picks": "Ver selecciones",
-    "listed_on": "Publicado en",
-    "all_rights": "Todos los derechos reservados. Las calificaciones de herramientas IA se basan en pruebas independientes.",
-    "independent": "HyzenPro es una publicación independiente. Las marcas y logotipos son propiedad de sus respectivos dueños.",
-    "footer_ai_tools": "Herramientas IA",
-    "footer_compare": "Comparar",
-    "footer_resources": "Recursos",
-    "footer_company": "Empresa",
-    "footer_side_by_side": "Comparación lado a lado",
-    "footer_find_quiz": "Cuestionario de selección",
-    "footer_editors_choice": "Elección del editor",
-    "footer_buyers_quiz": "Cuestionario de compra",
-    "footer_how_we_review": "Cómo evaluamos",
-    "footer_submit": "Enviar herramienta IA",
-    "footer_about": "Sobre HyzenPro",
-    "footer_advertise": "Publicidad",
-    "footer_privacy": "Política de privacidad",
-    "footer_terms": "Términos de servicio",
-    "footer_privacy_short": "Privacidad",
-    "footer_terms_short": "Términos",
-    "footer_contact": "Contacto",
-    "footer_submit_short": "Enviar",
-    "footer_tagline": "Reseñas y comparaciones independientes de las mejores herramientas IA para creadores, vendedores, desarrolladores y equipos pequeños. Financiado por lectores — nunca pay-to-play."
-  }
+﻿{
+    "site":  {
+                 "name":  "HyzenPro",
+                 "tagline":  "Simplificando la IA para todos"
+             },
+    "nav":  {
+                "home":  "Inicio",
+                "tools":  "Herramientas IA",
+                "blog":  "Blog",
+                "compare":  "Comparar",
+                "about":  "Sobre nosotros",
+                "contact":  "Contacto",
+                "categories":  "CategorÃ­as",
+                "find_tools":  "Encontrar herramientas",
+                "submit_tool":  "Enviar herramienta IA",
+                "popular_categories":  "CategorÃ­as populares",
+                "discover":  "Descubrir",
+                "all_tools":  "Todas las herramientas",
+                "all_tools_desc":  "Explorar el directorio completo",
+                "find_tools_desc":  "Participar en el cuestionario de selecciÃ³n guiada",
+                "video_tools":  "Herramientas de video IA",
+                "video_tools_desc":  "Editores, generadores, subtÃ­tulos",
+                "writing_tools":  "Herramientas de escritura IA",
+                "writing_tools_desc":  "Contenido, copias y redacciÃ³n SEO",
+                "coding_tools":  "Herramientas de codificaciÃ³n IA",
+                "coding_tools_desc":  "Asistentes para desarrolladores",
+                "image_tools":  "Herramientas de imagen IA",
+                "image_tools_desc":  "Generadores de arte, editores",
+                "automation_tools":  "AutomatizaciÃ³n IA",
+                "automation_tools_desc":  "AutomatizaciÃ³n de flujos de trabajo y tareas",
+                "from_the_blog":  "Del blog",
+                "latest_insights":  "Ãšltimas ideas sobre herramientas IA",
+                "read_article":  "Leer artÃ­culo"
+            },
+    "homepage":  {
+                     "hero_title":  "Encuentra las mejores herramientas de IA",
+                     "hero_subtitle":  "ReseÃ±as independientes, comparativas lado a lado y orientaciÃ³n prÃ¡ctica de compra para creadores, marketers y pequeÃ±os equipos.",
+                     "trending":  "Tendencias",
+                     "featured":  "Destacadas",
+                     "categories":  "CategorÃ­as",
+                     "guides":  "Ãšltimas guÃ­as",
+                     "faq":  "Preguntas frecuentes",
+                     "newsletter":  "BoletÃ­n",
+                     "quiz_cta":  "Â¿No sabes por dÃ³nde empezar? Haz el cuestionario.",
+                     "quiz_button":  "Iniciar cuestionario",
+                     "how_we_review":  "CÃ³mo revisamos",
+                     "no_fluff":  "Sin relleno, solo hechos",
+                     "browse_categories":  "Explorar categorÃ­as",
+                     "pick_category":  "Elige una categorÃ­a para explorar",
+                     "use_cases_title":  "Casos de uso",
+                     "use_cases_subtitle":  "Mira cÃ³mo los equipos usan estas herramientas",
+                     "head_to_head":  "Cara a cara",
+                     "editors_pick":  "SelecciÃ³n del editor",
+                     "latest_guides":  "Ãšltimas guÃ­as",
+                     "long_reads":  "Lecturas extensas",
+                     "changelog":  "Registro de cambios",
+                     "last_30_days":  "Ãšltimos 30 dÃ­as",
+                     "stats_tools":  "Herramientas reseÃ±adas",
+                     "stats_guides":  "GuÃ­as publicadas",
+                     "stats_categories":  "CategorÃ­as",
+                     "faq_title":  "Preguntas frecuentes",
+                     "faq_subtitle":  "Todo lo que necesitas saber",
+                     "newsletter_title":  "Mantente al dÃ­a",
+                     "newsletter_subtitle":  "Recibe las Ãºltimas reseÃ±as y guÃ­as de herramientas de IA en tu correo.",
+                     "email_placeholder":  "Ingresa tu correo electrÃ³nico",
+                     "footer_description":  "ReseÃ±as y comparativas independientes de herramientas de IA para ayudarte a tomar mejores decisiones.",
+                     "all_rights":  "Todos los derechos reservados.",
+                     "independent":  "Independiente y sin sesgos",
+                     "review_steps":  {
+                                          "test":  {
+                                                       "title":  "Test",
+                                                       "desc":  "Probamos cada herramienta en un proyecto real durante al menos una semana."
+                                                   },
+                                          "score":  {
+                                                        "title":  "PuntuaciÃ³n",
+                                                        "desc":  "Precio, experiencia de usuario, calidad del resultado, soporte â€” puntuados frente a la competencia."
+                                                    },
+                                          "publish":  {
+                                                          "title":  "Publicar",
+                                                          "desc":  "Veredicto honesto con pros, contras y para quiÃ©n es realmente."
+                                                      }
+                                      },
+                     "category_names":  {
+                                            "video":  "Herramientas de Video IA",
+                                            "writing":  "Herramientas de Escritura IA",
+                                            "coding":  "Herramientas de ProgramaciÃ³n IA",
+                                            "automation":  "AutomatizaciÃ³n IA",
+                                            "image":  "Herramientas de Imagen IA",
+                                            "all":  "Todas las Herramientas"
+                                        },
+                     "use_cases":  {
+                                       "creators":  {
+                                                        "role":  "Creadores",
+                                                        "title":  "Creadores y YouTubers",
+                                                        "desc":  "SubtÃ­tulos, ediciÃ³n, miniaturas y voces en off â€” el stack que realmente produce videos."
+                                                    },
+                                       "marketing":  {
+                                                         "role":  "Marketing",
+                                                         "title":  "Marketers y Crecimiento",
+                                                         "desc":  "Desde escritura SEO hasta creatividad publicitaria, encuentra herramientas probadas en campaÃ±as reales, no en demos."
+                                                     },
+                                       "developers":  {
+                                                          "role":  "Desarrolladores",
+                                                          "title":  "Desarrolladores y Hackers Individuales",
+                                                          "desc":  "Copilotos de cÃ³digo, agentes y herramientas de desarrollo clasificados por su coste real a escala."
+                                                      },
+                                       "founders":  {
+                                                        "role":  "Fundadores",
+                                                        "title":  "Fundadores y PequeÃ±os Equipos",
+                                                        "desc":  "Reemplaza 3 suscripciones SaaS con 1 flujo de trabajo IA â€” sin sorpresas de bloqueo."
+                                                    },
+                                       "education":  {
+                                                         "role":  "EducaciÃ³n",
+                                                         "title":  "Estudiantes y Educadores",
+                                                         "desc":  "Niveles gratuitos, compaÃ±eros de estudio y ayudas de escritura que no te traerÃ¡n problemas."
+                                                     },
+                                       "agencies":  {
+                                                        "role":  "Agencias",
+                                                        "title":  "Agencias y ConsultorÃ­as",
+                                                        "desc":  "Herramientas seguras para clientes con planes de equipo, controles de datos y opciones de exportaciÃ³n adecuadas."
+                                                    }
+                                   },
+                     "h2h_verdicts":  {
+                                          "opus_vs_codex":  "CodificaciÃ³n agÃ©ntica vs flujos de trabajo de terminal primero",
+                                          "sonnet_vs_glm":  "Calidad casi insignia vs costo de peso abierto",
+                                          "fable_vs_mythos":  "Mismos pesos, diferentes niveles de acceso"
+                                      }
+                 },
+    "common":  {
+                   "read_more":  "Leer mÃ¡s",
+                   "view_all":  "Ver todo",
+                   "loading":  "Cargando...",
+                   "error":  "Algo saliÃ³ mal",
+                   "search":  "Buscar",
+                   "subscribe":  "Suscribirse",
+                   "free":  "Gratis",
+                   "paid":  "De pago",
+                   "vs":  "vs",
+                   "open_comparison":  "Abrir comparaciÃ³n",
+                   "build_own":  "Crear la tuya",
+                   "read_review":  "Leer reseÃ±a",
+                   "visit":  "Visitar",
+                   "all_tools":  "Todas las herramientas",
+                   "start_quiz":  "Iniciar cuestionario",
+                   "see_picks":  "Ver selecciones",
+                   "listed_on":  "Publicado en",
+                   "all_rights":  "Todos los derechos reservados. Las calificaciones de herramientas IA se basan en pruebas independientes.",
+                   "independent":  "HyzenPro es una publicaciÃ³n independiente. Las marcas y logotipos son propiedad de sus respectivos dueÃ±os.",
+                   "footer_ai_tools":  "Herramientas IA",
+                   "footer_compare":  "Comparar",
+                   "footer_resources":  "Recursos",
+                   "footer_company":  "Empresa",
+                   "footer_side_by_side":  "ComparaciÃ³n lado a lado",
+                   "footer_find_quiz":  "Cuestionario de selecciÃ³n",
+                   "footer_editors_choice":  "ElecciÃ³n del editor",
+                   "footer_buyers_quiz":  "Cuestionario de compra",
+                   "footer_how_we_review":  "CÃ³mo evaluamos",
+                   "footer_submit":  "Enviar herramienta IA",
+                   "footer_about":  "Sobre HyzenPro",
+                   "footer_advertise":  "Publicidad",
+                   "footer_privacy":  "PolÃ­tica de privacidad",
+                   "footer_terms":  "TÃ©rminos de servicio",
+                   "footer_privacy_short":  "Privacidad",
+                   "footer_terms_short":  "TÃ©rminos",
+                   "footer_contact":  "Contacto",
+                   "footer_submit_short":  "Enviar",
+                   "footer_tagline":  "ReseÃ±as y comparaciones independientes de las mejores herramientas IA para creadores, vendedores, desarrolladores y equipos pequeÃ±os. Financiado por lectores â€” nunca pay-to-play.",
+                   "blog":  "Blog",
+                   "writing_tools":  "AI Writing Tools",
+                   "contact":  "Contact",
+                   "video_tools":  "AI Video Tools",
+                   "tools":  "AI Tools Directory",
+                   "coding_tools":  "AI Coding Tools",
+                   "automation_tools":  "AI Automation",
+                   "image_tools":  "AI Image Tools"
+               }
 }

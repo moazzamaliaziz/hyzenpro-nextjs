@@ -1,169 +1,177 @@
-{
-  "site": {
-    "name": "HyzenPro",
-    "tagline": "מפשטים בינה מלאכותית לכולם"
-  },
-  "nav": {
-    "home": "דף הבית",
-    "tools": "כלי AI",
-    "blog": "בלוג",
-    "compare": "השווה",
-    "about": "אודותינו",
-    "contact": "צור קשר",
-    "categories": "Categories",
-    "find_tools": "Find Tools",
-    "submit_tool": "Submit AI tool",
-    "popular_categories": "Popular Categories",
-    "discover": "Discover",
-    "all_tools": "All Tools",
-    "all_tools_desc": "Browse the full directory",
-    "find_tools_desc": "Take the guided matcher quiz",
-    "video_tools": "AI Video Tools",
-    "video_tools_desc": "Editors, generators, captions",
-    "writing_tools": "AI Writing Tools",
-    "writing_tools_desc": "Content, copy, and SEO writing",
-    "coding_tools": "AI Coding Tools",
-    "coding_tools_desc": "Assistants for developers",
-    "image_tools": "AI Image Tools",
-    "image_tools_desc": "Art generators, editors",
-    "automation_tools": "AI Automation",
-    "automation_tools_desc": "Workflow and task automation",
-    "from_the_blog": "From the Blog",
-    "latest_insights": "Latest insights on AI tools",
-    "read_article": "Read article"
-  },
-  "homepage": {
-    "hero_title": "מצא את כלי ה-AI הטובים ביותר",
-    "hero_subtitle": "סקירות עצמאיות, השוואות צד-אלה-צד והנחיות רכישה מעשיות ליוצרים, משווקים וצוותים קטנים.",
-    "trending": "בחום",
-    "featured": "מומלץ",
-    "categories": "קטגוריות",
-    "guides": "מדריכים אחרונים",
-    "faq": "שאלות נפוצות",
-    "newsletter": "ניוזלטר",
-    "quiz_cta": "לא בטוח מאיפה להתחיל? עשה את המבחן.",
-    "quiz_button": "התחל מבחן",
-    "how_we_review": "איך אנחנו בודקים",
-    "no_fluff": "בלי פלצנות, רק עובדות",
-    "browse_categories": "עיין בקטגוריות",
-    "pick_category": "בחר קטגוריה לחקירה",
-    "use_cases_title": "מקרי שימוש",
-    "use_cases_subtitle": "ראה כיצד הצוותים משתמשים בכלים אלו",
-    "head_to_head": "פנים אל פנים",
-    "editors_pick": "בחירת העורך",
-    "latest_guides": "מדריכים אחרונים",
-    "long_reads": "קריאות ארוכות",
-    "changelog": "יומן שינויים",
-    "last_30_days": "30 הימים האחרונים",
-    "stats_tools": "כלים שנבדקו",
-    "stats_guides": "מדריכים שפורסמו",
-    "stats_categories": "קטגוריות",
-    "faq_title": "שאלות נפוצות",
-    "faq_subtitle": "כל מה שצריך לדעת",
-    "newsletter_title": "הישאר מעודכן",
-    "newsletter_subtitle": "קבל את סקירות כלי ה-AI והמדריכים האחרונים ישירות לתיבת הדואר שלך.",
-    "email_placeholder": "הזן את האימייל שלך",
-    "footer_description": "סקירות והשוואות עצמאיות של כלי AI שיעזרו לך לקבל החלטות טובות יותר.",
-    "all_rights": "כל הזכויות שמורות.",
-    "independent": "עצמאי וחסר פניות",
-    "review_steps": {
-      "test": {
-        "title": "בדיקה",
-        "desc": "אנחנו משתמשים בכל כלי בפרויקט אמיתי לפחות למשך שבוע."
-      },
-      "score": {
-        "title": "ניקוד",
-        "desc": "תמחור, חווית משתמש, איכות תוצאות, תמיכה — מוערכים מול מתחרים."
-      },
-      "publish": {
-        "title": "פרסום",
-        "desc": "פסק דין כנה עם יתרונות, חסרונות ולמי זה באמת מתאים."
-      }
-    },
-    "category_names": {
-      "video": "כלי וידאו AI",
-      "writing": "כלי כתיבה AI",
-      "coding": "כלי תכנות AI",
-      "automation": "אוטומציה ב-AI",
-      "image": "כלי תמונה AI",
-      "all": "כל הכלים"
-    },
-    "use_cases": {
-      "creators": {
-        "role": "יוצרים",
-        "title": "יוצרים ויוטיוברים",
-        "desc": "כתוביות, עריכה, תמונות ממוזערות וקריינות — הסט שמייצר סרטונים באמת."
-      },
-      "marketing": {
-        "role": "שיווק",
-        "title": "משווקים וגדילה",
-        "desc": "מכתיבת SEO עד קריאייטיב פרסומי, מצאertools שנבדקו בקמפיינים אמיתיים, לא בהדגמות."
-      },
-      "developers": {
-        "role": "מפתחים",
-        "title": "מפתחים והאקרים עצמאיים",
-        "desc": "עוזרי קוד, סוכנים וכלי פיתוח מדורגים לפי העלות האמיתית בקנה מידה."
-      },
-      "founders": {
-        "role": "מייסדים",
-        "title": "מייסדים וצוותים קטנים",
-        "desc": "החלף 3 מנויי SaaS בזרימת עבודה אחת של AI — בלי הפתעות נעילה."
-      },
-      "education": {
-        "role": "חינוך",
-        "title": "סטודנטים ומורים",
-        "desc": "רמות חינם, חברים ללימוד ועזרי כתיבה שלא יכניסו אותך לצרות."
-      },
-      "agencies": {
-        "role": "סוכנויות",
-        "title": "סוכנויות ויועצים",
-        "desc": "כלים בטוחים ללקוחות עם חבילות צוות, בקרת נתונים ואפשרויות ייצוא מתאימות."
-      }
-    },
-    "h2h_verdicts": {
-      "opus_vs_codex": "תכנות סוכני מול זרימות עבודה של טרמינל-ראשון",
-      "sonnet_vs_glm": "איכות כמעט דגל מול עלות משקל פתוח",
-      "fable_vs_mythos": "אותם משקלים, רמות גישה שונות"
-    }
-  },
-  "common": {
-    "read_more": "קרא עוד",
-    "view_all": "צפה בהכל",
-    "loading": "טוען...",
-    "error": "משהו השתבש",
-    "search": "חיפוש",
-    "subscribe": "הרשם",
-    "free": "חינם",
-    "paid": "בתשלום",
-    "vs": "vs",
-    "open_comparison": "פתח השוואה",
-    "build_own": "בנה משלך",
-    "read_review": "קרא סקירה",
-    "visit": "בקר",
-    "all_tools": "כל הכלים",
-    "start_quiz": "התחל מבחן",
-    "see_picks": "צפה בבחירות",
-    "listed_on": "Listed On",
-    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
-    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
-    "footer_ai_tools": "AI Tools",
-    "footer_compare": "Compare",
-    "footer_resources": "Resources",
-    "footer_company": "Company",
-    "footer_side_by_side": "Side-by-side Compare",
-    "footer_find_quiz": "Find Tools Quiz",
-    "footer_editors_choice": "Editor's choice",
-    "footer_buyers_quiz": "Buyer's quiz",
-    "footer_how_we_review": "How we review",
-    "footer_submit": "Submit AI Tool",
-    "footer_about": "About HyzenPro",
-    "footer_advertise": "Advertise",
-    "footer_privacy": "Privacy Policy",
-    "footer_terms": "Terms of Service",
-    "footer_privacy_short": "Privacy",
-    "footer_terms_short": "Terms",
-    "footer_contact": "Contact",
-    "footer_submit_short": "Submit Tool",
-    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
-  }
+﻿{
+    "site":  {
+                 "name":  "HyzenPro",
+                 "tagline":  "×ž×¤×©×˜×™× ×‘×™× ×” ×ž×œ××›×•×ª×™×ª ×œ×›×•×œ×"
+             },
+    "nav":  {
+                "home":  "×“×£ ×”×‘×™×ª",
+                "tools":  "×›×œ×™ AI",
+                "blog":  "×‘×œ×•×’",
+                "compare":  "×”×©×•×•×”",
+                "about":  "××•×“×•×ª×™× ×•",
+                "contact":  "×¦×•×¨ ×§×©×¨",
+                "categories":  "Categories",
+                "find_tools":  "Find Tools",
+                "submit_tool":  "Submit AI tool",
+                "popular_categories":  "Popular Categories",
+                "discover":  "Discover",
+                "all_tools":  "All Tools",
+                "all_tools_desc":  "Browse the full directory",
+                "find_tools_desc":  "Take the guided matcher quiz",
+                "video_tools":  "AI Video Tools",
+                "video_tools_desc":  "Editors, generators, captions",
+                "writing_tools":  "AI Writing Tools",
+                "writing_tools_desc":  "Content, copy, and SEO writing",
+                "coding_tools":  "AI Coding Tools",
+                "coding_tools_desc":  "Assistants for developers",
+                "image_tools":  "AI Image Tools",
+                "image_tools_desc":  "Art generators, editors",
+                "automation_tools":  "AI Automation",
+                "automation_tools_desc":  "Workflow and task automation",
+                "from_the_blog":  "From the Blog",
+                "latest_insights":  "Latest insights on AI tools",
+                "read_article":  "Read article"
+            },
+    "homepage":  {
+                     "hero_title":  "×ž×¦× ××ª ×›×œ×™ ×”-AI ×”×˜×•×‘×™× ×‘×™×•×ª×¨",
+                     "hero_subtitle":  "×¡×§×™×¨×•×ª ×¢×¦×ž××™×•×ª, ×”×©×•×•××•×ª ×¦×“-××œ×”-×¦×“ ×•×”× ×—×™×•×ª ×¨×›×™×©×” ×ž×¢×©×™×•×ª ×œ×™×•×¦×¨×™×, ×ž×©×•×•×§×™× ×•×¦×•×•×ª×™× ×§×˜× ×™×.",
+                     "trending":  "×‘×—×•×",
+                     "featured":  "×ž×•×ž×œ×¥",
+                     "categories":  "×§×˜×’×•×¨×™×•×ª",
+                     "guides":  "×ž×“×¨×™×›×™× ××—×¨×•× ×™×",
+                     "faq":  "×©××œ×•×ª × ×¤×•×¦×•×ª",
+                     "newsletter":  "× ×™×•×–×œ×˜×¨",
+                     "quiz_cta":  "×œ× ×‘×˜×•×— ×ž××™×¤×” ×œ×”×ª×—×™×œ? ×¢×©×” ××ª ×”×ž×‘×—×Ÿ.",
+                     "quiz_button":  "×”×ª×—×œ ×ž×‘×—×Ÿ",
+                     "how_we_review":  "××™×š ×× ×—× ×• ×‘×•×“×§×™×",
+                     "no_fluff":  "×‘×œ×™ ×¤×œ×¦× ×•×ª, ×¨×§ ×¢×•×‘×“×•×ª",
+                     "browse_categories":  "×¢×™×™×Ÿ ×‘×§×˜×’×•×¨×™×•×ª",
+                     "pick_category":  "×‘×—×¨ ×§×˜×’×•×¨×™×” ×œ×—×§×™×¨×”",
+                     "use_cases_title":  "×ž×§×¨×™ ×©×™×ž×•×©",
+                     "use_cases_subtitle":  "×¨××” ×›×™×¦×“ ×”×¦×•×•×ª×™× ×ž×©×ª×ž×©×™× ×‘×›×œ×™× ××œ×•",
+                     "head_to_head":  "×¤× ×™× ××œ ×¤× ×™×",
+                     "editors_pick":  "×‘×—×™×¨×ª ×”×¢×•×¨×š",
+                     "latest_guides":  "×ž×“×¨×™×›×™× ××—×¨×•× ×™×",
+                     "long_reads":  "×§×¨×™××•×ª ××¨×•×›×•×ª",
+                     "changelog":  "×™×•×ž×Ÿ ×©×™× ×•×™×™×",
+                     "last_30_days":  "30 ×”×™×ž×™× ×”××—×¨×•× ×™×",
+                     "stats_tools":  "×›×œ×™× ×©× ×‘×“×§×•",
+                     "stats_guides":  "×ž×“×¨×™×›×™× ×©×¤×•×¨×¡×ž×•",
+                     "stats_categories":  "×§×˜×’×•×¨×™×•×ª",
+                     "faq_title":  "×©××œ×•×ª × ×¤×•×¦×•×ª",
+                     "faq_subtitle":  "×›×œ ×ž×” ×©×¦×¨×™×š ×œ×“×¢×ª",
+                     "newsletter_title":  "×”×™×©××¨ ×ž×¢×•×“×›×Ÿ",
+                     "newsletter_subtitle":  "×§×‘×œ ××ª ×¡×§×™×¨×•×ª ×›×œ×™ ×”-AI ×•×”×ž×“×¨×™×›×™× ×”××—×¨×•× ×™× ×™×©×™×¨×•×ª ×œ×ª×™×‘×ª ×”×“×•××¨ ×©×œ×š.",
+                     "email_placeholder":  "×”×–×Ÿ ××ª ×”××™×ž×™×™×œ ×©×œ×š",
+                     "footer_description":  "×¡×§×™×¨×•×ª ×•×”×©×•×•××•×ª ×¢×¦×ž××™×•×ª ×©×œ ×›×œ×™ AI ×©×™×¢×–×¨×• ×œ×š ×œ×§×‘×œ ×”×—×œ×˜×•×ª ×˜×•×‘×•×ª ×™×•×ª×¨.",
+                     "all_rights":  "×›×œ ×”×–×›×•×™×•×ª ×©×ž×•×¨×•×ª.",
+                     "independent":  "×¢×¦×ž××™ ×•×—×¡×¨ ×¤× ×™×•×ª",
+                     "review_steps":  {
+                                          "test":  {
+                                                       "title":  "×‘×“×™×§×”",
+                                                       "desc":  "×× ×—× ×• ×ž×©×ª×ž×©×™× ×‘×›×œ ×›×œ×™ ×‘×¤×¨×•×™×§×˜ ××ž×™×ª×™ ×œ×¤×—×•×ª ×œ×ž×©×š ×©×‘×•×¢."
+                                                   },
+                                          "score":  {
+                                                        "title":  "× ×™×§×•×“",
+                                                        "desc":  "×ª×ž×—×•×¨, ×—×•×•×™×ª ×ž×©×ª×ž×©, ××™×›×•×ª ×ª×•×¦××•×ª, ×ª×ž×™×›×” â€” ×ž×•×¢×¨×›×™× ×ž×•×œ ×ž×ª×—×¨×™×."
+                                                    },
+                                          "publish":  {
+                                                          "title":  "×¤×¨×¡×•×",
+                                                          "desc":  "×¤×¡×§ ×“×™×Ÿ ×›× ×” ×¢× ×™×ª×¨×•× ×•×ª, ×—×¡×¨×•× ×•×ª ×•×œ×ž×™ ×–×” ×‘××ž×ª ×ž×ª××™×."
+                                                      }
+                                      },
+                     "category_names":  {
+                                            "video":  "×›×œ×™ ×•×™×“××• AI",
+                                            "writing":  "×›×œ×™ ×›×ª×™×‘×” AI",
+                                            "coding":  "×›×œ×™ ×ª×›× ×•×ª AI",
+                                            "automation":  "××•×˜×•×ž×¦×™×” ×‘-AI",
+                                            "image":  "×›×œ×™ ×ª×ž×•× ×” AI",
+                                            "all":  "×›×œ ×”×›×œ×™×"
+                                        },
+                     "use_cases":  {
+                                       "creators":  {
+                                                        "role":  "×™×•×¦×¨×™×",
+                                                        "title":  "×™×•×¦×¨×™× ×•×™×•×˜×™×•×‘×¨×™×",
+                                                        "desc":  "×›×ª×•×‘×™×•×ª, ×¢×¨×™×›×”, ×ª×ž×•× ×•×ª ×ž×ž×•×–×¢×¨×•×ª ×•×§×¨×™×™× ×•×ª â€” ×”×¡×˜ ×©×ž×™×™×¦×¨ ×¡×¨×˜×•× ×™× ×‘××ž×ª."
+                                                    },
+                                       "marketing":  {
+                                                         "role":  "×©×™×•×•×§",
+                                                         "title":  "×ž×©×•×•×§×™× ×•×’×“×™×œ×”",
+                                                         "desc":  "×ž×›×ª×™×‘×ª SEO ×¢×“ ×§×¨×™××™×™×˜×™×‘ ×¤×¨×¡×•×ž×™, ×ž×¦×ertools ×©× ×‘×“×§×• ×‘×§×ž×¤×™×™× ×™× ××ž×™×ª×™×™×, ×œ× ×‘×”×“×’×ž×•×ª."
+                                                     },
+                                       "developers":  {
+                                                          "role":  "×ž×¤×ª×—×™×",
+                                                          "title":  "×ž×¤×ª×—×™× ×•×”××§×¨×™× ×¢×¦×ž××™×™×",
+                                                          "desc":  "×¢×•×–×¨×™ ×§×•×“, ×¡×•×›× ×™× ×•×›×œ×™ ×¤×™×ª×•×— ×ž×“×•×¨×’×™× ×œ×¤×™ ×”×¢×œ×•×ª ×”××ž×™×ª×™×ª ×‘×§× ×” ×ž×™×“×”."
+                                                      },
+                                       "founders":  {
+                                                        "role":  "×ž×™×™×¡×“×™×",
+                                                        "title":  "×ž×™×™×¡×“×™× ×•×¦×•×•×ª×™× ×§×˜× ×™×",
+                                                        "desc":  "×”×—×œ×£ 3 ×ž× ×•×™×™ SaaS ×‘×–×¨×™×ž×ª ×¢×‘×•×“×” ××—×ª ×©×œ AI â€” ×‘×œ×™ ×”×¤×ª×¢×•×ª × ×¢×™×œ×”."
+                                                    },
+                                       "education":  {
+                                                         "role":  "×—×™× ×•×š",
+                                                         "title":  "×¡×˜×•×“× ×˜×™× ×•×ž×•×¨×™×",
+                                                         "desc":  "×¨×ž×•×ª ×—×™× ×, ×—×‘×¨×™× ×œ×œ×™×ž×•×“ ×•×¢×–×¨×™ ×›×ª×™×‘×” ×©×œ× ×™×›× ×™×¡×• ××•×ª×š ×œ×¦×¨×•×ª."
+                                                     },
+                                       "agencies":  {
+                                                        "role":  "×¡×•×›× ×•×™×•×ª",
+                                                        "title":  "×¡×•×›× ×•×™×•×ª ×•×™×•×¢×¦×™×",
+                                                        "desc":  "×›×œ×™× ×‘×˜×•×—×™× ×œ×œ×§×•×—×•×ª ×¢× ×—×‘×™×œ×•×ª ×¦×•×•×ª, ×‘×§×¨×ª × ×ª×•× ×™× ×•××¤×©×¨×•×™×•×ª ×™×™×¦×•× ×ž×ª××™×ž×•×ª."
+                                                    }
+                                   },
+                     "h2h_verdicts":  {
+                                          "opus_vs_codex":  "×ª×›× ×•×ª ×¡×•×›× ×™ ×ž×•×œ ×–×¨×™×ž×•×ª ×¢×‘×•×“×” ×©×œ ×˜×¨×ž×™× ×œ-×¨××©×•×Ÿ",
+                                          "sonnet_vs_glm":  "××™×›×•×ª ×›×ž×¢×˜ ×“×’×œ ×ž×•×œ ×¢×œ×•×ª ×ž×©×§×œ ×¤×ª×•×—",
+                                          "fable_vs_mythos":  "××•×ª× ×ž×©×§×œ×™×, ×¨×ž×•×ª ×’×™×©×” ×©×•× ×•×ª"
+                                      }
+                 },
+    "common":  {
+                   "read_more":  "×§×¨× ×¢×•×“",
+                   "view_all":  "×¦×¤×” ×‘×”×›×œ",
+                   "loading":  "×˜×•×¢×Ÿ...",
+                   "error":  "×ž×©×”×• ×”×©×ª×‘×©",
+                   "search":  "×—×™×¤×•×©",
+                   "subscribe":  "×”×¨×©×",
+                   "free":  "×—×™× ×",
+                   "paid":  "×‘×ª×©×œ×•×",
+                   "vs":  "vs",
+                   "open_comparison":  "×¤×ª×— ×”×©×•×•××”",
+                   "build_own":  "×‘× ×” ×ž×©×œ×š",
+                   "read_review":  "×§×¨× ×¡×§×™×¨×”",
+                   "visit":  "×‘×§×¨",
+                   "all_tools":  "×›×œ ×”×›×œ×™×",
+                   "start_quiz":  "×”×ª×—×œ ×ž×‘×—×Ÿ",
+                   "see_picks":  "×¦×¤×” ×‘×‘×—×™×¨×•×ª",
+                   "listed_on":  "Listed On",
+                   "all_rights":  "All rights reserved. AI tool ratings are based on independent testing.",
+                   "independent":  "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+                   "footer_ai_tools":  "AI Tools",
+                   "footer_compare":  "Compare",
+                   "footer_resources":  "Resources",
+                   "footer_company":  "Company",
+                   "footer_side_by_side":  "Side-by-side Compare",
+                   "footer_find_quiz":  "Find Tools Quiz",
+                   "footer_editors_choice":  "Editor\u0027s choice",
+                   "footer_buyers_quiz":  "Buyer\u0027s quiz",
+                   "footer_how_we_review":  "How we review",
+                   "footer_submit":  "Submit AI Tool",
+                   "footer_about":  "About HyzenPro",
+                   "footer_advertise":  "Advertise",
+                   "footer_privacy":  "Privacy Policy",
+                   "footer_terms":  "Terms of Service",
+                   "footer_privacy_short":  "Privacy",
+                   "footer_terms_short":  "Terms",
+                   "footer_contact":  "Contact",
+                   "footer_submit_short":  "Submit Tool",
+                   "footer_tagline":  "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded â€” never pay-to-play.",
+                   "blog":  "Blog",
+                   "writing_tools":  "AI Writing Tools",
+                   "contact":  "Contact",
+                   "video_tools":  "AI Video Tools",
+                   "tools":  "AI Tools Directory",
+                   "coding_tools":  "AI Coding Tools",
+                   "automation_tools":  "AI Automation",
+                   "image_tools":  "AI Image Tools"
+               }
 }

@@ -1,169 +1,177 @@
-{
-  "site": {
-    "name": "HyzenPro",
-    "tagline": "AI vereenvoudigd voor iedereen"
-  },
-  "nav": {
-    "home": "Home",
-    "tools": "AI-tools",
-    "blog": "Blog",
-    "compare": "Vergelijken",
-    "about": "Over ons",
-    "contact": "Contact",
-    "categories": "Categories",
-    "find_tools": "Find Tools",
-    "submit_tool": "Submit AI tool",
-    "popular_categories": "Popular Categories",
-    "discover": "Discover",
-    "all_tools": "All Tools",
-    "all_tools_desc": "Browse the full directory",
-    "find_tools_desc": "Take the guided matcher quiz",
-    "video_tools": "AI Video Tools",
-    "video_tools_desc": "Editors, generators, captions",
-    "writing_tools": "AI Writing Tools",
-    "writing_tools_desc": "Content, copy, and SEO writing",
-    "coding_tools": "AI Coding Tools",
-    "coding_tools_desc": "Assistants for developers",
-    "image_tools": "AI Image Tools",
-    "image_tools_desc": "Art generators, editors",
-    "automation_tools": "AI Automation",
-    "automation_tools_desc": "Workflow and task automation",
-    "from_the_blog": "From the Blog",
-    "latest_insights": "Latest insights on AI tools",
-    "read_article": "Read article"
-  },
-  "homepage": {
-    "hero_title": "Vind de beste AI-tools",
-    "hero_subtitle": "Onafhankelijke reviews, zij-aan-zij vergelijkingen en praktisch aankoopadvies voor makers, marketeers en kleine teams.",
-    "trending": "Trending",
-    "featured": "Uitgelicht",
-    "categories": "Categorieën",
-    "guides": "Nieuwste gidsen",
-    "faq": "Veelgestelde vragen",
-    "newsletter": "Nieuwsbrief",
-    "quiz_cta": "Weet u niet waar u moet beginnen? Doe de quiz.",
-    "quiz_button": "Start de quiz",
-    "how_we_review": "Hoe wij testen",
-    "no_fluff": "Geen onzin, alleen feiten",
-    "browse_categories": "Categorieën doorbladeren",
-    "pick_category": "Kies een categorie om te ontdekken",
-    "use_cases_title": "Gebruikssituaties",
-    "use_cases_subtitle": "Bekijk hoe teams deze tools gebruiken",
-    "head_to_head": "Rechtstreeks",
-    "editors_pick": "Redactiekeuze",
-    "latest_guides": "Nieuwste gidsen",
-    "long_reads": "Diepgaande artikelen",
-    "changelog": "Wijzigingslogboek",
-    "last_30_days": "Laatste 30 dagen",
-    "stats_tools": "Geteste tools",
-    "stats_guides": "Gepubliceerde gidsen",
-    "stats_categories": "Categorieën",
-    "faq_title": "Veelgestelde vragen",
-    "faq_subtitle": "Alles wat u moet weten",
-    "newsletter_title": "Blijf op de hoogte",
-    "newsletter_subtitle": "Ontvang de nieuwste AI-tool reviews en gidsen direct in uw inbox.",
-    "email_placeholder": "Vul uw e-mailadres in",
-    "footer_description": "Onafhankelijke reviews en vergelijkingen van AI-tools om u te helpen betere beslissingen te nemen.",
-    "all_rights": "Alle rechten voorbehouden.",
-    "independent": "Onafhankelijk en onbevooroordeeld",
-    "review_steps": {
-      "test": {
-        "title": "Testen",
-        "desc": "We gebruiken elke tool op een echt project voor minimaal een week."
-      },
-      "score": {
-        "title": "Beoordeling",
-        "desc": "Prijs, UX, uitvoerkwaliteit, ondersteuning — beoordeeld ten opzichte van concurrenten."
-      },
-      "publish": {
-        "title": "Publiceren",
-        "desc": "Eerlijk oordeel met voor- en nadelen en voor wie het echt bedoeld is."
-      }
-    },
-    "category_names": {
-      "video": "AI-video-tools",
-      "writing": "AI-schrijftools",
-      "coding": "AI-codingtools",
-      "automation": "AI-automatisering",
-      "image": "AI-afbeeldingstools",
-      "all": "Alle tools"
-    },
-    "use_cases": {
-      "creators": {
-        "role": "Makers",
-        "title": "Makers & YouTubers",
-        "desc": "Ondertiteling, bewerking, miniaturen en voiceovers — de stack die echt video's produceert."
-      },
-      "marketing": {
-        "role": "Marketing",
-        "title": "Marketeers & Groei",
-        "desc": "Van SEO-schrijven tot advertentie-creaties, vind tools die getest zijn op echte campagnes, niet op demo's."
-      },
-      "developers": {
-        "role": "Ontwikkelaars",
-        "title": "Ontwikkelaars & Indie Hackers",
-        "desc": "Coding-copiloten, agents en ontwikkeltools beoordeeld op hun werkelijke kosten op schaal."
-      },
-      "founders": {
-        "role": "Oprichters",
-        "title": "Oprichters & Kleine Teams",
-        "desc": "Vervang 3 SaaS-abonnementen door 1 AI-werkstroom — zonder lock-in-verrassingen."
-      },
-      "education": {
-        "role": "Onderwijs",
-        "title": "Studenten & Docenten",
-        "desc": "Gratis niveaus, studiegenoten en schrijfhulpmiddelen die niet in de problemen brengen."
-      },
-      "agencies": {
-        "role": "Bureaus",
-        "title": "Bureaus & Adviesbureaus",
-        "desc": "Klantveilige tools met teamplannen, gegevenscontrole en adequate exportopties."
-      }
-    },
-    "h2h_verdicts": {
-      "opus_vs_codex": "Agentic coding vs terminal-first workflouws",
-      "sonnet_vs_glm": "Bijna vlaggenschipkwaliteit vs open-weight kosten",
-      "fable_vs_mythos": "Gewichten gelijk, toegangsniveaus verschillend"
-    }
-  },
-  "common": {
-    "read_more": "Lees meer",
-    "view_all": "Bekijk alles",
-    "loading": "Laden...",
-    "error": "Er is iets misgegaan",
-    "search": "Zoeken",
-    "subscribe": "Abonneren",
-    "free": "Gratis",
-    "paid": "Betaald",
-    "vs": "vs",
-    "open_comparison": "Vergelijking openen",
-    "build_own": "Eigen samenstellen",
-    "read_review": "Lees review",
-    "visit": "Bezoeken",
-    "all_tools": "Alle tools",
-    "start_quiz": "Start de quiz",
-    "see_picks": "Bekijk selecties",
-    "listed_on": "Listed On",
-    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
-    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
-    "footer_ai_tools": "AI Tools",
-    "footer_compare": "Compare",
-    "footer_resources": "Resources",
-    "footer_company": "Company",
-    "footer_side_by_side": "Side-by-side Compare",
-    "footer_find_quiz": "Find Tools Quiz",
-    "footer_editors_choice": "Editor's choice",
-    "footer_buyers_quiz": "Buyer's quiz",
-    "footer_how_we_review": "How we review",
-    "footer_submit": "Submit AI Tool",
-    "footer_about": "About HyzenPro",
-    "footer_advertise": "Advertise",
-    "footer_privacy": "Privacy Policy",
-    "footer_terms": "Terms of Service",
-    "footer_privacy_short": "Privacy",
-    "footer_terms_short": "Terms",
-    "footer_contact": "Contact",
-    "footer_submit_short": "Submit Tool",
-    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
-  }
+﻿{
+    "site":  {
+                 "name":  "HyzenPro",
+                 "tagline":  "AI vereenvoudigd voor iedereen"
+             },
+    "nav":  {
+                "home":  "Home",
+                "tools":  "AI-tools",
+                "blog":  "Blog",
+                "compare":  "Vergelijken",
+                "about":  "Over ons",
+                "contact":  "Contact",
+                "categories":  "Categories",
+                "find_tools":  "Find Tools",
+                "submit_tool":  "Submit AI tool",
+                "popular_categories":  "Popular Categories",
+                "discover":  "Discover",
+                "all_tools":  "All Tools",
+                "all_tools_desc":  "Browse the full directory",
+                "find_tools_desc":  "Take the guided matcher quiz",
+                "video_tools":  "AI Video Tools",
+                "video_tools_desc":  "Editors, generators, captions",
+                "writing_tools":  "AI Writing Tools",
+                "writing_tools_desc":  "Content, copy, and SEO writing",
+                "coding_tools":  "AI Coding Tools",
+                "coding_tools_desc":  "Assistants for developers",
+                "image_tools":  "AI Image Tools",
+                "image_tools_desc":  "Art generators, editors",
+                "automation_tools":  "AI Automation",
+                "automation_tools_desc":  "Workflow and task automation",
+                "from_the_blog":  "From the Blog",
+                "latest_insights":  "Latest insights on AI tools",
+                "read_article":  "Read article"
+            },
+    "homepage":  {
+                     "hero_title":  "Vind de beste AI-tools",
+                     "hero_subtitle":  "Onafhankelijke reviews, zij-aan-zij vergelijkingen en praktisch aankoopadvies voor makers, marketeers en kleine teams.",
+                     "trending":  "Trending",
+                     "featured":  "Uitgelicht",
+                     "categories":  "CategorieÃ«n",
+                     "guides":  "Nieuwste gidsen",
+                     "faq":  "Veelgestelde vragen",
+                     "newsletter":  "Nieuwsbrief",
+                     "quiz_cta":  "Weet u niet waar u moet beginnen? Doe de quiz.",
+                     "quiz_button":  "Start de quiz",
+                     "how_we_review":  "Hoe wij testen",
+                     "no_fluff":  "Geen onzin, alleen feiten",
+                     "browse_categories":  "CategorieÃ«n doorbladeren",
+                     "pick_category":  "Kies een categorie om te ontdekken",
+                     "use_cases_title":  "Gebruikssituaties",
+                     "use_cases_subtitle":  "Bekijk hoe teams deze tools gebruiken",
+                     "head_to_head":  "Rechtstreeks",
+                     "editors_pick":  "Redactiekeuze",
+                     "latest_guides":  "Nieuwste gidsen",
+                     "long_reads":  "Diepgaande artikelen",
+                     "changelog":  "Wijzigingslogboek",
+                     "last_30_days":  "Laatste 30 dagen",
+                     "stats_tools":  "Geteste tools",
+                     "stats_guides":  "Gepubliceerde gidsen",
+                     "stats_categories":  "CategorieÃ«n",
+                     "faq_title":  "Veelgestelde vragen",
+                     "faq_subtitle":  "Alles wat u moet weten",
+                     "newsletter_title":  "Blijf op de hoogte",
+                     "newsletter_subtitle":  "Ontvang de nieuwste AI-tool reviews en gidsen direct in uw inbox.",
+                     "email_placeholder":  "Vul uw e-mailadres in",
+                     "footer_description":  "Onafhankelijke reviews en vergelijkingen van AI-tools om u te helpen betere beslissingen te nemen.",
+                     "all_rights":  "Alle rechten voorbehouden.",
+                     "independent":  "Onafhankelijk en onbevooroordeeld",
+                     "review_steps":  {
+                                          "test":  {
+                                                       "title":  "Testen",
+                                                       "desc":  "We gebruiken elke tool op een echt project voor minimaal een week."
+                                                   },
+                                          "score":  {
+                                                        "title":  "Beoordeling",
+                                                        "desc":  "Prijs, UX, uitvoerkwaliteit, ondersteuning â€” beoordeeld ten opzichte van concurrenten."
+                                                    },
+                                          "publish":  {
+                                                          "title":  "Publiceren",
+                                                          "desc":  "Eerlijk oordeel met voor- en nadelen en voor wie het echt bedoeld is."
+                                                      }
+                                      },
+                     "category_names":  {
+                                            "video":  "AI-video-tools",
+                                            "writing":  "AI-schrijftools",
+                                            "coding":  "AI-codingtools",
+                                            "automation":  "AI-automatisering",
+                                            "image":  "AI-afbeeldingstools",
+                                            "all":  "Alle tools"
+                                        },
+                     "use_cases":  {
+                                       "creators":  {
+                                                        "role":  "Makers",
+                                                        "title":  "Makers \u0026 YouTubers",
+                                                        "desc":  "Ondertiteling, bewerking, miniaturen en voiceovers â€” de stack die echt video\u0027s produceert."
+                                                    },
+                                       "marketing":  {
+                                                         "role":  "Marketing",
+                                                         "title":  "Marketeers \u0026 Groei",
+                                                         "desc":  "Van SEO-schrijven tot advertentie-creaties, vind tools die getest zijn op echte campagnes, niet op demo\u0027s."
+                                                     },
+                                       "developers":  {
+                                                          "role":  "Ontwikkelaars",
+                                                          "title":  "Ontwikkelaars \u0026 Indie Hackers",
+                                                          "desc":  "Coding-copiloten, agents en ontwikkeltools beoordeeld op hun werkelijke kosten op schaal."
+                                                      },
+                                       "founders":  {
+                                                        "role":  "Oprichters",
+                                                        "title":  "Oprichters \u0026 Kleine Teams",
+                                                        "desc":  "Vervang 3 SaaS-abonnementen door 1 AI-werkstroom â€” zonder lock-in-verrassingen."
+                                                    },
+                                       "education":  {
+                                                         "role":  "Onderwijs",
+                                                         "title":  "Studenten \u0026 Docenten",
+                                                         "desc":  "Gratis niveaus, studiegenoten en schrijfhulpmiddelen die niet in de problemen brengen."
+                                                     },
+                                       "agencies":  {
+                                                        "role":  "Bureaus",
+                                                        "title":  "Bureaus \u0026 Adviesbureaus",
+                                                        "desc":  "Klantveilige tools met teamplannen, gegevenscontrole en adequate exportopties."
+                                                    }
+                                   },
+                     "h2h_verdicts":  {
+                                          "opus_vs_codex":  "Agentic coding vs terminal-first workflouws",
+                                          "sonnet_vs_glm":  "Bijna vlaggenschipkwaliteit vs open-weight kosten",
+                                          "fable_vs_mythos":  "Gewichten gelijk, toegangsniveaus verschillend"
+                                      }
+                 },
+    "common":  {
+                   "read_more":  "Lees meer",
+                   "view_all":  "Bekijk alles",
+                   "loading":  "Laden...",
+                   "error":  "Er is iets misgegaan",
+                   "search":  "Zoeken",
+                   "subscribe":  "Abonneren",
+                   "free":  "Gratis",
+                   "paid":  "Betaald",
+                   "vs":  "vs",
+                   "open_comparison":  "Vergelijking openen",
+                   "build_own":  "Eigen samenstellen",
+                   "read_review":  "Lees review",
+                   "visit":  "Bezoeken",
+                   "all_tools":  "Alle tools",
+                   "start_quiz":  "Start de quiz",
+                   "see_picks":  "Bekijk selecties",
+                   "listed_on":  "Listed On",
+                   "all_rights":  "All rights reserved. AI tool ratings are based on independent testing.",
+                   "independent":  "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+                   "footer_ai_tools":  "AI Tools",
+                   "footer_compare":  "Compare",
+                   "footer_resources":  "Resources",
+                   "footer_company":  "Company",
+                   "footer_side_by_side":  "Side-by-side Compare",
+                   "footer_find_quiz":  "Find Tools Quiz",
+                   "footer_editors_choice":  "Editor\u0027s choice",
+                   "footer_buyers_quiz":  "Buyer\u0027s quiz",
+                   "footer_how_we_review":  "How we review",
+                   "footer_submit":  "Submit AI Tool",
+                   "footer_about":  "About HyzenPro",
+                   "footer_advertise":  "Advertise",
+                   "footer_privacy":  "Privacy Policy",
+                   "footer_terms":  "Terms of Service",
+                   "footer_privacy_short":  "Privacy",
+                   "footer_terms_short":  "Terms",
+                   "footer_contact":  "Contact",
+                   "footer_submit_short":  "Submit Tool",
+                   "footer_tagline":  "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded â€” never pay-to-play.",
+                   "blog":  "Blog",
+                   "writing_tools":  "AI Writing Tools",
+                   "contact":  "Contact",
+                   "video_tools":  "AI Video Tools",
+                   "tools":  "AI Tools Directory",
+                   "coding_tools":  "AI Coding Tools",
+                   "automation_tools":  "AI Automation",
+                   "image_tools":  "AI Image Tools"
+               }
 }
