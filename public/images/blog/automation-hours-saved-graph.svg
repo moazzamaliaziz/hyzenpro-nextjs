@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">AI automation weekly hours saved graph</title>
+  <desc id="desc">Horizontal bar chart showing estimated weekly time savings from seven AI automations.</desc>
+  <rect width="1200" height="720" rx="30" fill="#ffffff"/>
+  <rect x="48" y="48" width="1104" height="624" rx="24" fill="#f8fafc" stroke="#e5e7eb"/>
+  <text x="95" y="118" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">Weekly Hours Recovered by Automation</text>
+  <g font-family="Arial, sans-serif" font-size="20" fill="#334155">
+    <text x="95" y="205">Email drafts</text>
+    <text x="95" y="270">Social pipeline</text>
+    <text x="95" y="335">Lead capture</text>
+    <text x="95" y="400">Invoices</text>
+    <text x="95" y="465">Reports</text>
+    <text x="95" y="530">Repurposing</text>
+    <text x="95" y="595">Support drafts</text>
+  </g>
+  <g fill="#14b8a6">
+    <rect x="305" y="178" width="540" height="34" rx="17"/>
+    <rect x="305" y="243" width="420" height="34" rx="17"/>
+    <rect x="305" y="308" width="300" height="34" rx="17"/>
+    <rect x="305" y="373" width="240" height="34" rx="17"/>
+    <rect x="305" y="438" width="180" height="34" rx="17"/>
+    <rect x="305" y="503" width="300" height="34" rx="17"/>
+    <rect x="305" y="568" width="240" height="34" rx="17"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#111827">
+    <text x="870" y="204">4-5 hrs</text>
+    <text x="750" y="269">3-4 hrs</text>
+    <text x="630" y="334">2-3 hrs</text>
+    <text x="570" y="399">1.5-2 hrs</text>
+    <text x="510" y="464">1-1.5 hrs</text>
+    <text x="630" y="529">2-3 hrs</text>
+    <text x="570" y="594">1.5-2 hrs</text>
+  </g>
+  <rect x="930" y="290" width="145" height="145" rx="28" fill="#111827"/>
+  <text x="1002" y="350" font-family="Arial, sans-serif" font-size="24" fill="#ccfbf1" text-anchor="middle">Total</text>
+  <text x="1002" y="397" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#fff" text-anchor="middle">15-20h</text>
+</svg>

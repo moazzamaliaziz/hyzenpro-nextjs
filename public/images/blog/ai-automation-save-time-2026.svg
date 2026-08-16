@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI automation featured image</title>
+  <desc id="desc">A workflow automation network showing connected task nodes and time savings.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset=".55" stop-color="#134e4a"/>
+      <stop offset="1" stop-color="#052e16"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M240 450h230c95 0 120-190 230-190h170c112 0 140 330 270 330h220" fill="none" stroke="#99f6e4" stroke-width="10" opacity=".55"/>
+  <path d="M240 450h260c96 0 110 160 220 160h170c100 0 138-180 250-180h220" fill="none" stroke="#bef264" stroke-width="10" opacity=".5"/>
+  <g filter="url(#glow)">
+    <circle cx="240" cy="450" r="58" fill="#2dd4bf"/>
+    <circle cx="520" cy="450" r="48" fill="#38bdf8"/>
+    <circle cx="720" cy="260" r="58" fill="#a3e635"/>
+    <circle cx="720" cy="610" r="58" fill="#facc15"/>
+    <circle cx="930" cy="260" r="48" fill="#34d399"/>
+    <circle cx="930" cy="610" r="48" fill="#fb7185"/>
+    <circle cx="1140" cy="430" r="66" fill="#22c55e"/>
+    <circle cx="1360" cy="590" r="58" fill="#99f6e4"/>
+  </g>
+  <g fill="#fff" font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="240" y="462" font-size="44">IN</text>
+    <text x="520" y="462" font-size="34">AI</text>
+    <text x="720" y="274" font-size="34">CRM</text>
+    <text x="720" y="624" font-size="34">MAIL</text>
+    <text x="930" y="274" font-size="34">DATA</text>
+    <text x="930" y="624" font-size="34">TASK</text>
+    <text x="1140" y="444" font-size="40">AUTO</text>
+    <text x="1360" y="604" font-size="38">DONE</text>
+  </g>
+</svg>

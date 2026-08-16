@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none">
+  <rect width="220" height="48" rx="6" fill="#fff" stroke="#E5E5E5"/>
+  <rect x="6" y="6" width="36" height="36" rx="8" fill="#DA552F"/>
+  <text x="16" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#fff">P</text>
+  <text x="50" y="31" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#333">Product Hunt</text>
+</svg>

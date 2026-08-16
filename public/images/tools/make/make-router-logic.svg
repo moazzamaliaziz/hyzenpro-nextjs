@@ -1,0 +1,34 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="24" fill="#F8FAFB"/>
+  <rect x="24" y="24" width="1152" height="712" rx="20" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="48" y="120" width="1104" height="120" rx="18" fill="#F8FAFB" stroke="#E5E7EB"/>
+  <text x="92" y="172" fill="#111827" font-family="Arial, sans-serif" font-size="24" font-weight="700">Routing Rules</text>
+  <text x="92" y="208" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">One inbound event can split into sales, support, or nurture workflows without rebuilding the scenario.</text>
+  <rect x="88" y="312" width="220" height="112" rx="18" fill="#0D7377"/>
+  <text x="198" y="360" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="22" font-weight="700">Inbound Lead</text>
+  <text x="198" y="392" text-anchor="middle" fill="#D1FAF7" font-family="Arial, sans-serif" font-size="16">Source, budget, market</text>
+  <rect x="446" y="298" width="220" height="140" rx="18" fill="#FFFFFF" stroke="#0D7377" stroke-width="2"/>
+  <text x="556" y="352" text-anchor="middle" fill="#0D7377" font-family="Arial, sans-serif" font-size="24" font-weight="700">Router</text>
+  <text x="556" y="390" text-anchor="middle" fill="#4B5563" font-family="Arial, sans-serif" font-size="16">Checks plan value, country, and owner</text>
+  <path d="M308 368H446" stroke="#0D7377" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="380" cy="368" r="8" fill="#0D7377"/>
+  <rect x="812" y="126" width="272" height="136" rx="18" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="848" y="174" fill="#111827" font-family="Arial, sans-serif" font-size="22" font-weight="700">Enterprise Sales</text>
+  <text x="848" y="208" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">Budget above threshold</text>
+  <text x="848" y="236" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">Create deal, assign AE, alert Slack</text>
+  <rect x="812" y="312" width="272" height="136" rx="18" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="848" y="360" fill="#111827" font-family="Arial, sans-serif" font-size="22" font-weight="700">SMB Funnel</text>
+  <text x="848" y="394" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">Budget below threshold</text>
+  <text x="848" y="422" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">Send nurture email and tag CRM</text>
+  <rect x="812" y="498" width="272" height="136" rx="18" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="848" y="546" fill="#111827" font-family="Arial, sans-serif" font-size="22" font-weight="700">Support Escalation</text>
+  <text x="848" y="580" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">Urgent issue or existing customer</text>
+  <text x="848" y="608" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">Open ticket and alert on-call</text>
+  <path d="M666 368H742C772 368 790 300 812 194" stroke="#0D7377" stroke-width="4" stroke-linecap="round"/>
+  <path d="M666 368H812" stroke="#0D7377" stroke-width="4" stroke-linecap="round"/>
+  <path d="M666 368H742C772 368 790 436 812 566" stroke="#0D7377" stroke-width="4" stroke-linecap="round"/>
+  <rect x="92" y="512" width="574" height="128" rx="18" fill="#F8FAFB" stroke="#E5E7EB"/>
+  <text x="128" y="560" fill="#111827" font-family="Arial, sans-serif" font-size="22" font-weight="700">Why this matters</text>
+  <text x="128" y="596" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">A visual router stops automation logic from disappearing into nested condition menus.</text>
+  <text x="128" y="624" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">Teams can see exactly why a lead moved down one path instead of another.</text>
+</svg>

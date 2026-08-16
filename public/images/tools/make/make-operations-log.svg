@@ -1,0 +1,40 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="24" fill="#F8FAFB"/>
+  <rect x="24" y="24" width="1152" height="712" rx="20" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="60" y="88" width="1080" height="84" rx="18" fill="#F8FAFB" stroke="#E5E7EB"/>
+  <text x="100" y="138" fill="#111827" font-family="Arial, sans-serif" font-size="26" font-weight="700">Operations History</text>
+  <text x="100" y="162" fill="#6B7280" font-family="Arial, sans-serif" font-size="16">Recent runs, status checks, and one failure that needs review.</text>
+  <rect x="60" y="212" width="1080" height="468" rx="20" fill="#FCFDFC" stroke="#E5E7EB"/>
+  <rect x="88" y="244" width="1024" height="56" rx="12" fill="#F3F4F6"/>
+  <text x="128" y="278" fill="#6B7280" font-family="Arial, sans-serif" font-size="15" font-weight="700">RUN</text>
+  <text x="388" y="278" fill="#6B7280" font-family="Arial, sans-serif" font-size="15" font-weight="700">SCENARIO</text>
+  <text x="704" y="278" fill="#6B7280" font-family="Arial, sans-serif" font-size="15" font-weight="700">STATUS</text>
+  <text x="930" y="278" fill="#6B7280" font-family="Arial, sans-serif" font-size="15" font-weight="700">OPERATIONS</text>
+  <rect x="88" y="320" width="1024" height="64" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="128" y="358" fill="#111827" font-family="Arial, sans-serif" font-size="17">#20871</text>
+  <text x="388" y="358" fill="#111827" font-family="Arial, sans-serif" font-size="17">Lead routing + Slack alert</text>
+  <rect x="688" y="336" width="118" height="32" rx="16" fill="#E8F8EE"/>
+  <text x="747" y="357" text-anchor="middle" fill="#1A472A" font-family="Arial, sans-serif" font-size="14" font-weight="700">Success</text>
+  <text x="942" y="358" fill="#111827" font-family="Arial, sans-serif" font-size="17">18</text>
+  <rect x="88" y="400" width="1024" height="64" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="128" y="438" fill="#111827" font-family="Arial, sans-serif" font-size="17">#20870</text>
+  <text x="388" y="438" fill="#111827" font-family="Arial, sans-serif" font-size="17">Weekly CRM cleanup</text>
+  <rect x="688" y="416" width="118" height="32" rx="16" fill="#E8F8EE"/>
+  <text x="747" y="437" text-anchor="middle" fill="#1A472A" font-family="Arial, sans-serif" font-size="14" font-weight="700">Success</text>
+  <text x="942" y="438" fill="#111827" font-family="Arial, sans-serif" font-size="17">41</text>
+  <rect x="88" y="480" width="1024" height="72" rx="12" fill="#FFF7ED" stroke="#FDBA74"/>
+  <text x="128" y="520" fill="#111827" font-family="Arial, sans-serif" font-size="17">#20869</text>
+  <text x="388" y="520" fill="#111827" font-family="Arial, sans-serif" font-size="17">Content approval handoff</text>
+  <rect x="688" y="496" width="118" height="32" rx="16" fill="#FDE7D8"/>
+  <text x="747" y="517" text-anchor="middle" fill="#C84B31" font-family="Arial, sans-serif" font-size="14" font-weight="700">Needs Review</text>
+  <text x="942" y="520" fill="#111827" font-family="Arial, sans-serif" font-size="17">12</text>
+  <text x="388" y="544" fill="#9A3412" font-family="Arial, sans-serif" font-size="14">Mapped field missing from the source payload after a form update.</text>
+  <rect x="88" y="568" width="1024" height="64" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="128" y="606" fill="#111827" font-family="Arial, sans-serif" font-size="17">#20868</text>
+  <text x="388" y="606" fill="#111827" font-family="Arial, sans-serif" font-size="17">AI lead enrichment</text>
+  <rect x="688" y="584" width="118" height="32" rx="16" fill="#E8F8EE"/>
+  <text x="747" y="605" text-anchor="middle" fill="#1A472A" font-family="Arial, sans-serif" font-size="14" font-weight="700">Success</text>
+  <text x="942" y="606" fill="#111827" font-family="Arial, sans-serif" font-size="17">26</text>
+  <rect x="60" y="696" width="1080" height="24" rx="12" fill="#E5E7EB"/>
+  <rect x="60" y="696" width="812" height="24" rx="12" fill="#0D7377"/>
+</svg>

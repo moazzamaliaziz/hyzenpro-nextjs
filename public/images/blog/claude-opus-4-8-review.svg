@@ -1,0 +1,25 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#F8FAFC"/>
+  <rect x="96" y="92" width="1408" height="716" rx="28" fill="#FFFFFF" stroke="#D9E2EF" stroke-width="2"/>
+  <rect x="96" y="92" width="1408" height="146" rx="28" fill="#111827"/>
+  <path d="M96 206H1504" stroke="#1F2937" stroke-width="2"/>
+  <text x="150" y="160" fill="#93C5FD" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing="6">HYZENPRO REVIEW</text>
+  <text x="150" y="332" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="800">Claude Opus 4.8</text>
+  <text x="150" y="405" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600">Benchmark review for agentic coding teams</text>
+  <rect x="150" y="486" width="310" height="174" rx="18" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="190" y="560" fill="#1D4ED8" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800">69.2%</text>
+  <text x="190" y="606" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">SWE-Bench Pro</text>
+  <rect x="500" y="486" width="310" height="174" rx="18" fill="#F0FDFA" stroke="#99F6E4"/>
+  <text x="540" y="560" fill="#0F766E" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800">83.4%</text>
+  <text x="540" y="606" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Computer use</text>
+  <rect x="850" y="486" width="310" height="174" rx="18" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="890" y="560" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800">4x</text>
+  <text x="890" y="606" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Fewer hidden bugs</text>
+  <rect x="1200" y="486" width="208" height="174" rx="18" fill="#FEFCE8" stroke="#FDE68A"/>
+  <text x="1240" y="560" fill="#A16207" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800">3x</text>
+  <text x="1240" y="606" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Cheaper fast</text>
+  <rect x="150" y="708" width="1258" height="20" rx="10" fill="#E2E8F0"/>
+  <rect x="150" y="708" width="890" height="20" rx="10" fill="#2563EB"/>
+  <circle cx="1040" cy="718" r="30" fill="#111827"/>
+  <text x="1018" y="727" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800">#1</text>
+</svg>

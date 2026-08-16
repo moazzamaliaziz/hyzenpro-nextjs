@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">AI video tool decision framework</title>
+  <desc id="desc">A decision framework showing which AI video tools fit generation, editing, avatars, repurposing, captions, and blog-to-video workflows.</desc>
+  <rect width="1200" height="720" rx="30" fill="#ffffff"/>
+  <rect x="48" y="48" width="1104" height="624" rx="24" fill="#f8fafc" stroke="#e5e7eb"/>
+  <text x="95" y="118" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">AI Video Tool Decision Framework</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="105" y="190" width="300" height="145" rx="26" fill="#dbeafe"/>
+    <rect x="450" y="190" width="300" height="145" rx="26" fill="#dcfce7"/>
+    <rect x="795" y="190" width="300" height="145" rx="26" fill="#fae8ff"/>
+    <rect x="105" y="385" width="300" height="145" rx="26" fill="#ffedd5"/>
+    <rect x="450" y="385" width="300" height="145" rx="26" fill="#ccfbf1"/>
+    <rect x="795" y="385" width="300" height="145" rx="26" fill="#fef9c3"/>
+    <text x="135" y="238" font-size="24" font-weight="700" fill="#111827">Generate video</text>
+    <text x="135" y="278" font-size="20" fill="#334155">Kling, Runway, Sora</text>
+    <text x="480" y="238" font-size="24" font-weight="700" fill="#111827">Edit faster</text>
+    <text x="480" y="278" font-size="20" fill="#334155">CapCut, Descript, VEED</text>
+    <text x="825" y="238" font-size="24" font-weight="700" fill="#111827">Use avatars</text>
+    <text x="825" y="278" font-size="20" fill="#334155">HeyGen, Synthesia</text>
+    <text x="135" y="433" font-size="24" font-weight="700" fill="#111827">Repurpose clips</text>
+    <text x="135" y="473" font-size="20" fill="#334155">Opus Clip, Munch</text>
+    <text x="480" y="433" font-size="24" font-weight="700" fill="#111827">Add captions</text>
+    <text x="480" y="473" font-size="20" fill="#334155">Captions.ai, Submagic</text>
+    <text x="825" y="433" font-size="24" font-weight="700" fill="#111827">Blog to video</text>
+    <text x="825" y="473" font-size="20" fill="#334155">Lumen5, InVideo AI</text>
+  </g>
+</svg>

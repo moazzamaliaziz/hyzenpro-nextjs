@@ -1,0 +1,47 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="24" fill="#F8FAFB"/>
+  <rect x="24" y="24" width="1152" height="712" rx="20" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="24" y="24" width="1152" height="72" rx="20" fill="#F3F4F6"/>
+  <circle cx="72" cy="60" r="10" fill="#E5E7EB"/>
+  <circle cx="108" cy="60" r="10" fill="#E5E7EB"/>
+  <circle cx="144" cy="60" r="10" fill="#E5E7EB"/>
+  <rect x="184" y="46" width="260" height="28" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="928" y="42" width="200" height="36" rx="8" fill="#0D7377"/>
+  <text x="1028" y="65" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="16" font-weight="700">Scenario Active</text>
+  <rect x="60" y="136" width="210" height="560" rx="18" fill="#FAFAFA" stroke="#E5E7EB"/>
+  <text x="96" y="180" fill="#111827" font-family="Arial, sans-serif" font-size="20" font-weight="700">Modules</text>
+  <rect x="84" y="210" width="162" height="64" rx="12" fill="#E6FFFB"/>
+  <text x="116" y="248" fill="#0D7377" font-family="Arial, sans-serif" font-size="18" font-weight="700">Webhook</text>
+  <rect x="84" y="292" width="162" height="64" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="116" y="330" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">Filter</text>
+  <rect x="84" y="374" width="162" height="64" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="116" y="412" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">HubSpot</text>
+  <rect x="84" y="456" width="162" height="64" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="116" y="494" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">Slack</text>
+  <rect x="84" y="538" width="162" height="64" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="116" y="576" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">Airtable</text>
+  <rect x="310" y="136" width="824" height="560" rx="18" fill="#FCFDFC" stroke="#E5E7EB"/>
+  <text x="346" y="180" fill="#111827" font-family="Arial, sans-serif" font-size="20" font-weight="700">Lead Routing Scenario</text>
+  <rect x="358" y="256" width="140" height="84" rx="16" fill="#0D7377"/>
+  <text x="428" y="292" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700">Trigger</text>
+  <text x="428" y="318" text-anchor="middle" fill="#D1FAF7" font-family="Arial, sans-serif" font-size="15">Typeform submission</text>
+  <rect x="564" y="256" width="140" height="84" rx="16" fill="#FFFFFF" stroke="#0D7377" stroke-width="2"/>
+  <text x="634" y="292" text-anchor="middle" fill="#0D7377" font-family="Arial, sans-serif" font-size="18" font-weight="700">Router</text>
+  <text x="634" y="318" text-anchor="middle" fill="#4B5563" font-family="Arial, sans-serif" font-size="15">Enterprise or SMB</text>
+  <rect x="786" y="176" width="168" height="84" rx="16" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="870" y="212" text-anchor="middle" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">HubSpot</text>
+  <text x="870" y="238" text-anchor="middle" fill="#4B5563" font-family="Arial, sans-serif" font-size="15">Create deal + owner</text>
+  <rect x="786" y="316" width="168" height="84" rx="16" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="870" y="352" text-anchor="middle" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">Slack</text>
+  <text x="870" y="378" text-anchor="middle" fill="#4B5563" font-family="Arial, sans-serif" font-size="15">Send channel alert</text>
+  <rect x="786" y="456" width="168" height="84" rx="16" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <text x="870" y="492" text-anchor="middle" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">Airtable</text>
+  <text x="870" y="518" text-anchor="middle" fill="#4B5563" font-family="Arial, sans-serif" font-size="15">Store campaign source</text>
+  <path d="M498 298H564" stroke="#0D7377" stroke-width="4" stroke-linecap="round"/>
+  <path d="M704 298H754C770 298 780 288 786 274" stroke="#0D7377" stroke-width="4" stroke-linecap="round"/>
+  <path d="M704 298H754C770 298 780 308 786 332" stroke="#0D7377" stroke-width="4" stroke-linecap="round"/>
+  <path d="M704 298H754C770 298 780 328 786 472" stroke="#0D7377" stroke-width="4" stroke-linecap="round"/>
+  <rect x="350" y="580" width="724" height="84" rx="16" fill="#F8FAFB" stroke="#E5E7EB"/>
+  <text x="390" y="620" fill="#111827" font-family="Arial, sans-serif" font-size="18" font-weight="700">Run Summary</text>
+  <text x="390" y="648" fill="#6B7280" font-family="Arial, sans-serif" font-size="15">128 operations today, 0 failed branches, 4 enterprise leads routed to sales.</text>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <rect width="200" height="48" rx="6" fill="#00B67A"/>
+  <path d="M24 8l4.5 9.2 10 1.4-7.2 7 1.7 10-9-4.7-9 4.7 1.7-10-7.2-7 10-1.4z" fill="#fff"/>
+  <text x="44" y="30" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#fff">Trustpilot</text>
+</svg>

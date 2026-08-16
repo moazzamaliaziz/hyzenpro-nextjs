@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <rect width="200" height="48" rx="6" fill="#1A3A5C"/>
+  <rect x="8" y="10" width="28" height="28" rx="4" fill="#fff"/>
+  <text x="14" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1A3A5C">IH</text>
+  <text x="44" y="30" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#fff">INDIE HACKERS</text>
+</svg>
