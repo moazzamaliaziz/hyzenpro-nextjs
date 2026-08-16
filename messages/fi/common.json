@@ -1,177 +1,177 @@
-﻿{
-    "site":  {
-                 "name":  "HyzenPro",
-                 "tagline":  "Yksinkertaistetaan tekoÃ¤lyÃ¤ kaikille"
-             },
-    "nav":  {
-                "home":  "Koti",
-                "tools":  "AI-tyÃ¶kalut",
-                "blog":  "Blogi",
-                "compare":  "Vertaa",
-                "about":  "MeistÃ¤",
-                "contact":  "Yhteystiedot",
-                "categories":  "Categories",
-                "find_tools":  "Find Tools",
-                "submit_tool":  "Submit AI tool",
-                "popular_categories":  "Popular Categories",
-                "discover":  "Discover",
-                "all_tools":  "All Tools",
-                "all_tools_desc":  "Browse the full directory",
-                "find_tools_desc":  "Take the guided matcher quiz",
-                "video_tools":  "AI Video Tools",
-                "video_tools_desc":  "Editors, generators, captions",
-                "writing_tools":  "AI Writing Tools",
-                "writing_tools_desc":  "Content, copy, and SEO writing",
-                "coding_tools":  "AI Coding Tools",
-                "coding_tools_desc":  "Assistants for developers",
-                "image_tools":  "AI Image Tools",
-                "image_tools_desc":  "Art generators, editors",
-                "automation_tools":  "AI Automation",
-                "automation_tools_desc":  "Workflow and task automation",
-                "from_the_blog":  "From the Blog",
-                "latest_insights":  "Latest insights on AI tools",
-                "read_article":  "Read article"
-            },
-    "homepage":  {
-                     "hero_title":  "LÃ¶ydÃ¤ parhaat AI-tyÃ¶kalut",
-                     "hero_subtitle":  "Riippumattomat arvostelut, rinnakkaisvertailut ja kÃ¤ytÃ¤nnÃ¶n ostajaneuvonta luojille, markkinoijille ja pienille tiimeille.",
-                     "trending":  "Suositut",
-                     "featured":  "Esilletuodut",
-                     "categories":  "Kategoriat",
-                     "guides":  "Uusimmat opastukset",
-                     "faq":  "Usein kysytyt kysymykset",
-                     "newsletter":  "Uutiskirje",
-                     "quiz_cta":  "EtkÃ¶ tiedÃ¤ mistÃ¤ aloittaa? Tee kysely.",
-                     "quiz_button":  "Aloita kysely",
-                     "how_we_review":  "Kuinka arvostelemme",
-                     "no_fluff":  "Ei hÃ¶pÃ¶-hÃ¶pÃ¶Ã¤, vain faktoja",
-                     "browse_categories":  "Selaa kategorioita",
-                     "pick_category":  "Valitse kategoria tutkittavaksi",
-                     "use_cases_title":  "KÃ¤yttÃ¶tapaukset",
-                     "use_cases_subtitle":  "Katso kuinka tiimit kÃ¤yttÃ¤vÃ¤t nÃ¤itÃ¤ tyÃ¶kaluja",
-                     "head_to_head":  "Suoravertailu",
-                     "editors_pick":  "PÃ¤Ã¤toimittajan valinta",
-                     "latest_guides":  "Uusimmat opastukset",
-                     "long_reads":  "SyvÃ¤lliset artikkelit",
-                     "changelog":  "Muutosloki",
-                     "last_30_days":  "Viimeiset 30 pÃ¤ivÃ¤Ã¤",
-                     "stats_tools":  "Arvostellut tyÃ¶kalut",
-                     "stats_guides":  "Julkaistut opastukset",
-                     "stats_categories":  "Kategoriat",
-                     "faq_title":  "Usein kysytyt kysymykset",
-                     "faq_subtitle":  "Kaikki mitÃ¤ sinun tÃ¤ytyy tietÃ¤Ã¤",
-                     "newsletter_title":  "Pysy ajan tasalla",
-                     "newsletter_subtitle":  "Saa uusimmat AI-tyÃ¶kalu arvostelut ja opastukset suoraan postilaatikkoosi.",
-                     "email_placeholder":  "SyÃ¶tÃ¤ sÃ¤hkÃ¶postisi",
-                     "footer_description":  "Riippumattomat AI-tyÃ¶kalu arvostelut ja vertailut, jotka auttavat sinua tekemÃ¤Ã¤n parempia pÃ¤Ã¤tÃ¶ksiÃ¤.",
-                     "all_rights":  "Kaikki oikeudet pidÃ¤tetÃ¤Ã¤n.",
-                     "independent":  "Riippumaton ja puolueeton",
-                     "review_steps":  {
-                                          "test":  {
-                                                       "title":  "Testaa",
-                                                       "desc":  "KÃ¤ytÃ¤mme jokaista tyÃ¶kalua oikeassa projektissa vÃ¤hintÃ¤Ã¤n viikon."
-                                                   },
-                                          "score":  {
-                                                        "title":  "Arvosana",
-                                                        "desc":  "Hinta, kÃ¤yttÃ¶kokemus, tulosten laatu, tuki â€” arvioitu kilpailijoihin nÃ¤hden."
-                                                    },
-                                          "publish":  {
-                                                          "title":  "Julkaise",
-                                                          "desc":  "Rehellinen tuomio etuja, haittoja ja kenelle se todella on tarkoitettu."
-                                                      }
-                                      },
-                     "category_names":  {
-                                            "video":  "AI-videotyÃ¶kalut",
-                                            "writing":  "AI-kirjoitustyÃ¶kalut",
-                                            "coding":  "AI-ohjelmointityÃ¶kalut",
-                                            "automation":  "AI-automaatio",
-                                            "image":  "AI-kuvatyÃ¶kalut",
-                                            "all":  "Kaikki tyÃ¶kalut"
-                                        },
-                     "use_cases":  {
-                                       "creators":  {
-                                                        "role":  "Luoja",
-                                                        "title":  "Luoja \u0026 YouTuberit",
-                                                        "desc":  "Kuvaukset, editointi, pienoiskuvat ja Ã¤Ã¤niraita â€” paketti joka todella tuottaa videoita."
-                                                    },
-                                       "marketing":  {
-                                                         "role":  "Markkinointi",
-                                                         "title":  "Markkinoijat \u0026 Kasvu",
-                                                         "desc":  "SEO-kirjoituksesta mainosluovuuteen, lÃ¶ydÃ¤ tyÃ¶kalut joita on testattu oikeissa kampanjoissa, ei demossa."
-                                                     },
-                                       "developers":  {
-                                                          "role":  "KehittÃ¤jÃ¤t",
-                                                          "title":  "KehittÃ¤jÃ¤t \u0026 Indie-hakkerit",
-                                                          "desc":  "Koodausapurit, agentit ja kehitystyÃ¶kalut arvioitu todellisilla kustannuksilla skaalattaessa."
-                                                      },
-                                       "founders":  {
-                                                        "role":  "Perustajat",
-                                                        "title":  "Perustajat \u0026 Pienet tiimit",
-                                                        "desc":  "Korvaa 3 SaaS-tilausta 1 AI-tyÃ¶virtalla â€” ilman lukitsemyllistyksiÃ¤."
-                                                    },
-                                       "education":  {
-                                                         "role":  "Koulutus",
-                                                         "title":  "Opiskelijat \u0026 Opettajat",
-                                                         "desc":  "Ilmaistasot, opiskelukumppanit ja kirjoitusavustimet jotka eivÃ¤t aiheuta ongelmia."
-                                                     },
-                                       "agencies":  {
-                                                        "role":  "Toimistot",
-                                                        "title":  "Toimistot \u0026 Konsultit",
-                                                        "desc":  "Asiakasturvalliset tyÃ¶kalut tiimisuunnitelmilla, tiedonhallinnalla ja asianmukaisilla vientivaihtoehdoilla."
-                                                    }
-                                   },
-                     "h2h_verdicts":  {
-                                          "opus_vs_codex":  "Agenttikoodaus vs terminaali-ensin tyÃ¶virrat",
-                                          "sonnet_vs_glm":  "LÃ¤hes lippulaivatason laatu vs open-weight kustannus",
-                                          "fable_vs_mythos":  "Saman painot, eri kÃ¤yttÃ¶tasot"
-                                      }
-                 },
-    "common":  {
-                   "read_more":  "Lue lisÃ¤Ã¤",
-                   "view_all":  "NÃ¤ytÃ¤ kaikki",
-                   "loading":  "Ladataan...",
-                   "error":  "Jotain meni vikaan",
-                   "search":  "Haku",
-                   "subscribe":  "Tilaa",
-                   "free":  "Ilmainen",
-                   "paid":  "Maksullinen",
-                   "vs":  "vs",
-                   "open_comparison":  "Avaa vertailu",
-                   "build_own":  "Luo omasi",
-                   "read_review":  "Lue arvostelu",
-                   "visit":  "Vieraile",
-                   "all_tools":  "Kaikki tyÃ¶kalut",
-                   "start_quiz":  "Aloita kysely",
-                   "see_picks":  "NÃ¤ytÃ¤ valinnat",
-                   "listed_on":  "Listed On",
-                   "all_rights":  "All rights reserved. AI tool ratings are based on independent testing.",
-                   "independent":  "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
-                   "footer_ai_tools":  "AI Tools",
-                   "footer_compare":  "Compare",
-                   "footer_resources":  "Resources",
-                   "footer_company":  "Company",
-                   "footer_side_by_side":  "Side-by-side Compare",
-                   "footer_find_quiz":  "Find Tools Quiz",
-                   "footer_editors_choice":  "Editor\u0027s choice",
-                   "footer_buyers_quiz":  "Buyer\u0027s quiz",
-                   "footer_how_we_review":  "How we review",
-                   "footer_submit":  "Submit AI Tool",
-                   "footer_about":  "About HyzenPro",
-                   "footer_advertise":  "Advertise",
-                   "footer_privacy":  "Privacy Policy",
-                   "footer_terms":  "Terms of Service",
-                   "footer_privacy_short":  "Privacy",
-                   "footer_terms_short":  "Terms",
-                   "footer_contact":  "Contact",
-                   "footer_submit_short":  "Submit Tool",
-                   "footer_tagline":  "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded â€” never pay-to-play.",
-                   "blog":  "Blog",
-                   "writing_tools":  "AI Writing Tools",
-                   "contact":  "Contact",
-                   "video_tools":  "AI Video Tools",
-                   "tools":  "AI Tools Directory",
-                   "coding_tools":  "AI Coding Tools",
-                   "automation_tools":  "AI Automation",
-                   "image_tools":  "AI Image Tools"
-               }
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Yksinkertaistetaan tekoälyä kaikille"
+  },
+  "nav": {
+    "home": "Koti",
+    "tools": "AI-työkalut",
+    "blog": "Blogi",
+    "compare": "Vertaa",
+    "about": "Meistä",
+    "contact": "Yhteystiedot",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "Löydä parhaat AI-työkalut",
+    "hero_subtitle": "Riippumattomat arvostelut, rinnakkaisvertailut ja käytännön ostajaneuvonta luojille, markkinoijille ja pienille tiimeille.",
+    "trending": "Suositut",
+    "featured": "Esilletuodut",
+    "categories": "Kategoriat",
+    "guides": "Uusimmat opastukset",
+    "faq": "Usein kysytyt kysymykset",
+    "newsletter": "Uutiskirje",
+    "quiz_cta": "Etkö tiedä mistä aloittaa? Tee kysely.",
+    "quiz_button": "Aloita kysely",
+    "how_we_review": "Kuinka arvostelemme",
+    "no_fluff": "Ei höpö-höpöä, vain faktoja",
+    "browse_categories": "Selaa kategorioita",
+    "pick_category": "Valitse kategoria tutkittavaksi",
+    "use_cases_title": "Käyttötapaukset",
+    "use_cases_subtitle": "Katso kuinka tiimit käyttävät näitä työkaluja",
+    "head_to_head": "Suoravertailu",
+    "editors_pick": "Päätoimittajan valinta",
+    "latest_guides": "Uusimmat opastukset",
+    "long_reads": "Syvälliset artikkelit",
+    "changelog": "Muutosloki",
+    "last_30_days": "Viimeiset 30 päivää",
+    "stats_tools": "Arvostellut työkalut",
+    "stats_guides": "Julkaistut opastukset",
+    "stats_categories": "Kategoriat",
+    "faq_title": "Usein kysytyt kysymykset",
+    "faq_subtitle": "Kaikki mitä sinun täytyy tietää",
+    "newsletter_title": "Pysy ajan tasalla",
+    "newsletter_subtitle": "Saa uusimmat AI-työkalu arvostelut ja opastukset suoraan postilaatikkoosi.",
+    "email_placeholder": "Syötä sähköpostisi",
+    "footer_description": "Riippumattomat AI-työkalu arvostelut ja vertailut, jotka auttavat sinua tekemään parempia päätöksiä.",
+    "all_rights": "Kaikki oikeudet pidätetään.",
+    "independent": "Riippumaton ja puolueeton",
+    "review_steps": {
+      "test": {
+        "title": "Testaa",
+        "desc": "Käytämme jokaista työkalua oikeassa projektissa vähintään viikon."
+      },
+      "score": {
+        "title": "Arvosana",
+        "desc": "Hinta, käyttökokemus, tulosten laatu, tuki — arvioitu kilpailijoihin nähden."
+      },
+      "publish": {
+        "title": "Julkaise",
+        "desc": "Rehellinen tuomio etuja, haittoja ja kenelle se todella on tarkoitettu."
+      }
+    },
+    "category_names": {
+      "video": "AI-videotyökalut",
+      "writing": "AI-kirjoitustyökalut",
+      "coding": "AI-ohjelmointityökalut",
+      "automation": "AI-automaatio",
+      "image": "AI-kuvatyökalut",
+      "all": "Kaikki työkalut"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Luoja",
+        "title": "Luoja & YouTuberit",
+        "desc": "Kuvaukset, editointi, pienoiskuvat ja ääniraita — paketti joka todella tuottaa videoita."
+      },
+      "marketing": {
+        "role": "Markkinointi",
+        "title": "Markkinoijat & Kasvu",
+        "desc": "SEO-kirjoituksesta mainosluovuuteen, löydä työkalut joita on testattu oikeissa kampanjoissa, ei demossa."
+      },
+      "developers": {
+        "role": "Kehittäjät",
+        "title": "Kehittäjät & Indie-hakkerit",
+        "desc": "Koodausapurit, agentit ja kehitystyökalut arvioitu todellisilla kustannuksilla skaalattaessa."
+      },
+      "founders": {
+        "role": "Perustajat",
+        "title": "Perustajat & Pienet tiimit",
+        "desc": "Korvaa 3 SaaS-tilausta 1 AI-työvirtalla — ilman lukitsemyllistyksiä."
+      },
+      "education": {
+        "role": "Koulutus",
+        "title": "Opiskelijat & Opettajat",
+        "desc": "Ilmaistasot, opiskelukumppanit ja kirjoitusavustimet jotka eivät aiheuta ongelmia."
+      },
+      "agencies": {
+        "role": "Toimistot",
+        "title": "Toimistot & Konsultit",
+        "desc": "Asiakasturvalliset työkalut tiimisuunnitelmilla, tiedonhallinnalla ja asianmukaisilla vientivaihtoehdoilla."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Agenttikoodaus vs terminaali-ensin työvirrat",
+      "sonnet_vs_glm": "Lähes lippulaivatason laatu vs open-weight kustannus",
+      "fable_vs_mythos": "Saman painot, eri käyttötasot"
+    }
+  },
+  "common": {
+    "read_more": "Lue lisää",
+    "view_all": "Näytä kaikki",
+    "loading": "Ladataan...",
+    "error": "Jotain meni vikaan",
+    "search": "Haku",
+    "subscribe": "Tilaa",
+    "free": "Ilmainen",
+    "paid": "Maksullinen",
+    "vs": "vs",
+    "open_comparison": "Avaa vertailu",
+    "build_own": "Luo omasi",
+    "read_review": "Lue arvostelu",
+    "visit": "Vieraile",
+    "all_tools": "Kaikki työkalut",
+    "start_quiz": "Aloita kysely",
+    "see_picks": "Näytä valinnat",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play.",
+    "tools": "Työkaluhakemisto",
+    "video_tools": "Videotyökalut",
+    "writing_tools": "Kirjoitustyökalut",
+    "coding_tools": "Ohjelmointityökalut",
+    "image_tools": "Kuvatyökalut",
+    "automation_tools": "Automaatio",
+    "blog": "Blogi",
+    "contact": "Yhteystiedot"
+  }
 }

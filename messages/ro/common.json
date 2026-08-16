@@ -1,177 +1,177 @@
-﻿{
-    "site":  {
-                 "name":  "HyzenPro",
-                 "tagline":  "SimplificÄƒm AI-ul pentru toatÄƒ lumea"
-             },
-    "nav":  {
-                "home":  "AcasÄƒ",
-                "tools":  "Instrumente AI",
-                "blog":  "Blog",
-                "compare":  "ComparÄƒ",
-                "about":  "Despre noi",
-                "contact":  "Contact",
-                "categories":  "Categories",
-                "find_tools":  "Find Tools",
-                "submit_tool":  "Submit AI tool",
-                "popular_categories":  "Popular Categories",
-                "discover":  "Discover",
-                "all_tools":  "All Tools",
-                "all_tools_desc":  "Browse the full directory",
-                "find_tools_desc":  "Take the guided matcher quiz",
-                "video_tools":  "AI Video Tools",
-                "video_tools_desc":  "Editors, generators, captions",
-                "writing_tools":  "AI Writing Tools",
-                "writing_tools_desc":  "Content, copy, and SEO writing",
-                "coding_tools":  "AI Coding Tools",
-                "coding_tools_desc":  "Assistants for developers",
-                "image_tools":  "AI Image Tools",
-                "image_tools_desc":  "Art generators, editors",
-                "automation_tools":  "AI Automation",
-                "automation_tools_desc":  "Workflow and task automation",
-                "from_the_blog":  "From the Blog",
-                "latest_insights":  "Latest insights on AI tools",
-                "read_article":  "Read article"
-            },
-    "homepage":  {
-                     "hero_title":  "GÄƒseÈ™te cele mai bune instrumente AI",
-                     "hero_subtitle":  "Recenzii independente, comparaÈ›ii faÈ›Äƒ Ã®n faÈ›Äƒ È™i ghiduri practice de cumpÄƒrare pentru creatori, marketeri È™i echipe mici.",
-                     "trending":  "Trending",
-                     "featured":  "Recomandate",
-                     "categories":  "Categorii",
-                     "guides":  "Ghiduri recente",
-                     "faq":  "ÃŽntrebÄƒri frecvente",
-                     "newsletter":  "Buletin informativ",
-                     "quiz_cta":  "Nu È™tii de unde sÄƒ Ã®ncepi? FÄƒ testul.",
-                     "quiz_button":  "ÃŽncepe testul",
-                     "how_we_review":  "Cum testÄƒm",
-                     "no_fluff":  "FÄƒrÄƒ umpluturÄƒ, doar fapte",
-                     "browse_categories":  "RÄƒsfoieÈ™te categoriile",
-                     "pick_category":  "Alege o categorie de explorat",
-                     "use_cases_title":  "Cazuri de utilizare",
-                     "use_cases_subtitle":  "Vezi cum echipele folosesc aceste instrumente",
-                     "head_to_head":  "ComparaÈ›ie directÄƒ",
-                     "editors_pick":  "Alegerea redacÈ›iei",
-                     "latest_guides":  "Ghiduri recente",
-                     "long_reads":  "Articole aprofundate",
-                     "changelog":  "Jurnal de modificÄƒri",
-                     "last_30_days":  "Ultimele 30 de zile",
-                     "stats_tools":  "Instrumente testate",
-                     "stats_guides":  "Ghiduri publicate",
-                     "stats_categories":  "Categorii",
-                     "faq_title":  "ÃŽntrebÄƒri frecvente",
-                     "faq_subtitle":  "Tot ce trebuie sÄƒ È™tii",
-                     "newsletter_title":  "RÄƒmÃ¢i la curent",
-                     "newsletter_subtitle":  "PrimeÈ™te cele mai recente recenzii È™i ghiduri de instrumente AI direct Ã®n cÄƒsuÈ›a ta de e-mail.",
-                     "email_placeholder":  "Introdu adresa ta de e-mail",
-                     "footer_description":  "Recenzii È™i comparaÈ›ii independente de instrumente AI pentru a te ajuta sÄƒ iei decizii mai bune.",
-                     "all_rights":  "Toate drepturile rezervate.",
-                     "independent":  "Independent È™i imparÈ›ial",
-                     "review_steps":  {
-                                          "test":  {
-                                                       "title":  "Testare",
-                                                       "desc":  "Folosim fiecare instrument Ã®ntr-un proiect real timp de cel puÈ›in o sÄƒptÄƒmÃ¢nÄƒ."
-                                                   },
-                                          "score":  {
-                                                        "title":  "Scor",
-                                                        "desc":  "PreÈ›, experienÈ›Äƒ utilizator, calitate ieÈ™ire, suport â€” evaluate comparativ cu concurenÈ›ii."
-                                                    },
-                                          "publish":  {
-                                                          "title":  "Publicare",
-                                                          "desc":  "Verdict onest cu avantaje, dezavantaje È™i pentru cine este cu adevÄƒrat."
-                                                      }
-                                      },
-                     "category_names":  {
-                                            "video":  "Instrumente Video AI",
-                                            "writing":  "Instrumente de Scriere AI",
-                                            "coding":  "Instrumente de Programare AI",
-                                            "automation":  "Automatizare AI",
-                                            "image":  "Instrumente de Imagine AI",
-                                            "all":  "Toate Instrumentele"
-                                        },
-                     "use_cases":  {
-                                       "creators":  {
-                                                        "role":  "Creatori",
-                                                        "title":  "Creatori \u0026 YouTuberi",
-                                                        "desc":  "SubtitrÄƒri, editare, miniaturi È™i voiceover â€” setul care produce cu adevÄƒrat videoclipuri."
-                                                    },
-                                       "marketing":  {
-                                                         "role":  "Marketing",
-                                                         "title":  "Marketeri \u0026 CreÈ™tere",
-                                                         "desc":  "De la scriere SEO la creativitate publicitarÄƒ, gÄƒseÈ™te instrumente testate pe campanii reale, nu pe demo-uri."
-                                                     },
-                                       "developers":  {
-                                                          "role":  "Dezvoltatori",
-                                                          "title":  "Dezvoltatori \u0026 Indie Hackers",
-                                                          "desc":  "CopiloÈ›i de codare, agenÈ›i È™i instrumente de dezvoltare clasate dupÄƒ costul real la scarÄƒ."
-                                                      },
-                                       "founders":  {
-                                                        "role":  "Fondatori",
-                                                        "title":  "Fondatori \u0026 Echipe Mici",
-                                                        "desc":  "ÃŽnlocuieÈ™te 3 abonamente SaaS cu 1 flux de lucru AI â€” fÄƒrÄƒ surprize de blocare."
-                                                    },
-                                       "education":  {
-                                                         "role":  "EducaÈ›ie",
-                                                         "title":  "StudenÈ›i \u0026 Educatori",
-                                                         "desc":  "Niveluri gratuite, parteneri de studiu È™i instrumente de scriere care nu te vor pune Ã®n Ã®ncurcÄƒturÄƒ."
-                                                     },
-                                       "agencies":  {
-                                                        "role":  "AgenÈ›ii",
-                                                        "title":  "AgenÈ›ii \u0026 ConsultanÈ›e",
-                                                        "desc":  "Instrumente sigure pentru clienÈ›i cu planuri de echipÄƒ, controlul datelor È™i opÈ›iuni de export adecvate."
-                                                    }
-                                   },
-                     "h2h_verdicts":  {
-                                          "opus_vs_codex":  "Codare agentÄƒ vs fluxuri de lucru terminal-first",
-                                          "sonnet_vs_glm":  "Calitate aproape flagship vs cost open-weight",
-                                          "fable_vs_mythos":  "GreutÄƒÈ›i identice, niveluri de acces diferite"
-                                      }
-                 },
-    "common":  {
-                   "read_more":  "CiteÈ™te mai mult",
-                   "view_all":  "Vezi tot",
-                   "loading":  "Se Ã®ncarcÄƒ...",
-                   "error":  "Ceva a mers prost",
-                   "search":  "CautÄƒ",
-                   "subscribe":  "AboneazÄƒ-te",
-                   "free":  "Gratuit",
-                   "paid":  "PlÄƒtit",
-                   "vs":  "vs",
-                   "open_comparison":  "Deschide comparaÈ›ia",
-                   "build_own":  "CreeazÄƒ-È›i propriul",
-                   "read_review":  "CiteÈ™te recenzia",
-                   "visit":  "ViziteazÄƒ",
-                   "all_tools":  "Toate instrumentele",
-                   "start_quiz":  "ÃŽncepe testul",
-                   "see_picks":  "Vezi selecÈ›iile",
-                   "listed_on":  "Listed On",
-                   "all_rights":  "All rights reserved. AI tool ratings are based on independent testing.",
-                   "independent":  "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
-                   "footer_ai_tools":  "AI Tools",
-                   "footer_compare":  "Compare",
-                   "footer_resources":  "Resources",
-                   "footer_company":  "Company",
-                   "footer_side_by_side":  "Side-by-side Compare",
-                   "footer_find_quiz":  "Find Tools Quiz",
-                   "footer_editors_choice":  "Editor\u0027s choice",
-                   "footer_buyers_quiz":  "Buyer\u0027s quiz",
-                   "footer_how_we_review":  "How we review",
-                   "footer_submit":  "Submit AI Tool",
-                   "footer_about":  "About HyzenPro",
-                   "footer_advertise":  "Advertise",
-                   "footer_privacy":  "Privacy Policy",
-                   "footer_terms":  "Terms of Service",
-                   "footer_privacy_short":  "Privacy",
-                   "footer_terms_short":  "Terms",
-                   "footer_contact":  "Contact",
-                   "footer_submit_short":  "Submit Tool",
-                   "footer_tagline":  "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded â€” never pay-to-play.",
-                   "blog":  "Blog",
-                   "writing_tools":  "AI Writing Tools",
-                   "contact":  "Contact",
-                   "video_tools":  "AI Video Tools",
-                   "tools":  "AI Tools Directory",
-                   "coding_tools":  "AI Coding Tools",
-                   "automation_tools":  "AI Automation",
-                   "image_tools":  "AI Image Tools"
-               }
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Simplificăm AI-ul pentru toată lumea"
+  },
+  "nav": {
+    "home": "Acasă",
+    "tools": "Instrumente AI",
+    "blog": "Blog",
+    "compare": "Compară",
+    "about": "Despre noi",
+    "contact": "Contact",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "Găsește cele mai bune instrumente AI",
+    "hero_subtitle": "Recenzii independente, comparații față în față și ghiduri practice de cumpărare pentru creatori, marketeri și echipe mici.",
+    "trending": "Trending",
+    "featured": "Recomandate",
+    "categories": "Categorii",
+    "guides": "Ghiduri recente",
+    "faq": "Întrebări frecvente",
+    "newsletter": "Buletin informativ",
+    "quiz_cta": "Nu știi de unde să începi? Fă testul.",
+    "quiz_button": "Începe testul",
+    "how_we_review": "Cum testăm",
+    "no_fluff": "Fără umplutură, doar fapte",
+    "browse_categories": "Răsfoiește categoriile",
+    "pick_category": "Alege o categorie de explorat",
+    "use_cases_title": "Cazuri de utilizare",
+    "use_cases_subtitle": "Vezi cum echipele folosesc aceste instrumente",
+    "head_to_head": "Comparație directă",
+    "editors_pick": "Alegerea redacției",
+    "latest_guides": "Ghiduri recente",
+    "long_reads": "Articole aprofundate",
+    "changelog": "Jurnal de modificări",
+    "last_30_days": "Ultimele 30 de zile",
+    "stats_tools": "Instrumente testate",
+    "stats_guides": "Ghiduri publicate",
+    "stats_categories": "Categorii",
+    "faq_title": "Întrebări frecvente",
+    "faq_subtitle": "Tot ce trebuie să știi",
+    "newsletter_title": "Rămâi la curent",
+    "newsletter_subtitle": "Primește cele mai recente recenzii și ghiduri de instrumente AI direct în căsuța ta de e-mail.",
+    "email_placeholder": "Introdu adresa ta de e-mail",
+    "footer_description": "Recenzii și comparații independente de instrumente AI pentru a te ajuta să iei decizii mai bune.",
+    "all_rights": "Toate drepturile rezervate.",
+    "independent": "Independent și imparțial",
+    "review_steps": {
+      "test": {
+        "title": "Testare",
+        "desc": "Folosim fiecare instrument într-un proiect real timp de cel puțin o săptămână."
+      },
+      "score": {
+        "title": "Scor",
+        "desc": "Preț, experiență utilizator, calitate ieșire, suport — evaluate comparativ cu concurenții."
+      },
+      "publish": {
+        "title": "Publicare",
+        "desc": "Verdict onest cu avantaje, dezavantaje și pentru cine este cu adevărat."
+      }
+    },
+    "category_names": {
+      "video": "Instrumente Video AI",
+      "writing": "Instrumente de Scriere AI",
+      "coding": "Instrumente de Programare AI",
+      "automation": "Automatizare AI",
+      "image": "Instrumente de Imagine AI",
+      "all": "Toate Instrumentele"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Creatori",
+        "title": "Creatori & YouTuberi",
+        "desc": "Subtitrări, editare, miniaturi și voiceover — setul care produce cu adevărat videoclipuri."
+      },
+      "marketing": {
+        "role": "Marketing",
+        "title": "Marketeri & Creștere",
+        "desc": "De la scriere SEO la creativitate publicitară, găsește instrumente testate pe campanii reale, nu pe demo-uri."
+      },
+      "developers": {
+        "role": "Dezvoltatori",
+        "title": "Dezvoltatori & Indie Hackers",
+        "desc": "Copiloți de codare, agenți și instrumente de dezvoltare clasate după costul real la scară."
+      },
+      "founders": {
+        "role": "Fondatori",
+        "title": "Fondatori & Echipe Mici",
+        "desc": "Înlocuiește 3 abonamente SaaS cu 1 flux de lucru AI — fără surprize de blocare."
+      },
+      "education": {
+        "role": "Educație",
+        "title": "Studenți & Educatori",
+        "desc": "Niveluri gratuite, parteneri de studiu și instrumente de scriere care nu te vor pune în încurcătură."
+      },
+      "agencies": {
+        "role": "Agenții",
+        "title": "Agenții & Consultanțe",
+        "desc": "Instrumente sigure pentru clienți cu planuri de echipă, controlul datelor și opțiuni de export adecvate."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Codare agentă vs fluxuri de lucru terminal-first",
+      "sonnet_vs_glm": "Calitate aproape flagship vs cost open-weight",
+      "fable_vs_mythos": "Greutăți identice, niveluri de acces diferite"
+    }
+  },
+  "common": {
+    "read_more": "Citește mai mult",
+    "view_all": "Vezi tot",
+    "loading": "Se încarcă...",
+    "error": "Ceva a mers prost",
+    "search": "Caută",
+    "subscribe": "Abonează-te",
+    "free": "Gratuit",
+    "paid": "Plătit",
+    "vs": "vs",
+    "open_comparison": "Deschide comparația",
+    "build_own": "Creează-ți propriul",
+    "read_review": "Citește recenzia",
+    "visit": "Vizitează",
+    "all_tools": "Toate instrumentele",
+    "start_quiz": "Începe testul",
+    "see_picks": "Vezi selecțiile",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play.",
+    "tools": "Director instrumente AI",
+    "video_tools": "Instrumente video AI",
+    "writing_tools": "Instrumente de scriere AI",
+    "coding_tools": "Instrumente de programare AI",
+    "image_tools": "Instrumente de imagine AI",
+    "automation_tools": "Automatizare AI",
+    "blog": "Blog",
+    "contact": "Contact"
+  }
 }

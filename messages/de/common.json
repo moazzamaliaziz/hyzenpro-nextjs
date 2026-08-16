@@ -1,177 +1,177 @@
-﻿{
-    "site":  {
-                 "name":  "HyzenPro",
-                 "tagline":  "KI fÃ¼r alle vereinfacht"
-             },
-    "nav":  {
-                "home":  "Startseite",
-                "tools":  "KI-Tools",
-                "blog":  "Blog",
-                "compare":  "Vergleichen",
-                "about":  "Ãœber uns",
-                "contact":  "Kontakt",
-                "categories":  "Kategorien",
-                "find_tools":  "Tools finden",
-                "submit_tool":  "AI-Tool einreichen",
-                "popular_categories":  "Beliebte Kategorien",
-                "discover":  "Entdecken",
-                "all_tools":  "Alle Tools",
-                "all_tools_desc":  "Das gesamte Verzeichnis durchsuchen",
-                "find_tools_desc":  "Am gefÃ¼hrten Matcher-Quiz teilnehmen",
-                "video_tools":  "AI-Video-Tools",
-                "video_tools_desc":  "Editoren, Generatoren, Untertitel",
-                "writing_tools":  "AI-Schreibtools",
-                "writing_tools_desc":  "Inhalte, Texte und SEO-Schreiben",
-                "coding_tools":  "AI-Programmiertools",
-                "coding_tools_desc":  "Assistenten fÃ¼r Entwickler",
-                "image_tools":  "AI-Bildtools",
-                "image_tools_desc":  "Kunstgeneratoren, Editoren",
-                "automation_tools":  "AI-Automatisierung",
-                "automation_tools_desc":  "Workflow- und Aufgabenautomatisierung",
-                "from_the_blog":  "Aus dem Blog",
-                "latest_insights":  "Neueste Einblicke zu AI-Tools",
-                "read_article":  "Artikel lesen"
-            },
-    "homepage":  {
-                     "hero_title":  "Finden Sie die besten KI-Tools",
-                     "hero_subtitle":  "UnabhÃ¤ngige Bewertungen, direkte Vergleiche und praktische Kaufberatung fÃ¼r Ersteller, Vermarkter und kleine Teams.",
-                     "trending":  "Im Trend",
-                     "featured":  "Empfohlen",
-                     "categories":  "Kategorien",
-                     "guides":  "Neueste Ratgeber",
-                     "faq":  "FAQ",
-                     "newsletter":  "Newsletter",
-                     "quiz_cta":  "Nicht sicher, wo Sie anfangen sollen? Machen Sie den Test.",
-                     "quiz_button":  "Test starten",
-                     "how_we_review":  "Wie wir testen",
-                     "no_fluff":  "Kein Geschwafel, nur Fakten",
-                     "browse_categories":  "Kategorien durchstÃ¶bern",
-                     "pick_category":  "WÃ¤hlen Sie eine Kategorie zum Erkunden",
-                     "use_cases_title":  "AnwendungsfÃ¤lle",
-                     "use_cases_subtitle":  "Sehen Sie, wie Teams diese Tools einsetzen",
-                     "head_to_head":  "Direktvergleich",
-                     "editors_pick":  "Redaktionsempfehlung",
-                     "latest_guides":  "Neueste Ratgeber",
-                     "long_reads":  "Hintergrundberichte",
-                     "changelog":  "Ã„nderungsprotokoll",
-                     "last_30_days":  "Letzte 30 Tage",
-                     "stats_tools":  "Getestete Tools",
-                     "stats_guides":  "VerÃ¶ffentlichte Ratgeber",
-                     "stats_categories":  "Kategorien",
-                     "faq_title":  "HÃ¤ufig gestellte Fragen",
-                     "faq_subtitle":  "Alles, was Sie wissen mÃ¼ssen",
-                     "newsletter_title":  "Bleiben Sie auf dem Laufenden",
-                     "newsletter_subtitle":  "Erhalten Sie die neuesten KI-Tool-Bewertungen und Ratgeber direkt in Ihren Posteingang.",
-                     "email_placeholder":  "E-Mail-Adresse eingeben",
-                     "footer_description":  "UnabhÃ¤ngige KI-Tool-Bewertungen und Vergleiche, die Ihnen bei besseren Entscheidungen helfen.",
-                     "all_rights":  "Alle Rechte vorbehalten.",
-                     "independent":  "UnabhÃ¤ngig und unvoreingenommen",
-                     "review_steps":  {
-                                          "test":  {
-                                                       "title":  "Testen",
-                                                       "desc":  "Wir testen jedes Tool in einem realen Projekt fÃ¼r mindestens eine Woche."
-                                                   },
-                                          "score":  {
-                                                        "title":  "Bewertung",
-                                                        "desc":  "Preis, UX, AusgabequalitÃ¤t, Support â€” bewertet im Vergleich mit Wettbewerbern."
-                                                    },
-                                          "publish":  {
-                                                          "title":  "VerÃ¶ffentlichen",
-                                                          "desc":  "Ehrliches Urteil mit Vor- und Nachteilen und fÃ¼r wen es wirklich gedacht ist."
-                                                      }
-                                      },
-                     "category_names":  {
-                                            "video":  "KI-Videotools",
-                                            "writing":  "KI-Schreibtools",
-                                            "coding":  "KI-Programmiertools",
-                                            "automation":  "KI-Automatisierung",
-                                            "image":  "KI-Bildtools",
-                                            "all":  "Alle Tools"
-                                        },
-                     "use_cases":  {
-                                       "creators":  {
-                                                        "role":  "Ersteller",
-                                                        "title":  "Ersteller \u0026 YouTuber",
-                                                        "desc":  "Untertitel, Schnitt, Thumbnails und Voiceovers â€” der Stack, der wirklich Videos produziert."
-                                                    },
-                                       "marketing":  {
-                                                         "role":  "Marketing",
-                                                         "title":  "Vermarkter \u0026 Growth",
-                                                         "desc":  "Von SEO-Texten bis Kreativwerbung â€” finden Sie Tools, die in echten Kampagnen getestet wurden, nicht in Demos."
-                                                     },
-                                       "developers":  {
-                                                          "role":  "Entwickler",
-                                                          "title":  "Entwickler \u0026 Indie-Hacker",
-                                                          "desc":  "Coding-Copiloten, Agenten und Entwicklungstools, bewertet nach ihren realen Kosten bei Skalierung."
-                                                      },
-                                       "founders":  {
-                                                        "role":  "GrÃ¼nder",
-                                                        "title":  "GrÃ¼nder \u0026 Kleine Teams",
-                                                        "desc":  "Ersetzen Sie 3 SaaS-Abonnements durch 1 KI-Workflow â€” ohne Lock-in-Ãœberraschungen."
-                                                    },
-                                       "education":  {
-                                                         "role":  "Bildung",
-                                                         "title":  "SchÃ¼ler \u0026 Dozenten",
-                                                         "desc":  "Kostenlose Stufen, Lernbegleiter und Schreibhilfen, die Ihnen keine Probleme bereiten."
-                                                     },
-                                       "agencies":  {
-                                                        "role":  "Agenturen",
-                                                        "title":  "Agenturen \u0026 Beratungen",
-                                                        "desc":  "Kundensichere Tools mit TeamplÃ¤nen, Datenkontrollen und ordnungsgemÃ¤ÃŸen Exportoptionen."
-                                                    }
-                                   },
-                     "h2h_verdicts":  {
-                                          "opus_vs_codex":  "Agentenbasierte Programmierung vs Terminal-first-Workflows",
-                                          "sonnet_vs_glm":  "Fast Flaggschiff-QualitÃ¤t vs Open-Weight-Kosten",
-                                          "fable_vs_mythos":  "Gleiche Gewichte, unterschiedliche Zugangsebenen"
-                                      }
-                 },
-    "common":  {
-                   "read_more":  "Weiterlesen",
-                   "view_all":  "Alle ansehen",
-                   "loading":  "Laden...",
-                   "error":  "Etwas ist schiefgelaufen",
-                   "search":  "Suchen",
-                   "subscribe":  "Abonnieren",
-                   "free":  "Kostenlos",
-                   "paid":  "Kostenpflichtig",
-                   "vs":  "vs",
-                   "open_comparison":  "Vergleich Ã¶ffnen",
-                   "build_own":  "Eigenen erstellen",
-                   "read_review":  "Bewertung lesen",
-                   "visit":  "Besuchen",
-                   "all_tools":  "Alle Tools",
-                   "start_quiz":  "Test starten",
-                   "see_picks":  "Auswahl ansehen",
-                   "listed_on":  "Aufgelistet auf",
-                   "all_rights":  "Alle Rechte vorbehalten. AI-Bewertungen basieren auf unabhÃ¤ngigen Tests.",
-                   "independent":  "HyzenPro ist eine unabhÃ¤ngige VerÃ¶ffentlichung. Markennamen und Logos sind Eigentum der jeweiligen EigentÃ¼mer.",
-                   "footer_ai_tools":  "AI-Tools",
-                   "footer_compare":  "Vergleichen",
-                   "footer_resources":  "Ressourcen",
-                   "footer_company":  "Unternehmen",
-                   "footer_side_by_side":  "Seite an Seite vergleichen",
-                   "footer_find_quiz":  "Tool-Finder-Quiz",
-                   "footer_editors_choice":  "Redaktionswahl",
-                   "footer_buyers_quiz":  "KÃ¤ufer-Quiz",
-                   "footer_how_we_review":  "So testen wir",
-                   "footer_submit":  "AI-Tool einreichen",
-                   "footer_about":  "Ãœber HyzenPro",
-                   "footer_advertise":  "Werbung",
-                   "footer_privacy":  "Datenschutzrichtlinie",
-                   "footer_terms":  "Nutzungsbedingungen",
-                   "footer_privacy_short":  "Datenschutz",
-                   "footer_terms_short":  "Nutzung",
-                   "footer_contact":  "Kontakt",
-                   "footer_submit_short":  "Tool einreichen",
-                   "footer_tagline":  "UnabhÃ¤ngige Vergleiche und Bewertungen der besten AI-Tools fÃ¼r Ersteller, Vermarkter, Entwickler und kleine Teams. Leserfinanziert â€” niemals Pay-to-Play.",
-                   "blog":  "Blog",
-                   "writing_tools":  "AI Writing Tools",
-                   "contact":  "Contact",
-                   "video_tools":  "AI Video Tools",
-                   "tools":  "AI Tools Directory",
-                   "coding_tools":  "AI Coding Tools",
-                   "automation_tools":  "AI Automation",
-                   "image_tools":  "AI Image Tools"
-               }
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "KI für alle vereinfacht"
+  },
+  "nav": {
+    "home": "Startseite",
+    "tools": "KI-Tools",
+    "blog": "Blog",
+    "compare": "Vergleichen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "categories": "Kategorien",
+    "find_tools": "Tools finden",
+    "submit_tool": "AI-Tool einreichen",
+    "popular_categories": "Beliebte Kategorien",
+    "discover": "Entdecken",
+    "all_tools": "Alle Tools",
+    "all_tools_desc": "Das gesamte Verzeichnis durchsuchen",
+    "find_tools_desc": "Am geführten Matcher-Quiz teilnehmen",
+    "video_tools": "AI-Video-Tools",
+    "video_tools_desc": "Editoren, Generatoren, Untertitel",
+    "writing_tools": "AI-Schreibtools",
+    "writing_tools_desc": "Inhalte, Texte und SEO-Schreiben",
+    "coding_tools": "AI-Programmiertools",
+    "coding_tools_desc": "Assistenten für Entwickler",
+    "image_tools": "AI-Bildtools",
+    "image_tools_desc": "Kunstgeneratoren, Editoren",
+    "automation_tools": "AI-Automatisierung",
+    "automation_tools_desc": "Workflow- und Aufgabenautomatisierung",
+    "from_the_blog": "Aus dem Blog",
+    "latest_insights": "Neueste Einblicke zu AI-Tools",
+    "read_article": "Artikel lesen"
+  },
+  "homepage": {
+    "hero_title": "Finden Sie die besten KI-Tools",
+    "hero_subtitle": "Unabhängige Bewertungen, direkte Vergleiche und praktische Kaufberatung für Ersteller, Vermarkter und kleine Teams.",
+    "trending": "Im Trend",
+    "featured": "Empfohlen",
+    "categories": "Kategorien",
+    "guides": "Neueste Ratgeber",
+    "faq": "FAQ",
+    "newsletter": "Newsletter",
+    "quiz_cta": "Nicht sicher, wo Sie anfangen sollen? Machen Sie den Test.",
+    "quiz_button": "Test starten",
+    "how_we_review": "Wie wir testen",
+    "no_fluff": "Kein Geschwafel, nur Fakten",
+    "browse_categories": "Kategorien durchstöbern",
+    "pick_category": "Wählen Sie eine Kategorie zum Erkunden",
+    "use_cases_title": "Anwendungsfälle",
+    "use_cases_subtitle": "Sehen Sie, wie Teams diese Tools einsetzen",
+    "head_to_head": "Direktvergleich",
+    "editors_pick": "Redaktionsempfehlung",
+    "latest_guides": "Neueste Ratgeber",
+    "long_reads": "Hintergrundberichte",
+    "changelog": "Änderungsprotokoll",
+    "last_30_days": "Letzte 30 Tage",
+    "stats_tools": "Getestete Tools",
+    "stats_guides": "Veröffentlichte Ratgeber",
+    "stats_categories": "Kategorien",
+    "faq_title": "Häufig gestellte Fragen",
+    "faq_subtitle": "Alles, was Sie wissen müssen",
+    "newsletter_title": "Bleiben Sie auf dem Laufenden",
+    "newsletter_subtitle": "Erhalten Sie die neuesten KI-Tool-Bewertungen und Ratgeber direkt in Ihren Posteingang.",
+    "email_placeholder": "E-Mail-Adresse eingeben",
+    "footer_description": "Unabhängige KI-Tool-Bewertungen und Vergleiche, die Ihnen bei besseren Entscheidungen helfen.",
+    "all_rights": "Alle Rechte vorbehalten.",
+    "independent": "Unabhängig und unvoreingenommen",
+    "review_steps": {
+      "test": {
+        "title": "Testen",
+        "desc": "Wir testen jedes Tool in einem realen Projekt für mindestens eine Woche."
+      },
+      "score": {
+        "title": "Bewertung",
+        "desc": "Preis, UX, Ausgabequalität, Support — bewertet im Vergleich mit Wettbewerbern."
+      },
+      "publish": {
+        "title": "Veröffentlichen",
+        "desc": "Ehrliches Urteil mit Vor- und Nachteilen und für wen es wirklich gedacht ist."
+      }
+    },
+    "category_names": {
+      "video": "KI-Videotools",
+      "writing": "KI-Schreibtools",
+      "coding": "KI-Programmiertools",
+      "automation": "KI-Automatisierung",
+      "image": "KI-Bildtools",
+      "all": "Alle Tools"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Ersteller",
+        "title": "Ersteller & YouTuber",
+        "desc": "Untertitel, Schnitt, Thumbnails und Voiceovers — der Stack, der wirklich Videos produziert."
+      },
+      "marketing": {
+        "role": "Marketing",
+        "title": "Vermarkter & Growth",
+        "desc": "Von SEO-Texten bis Kreativwerbung — finden Sie Tools, die in echten Kampagnen getestet wurden, nicht in Demos."
+      },
+      "developers": {
+        "role": "Entwickler",
+        "title": "Entwickler & Indie-Hacker",
+        "desc": "Coding-Copiloten, Agenten und Entwicklungstools, bewertet nach ihren realen Kosten bei Skalierung."
+      },
+      "founders": {
+        "role": "Gründer",
+        "title": "Gründer & Kleine Teams",
+        "desc": "Ersetzen Sie 3 SaaS-Abonnements durch 1 KI-Workflow — ohne Lock-in-Überraschungen."
+      },
+      "education": {
+        "role": "Bildung",
+        "title": "Schüler & Dozenten",
+        "desc": "Kostenlose Stufen, Lernbegleiter und Schreibhilfen, die Ihnen keine Probleme bereiten."
+      },
+      "agencies": {
+        "role": "Agenturen",
+        "title": "Agenturen & Beratungen",
+        "desc": "Kundensichere Tools mit Teamplänen, Datenkontrollen und ordnungsgemäßen Exportoptionen."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Agentenbasierte Programmierung vs Terminal-first-Workflows",
+      "sonnet_vs_glm": "Fast Flaggschiff-Qualität vs Open-Weight-Kosten",
+      "fable_vs_mythos": "Gleiche Gewichte, unterschiedliche Zugangsebenen"
+    }
+  },
+  "common": {
+    "read_more": "Weiterlesen",
+    "view_all": "Alle ansehen",
+    "loading": "Laden...",
+    "error": "Etwas ist schiefgelaufen",
+    "search": "Suchen",
+    "subscribe": "Abonnieren",
+    "free": "Kostenlos",
+    "paid": "Kostenpflichtig",
+    "vs": "vs",
+    "open_comparison": "Vergleich öffnen",
+    "build_own": "Eigenen erstellen",
+    "read_review": "Bewertung lesen",
+    "visit": "Besuchen",
+    "all_tools": "Alle Tools",
+    "start_quiz": "Test starten",
+    "see_picks": "Auswahl ansehen",
+    "listed_on": "Aufgelistet auf",
+    "all_rights": "Alle Rechte vorbehalten. AI-Bewertungen basieren auf unabhängigen Tests.",
+    "independent": "HyzenPro ist eine unabhängige Veröffentlichung. Markennamen und Logos sind Eigentum der jeweiligen Eigentümer.",
+    "footer_ai_tools": "AI-Tools",
+    "footer_compare": "Vergleichen",
+    "footer_resources": "Ressourcen",
+    "footer_company": "Unternehmen",
+    "footer_side_by_side": "Seite an Seite vergleichen",
+    "footer_find_quiz": "Tool-Finder-Quiz",
+    "footer_editors_choice": "Redaktionswahl",
+    "footer_buyers_quiz": "Käufer-Quiz",
+    "footer_how_we_review": "So testen wir",
+    "footer_submit": "AI-Tool einreichen",
+    "footer_about": "Über HyzenPro",
+    "footer_advertise": "Werbung",
+    "footer_privacy": "Datenschutzrichtlinie",
+    "footer_terms": "Nutzungsbedingungen",
+    "footer_privacy_short": "Datenschutz",
+    "footer_terms_short": "Nutzung",
+    "footer_contact": "Kontakt",
+    "footer_submit_short": "Tool einreichen",
+    "footer_tagline": "Unabhängige Vergleiche und Bewertungen der besten AI-Tools für Ersteller, Vermarkter, Entwickler und kleine Teams. Leserfinanziert — niemals Pay-to-Play.",
+    "tools": "KI-Werkzeugverzeichnis",
+    "video_tools": "KI-Video-Werkzeuge",
+    "writing_tools": "KI-Schreib-Werkzeuge",
+    "coding_tools": "KI-Code-Werkzeuge",
+    "image_tools": "KI-Bild-Werkzeuge",
+    "automation_tools": "KI-Automatisierung",
+    "blog": "Blog",
+    "contact": "Kontakt"
+  }
 }

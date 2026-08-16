@@ -1,177 +1,177 @@
-﻿{
-    "site":  {
-                 "name":  "HyzenPro",
-                 "tagline":  "Memudahkan AI untuk Semua Orang"
-             },
-    "nav":  {
-                "home":  "Utama",
-                "tools":  "Alat AI",
-                "blog":  "Blog",
-                "compare":  "Bandingkan",
-                "about":  "Tentang Kami",
-                "contact":  "Hubungi",
-                "categories":  "Categories",
-                "find_tools":  "Find Tools",
-                "submit_tool":  "Submit AI tool",
-                "popular_categories":  "Popular Categories",
-                "discover":  "Discover",
-                "all_tools":  "All Tools",
-                "all_tools_desc":  "Browse the full directory",
-                "find_tools_desc":  "Take the guided matcher quiz",
-                "video_tools":  "AI Video Tools",
-                "video_tools_desc":  "Editors, generators, captions",
-                "writing_tools":  "AI Writing Tools",
-                "writing_tools_desc":  "Content, copy, and SEO writing",
-                "coding_tools":  "AI Coding Tools",
-                "coding_tools_desc":  "Assistants for developers",
-                "image_tools":  "AI Image Tools",
-                "image_tools_desc":  "Art generators, editors",
-                "automation_tools":  "AI Automation",
-                "automation_tools_desc":  "Workflow and task automation",
-                "from_the_blog":  "From the Blog",
-                "latest_insights":  "Latest insights on AI tools",
-                "read_article":  "Read article"
-            },
-    "homepage":  {
-                     "hero_title":  "Cari Alat AI Terbaik",
-                     "hero_subtitle":  "Ulasan bebas, perbandingan sebelah-menyebelah, dan panduan pembelian praktikal untuk pencipta, pemasar dan pasukan kecil.",
-                     "trending":  "Trending",
-                     "featured":  "Unggulan",
-                     "categories":  "Kategori",
-                     "guides":  "Panduan Terkini",
-                     "faq":  "Soalan Lazim",
-                     "newsletter":  "Surat Berita",
-                     "quiz_cta":  "Tidak pasti dari mana hendak mula? Ambil kuiz.",
-                     "quiz_button":  "Mulakan kuiz",
-                     "how_we_review":  "Cara kami mengulas",
-                     "no_fluff":  "Tanpa basa-basi, hanya fakta",
-                     "browse_categories":  "Semak imbas kategori",
-                     "pick_category":  "Pilih kategori untuk diterokai",
-                     "use_cases_title":  "Kes penggunaan",
-                     "use_cases_subtitle":  "Lihat bagaimana pasukan menggunakan alat-alat ini",
-                     "head_to_head":  "Perbandingan langsung",
-                     "editors_pick":  "Pilihan editor",
-                     "latest_guides":  "Panduan Terkini",
-                     "long_reads":  "Artikel mendalam",
-                     "changelog":  "Log perubahan",
-                     "last_30_days":  "30 hari terakhir",
-                     "stats_tools":  "Alat yang diulas",
-                     "stats_guides":  "Panduan yang diterbitkan",
-                     "stats_categories":  "Kategori",
-                     "faq_title":  "Soalan Lazim",
-                     "faq_subtitle":  "Segala yang perlu anda ketahui",
-                     "newsletter_title":  "Kekal terkini",
-                     "newsletter_subtitle":  "Dapatkan ulasan dan panduan alat AI terkini terus ke peti masuk anda.",
-                     "email_placeholder":  "Masukkan e-mel anda",
-                     "footer_description":  "Ulasan dan perbandingan alat AI bebas untuk membantu anda membuat keputusan yang lebih baik.",
-                     "all_rights":  "Hak cipta terpelihara.",
-                     "independent":  "Bebas dan berkecuali",
-                     "review_steps":  {
-                                          "test":  {
-                                                       "title":  "Uji",
-                                                       "desc":  "Kami menggunakan setiap alat dalam projek nyata sekurang-kurangnya seminggu."
-                                                   },
-                                          "score":  {
-                                                        "title":  "Penilaian",
-                                                        "desc":  "Harga, UX, kualiti output, sokongan â€” dinilai berbanding pesaing."
-                                                    },
-                                          "publish":  {
-                                                          "title":  "Terbitkan",
-                                                          "desc":  "Keputusan jujur dengan kelebihan, kekurangan dan untuk siapa sebenarnya."
-                                                      }
-                                      },
-                     "category_names":  {
-                                            "video":  "Alat Video AI",
-                                            "writing":  "Alat Penulisan AI",
-                                            "coding":  "Alat Pengaturcaraan AI",
-                                            "automation":  "Automasi AI",
-                                            "image":  "Alat Imej AI",
-                                            "all":  "Semua Alat"
-                                        },
-                     "use_cases":  {
-                                       "creators":  {
-                                                        "role":  "Pencipta",
-                                                        "title":  "Pencipta \u0026 YouTuber",
-                                                        "desc":  "Sari kata, pengeditan, thumbnail dan sulih suara â€” set yang menghasilkan video sebenar."
-                                                    },
-                                       "marketing":  {
-                                                         "role":  "Pemasaran",
-                                                         "title":  "Pemasar \u0026 Pertumbuhan",
-                                                         "desc":  "Dari penulisan SEO hingga kreativiti iklan, cari alat yang diuji dalam kempen sebenar, bukan demo."
-                                                     },
-                                       "developers":  {
-                                                          "role":  "Pembangun",
-                                                          "title":  "Pembangun \u0026 Indie Hackers",
-                                                          "desc":  "Copilot pengaturcaraan, agen dan alat pembangunan yang disenaraikan mengikut kos sebenar pada skala."
-                                                      },
-                                       "founders":  {
-                                                        "role":  "Pengasas",
-                                                        "title":  "Pengasas \u0026 Pasukan Kecil",
-                                                        "desc":  "Gantikan 3 langganan SaaS dengan 1 aliran kerja AI â€” tanpa kejutan penguncian."
-                                                    },
-                                       "education":  {
-                                                         "role":  "Pendidikan",
-                                                         "title":  "Pelajar \u0026 Pendidik",
-                                                         "desc":  "Peringkat percuma, rakan belajar dan alat penulisan yang tidak menyebabkan masalah."
-                                                     },
-                                       "agencies":  {
-                                                        "role":  "Agensi",
-                                                        "title":  "Agensi \u0026 Perundingan",
-                                                        "desc":  "Alat selamat untuk pelanggan dengan pelan pasukan, kawalan data dan pilihan eksport yang sesuai."
-                                                    }
-                                   },
-                     "h2h_verdicts":  {
-                                          "opus_vs_codex":  "Pengaturcaraan agenik berbanding aliran kerja terminal-first",
-                                          "sonnet_vs_glm":  "Kualiti hampir gred bendera berbanding kos open-weight",
-                                          "fable_vs_mythos":  "Berat yang sama, tahap akses yang berbeza"
-                                      }
-                 },
-    "common":  {
-                   "read_more":  "Baca lagi",
-                   "view_all":  "Lihat semua",
-                   "loading":  "Memuatkan...",
-                   "error":  "Sesuatu telah salah",
-                   "search":  "Cari",
-                   "subscribe":  "Langgan",
-                   "free":  "Percuma",
-                   "paid":  "Berbayar",
-                   "vs":  "vs",
-                   "open_comparison":  "Buka perbandingan",
-                   "build_own":  "Buat sendiri",
-                   "read_review":  "Baca ulasan",
-                   "visit":  "Lawati",
-                   "all_tools":  "Semua alat",
-                   "start_quiz":  "Mulakan kuiz",
-                   "see_picks":  "Lihat pilihan",
-                   "listed_on":  "Listed On",
-                   "all_rights":  "All rights reserved. AI tool ratings are based on independent testing.",
-                   "independent":  "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
-                   "footer_ai_tools":  "AI Tools",
-                   "footer_compare":  "Compare",
-                   "footer_resources":  "Resources",
-                   "footer_company":  "Company",
-                   "footer_side_by_side":  "Side-by-side Compare",
-                   "footer_find_quiz":  "Find Tools Quiz",
-                   "footer_editors_choice":  "Editor\u0027s choice",
-                   "footer_buyers_quiz":  "Buyer\u0027s quiz",
-                   "footer_how_we_review":  "How we review",
-                   "footer_submit":  "Submit AI Tool",
-                   "footer_about":  "About HyzenPro",
-                   "footer_advertise":  "Advertise",
-                   "footer_privacy":  "Privacy Policy",
-                   "footer_terms":  "Terms of Service",
-                   "footer_privacy_short":  "Privacy",
-                   "footer_terms_short":  "Terms",
-                   "footer_contact":  "Contact",
-                   "footer_submit_short":  "Submit Tool",
-                   "footer_tagline":  "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded â€” never pay-to-play.",
-                   "blog":  "Blog",
-                   "writing_tools":  "AI Writing Tools",
-                   "contact":  "Contact",
-                   "video_tools":  "AI Video Tools",
-                   "tools":  "AI Tools Directory",
-                   "coding_tools":  "AI Coding Tools",
-                   "automation_tools":  "AI Automation",
-                   "image_tools":  "AI Image Tools"
-               }
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Memudahkan AI untuk Semua Orang"
+  },
+  "nav": {
+    "home": "Utama",
+    "tools": "Alat AI",
+    "blog": "Blog",
+    "compare": "Bandingkan",
+    "about": "Tentang Kami",
+    "contact": "Hubungi",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "Cari Alat AI Terbaik",
+    "hero_subtitle": "Ulasan bebas, perbandingan sebelah-menyebelah, dan panduan pembelian praktikal untuk pencipta, pemasar dan pasukan kecil.",
+    "trending": "Trending",
+    "featured": "Unggulan",
+    "categories": "Kategori",
+    "guides": "Panduan Terkini",
+    "faq": "Soalan Lazim",
+    "newsletter": "Surat Berita",
+    "quiz_cta": "Tidak pasti dari mana hendak mula? Ambil kuiz.",
+    "quiz_button": "Mulakan kuiz",
+    "how_we_review": "Cara kami mengulas",
+    "no_fluff": "Tanpa basa-basi, hanya fakta",
+    "browse_categories": "Semak imbas kategori",
+    "pick_category": "Pilih kategori untuk diterokai",
+    "use_cases_title": "Kes penggunaan",
+    "use_cases_subtitle": "Lihat bagaimana pasukan menggunakan alat-alat ini",
+    "head_to_head": "Perbandingan langsung",
+    "editors_pick": "Pilihan editor",
+    "latest_guides": "Panduan Terkini",
+    "long_reads": "Artikel mendalam",
+    "changelog": "Log perubahan",
+    "last_30_days": "30 hari terakhir",
+    "stats_tools": "Alat yang diulas",
+    "stats_guides": "Panduan yang diterbitkan",
+    "stats_categories": "Kategori",
+    "faq_title": "Soalan Lazim",
+    "faq_subtitle": "Segala yang perlu anda ketahui",
+    "newsletter_title": "Kekal terkini",
+    "newsletter_subtitle": "Dapatkan ulasan dan panduan alat AI terkini terus ke peti masuk anda.",
+    "email_placeholder": "Masukkan e-mel anda",
+    "footer_description": "Ulasan dan perbandingan alat AI bebas untuk membantu anda membuat keputusan yang lebih baik.",
+    "all_rights": "Hak cipta terpelihara.",
+    "independent": "Bebas dan berkecuali",
+    "review_steps": {
+      "test": {
+        "title": "Uji",
+        "desc": "Kami menggunakan setiap alat dalam projek nyata sekurang-kurangnya seminggu."
+      },
+      "score": {
+        "title": "Penilaian",
+        "desc": "Harga, UX, kualiti output, sokongan — dinilai berbanding pesaing."
+      },
+      "publish": {
+        "title": "Terbitkan",
+        "desc": "Keputusan jujur dengan kelebihan, kekurangan dan untuk siapa sebenarnya."
+      }
+    },
+    "category_names": {
+      "video": "Alat Video AI",
+      "writing": "Alat Penulisan AI",
+      "coding": "Alat Pengaturcaraan AI",
+      "automation": "Automasi AI",
+      "image": "Alat Imej AI",
+      "all": "Semua Alat"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Pencipta",
+        "title": "Pencipta & YouTuber",
+        "desc": "Sari kata, pengeditan, thumbnail dan sulih suara — set yang menghasilkan video sebenar."
+      },
+      "marketing": {
+        "role": "Pemasaran",
+        "title": "Pemasar & Pertumbuhan",
+        "desc": "Dari penulisan SEO hingga kreativiti iklan, cari alat yang diuji dalam kempen sebenar, bukan demo."
+      },
+      "developers": {
+        "role": "Pembangun",
+        "title": "Pembangun & Indie Hackers",
+        "desc": "Copilot pengaturcaraan, agen dan alat pembangunan yang disenaraikan mengikut kos sebenar pada skala."
+      },
+      "founders": {
+        "role": "Pengasas",
+        "title": "Pengasas & Pasukan Kecil",
+        "desc": "Gantikan 3 langganan SaaS dengan 1 aliran kerja AI — tanpa kejutan penguncian."
+      },
+      "education": {
+        "role": "Pendidikan",
+        "title": "Pelajar & Pendidik",
+        "desc": "Peringkat percuma, rakan belajar dan alat penulisan yang tidak menyebabkan masalah."
+      },
+      "agencies": {
+        "role": "Agensi",
+        "title": "Agensi & Perundingan",
+        "desc": "Alat selamat untuk pelanggan dengan pelan pasukan, kawalan data dan pilihan eksport yang sesuai."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Pengaturcaraan agenik berbanding aliran kerja terminal-first",
+      "sonnet_vs_glm": "Kualiti hampir gred bendera berbanding kos open-weight",
+      "fable_vs_mythos": "Berat yang sama, tahap akses yang berbeza"
+    }
+  },
+  "common": {
+    "read_more": "Baca lagi",
+    "view_all": "Lihat semua",
+    "loading": "Memuatkan...",
+    "error": "Sesuatu telah salah",
+    "search": "Cari",
+    "subscribe": "Langgan",
+    "free": "Percuma",
+    "paid": "Berbayar",
+    "vs": "vs",
+    "open_comparison": "Buka perbandingan",
+    "build_own": "Buat sendiri",
+    "read_review": "Baca ulasan",
+    "visit": "Lawati",
+    "all_tools": "Semua alat",
+    "start_quiz": "Mulakan kuiz",
+    "see_picks": "Lihat pilihan",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play.",
+    "tools": "Direktori Alat AI",
+    "video_tools": "Alat Video AI",
+    "writing_tools": "Alat Penulisan AI",
+    "coding_tools": "Alat Pengaturcaraan AI",
+    "image_tools": "Alat Imej AI",
+    "automation_tools": "Automasi AI",
+    "blog": "Blog",
+    "contact": "Hubungi"
+  }
 }

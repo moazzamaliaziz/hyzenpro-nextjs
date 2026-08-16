@@ -1,177 +1,177 @@
-﻿{
-    "site":  {
-                 "name":  "HyzenPro",
-                 "tagline":  "EgyszerÅ±sÃ­tjÃ¼k az MI-t mindenkinek"
-             },
-    "nav":  {
-                "home":  "KezdÅ‘lap",
-                "tools":  "MI eszkÃ¶zÃ¶k",
-                "blog":  "Blog",
-                "compare":  "Ã–sszehasonlÃ­tÃ¡s",
-                "about":  "RÃ³lunk",
-                "contact":  "Kapcsolat",
-                "categories":  "Categories",
-                "find_tools":  "Find Tools",
-                "submit_tool":  "Submit AI tool",
-                "popular_categories":  "Popular Categories",
-                "discover":  "Discover",
-                "all_tools":  "All Tools",
-                "all_tools_desc":  "Browse the full directory",
-                "find_tools_desc":  "Take the guided matcher quiz",
-                "video_tools":  "AI Video Tools",
-                "video_tools_desc":  "Editors, generators, captions",
-                "writing_tools":  "AI Writing Tools",
-                "writing_tools_desc":  "Content, copy, and SEO writing",
-                "coding_tools":  "AI Coding Tools",
-                "coding_tools_desc":  "Assistants for developers",
-                "image_tools":  "AI Image Tools",
-                "image_tools_desc":  "Art generators, editors",
-                "automation_tools":  "AI Automation",
-                "automation_tools_desc":  "Workflow and task automation",
-                "from_the_blog":  "From the Blog",
-                "latest_insights":  "Latest insights on AI tools",
-                "read_article":  "Read article"
-            },
-    "homepage":  {
-                     "hero_title":  "TalÃ¡lja meg a legjobb MI eszkÃ¶zÃ¶ket",
-                     "hero_subtitle":  "FÃ¼ggetlen Ã©rtÃ©kelÃ©sek, egymÃ¡s mellÃ© helyezett Ã¶sszehasonlÃ­tÃ¡sok Ã©s gyakorlati vÃ¡sÃ¡rlÃ¡si ÃºtmutatÃ³k alkotÃ³knak, marketingeseknek Ã©s kis csapatoknak.",
-                     "trending":  "NÃ©pszerÅ±",
-                     "featured":  "Kiemelt",
-                     "categories":  "KategÃ³riÃ¡k",
-                     "guides":  "LegÃºjabb ÃºtmutatÃ³k",
-                     "faq":  "Gyakori kÃ©rdÃ©sek",
-                     "newsletter":  "HÃ­rlevÃ©l",
-                     "quiz_cta":  "Nem tudja, hol kezdje? TÃ¶ltse ki a tesztet.",
-                     "quiz_button":  "Teszt indÃ­tÃ¡sa",
-                     "how_we_review":  "Hogyan tesztelÃ¼nk",
-                     "no_fluff":  "Semmi szÃ³sz, csak tÃ©nyek",
-                     "browse_categories":  "BÃ¶ngÃ©sszen a kategÃ³riÃ¡k kÃ¶zÃ¶tt",
-                     "pick_category":  "VÃ¡lasszon egy kategÃ³riÃ¡t a felfedezÃ©shez",
-                     "use_cases_title":  "FelhasznÃ¡lÃ¡si esetek",
-                     "use_cases_subtitle":  "NÃ©zze meg, hogyan hasznÃ¡ljÃ¡k ezeket az eszkÃ¶zÃ¶ket a csapatok",
-                     "head_to_head":  "KÃ¶zvetlen Ã¶sszehasonlÃ­tÃ¡s",
-                     "editors_pick":  "SzerkesztÅ‘ vÃ¡lasztÃ¡sa",
-                     "latest_guides":  "LegÃºjabb ÃºtmutatÃ³k",
-                     "long_reads":  "HosszÃº cikkek",
-                     "changelog":  "VÃ¡ltozÃ¡snaplÃ³",
-                     "last_30_days":  "UtolsÃ³ 30 nap",
-                     "stats_tools":  "Tesztelt eszkÃ¶zÃ¶k",
-                     "stats_guides":  "KÃ¶zzÃ©tett ÃºtmutatÃ³k",
-                     "stats_categories":  "KategÃ³ria",
-                     "faq_title":  "Gyakori kÃ©rdÃ©sek",
-                     "faq_subtitle":  "Minden, amit tudnia kell",
-                     "newsletter_title":  "Maradjon naprakÃ©sz",
-                     "newsletter_subtitle":  "Kapja meg a legÃºjabb MI eszkÃ¶z Ã©rtÃ©kelÃ©seket Ã©s ÃºtmutatÃ³kat kÃ¶zvetlenÃ¼l a postalÃ¡dÃ¡jÃ¡ba.",
-                     "email_placeholder":  "Adja meg e-mail cÃ­mÃ©t",
-                     "footer_description":  "FÃ¼ggetlen MI eszkÃ¶z Ã©rtÃ©kelÃ©sek Ã©s Ã¶sszehasonlÃ­tÃ¡sok, amelyek segÃ­tenek jobb dÃ¶ntÃ©seket hozni.",
-                     "all_rights":  "Minden jog fenntartva.",
-                     "independent":  "FÃ¼ggetlen Ã©s elfogulatlan",
-                     "review_steps":  {
-                                          "test":  {
-                                                       "title":  "TesztelÃ©s",
-                                                       "desc":  "Minden eszkÃ¶zt valÃ³s projekten hasznÃ¡lunk legalÃ¡bb egy hÃ©tig."
-                                                   },
-                                          "score":  {
-                                                        "title":  "PontszÃ¡m",
-                                                        "desc":  "Ãr, felhasznÃ¡lÃ³i Ã©lmÃ©ny, kimeneti minÅ‘sÃ©g, tÃ¡mogatÃ¡s â€” versenytÃ¡rsakhoz kÃ©pest pontozva."
-                                                    },
-                                          "publish":  {
-                                                          "title":  "KÃ¶zzÃ©tÃ©tel",
-                                                          "desc":  "Åszinte Ã­tÃ©let elÅ‘nyÃ¶kkel, hÃ¡trÃ¡nyokkal Ã©s hogy valÃ³jÃ¡ban kinek szÃ³l."
-                                                      }
-                                      },
-                     "category_names":  {
-                                            "video":  "MI videÃ³s eszkÃ¶zÃ¶k",
-                                            "writing":  "MI Ã­rÃ¡si eszkÃ¶zÃ¶k",
-                                            "coding":  "MI kÃ³dolÃ¡si eszkÃ¶zÃ¶k",
-                                            "automation":  "MI automatizÃ¡lÃ¡s",
-                                            "image":  "MI kÃ©pes eszkÃ¶zÃ¶k",
-                                            "all":  "Ã–sszes eszkÃ¶z"
-                                        },
-                     "use_cases":  {
-                                       "creators":  {
-                                                        "role":  "AlkotÃ³k",
-                                                        "title":  "AlkotÃ³k \u0026 YouTuberek",
-                                                        "desc":  "Feliratok, szerkesztÃ©s, miniatÅ±rÃ¶k Ã©s szinkron â€” a csomag, amely tÃ©nylegesen videÃ³kat kÃ©szÃ­t."
-                                                    },
-                                       "marketing":  {
-                                                         "role":  "Marketing",
-                                                         "title":  "Marketingesek \u0026 NÃ¶vekedÃ©s",
-                                                         "desc":  "SEO Ã­rÃ¡stÃ³l a hirdetÃ©si kreativitÃ¡sig, talÃ¡ljon eszkÃ¶zÃ¶ket, amelyeket valÃ³s kampÃ¡nyokban teszteltek, nem demÃ³kban."
-                                                     },
-                                       "developers":  {
-                                                          "role":  "FejlesztÅ‘k",
-                                                          "title":  "FejlesztÅ‘k \u0026 Indie Hackerek",
-                                                          "desc":  "KÃ³dolÃ¡si copilotok, Ã¼gynÃ¶kÃ¶k Ã©s fejlesztÅ‘i eszkÃ¶zÃ¶k, valÃ³s kÃ¶ltsÃ©g alapjÃ¡n rangsorolva."
-                                                      },
-                                       "founders":  {
-                                                        "role":  "AlapÃ­tÃ³k",
-                                                        "title":  "AlapÃ­tÃ³k \u0026 Kis csapatok",
-                                                        "desc":  "CserÃ©ljen le 3 SaaS elÅ‘fizetÃ©st 1 MI munkafolyamatra â€” zÃ¡rolÃ¡si meglepetÃ©sek nÃ©lkÃ¼l."
-                                                    },
-                                       "education":  {
-                                                         "role":  "OktatÃ¡s",
-                                                         "title":  "DiÃ¡kok \u0026 OktatÃ³k",
-                                                         "desc":  "Ingyenes szintek, tanulÃ³tÃ¡rsak Ã©s Ã­rÃ¡si segÃ©deszkÃ¶zÃ¶k, amelyek nem okoznak bajt."
-                                                     },
-                                       "agencies":  {
-                                                        "role":  "ÃœgynÃ¶ksÃ©gek",
-                                                        "title":  "ÃœgynÃ¶ksÃ©gek \u0026 TanÃ¡csadÃ³k",
-                                                        "desc":  "ÃœgyfÃ©lbiztonsÃ¡gos eszkÃ¶zÃ¶k csapatcsomagokkal, adatvezÃ©rlÃ©ssel Ã©s megfelelÅ‘ export lehetÅ‘sÃ©gekkel."
-                                                    }
-                                   },
-                     "h2h_verdicts":  {
-                                          "opus_vs_codex":  "ÃœgynÃ¶ki kÃ³dolÃ¡s vs terminÃ¡l-elsÅ‘ munkafolyamatok",
-                                          "sonnet_vs_glm":  "Majdnem zÃ¡szlÃ³shajÃ³ minÅ‘sÃ©g vs open-weight kÃ¶ltsÃ©g",
-                                          "fable_vs_mythos":  "Azonos sÃºlyok, eltÃ©rÅ‘ hozzÃ¡fÃ©rÃ©si szintek"
-                                      }
-                 },
-    "common":  {
-                   "read_more":  "TovÃ¡bb olvasom",
-                   "view_all":  "Ã–sszes megtekintÃ©se",
-                   "loading":  "BetÃ¶ltÃ©s...",
-                   "error":  "Valami hiba tÃ¶rtÃ©nt",
-                   "search":  "KeresÃ©s",
-                   "subscribe":  "FeliratkozÃ¡s",
-                   "free":  "Ingyenes",
-                   "paid":  "FizetÅ‘s",
-                   "vs":  "vs",
-                   "open_comparison":  "Ã–sszehasonlÃ­tÃ¡s megnyitÃ¡sa",
-                   "build_own":  "SajÃ¡t lÃ©trehozÃ¡sa",
-                   "read_review":  "Ã‰rtÃ©kelÃ©s elolvasÃ¡sa",
-                   "visit":  "MegtekintÃ©s",
-                   "all_tools":  "Ã–sszes eszkÃ¶z",
-                   "start_quiz":  "Teszt indÃ­tÃ¡sa",
-                   "see_picks":  "KivÃ¡lasztÃ¡sok megtekintÃ©se",
-                   "listed_on":  "Listed On",
-                   "all_rights":  "All rights reserved. AI tool ratings are based on independent testing.",
-                   "independent":  "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
-                   "footer_ai_tools":  "AI Tools",
-                   "footer_compare":  "Compare",
-                   "footer_resources":  "Resources",
-                   "footer_company":  "Company",
-                   "footer_side_by_side":  "Side-by-side Compare",
-                   "footer_find_quiz":  "Find Tools Quiz",
-                   "footer_editors_choice":  "Editor\u0027s choice",
-                   "footer_buyers_quiz":  "Buyer\u0027s quiz",
-                   "footer_how_we_review":  "How we review",
-                   "footer_submit":  "Submit AI Tool",
-                   "footer_about":  "About HyzenPro",
-                   "footer_advertise":  "Advertise",
-                   "footer_privacy":  "Privacy Policy",
-                   "footer_terms":  "Terms of Service",
-                   "footer_privacy_short":  "Privacy",
-                   "footer_terms_short":  "Terms",
-                   "footer_contact":  "Contact",
-                   "footer_submit_short":  "Submit Tool",
-                   "footer_tagline":  "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded â€” never pay-to-play.",
-                   "blog":  "Blog",
-                   "writing_tools":  "AI Writing Tools",
-                   "contact":  "Contact",
-                   "video_tools":  "AI Video Tools",
-                   "tools":  "AI Tools Directory",
-                   "coding_tools":  "AI Coding Tools",
-                   "automation_tools":  "AI Automation",
-                   "image_tools":  "AI Image Tools"
-               }
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Egyszerűsítjük az MI-t mindenkinek"
+  },
+  "nav": {
+    "home": "Kezdőlap",
+    "tools": "MI eszközök",
+    "blog": "Blog",
+    "compare": "Összehasonlítás",
+    "about": "Rólunk",
+    "contact": "Kapcsolat",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "Találja meg a legjobb MI eszközöket",
+    "hero_subtitle": "Független értékelések, egymás mellé helyezett összehasonlítások és gyakorlati vásárlási útmutatók alkotóknak, marketingeseknek és kis csapatoknak.",
+    "trending": "Népszerű",
+    "featured": "Kiemelt",
+    "categories": "Kategóriák",
+    "guides": "Legújabb útmutatók",
+    "faq": "Gyakori kérdések",
+    "newsletter": "Hírlevél",
+    "quiz_cta": "Nem tudja, hol kezdje? Töltse ki a tesztet.",
+    "quiz_button": "Teszt indítása",
+    "how_we_review": "Hogyan tesztelünk",
+    "no_fluff": "Semmi szósz, csak tények",
+    "browse_categories": "Böngésszen a kategóriák között",
+    "pick_category": "Válasszon egy kategóriát a felfedezéshez",
+    "use_cases_title": "Felhasználási esetek",
+    "use_cases_subtitle": "Nézze meg, hogyan használják ezeket az eszközöket a csapatok",
+    "head_to_head": "Közvetlen összehasonlítás",
+    "editors_pick": "Szerkesztő választása",
+    "latest_guides": "Legújabb útmutatók",
+    "long_reads": "Hosszú cikkek",
+    "changelog": "Változásnapló",
+    "last_30_days": "Utolsó 30 nap",
+    "stats_tools": "Tesztelt eszközök",
+    "stats_guides": "Közzétett útmutatók",
+    "stats_categories": "Kategória",
+    "faq_title": "Gyakori kérdések",
+    "faq_subtitle": "Minden, amit tudnia kell",
+    "newsletter_title": "Maradjon naprakész",
+    "newsletter_subtitle": "Kapja meg a legújabb MI eszköz értékeléseket és útmutatókat közvetlenül a postaládájába.",
+    "email_placeholder": "Adja meg e-mail címét",
+    "footer_description": "Független MI eszköz értékelések és összehasonlítások, amelyek segítenek jobb döntéseket hozni.",
+    "all_rights": "Minden jog fenntartva.",
+    "independent": "Független és elfogulatlan",
+    "review_steps": {
+      "test": {
+        "title": "Tesztelés",
+        "desc": "Minden eszközt valós projekten használunk legalább egy hétig."
+      },
+      "score": {
+        "title": "Pontszám",
+        "desc": "Ár, felhasználói élmény, kimeneti minőség, támogatás — versenytársakhoz képest pontozva."
+      },
+      "publish": {
+        "title": "Közzététel",
+        "desc": "Őszinte ítélet előnyökkel, hátrányokkal és hogy valójában kinek szól."
+      }
+    },
+    "category_names": {
+      "video": "MI videós eszközök",
+      "writing": "MI írási eszközök",
+      "coding": "MI kódolási eszközök",
+      "automation": "MI automatizálás",
+      "image": "MI képes eszközök",
+      "all": "Összes eszköz"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Alkotók",
+        "title": "Alkotók & YouTuberek",
+        "desc": "Feliratok, szerkesztés, miniatűrök és szinkron — a csomag, amely ténylegesen videókat készít."
+      },
+      "marketing": {
+        "role": "Marketing",
+        "title": "Marketingesek & Növekedés",
+        "desc": "SEO írástól a hirdetési kreativitásig, találjon eszközöket, amelyeket valós kampányokban teszteltek, nem demókban."
+      },
+      "developers": {
+        "role": "Fejlesztők",
+        "title": "Fejlesztők & Indie Hackerek",
+        "desc": "Kódolási copilotok, ügynökök és fejlesztői eszközök, valós költség alapján rangsorolva."
+      },
+      "founders": {
+        "role": "Alapítók",
+        "title": "Alapítók & Kis csapatok",
+        "desc": "Cseréljen le 3 SaaS előfizetést 1 MI munkafolyamatra — zárolási meglepetések nélkül."
+      },
+      "education": {
+        "role": "Oktatás",
+        "title": "Diákok & Oktatók",
+        "desc": "Ingyenes szintek, tanulótársak és írási segédeszközök, amelyek nem okoznak bajt."
+      },
+      "agencies": {
+        "role": "Ügynökségek",
+        "title": "Ügynökségek & Tanácsadók",
+        "desc": "Ügyfélbiztonságos eszközök csapatcsomagokkal, adatvezérléssel és megfelelő export lehetőségekkel."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Ügynöki kódolás vs terminál-első munkafolyamatok",
+      "sonnet_vs_glm": "Majdnem zászlóshajó minőség vs open-weight költség",
+      "fable_vs_mythos": "Azonos súlyok, eltérő hozzáférési szintek"
+    }
+  },
+  "common": {
+    "read_more": "Tovább olvasom",
+    "view_all": "Összes megtekintése",
+    "loading": "Betöltés...",
+    "error": "Valami hiba történt",
+    "search": "Keresés",
+    "subscribe": "Feliratkozás",
+    "free": "Ingyenes",
+    "paid": "Fizetős",
+    "vs": "vs",
+    "open_comparison": "Összehasonlítás megnyitása",
+    "build_own": "Saját létrehozása",
+    "read_review": "Értékelés elolvasása",
+    "visit": "Megtekintés",
+    "all_tools": "Összes eszköz",
+    "start_quiz": "Teszt indítása",
+    "see_picks": "Kiválasztások megtekintése",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play.",
+    "tools": "AI eszközkatalógus",
+    "video_tools": "AI videóeszközök",
+    "writing_tools": "AI íráseszközök",
+    "coding_tools": "AI kódolási eszközök",
+    "image_tools": "AI képeszközök",
+    "automation_tools": "AI automatizálás",
+    "blog": "Blog",
+    "contact": "Kapcsolat"
+  }
 }
