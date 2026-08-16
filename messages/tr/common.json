@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Herkes için Yapay Zekayı Basitleştiriyoruz"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "tools": "YZ Araçları",
+    "blog": "Blog",
+    "compare": "Karşılaştır",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "En İyi YZ Araçlarını Bulun",
+    "hero_subtitle": "Yaratıcılar, pazarlamacılar ve küçük ekipler için bağımsız incelemeler, yan yana karşılaştırmalar ve pratik satın alma rehberliği.",
+    "trending": "Gündemdekiler",
+    "featured": "Öne Çıkanlar",
+    "categories": "Kategoriler",
+    "guides": "Son Kılavuzlar",
+    "faq": "Sıkça Sorulan Sorular",
+    "newsletter": "Bülten",
+    "quiz_cta": "Nereden başlayacağınızı bilmiyor musunuz? Quiz'i çözün.",
+    "quiz_button": "Quiz'e başla",
+    "how_we_review": "Nasıl değerlendiriyoruz",
+    "no_fluff": "Laf kalabalığı yok, sadece gerçekler",
+    "browse_categories": "Kategorilere göz atın",
+    "pick_category": "Keşfetmek için bir kategori seçin",
+    "use_cases_title": "Kullanım senaryoları",
+    "use_cases_subtitle": "Ekiplerin bu araçları nasıl kullandığını görün",
+    "head_to_head": "Doğrudan karşılaştırma",
+    "editors_pick": "Editör seçimi",
+    "latest_guides": "Son Kılavuzlar",
+    "long_reads": "Detaylı yazılar",
+    "changelog": "Değişiklik kaydı",
+    "last_30_days": "Son 30 gün",
+    "stats_tools": "Değerlendirilen araçlar",
+    "stats_guides": "Yayınlanan kılavuzlar",
+    "stats_categories": "Kategoriler",
+    "faq_title": "Sıkça Sorulan Sorular",
+    "faq_subtitle": "Bilmeniz gereken her şey",
+    "newsletter_title": "Güncel kalın",
+    "newsletter_subtitle": "En son YZ araç incelemelerini ve kılavuzlarını doğrudan e-posta kutunuza alın.",
+    "email_placeholder": "E-posta adresinizi girin",
+    "footer_description": "Daha iyi kararlar almanıza yardımcı olmak için bağımsız YZ aracı incelemeleri ve karşılaştırmaları.",
+    "all_rights": "Tüm hakları saklıdır.",
+    "independent": "Bağımsız ve tarafsız",
+    "review_steps": {
+      "test": {
+        "title": "Test",
+        "desc": "Her aracı en az bir hafta boyunca gerçek bir projede kullanıyoruz."
+      },
+      "score": {
+        "title": "Puanlama",
+        "desc": "Fiyat, UX, çıktı kalitesi, destek — rakiplere göre puanlanıyor."
+      },
+      "publish": {
+        "title": "Yayınla",
+        "desc": "Artıları, eksileri ve gerçekten kimin için olduğunu dürüstçe belirten karar."
+      }
+    },
+    "category_names": {
+      "video": "YZ Video Araçları",
+      "writing": "YZ Yazma Araçları",
+      "coding": "YZ Kodlama Araçları",
+      "automation": "YZ Otomasyonu",
+      "image": "YZ Görsel Araçları",
+      "all": "Tüm Araçlar"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Yaratıcılar",
+        "title": "Yaratıcılar ve YouTuberlar",
+        "desc": "Altyazı, düzenleme, küçük resim ve seslendirme — gerçekten video üreten paket."
+      },
+      "marketing": {
+        "role": "Pazarlama",
+        "title": "Pazarlamacılar ve Büyüme",
+        "desc": "SEO yazımından reklam yaratıcılığına kadar, demolarda değil gerçek kampanyalarda test edilmiş araçlar bulun."
+      },
+      "developers": {
+        "role": "Geliştiriciler",
+        "title": "Geliştiriciler ve Indie Hackerlar",
+        "desc": "Kodlama yardımcıları, ajanlar ve geliştirme araçları, ölçekleme maliyetlerine göre sıralanmış."
+      },
+      "founders": {
+        "role": "Kurucular",
+        "title": "Kurucular ve Küçük Ekipler",
+        "desc": "3 SaaS aboneliğini 1 YZ iş akışıyla değiştirin — kilit sürprizleri olmadan."
+      },
+      "education": {
+        "role": "Eğitim",
+        "title": "Öğrenciler ve Eğitimciler",
+        "desc": "Ücretsiz katmanlar, çalışma arkadaşları ve başınızı ağrıtmayacak yazma araçları."
+      },
+      "agencies": {
+        "role": "Ajanslar",
+        "title": "Ajanslar ve Danışmanlıklar",
+        "desc": "Ekip planları, veri kontrolleri ve uygun dışa aktarma seçenekleriyle müşteri güvenli araçlar."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Ajanik kodlama vs terminal-öncelikli iş akışları",
+      "sonnet_vs_glm": "Neredeyse amiral gemisi kalitesi vs açık ağırlık maliyeti",
+      "fable_vs_mythos": "Aynı ağırlıklar, farklı erişim katmanları"
+    }
+  },
+  "common": {
+    "read_more": "Devamını oku",
+    "view_all": "Tümünü gör",
+    "loading": "Yükleniyor...",
+    "error": "Bir şeyler yanlış gitti",
+    "search": "Ara",
+    "subscribe": "Abone ol",
+    "free": "Ücretsiz",
+    "paid": "Ücretli",
+    "vs": "vs",
+    "open_comparison": "Karşılaştırmayı aç",
+    "build_own": "Kendi oluşturun",
+    "read_review": "İncelemeyi oku",
+    "visit": "Ziyaret et",
+    "all_tools": "Tüm araçlar",
+    "start_quiz": "Quiz'e başla",
+    "see_picks": "Seçmelere bak",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
+  }
+}

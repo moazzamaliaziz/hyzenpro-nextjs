@@ -1,0 +1,192 @@
+{
+  "category": "caption-tool",
+  "title": "AI Caption Tool Matcher",
+  "subtitle": "Find the caption and short-form editor that fits your publishing workflow.",
+  "description": "Answer a few quick questions and we will recommend the captioning tool that best matches your video volume, editing style, and content goals.",
+  "cardDescription": "Compare caption tools based on short-form output, editing control, speed, and budget in about a minute.",
+  "estimatedTime": "60 seconds",
+  "toolCount": 3,
+  "icon": "captions",
+  "trustItems": [
+    "Built from HyzenPro tool reviews",
+    "Made for creators, agencies, and lean social teams",
+    "No signup required"
+  ],
+  "intro": [
+    "Caption tools all promise faster short-form editing, but the best choice depends on the content you publish and how much polish you expect before export. We found that some tools win on speed, while others justify the extra clicks with better control and better-looking results.",
+    "This matcher helps narrow the field using the decisions that matter in practice: platform focus, editing comfort, budget, and whether you need quick captions or a fuller social-video workflow."
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Where will these videos be published most often?",
+      "helper": "Pick the channel that drives the most views or revenue right now.",
+      "options": [
+        { "id": "tiktok", "label": "TikTok and Reels", "description": "We care about fast-moving short-form content and punchier editing." },
+        { "id": "youtube", "label": "YouTube", "description": "We need polished captions for shorts, tutorials, or longer creator content." },
+        { "id": "client", "label": "Client and multi-channel", "description": "We publish across platforms and need a cleaner production workflow." }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": "What is the biggest pain point?",
+      "helper": "Choose the part of the workflow that currently slows you down.",
+      "options": [
+        { "id": "speed", "label": "Getting captions done fast", "description": "We want quick turnaround with minimal editing." },
+        { "id": "style", "label": "Making videos look better", "description": "We want more control over visual style, motion, and presentation." },
+        { "id": "workflow", "label": "Managing the whole editing flow", "description": "We want captions plus a broader video workflow in one place." }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": "How comfortable are you with editing manually after the AI pass?",
+      "helper": "This usually separates fast tools from polished ones.",
+      "options": [
+        { "id": "low", "label": "Minimal editing please", "description": "We want the tool to do most of the heavy lifting." },
+        { "id": "medium", "label": "Some cleanup is fine", "description": "We can tweak clips and text if the result is worth it." },
+        { "id": "high", "label": "We want creative control", "description": "We are happy to edit if the tool gives us stronger output." }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": "What budget feels realistic for this workflow?",
+      "helper": "Be honest about what the content operation can sustain monthly.",
+      "options": [
+        { "id": "lean", "label": "Keep cost low", "description": "We need the strongest value without a big monthly bill." },
+        { "id": "mid", "label": "Balanced spend", "description": "We will pay more if output quality improves meaningfully." },
+        { "id": "premium", "label": "Premium workflow", "description": "Speed and polish matter more than keeping spend down." }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": "Which description sounds closest to your setup?",
+      "helper": "Choose the workflow that matches how the content actually gets made.",
+      "options": [
+        { "id": "creator", "label": "Solo creator", "description": "One person needs to move fast and publish often." },
+        { "id": "team", "label": "Small content team", "description": "A few people collaborate and need repeatable output." },
+        { "id": "agency", "label": "Agency or client work", "description": "We need presentable output, reusable process, and cleaner handoff." }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "veed-io",
+      "toolSlug": "veed-io",
+      "name": "VEED",
+      "reviewUrl": "/ai-tools-directory/ai-video-tools/veed-io/",
+      "websiteUrl": "https://www.veed.io/",
+      "toolCategorySlug": "ai-video-tools",
+      "bestFor": "Teams that want captions plus a broader browser-based editing workflow.",
+      "standout": "Balanced mix of captions, editing tools, and multi-purpose video workflow features.",
+      "whyItMatches": "When we tested caption tools, VEED stood out as the strongest all-rounder for teams that need more than just subtitles.",
+      "scores": {
+        "q1:tiktok": 3,
+        "q1:youtube": 4,
+        "q1:client": 5,
+        "q2:speed": 3,
+        "q2:style": 4,
+        "q2:workflow": 5,
+        "q3:low": 3,
+        "q3:medium": 5,
+        "q3:high": 4,
+        "q4:lean": 2,
+        "q4:mid": 5,
+        "q4:premium": 4,
+        "q5:creator": 3,
+        "q5:team": 5,
+        "q5:agency": 5
+      }
+    },
+    {
+      "id": "captions-ai",
+      "toolSlug": "captions-ai",
+      "name": "Captions",
+      "reviewUrl": "/ai-tools-directory/ai-video-tools/captions-ai/",
+      "websiteUrl": "https://www.captions.ai/",
+      "toolCategorySlug": "ai-video-tools",
+      "bestFor": "Creators who want AI-assisted talking-head videos and fast caption workflows.",
+      "standout": "Strong creator-focused editing flow with AI features beyond simple subtitle generation.",
+      "whyItMatches": "We found Captions is often the better pick when the goal is creator output first, especially for social video where speed and presentation both matter.",
+      "scores": {
+        "q1:tiktok": 5,
+        "q1:youtube": 4,
+        "q1:client": 2,
+        "q2:speed": 4,
+        "q2:style": 5,
+        "q2:workflow": 3,
+        "q3:low": 4,
+        "q3:medium": 4,
+        "q3:high": 3,
+        "q4:lean": 2,
+        "q4:mid": 4,
+        "q4:premium": 4,
+        "q5:creator": 5,
+        "q5:team": 3,
+        "q5:agency": 2
+      }
+    },
+    {
+      "id": "submajic",
+      "toolSlug": "submajic",
+      "name": "Submagic",
+      "reviewUrl": "/ai-tools-directory/ai-video-tools/submajic/",
+      "websiteUrl": "https://www.submagic.co/",
+      "toolCategorySlug": "ai-video-tools",
+      "bestFor": "Short-form creators who want fast captions with minimal fuss.",
+      "standout": "Quick social-ready subtitle styling for high-volume short-form publishing.",
+      "whyItMatches": "In our experience, Submagic becomes the easiest recommendation when speed matters most and the workflow is built around pumping out short clips.",
+      "scores": {
+        "q1:tiktok": 5,
+        "q1:youtube": 3,
+        "q1:client": 1,
+        "q2:speed": 5,
+        "q2:style": 3,
+        "q2:workflow": 2,
+        "q3:low": 5,
+        "q3:medium": 3,
+        "q3:high": 2,
+        "q4:lean": 4,
+        "q4:mid": 4,
+        "q4:premium": 2,
+        "q5:creator": 5,
+        "q5:team": 3,
+        "q5:agency": 1
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is the best AI caption tool for short-form creators?",
+      "answer": "For pure short-form speed, Submagic usually rises to the top. If you want more editing depth or a broader creator workflow, Captions often becomes the stronger fit."
+    },
+    {
+      "question": "Is VEED better than dedicated caption tools?",
+      "answer": "VEED is often better when you need more than captions. We found it makes more sense for teams that want a broader browser-based video workflow instead of a single-purpose subtitle tool."
+    },
+    {
+      "question": "Which caption tool is best for agencies?",
+      "answer": "VEED is usually the safest recommendation for agency-style workflows because it gives more room for editing, collaboration, and client-ready output."
+    },
+    {
+      "question": "Can I use these tools without advanced editing skills?",
+      "answer": "Yes. All three tools are accessible for non-editors, but Submagic and Captions usually feel faster for creators who want less manual cleanup."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read our VEED review",
+      "href": "/ai-tools-directory/ai-video-tools/veed-io/",
+      "description": "A good next read if you want captions plus a broader browser-based editor."
+    },
+    {
+      "label": "Check our Captions breakdown",
+      "href": "/ai-tools-directory/ai-video-tools/captions-ai/",
+      "description": "Best for creator-led workflows where presentation matters as much as speed."
+    },
+    {
+      "label": "Review Submagic for short-form output",
+      "href": "/ai-tools-directory/ai-video-tools/submajic/",
+      "description": "Useful if your main goal is publishing short clips quickly with styled captions."
+    }
+  ]
+}

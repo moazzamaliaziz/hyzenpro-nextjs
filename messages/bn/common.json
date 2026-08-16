@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "সকলের জন্য AI সহজ করা"
+  },
+  "nav": {
+    "home": "হোম",
+    "tools": "AI টুলস",
+    "blog": "ব্লগ",
+    "compare": "তুলনা",
+    "about": "আমাদের সম্পর্কে",
+    "contact": "যোগাযোগ",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "সেরা AI টুলস খুঁজে নিন",
+    "hero_subtitle": "নির্মাতা, মার্কেটার এবং ছোট দলদের জন্য স্বাধীন পর্যালোচনা, পাশাপাশি তুলনা এবং ব্যবহারিক কেনাকাটার নির্দেশিকা।",
+    "trending": "ট্রেন্ডিং",
+    "featured": "বিশেষ",
+    "categories": "ক্যাটাগরি",
+    "guides": "সর্বশেষ গাইড",
+    "faq": "সচরাচর জিজ্ঞাসা",
+    "newsletter": "নিউজলেটার",
+    "quiz_cta": "কোথা থেকে শুরু করবেন নিশ্চিত নন? কুইজ দিন।",
+    "quiz_button": "কুইজ শুরু করুন",
+    "how_we_review": "আমরা কীভাবে পর্যালোচনা করি",
+    "no_fluff": "অপ্রাসঙ্গিক কথা নয়, শুধু তথ্য",
+    "browse_categories": "ক্যাটাগরি ব্রাউজ করুন",
+    "pick_category": "অনুসন্ধানের জন্য একটি ক্যাটাগরি বেছে নিন",
+    "use_cases_title": "ব্যবহারের ক্ষেত্র",
+    "use_cases_subtitle": "দেখুন দলগুলো কীভাবে এই টুলস ব্যবহার করে",
+    "head_to_head": "সরাসরি তুলনা",
+    "editors_pick": "সম্পাদকের পছন্দ",
+    "latest_guides": "সর্বশেষ গাইড",
+    "long_reads": "বিস্তারিত নিবন্ধ",
+    "changelog": "পরিবর্তনের লগ",
+    "last_30_days": "গত ৩০ দিন",
+    "stats_tools": "পর্যালোচিত টুলস",
+    "stats_guides": "প্রকাশিত গাইড",
+    "stats_categories": "ক্যাটাগরি",
+    "faq_title": "সচরাচর জিজ্ঞাসা",
+    "faq_subtitle": "আপনার যা জানা দরকার",
+    "newsletter_title": "আপডেট থাকুন",
+    "newsletter_subtitle": "সর্বশেষ AI টুল পর্যালোচনা এবং গাইড সরাসরি আপনার ইনবক্সে পান।",
+    "email_placeholder": "আপনার ইমেল লিখুন",
+    "footer_description": "ভালো সিদ্ধান্ত নিতে সাহায্য করার জন্য স্বাধীন AI টুল পর্যালোচনা এবং তুলনা।",
+    "all_rights": "সর্বস্বত্ব সংরক্ষিত।",
+    "independent": "স্বাধীন এবং নিরপেক্ষ",
+    "review_steps": {
+      "test": {
+        "title": "পরীক্ষা",
+        "desc": "আমরা প্রতিটি টুল একটি প্রকৃত প্রকল্পে কমপক্ষে এক সপ্তাহ ব্যবহার করি।"
+      },
+      "score": {
+        "title": "স্কোর",
+        "desc": "মূল্য, UX, আউটপুট মান, সহায়তা — প্রতিযোগীদের তুলনায় স্কোর করা হয়।"
+      },
+      "publish": {
+        "title": "প্রকাশ",
+        "desc": "প্রকৃত যার জন্য তা, এর সাথে পক্ষ এবং বিপক্ষ নিয়ে সৎ সিদ্ধান্ত।"
+      }
+    },
+    "category_names": {
+      "video": "AI ভিডিও টুলস",
+      "writing": "AI লেখন টুলস",
+      "coding": "AI কোডিং টুলস",
+      "automation": "AI অটোমেশন",
+      "image": "AI ইমেজ টুলস",
+      "all": "সব টুলস"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "নির্মাতা",
+        "title": "নির্মাতা এবং YouTubers",
+        "desc": "ক্যাপশনিং, এডিটিং, থাম্বনেল এবং ভয়েসওভার — সেই স্ট্যাক যা প্রকৃতভাবে ভিডিও তৈরি করে।"
+      },
+      "marketing": {
+        "role": "মার্কেটিং",
+        "title": "মার্কেটার এবং গ্রোথ",
+        "desc": "SEO লেখন থেকে বিজ্ঞাপন ক্রিয়েটিভ পর্যন্ত, ডেমো নয়, প্রকৃত প্রচারণায় পরীক্ষিত টুলস খুঁজে নিন।"
+      },
+      "developers": {
+        "role": "ডেভেলপার",
+        "title": "ডেভেলপার এবং ইন্ডি হ্যাকারস",
+        "desc": "কোডিং কো-পাইলট, এজেন্ট এবং ডেভ টুলস স্কেলে প্রকৃত খরচ অনুযায়ী র‍্যাঙ্ক করা।"
+      },
+      "founders": {
+        "role": "প্রতিষ্ঠাতা",
+        "title": "প্রতিষ্ঠাতা এবং ছোট দল",
+        "desc": "৩টি SaaS সাবস্ক্রিপশন ১টি AI ওয়ার্কফ্লো দিয়ে প্রতিস্থাপন করুন — লক-ইন সারপ্রাইজ ছাড়া।"
+      },
+      "education": {
+        "role": "শিক্ষা",
+        "title": "ছাত্র এবং শিক্ষক",
+        "desc": "বিনামূল্যের টায়ার, অধ্যয়ন সঙ্গী এবং লেখন সহায়িকা যা আপনাকে সমস্যায় ফেলবে না।"
+      },
+      "agencies": {
+        "role": "এজেন্সি",
+        "title": "এজেন্সি এবং পরামর্শদাতা",
+        "desc": "দল পরিকল্পনা, ডেটা নিয়ন্ত্রণ এবং যথাযথ রপ্তানি বিকল্প সহ ক্লায়েন্ট-সেফ টুলস।"
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "এজেন্টিক কোডিং বনাম টার্মিনাল-ফার্স্ট ওয়ার্কফ্লো",
+      "sonnet_vs_glm": "প্রায় ফ্ল্যাগশিপ মান বনাম ওপেন-ওয়েট খরচ",
+      "fable_vs_mythos": "একই ওয়েট, ভিন্ন অ্যাক্সেস টায়ার"
+    }
+  },
+  "common": {
+    "read_more": "আরও পড়ুন",
+    "view_all": "সব দেখুন",
+    "loading": "লোড হচ্ছে...",
+    "error": "কিছু ভুল হয়েছে",
+    "search": "অনুসন্ধান",
+    "subscribe": "সাবস্ক্রাইব",
+    "free": "বিনামূল্যে",
+    "paid": "পেইড",
+    "vs": "vs",
+    "open_comparison": "তুলনা খুলুন",
+    "build_own": "নিজের তৈরি করুন",
+    "read_review": "পর্যালোচনা পড়ুন",
+    "visit": "দেখুন",
+    "all_tools": "সব টুলস",
+    "start_quiz": "কুইজ শুরু করুন",
+    "see_picks": "নির্বাচন দেখুন",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
+  }
+}

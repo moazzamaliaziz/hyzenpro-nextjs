@@ -1,0 +1,192 @@
+{
+  "category": "coding-assistant",
+  "title": "AI Coding Assistant Matcher",
+  "subtitle": "Find the coding copilot that fits your stack, team, and privacy needs.",
+  "description": "Answer a few questions about how you write code and we will recommend the assistant that best matches your workflow instead of throwing a generic top-10 list at you.",
+  "cardDescription": "Compare coding assistants by IDE fit, privacy needs, collaboration style, and budget in about a minute.",
+  "estimatedTime": "70 seconds",
+  "toolCount": 3,
+  "icon": "code-2",
+  "trustItems": [
+    "Shortlisted from HyzenPro tool reviews",
+    "Focused on real developer workflows",
+    "No signup required"
+  ],
+  "intro": [
+    "AI coding tools can save serious time, but they do not all fit the same team. We found that the best choice depends less on benchmark hype and more on where you code, how sensitive the work is, and whether you need solo speed or team-wide consistency.",
+    "This matcher narrows the field using practical tradeoffs such as IDE fit, collaboration style, and privacy expectations so the recommendation feels useful on day one."
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Where does most of your coding happen?",
+      "helper": "Choose the environment you open every day, not the one you use occasionally.",
+      "options": [
+        { "id": "vscode", "label": "VS Code or JetBrains", "description": "We live inside mainstream desktop IDEs." },
+        { "id": "browser", "label": "Browser-based editor", "description": "A lot of our work happens in cloud workspaces or lightweight environments." },
+        { "id": "mixed", "label": "Mixed environments", "description": "We switch between desktop IDEs, repos, and collaborative environments." }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": "What kind of work do you want the assistant to help with most?",
+      "helper": "Pick the job that would save the most time every week.",
+      "options": [
+        { "id": "completion", "label": "Fast code completion", "description": "We mostly want in-line suggestions and less typing." },
+        { "id": "fullstack", "label": "Full-stack building", "description": "We want help scaffolding, debugging, and shipping working app flows." },
+        { "id": "team-quality", "label": "Team consistency", "description": "We care about shared conventions, quality, and maintainability across a team." }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": "How sensitive is the codebase?",
+      "helper": "Security and compliance usually change which AI assistant is acceptable.",
+      "options": [
+        { "id": "low", "label": "Low sensitivity", "description": "General app work or side projects where convenience matters most." },
+        { "id": "medium", "label": "Moderate sensitivity", "description": "Client work or internal code where privacy matters but speed still matters too." },
+        { "id": "high", "label": "High sensitivity", "description": "Security, compliance, or enterprise constraints are a hard requirement." }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": "How will the tool be used across the team?",
+      "helper": "Solo devs and engineering managers usually need different things.",
+      "options": [
+        { "id": "solo", "label": "Mostly solo", "description": "One developer or a very small team is doing the work." },
+        { "id": "small-team", "label": "Small engineering team", "description": "A few people need consistent help without a big rollout." },
+        { "id": "org", "label": "Larger org or enterprise", "description": "We need policy, control, or broad adoption across a company." }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": "Which budget stance feels right?",
+      "helper": "Choose based on what you would actually approve this month.",
+      "options": [
+        { "id": "free", "label": "Start free or cheap", "description": "We want value quickly without a meaningful software bill." },
+        { "id": "balanced", "label": "Pay for productivity", "description": "A fair monthly fee is fine if output clearly improves." },
+        { "id": "premium", "label": "Pay for control", "description": "Governance, scale, or premium features matter more than cost." }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "github-copilot",
+      "toolSlug": "github-copilot",
+      "name": "GitHub Copilot",
+      "reviewUrl": "/ai-tools-directory/ai-coding-tools/github-copilot/",
+      "websiteUrl": "https://github.com/features/copilot",
+      "toolCategorySlug": "ai-coding-tools",
+      "bestFor": "Developers who want the most familiar coding assistant inside mainstream IDEs.",
+      "standout": "Strong IDE integrations, broad adoption, and a smoother path for teams already inside GitHub.",
+      "whyItMatches": "When we tested coding assistants for everyday development, Copilot remained the easiest recommendation for teams that want reliable completions and broad ecosystem support.",
+      "scores": {
+        "q1:vscode": 5,
+        "q1:browser": 2,
+        "q1:mixed": 4,
+        "q2:completion": 5,
+        "q2:fullstack": 4,
+        "q2:team-quality": 4,
+        "q3:low": 5,
+        "q3:medium": 4,
+        "q3:high": 3,
+        "q4:solo": 4,
+        "q4:small-team": 5,
+        "q4:org": 5,
+        "q5:free": 2,
+        "q5:balanced": 5,
+        "q5:premium": 4
+      }
+    },
+    {
+      "id": "tabnine",
+      "toolSlug": "tabnine",
+      "name": "Tabnine",
+      "reviewUrl": "/ai-tools-directory/ai-coding-tools/tabnine/",
+      "websiteUrl": "https://www.tabnine.com/",
+      "toolCategorySlug": "ai-coding-tools",
+      "bestFor": "Teams that care more about privacy controls and governance than hype-driven features.",
+      "standout": "Enterprise-friendly positioning with a stronger privacy story for regulated teams.",
+      "whyItMatches": "We found Tabnine is the more sensible recommendation when the buyer asks about privacy, governance, or controlled rollout before asking about clever demos.",
+      "scores": {
+        "q1:vscode": 4,
+        "q1:browser": 1,
+        "q1:mixed": 3,
+        "q2:completion": 4,
+        "q2:fullstack": 2,
+        "q2:team-quality": 5,
+        "q3:low": 3,
+        "q3:medium": 4,
+        "q3:high": 5,
+        "q4:solo": 2,
+        "q4:small-team": 4,
+        "q4:org": 5,
+        "q5:free": 1,
+        "q5:balanced": 4,
+        "q5:premium": 5
+      }
+    },
+    {
+      "id": "replit",
+      "toolSlug": "replit",
+      "name": "Replit",
+      "reviewUrl": "/ai-tools-directory/ai-coding-tools/replit/",
+      "websiteUrl": "https://replit.com/",
+      "toolCategorySlug": "ai-coding-tools",
+      "bestFor": "Founders, students, and product teams that want to build and ship inside the browser.",
+      "standout": "Cloud workspace plus AI assistance in one place, which reduces setup friction fast.",
+      "whyItMatches": "In our experience, Replit becomes interesting when you want more than completions and care about building, testing, and sharing from a browser-first environment.",
+      "scores": {
+        "q1:vscode": 2,
+        "q1:browser": 5,
+        "q1:mixed": 4,
+        "q2:completion": 2,
+        "q2:fullstack": 5,
+        "q2:team-quality": 3,
+        "q3:low": 5,
+        "q3:medium": 3,
+        "q3:high": 1,
+        "q4:solo": 5,
+        "q4:small-team": 4,
+        "q4:org": 2,
+        "q5:free": 4,
+        "q5:balanced": 4,
+        "q5:premium": 2
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is the best AI coding assistant for VS Code users?",
+      "answer": "GitHub Copilot is usually the easiest recommendation for VS Code-heavy teams because the workflow feels familiar and the IDE support is mature. It tends to be the least disruptive place to start."
+    },
+    {
+      "question": "Which coding assistant is better for privacy-focused teams?",
+      "answer": "Tabnine is often the stronger fit when privacy controls and governance sit near the top of the buying checklist. It is not the flashiest option, but the enterprise story is easier to defend."
+    },
+    {
+      "question": "Is Replit better than Copilot for beginners?",
+      "answer": "For browser-first builders and people who want less setup overhead, Replit can feel easier because the workspace and AI are bundled together. For developers already living in a desktop IDE, Copilot still feels more natural."
+    },
+    {
+      "question": "Do AI coding assistants replace developers?",
+      "answer": "No. They are more useful as accelerators than replacements. We found the biggest gains come from reducing repetitive work, drafting code quickly, and helping with context switching."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read our GitHub Copilot review",
+      "href": "/ai-tools-directory/ai-coding-tools/github-copilot/",
+      "description": "See where Copilot still leads and where its suggestions can become noisy."
+    },
+    {
+      "label": "Check our Tabnine breakdown",
+      "href": "/ai-tools-directory/ai-coding-tools/tabnine/",
+      "description": "Best next read if privacy and team governance matter more than hype."
+    },
+    {
+      "label": "Review Replit for browser-first building",
+      "href": "/ai-tools-directory/ai-coding-tools/replit/",
+      "description": "Useful if you want AI help inside a cloud coding environment rather than a traditional IDE."
+    }
+  ]
+}

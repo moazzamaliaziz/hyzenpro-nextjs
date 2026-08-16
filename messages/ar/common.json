@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "تبسيط الذكاء الاصطناعي للجميع"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "tools": "أدوات الذكاء الاصطناعي",
+    "blog": "المدونة",
+    "compare": "قارن",
+    "about": "من نحن",
+    "contact": "تواصل معنا",
+    "categories": "الفئات",
+    "find_tools": "البحث عن الأدوات",
+    "submit_tool": "إرسال أداة ذكاء اصطناعي",
+    "popular_categories": "الفئات الشائعة",
+    "discover": "اكتشف",
+    "all_tools": "جميع الأدوات",
+    "all_tools_desc": "تصفح الدليل الكامل",
+    "find_tools_desc": "شارك في اختبار المطابقة",
+    "video_tools": "أدوات الفيديو بالذكاء الاصطناعي",
+    "video_tools_desc": "محررون، مولدون، ترجمات",
+    "writing_tools": "أدوات الكتابة بالذكاء الاصطناعي",
+    "writing_tools_desc": "المحتوى والنصوص وكتابة SEO",
+    "coding_tools": "أدوات البرمجة بالذكاء الاصطناعي",
+    "coding_tools_desc": "مساعدون للمطورين",
+    "image_tools": "أدوات الصور بالذكاء الاصطناعي",
+    "image_tools_desc": "مولدو الفن، محررون",
+    "automation_tools": "الأتمتة بالذكاء الاصطناعي",
+    "automation_tools_desc": "أتمتة سير العمل والمهام",
+    "from_the_blog": "من المدونة",
+    "latest_insights": "آخر الأفكار حول أدوات الذكاء الاصطناعي",
+    "read_article": "اقرأ المقال"
+  },
+  "homepage": {
+    "hero_title": "ابحث عن أفضل أدوات الذكاء الاصطناعي",
+    "hero_subtitle": "مراجعات مستقلة، مقارنات مباشرة، وإرشادات عملية للمشتريات للمبدعين والمسوقين والفرق الصغيرة.",
+    "trending": "الرائج",
+    "featured": "مميز",
+    "categories": "الفئات",
+    "guides": "أحدث الأدلة",
+    "faq": "الأسئلة الشائعة",
+    "newsletter": "النشرة الإخبارية",
+    "quiz_cta": "لا تعرف من أين تبدأ؟ خذ الاختبار.",
+    "quiz_button": "ابدأ الاختبار",
+    "how_we_review": "كيف نقيّم",
+    "no_fluff": "بلا حشو، حقائق فقط",
+    "browse_categories": "تصفح الفئات",
+    "pick_category": "اختر فئة لاستكشافها",
+    "use_cases_title": "حالات الاستخدام",
+    "use_cases_subtitle": "شاهد كيف تستخدم الفرق هذه الأدوات",
+    "head_to_head": "مقارنة مباشرة",
+    "editors_pick": "اختيار المحرر",
+    "latest_guides": "أحدث الأدلة",
+    "long_reads": "مقالات معمّقة",
+    "changelog": "سجل التغييرات",
+    "last_30_days": "آخر 30 يومًا",
+    "stats_tools": "الأدوات المقيّمة",
+    "stats_guides": "الأدلة المنشورة",
+    "stats_categories": "الفئات",
+    "faq_title": "الأسئلة الشائعة",
+    "faq_subtitle": "كل ما تحتاج معرفته",
+    "newsletter_title": "ابقَ على اطلاع",
+    "newsletter_subtitle": "احصل على أحدث مراجعات وأدلة أدوات الذكاء الاصطناعي في بريدك الإلكتروني.",
+    "email_placeholder": "أدخل بريدك الإلكتروني",
+    "footer_description": "مراجعات ومقارنات مستقلة لأدوات الذكاء الاصطناعي لمساعدتك على اتخاذ قرارات أفضل.",
+    "all_rights": "جميع الحقوق محفوظة.",
+    "independent": "مستقل ومحايد",
+    "review_steps": {
+      "test": {
+        "title": "اختبار",
+        "desc": "نستخدم كل أداة في مشروع حقيقي لمدة أسبوع على الأقل."
+      },
+      "score": {
+        "title": "تقييم",
+        "desc": "التسعير، تجربة المستخدم، جودة المخرجات، الدعم — مقيّمة مقارنة بالمنافسين."
+      },
+      "publish": {
+        "title": "نشر",
+        "desc": "حكم صادق مع الإيجابيات والسلبيات ولمن هو مناسب حقًا."
+      }
+    },
+    "category_names": {
+      "video": "أدوات الفيديو بالذكاء الاصطناعي",
+      "writing": "أدوات الكتابة بالذكاء الاصطناعي",
+      "coding": "أدوات البرمجة بالذكاء الاصطناعي",
+      "automation": "الأتمتة بالذكاء الاصطناعي",
+      "image": "أدوات الصور بالذكاء الاصطناعي",
+      "all": "جميع الأدوات"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "المبدعون",
+        "title": "المبدعون ويوتيوبرز",
+        "desc": "الترجمة، المونتاج، الصور المصغرة والتعليق الصوتي — المجموعة التي تنتج الفيديوهات فعليًا."
+      },
+      "marketing": {
+        "role": "التسويق",
+        "title": "المسوقون والنمو",
+        "desc": "من كتابة SEO إلى الإبداع الإعلاني، ابحث عن أدوات تم اختبارها في حملات حقيقية وليس في العروض التوضيحية."
+      },
+      "developers": {
+        "role": "المطورون",
+        "title": "المطورون والهاكاتر المستقلون",
+        "desc": "مساعدات البرمجة، الوكيل وأدوات التطوير مصنّفة حسب التكلفة الفعلية عند التوسع."
+      },
+      "founders": {
+        "role": "المؤسسون",
+        "title": "المؤسسون والفرق الصغيرة",
+        "desc": "استبدل 3 اشتراكات SaaS بتدفق عمل AI واحد — بدون مفاجآت القيد."
+      },
+      "education": {
+        "role": "التعليم",
+        "title": "الطلاب والمعلمون",
+        "desc": "مستويات مجانية، رفاق الدراسة وأدوات الكتابة التي لن تسبب لك مشاكل."
+      },
+      "agencies": {
+        "role": "الوكالات",
+        "title": "الوكالات والاستشارات",
+        "desc": "أدوات آمنة للعملاء مع خطط الفريق، ضوابط البيانات وخيارات تصدير مناسبة."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "البرمجة الوكيلية مقابل تدفقات العمل المبنية على الطرفية أولاً",
+      "sonnet_vs_glm": "جودة شبه رائدة مقابل تكلفة الوزن المفتوح",
+      "fable_vs_mythos": "نفس الأوزان، مستويات وصول مختلفة"
+    }
+  },
+  "common": {
+    "read_more": "اقرأ المزيد",
+    "view_all": "عرض الكل",
+    "loading": "جارٍ التحميل...",
+    "error": "حدث خطأ ما",
+    "search": "بحث",
+    "subscribe": "اشترك",
+    "free": "مجاني",
+    "paid": "مدفوع",
+    "vs": "vs",
+    "open_comparison": "فتح المقارنة",
+    "build_own": "أنشئ خاصتك",
+    "read_review": "اقرأ المراجعة",
+    "visit": "زيارة",
+    "all_tools": "جميع الأدوات",
+    "start_quiz": "ابدأ الاختبار",
+    "see_picks": "عرض الاختيارات",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
+  }
+}

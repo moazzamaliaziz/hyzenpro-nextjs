@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "ทำให้ AI ง่ายขึ้นสำหรับทุกคน"
+  },
+  "nav": {
+    "home": "หน้าแรก",
+    "tools": "เครื่องมือ AI",
+    "blog": "บล็อก",
+    "compare": "เปรียบเทียบ",
+    "about": "เกี่ยวกับเรา",
+    "contact": "ติดต่อ",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "ค้นหาเครื่องมือ AI ที่ดีที่สุด",
+    "hero_subtitle": "รีวิวอิสระ เปรียบเทียบเคียงข้าง และคำแนะนำการซื้อที่ใช้ได้จริงสำหรับครีเอเตอร์ นักการตลาด และทีมเล็กๆ",
+    "trending": "ยอดนิยม",
+    "featured": "แนะนำ",
+    "categories": "หมวดหมู่",
+    "guides": "คู่มือล่าสุด",
+    "faq": "คำถามที่พบบ่อย",
+    "newsletter": "จดหมายข่าว",
+    "quiz_cta": "ไม่แน่ใจว่าจะเริ่มต้นจากตรงไหน? ทำแบบทดสอบ",
+    "quiz_button": "เริ่มแบบทดสอบ",
+    "how_we_review": "วิธีการรีวิวของเรา",
+    "no_fluff": "ไม่มีน้ำ แค่ข้อเท็จจริง",
+    "browse_categories": "เลือกดูหมวดหมู่",
+    "pick_category": "เลือกหมวดหมู่เพื่อสำรวจ",
+    "use_cases_title": "กรณีการใช้งาน",
+    "use_cases_subtitle": "ดูว่าทีมต่างๆ ใช้เครื่องมือเหล่านี้อย่างไร",
+    "head_to_head": "เทียบเคียงตรง",
+    "editors_pick": "เลือกโดยกองบรรณาธิการ",
+    "latest_guides": "คู่มือล่าสุด",
+    "long_reads": "บทความยาว",
+    "changelog": "บันทึกการเปลี่ยนแปลง",
+    "last_30_days": "30 วันล่าสุด",
+    "stats_tools": "เครื่องมือที่รีวิวแล้ว",
+    "stats_guides": "คู่มือที่เผยแพร่แล้ว",
+    "stats_categories": "หมวดหมู่",
+    "faq_title": "คำถามที่พบบ่อย",
+    "faq_subtitle": "ทุกสิ่งที่คุณต้องรู้",
+    "newsletter_title": "ติดตามข่าวสาร",
+    "newsletter_subtitle": "รับรีวิวและคู่มือเครื่องมือ AI ล่าสุดส่งถึงอีเมลของคุณ",
+    "email_placeholder": "กรอกอีเมลของคุณ",
+    "footer_description": "รีวิวและเปรียบเทียบเครื่องมือ AI อิสระเพื่อช่วยคุณตัดสินใจได้ดีขึ้น",
+    "all_rights": "สงวนลิขสิทธิ์",
+    "independent": "อิสระและเป็นกลาง",
+    "review_steps": {
+      "test": {
+        "title": "ทดสอบ",
+        "desc": "เราใช้เครื่องมือแต่ละตัวในโครงการจริงอย่างน้อยหนึ่งสัปดาห์"
+      },
+      "score": {
+        "title": "ให้คะแนน",
+        "desc": "ราคา ประสบการณ์ผู้ใช้ คุณภาพผลลัพธ์ การสนับสนุน — ให้คะแนนเทียบกับคู่แข่ง"
+      },
+      "publish": {
+        "title": "เผยแพร่",
+        "desc": "ข้อสรุปที่ซื่อสัตย์พร้อมข้อดี ข้อเสีย และใครที่เหมาะกับจริงๆ"
+      }
+    },
+    "category_names": {
+      "video": "เครื่องมือวิดีโอ AI",
+      "writing": "เครื่องมือเขียน AI",
+      "coding": "เครื่องมือเขียนโค้ด AI",
+      "automation": "ระบบอัตโนมัติ AI",
+      "image": "เครื่องมือรูปภาพ AI",
+      "all": "เครื่องมือทั้งหมด"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "ครีเอเตอร์",
+        "title": "ครีเอเตอร์และ YouTuber",
+        "desc": "คำบรรยาย การตัดต่อ ภาพขนาดย่อและเสียงพากย์ — ชุดเครื่องมือที่สร้างวิดีโอได้จริง"
+      },
+      "marketing": {
+        "role": "การตลาด",
+        "title": "นักการตลาดและการเติบโต",
+        "desc": "จากการเขียน SEO ไปจนถึงความคิดสร้างสรรค์โฆษณา ค้นหาเครื่องมือที่ทดสอบในการรณรงค์จริง ไม่ใช่การสาธิต"
+      },
+      "developers": {
+        "role": "นักพัฒนา",
+        "title": "นักพัฒนาและ Indie Hackers",
+        "desc": "ผู้ช่วยเขียนโค้ด ตัวแทนและเครื่องมือพัฒนาที่จัดอันดับตามต้นทุนจริงเมื่อขยายขนาด"
+      },
+      "founders": {
+        "role": "ผู้ก่อตั้ง",
+        "title": "ผู้ก่อตั้งและทีมเล็ก",
+        "desc": "แทนที่ SaaS 3 รายการด้วยเวิร์กโฟลว์ AI 1 รายการ — ไม่มีเซอร์ไพรส์การล็อกอิน"
+      },
+      "education": {
+        "role": "การศึกษา",
+        "title": "นักเรียนและครู",
+        "desc": "ระดับฟรี เพื่อนร่วมเรียนและเครื่องมือเขียนที่ไม่ทำให้คุณเดือดร้อน"
+      },
+      "agencies": {
+        "role": "เอเจนซี่",
+        "title": "เอเจนซี่และที่ปรึกษา",
+        "desc": "เครื่องมือที่ปลอดภัยสำหรับลูกค้าพร้อมแผนทีม การควบคุมข้อมูลและตัวเลือกการส่งออกที่เหมาะสม"
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "การเขียนโค้ดแบบตัวแทน เทียบกับเวิร์กโฟลว์ terminal-first",
+      "sonnet_vs_glm": "คุณภาพเกือบระดับเรือธง เทียบกับต้นทุน open-weight",
+      "fable_vs_mythos": "น้ำหนักเดียวกัน ระดับการเข้าถึงที่แตกต่างกัน"
+    }
+  },
+  "common": {
+    "read_more": "อ่านเพิ่มเติม",
+    "view_all": "ดูทั้งหมด",
+    "loading": "กำลังโหลด...",
+    "error": "เกิดข้อผิดพลาด",
+    "search": "ค้นหา",
+    "subscribe": "สมัครรับ",
+    "free": "ฟรี",
+    "paid": "เสียค่าใช้จ่าย",
+    "vs": "vs",
+    "open_comparison": "เปิดการเปรียบเทียบ",
+    "build_own": "สร้างของคุณเอง",
+    "read_review": "อ่านรีวิว",
+    "visit": "เยี่ยมชม",
+    "all_tools": "เครื่องมือทั้งหมด",
+    "start_quiz": "เริ่มแบบทดสอบ",
+    "see_picks": "ดูตัวเลือก",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
+  }
+}

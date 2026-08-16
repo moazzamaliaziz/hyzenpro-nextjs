@@ -1,0 +1,16 @@
+name: Publish Scheduled Posts
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish scheduled posts
+        run: |
+          curl -s -X GET "${{ vars.SITE_URL || 'https://hyzenpro.com' }}/api/cron/publish-scheduled" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -f || echo "Cron endpoint returned non-200 (may be no scheduled posts)"

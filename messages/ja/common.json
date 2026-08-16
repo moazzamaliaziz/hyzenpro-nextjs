@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "すべての人のためのAIをシンプルに"
+  },
+  "nav": {
+    "home": "ホーム",
+    "tools": "AIツール",
+    "blog": "ブログ",
+    "compare": "比較",
+    "about": "私たちについて",
+    "contact": "お問い合わせ",
+    "categories": "カテゴリー",
+    "find_tools": "ツールを探す",
+    "submit_tool": "AIツールを提出",
+    "popular_categories": "人気のカテゴリー",
+    "discover": "発見",
+    "all_tools": "すべてのツール",
+    "all_tools_desc": "ディレクトリを閲覧",
+    "find_tools_desc": "ガイド付きマッチャーキズに参加",
+    "video_tools": "AIビデオツール",
+    "video_tools_desc": "エディター、生成器、キャプション",
+    "writing_tools": "AIライティングツール",
+    "writing_tools_desc": "コンテンツ、コピー、SEOライティング",
+    "coding_tools": "AIコーディングツール",
+    "coding_tools_desc": "開発者のアシスタント",
+    "image_tools": "AI画像ツール",
+    "image_tools_desc": "アートジェネレーター、エディター",
+    "automation_tools": "AIオートメーション",
+    "automation_tools_desc": "ワークフローとタスク自動化",
+    "from_the_blog": "ブログから",
+    "latest_insights": "AIツールの最新インサイト",
+    "read_article": "記事を読む"
+  },
+  "homepage": {
+    "hero_title": "最高のAIツールを見つけよう",
+    "hero_subtitle": "クリエイターやマーケター、小規模チーム向けの独立したレビュー、並べて比較、実用的な購入ガイド。",
+    "trending": "トレンド",
+    "featured": "注目",
+    "categories": "カテゴリ",
+    "guides": "最新ガイド",
+    "faq": "よくある質問",
+    "newsletter": "ニュースレター",
+    "quiz_cta": "どこから始めればいい？クイズに答えよう。",
+    "quiz_button": "クイズを始める",
+    "how_we_review": "レビューの方法",
+    "no_fluff": "飾りなし、事実だけ",
+    "browse_categories": "カテゴリを閲覧",
+    "pick_category": "探索するカテゴリを選ぶ",
+    "use_cases_title": "ユースケース",
+    "use_cases_subtitle": "チームがこれらのツールをどう活用しているか見る",
+    "head_to_head": "ヘッド・トゥ・ヘッド",
+    "editors_pick": "エディターズ・ピック",
+    "latest_guides": "最新ガイド",
+    "long_reads": "読み物",
+    "changelog": "変更履歴",
+    "last_30_days": "過去30日",
+    "stats_tools": "レビュー済みツール",
+    "stats_guides": "公開ガイド",
+    "stats_categories": "カテゴリ",
+    "faq_title": "よくある質問",
+    "faq_subtitle": "知っておくべきことすべて",
+    "newsletter_title": "最新情報をお届け",
+    "newsletter_subtitle": "最新のAIツールレビューとガイドをメールでお届けします。",
+    "email_placeholder": "メールアドレスを入力",
+    "footer_description": "より良い意思決定をサポートする独立したAIツールのレビューと比較。",
+    "all_rights": "全著作権所有。",
+    "independent": "独立・公平",
+    "review_steps": {
+      "test": {
+        "title": "テスト",
+        "desc": "各ツールを実際のプロジェクトで少なくとも1週間使用します。"
+      },
+      "score": {
+        "title": "スコア",
+        "desc": "価格、UX、出力品質、サポート — 他社と比較して評価。"
+      },
+      "publish": {
+        "title": "公開",
+        "desc": "長所、短所、そして本当に誰向けなのかを正直に verdict。"
+      }
+    },
+    "category_names": {
+      "video": "AI動画ツール",
+      "writing": "AIライティングツール",
+      "coding": "AIコーディングツール",
+      "automation": "AIオートメーション",
+      "image": "AI画像ツール",
+      "all": "すべてのツール"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "クリエイター",
+        "title": "クリエイター＆YouTuber",
+        "desc": "キャプション、編集、サムネイル、ボイスオーバー — 実際に動画を生み出すスタック。"
+      },
+      "marketing": {
+        "role": "マーケティング",
+        "title": "マーケター＆グロース",
+        "desc": "SEOライティングから広告クリエイティブまで、デモではなく実際のキャンペーンで検証されたツール。"
+      },
+      "developers": {
+        "role": "開発者",
+        "title": "開発者＆インディーハッカー",
+        "desc": "コーディングCopilot、エージェント、開発ツールを実際のスケールコストでランク付け。"
+      },
+      "founders": {
+        "role": "創業者",
+        "title": "創業者＆小規模チーム",
+        "desc": "3つのSaaSサブスクリプションを1つのAIワークフローに置き換え — ロックインの驚きなし。"
+      },
+      "education": {
+        "role": "教育",
+        "title": "学生＆教育者",
+        "desc": "無料ティア、学習コンパニオン、トラブルにならないライティングツール。"
+      },
+      "agencies": {
+        "role": "エージェンシー",
+        "title": "エージェンシー＆コンサルティング",
+        "desc": "チームプラン、データ管理、適切なエクスポートオプションを備えたクライアントセーフなツール。"
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "エージェント型コーディング vs ターミナルファーストワークフロー",
+      "sonnet_vs_glm": "準フラッグシップ品質 vs オープンウェイトコスト",
+      "fable_vs_mythos": "同じ重み、異なるアクセスタイア"
+    }
+  },
+  "common": {
+    "read_more": "続きを読む",
+    "view_all": "すべて見る",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "search": "検索",
+    "subscribe": "登録する",
+    "free": "無料",
+    "paid": "有料",
+    "vs": "vs",
+    "open_comparison": "比較を開く",
+    "build_own": "自分を作成",
+    "read_review": "レビューを読む",
+    "visit": "訪問",
+    "all_tools": "すべてのツール",
+    "start_quiz": "クイズを始める",
+    "see_picks": "おすすめを見る",
+    "listed_on": "掲載平台",
+    "all_rights": "全著作権所有。AIツールの評価は独立したテストに基づいています。",
+    "independent": "HyzenProは独立した出版物です。ブランド名とロゴは各所有者の財産です。",
+    "footer_ai_tools": "AIツール",
+    "footer_compare": "比較",
+    "footer_resources": "リソース",
+    "footer_company": "会社情報",
+    "footer_side_by_side": "サイドバイサイド比較",
+    "footer_find_quiz": "ツール検索クイズ",
+    "footer_editors_choice": "エディターズチョイス",
+    "footer_buyers_quiz": "バイヤーズクイズ",
+    "footer_how_we_review": "レビュー方法",
+    "footer_submit": "AIツールを提出",
+    "footer_about": "HyzenProについて",
+    "footer_advertise": "広告掲載",
+    "footer_privacy": "プライバシーポリシー",
+    "footer_terms": "利用規約",
+    "footer_privacy_short": "プライバシー",
+    "footer_terms_short": "利用規約",
+    "footer_contact": "お問い合わせ",
+    "footer_submit_short": "ツール提出",
+    "footer_tagline": "クリエイター、マーケター、開発者、小規模チーム向けの最高のAIツールの独立したレビューと並べ替え比較。リーダー資本 — 決してペイ・トゥ・プレイではありません。"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Simplificando a IA para todos"
+  },
+  "nav": {
+    "home": "Início",
+    "tools": "Ferramentas de IA",
+    "blog": "Blog",
+    "compare": "Comparar",
+    "about": "Sobre nós",
+    "contact": "Contato",
+    "categories": "Categorias",
+    "find_tools": "Encontrar ferramentas",
+    "submit_tool": "Enviar ferramenta IA",
+    "popular_categories": "Categorias populares",
+    "discover": "Descobrir",
+    "all_tools": "Todas as ferramentas",
+    "all_tools_desc": "Navegar pelo diretório completo",
+    "find_tools_desc": "Participar do questionário de seleção guiada",
+    "video_tools": "Ferramentas de vídeo IA",
+    "video_tools_desc": "Editores, geradores, legendas",
+    "writing_tools": "Ferramentas de escrita IA",
+    "writing_tools_desc": "Conteúdo, cópias e redação SEO",
+    "coding_tools": "Ferramentas de programação IA",
+    "coding_tools_desc": "Assistentes para desenvolvedores",
+    "image_tools": "Ferramentas de imagem IA",
+    "image_tools_desc": "Geradores de arte, editores",
+    "automation_tools": "Automação IA",
+    "automation_tools_desc": "Automação de fluxos de trabalho e tarefas",
+    "from_the_blog": "Do blog",
+    "latest_insights": "Últimas informações sobre ferramentas IA",
+    "read_article": "Ler artigo"
+  },
+  "homepage": {
+    "hero_title": "Encontre as melhores ferramentas de IA",
+    "hero_subtitle": "Avaliações independentes, comparações lado a lado e orientação prática de compra para criadores, marketeers e pequenas equipes.",
+    "trending": "Em alta",
+    "featured": "Destaque",
+    "categories": "Categorias",
+    "guides": "Últimos guias",
+    "faq": "Perguntas frequentes",
+    "newsletter": "Newsletter",
+    "quiz_cta": "Não sabe por onde começar? Faça o questionário.",
+    "quiz_button": "Iniciar questionário",
+    "how_we_review": "Como avaliamos",
+    "no_fluff": "Sem enrolação, apenas fatos",
+    "browse_categories": "Explorar categorias",
+    "pick_category": "Escolha uma categoria para explorar",
+    "use_cases_title": "Casos de uso",
+    "use_cases_subtitle": "Veja como as equipes usam essas ferramentas",
+    "head_to_head": "Cara a cara",
+    "editors_pick": "Escolha do editor",
+    "latest_guides": "Últimos guias",
+    "long_reads": "Leituras longas",
+    "changelog": "Registro de alterações",
+    "last_30_days": "Últimos 30 dias",
+    "stats_tools": "Ferramentas avaliadas",
+    "stats_guides": "Guias publicados",
+    "stats_categories": "Categorias",
+    "faq_title": "Perguntas frequentes",
+    "faq_subtitle": "Tudo o que você precisa saber",
+    "newsletter_title": "Fique por dentro",
+    "newsletter_subtitle": "Receba as últimas avaliações e guias de ferramentas de IA no seu e-mail.",
+    "email_placeholder": "Digite seu e-mail",
+    "footer_description": "Avaliações e comparações independentes de ferramentas de IA para ajudá-lo a tomar decisões melhores.",
+    "all_rights": "Todos os direitos reservados.",
+    "independent": "Independente e imparcial",
+    "review_steps": {
+      "test": {
+        "title": "Testar",
+        "desc": "Usamos cada ferramenta em um projeto real por pelo menos uma semana."
+      },
+      "score": {
+        "title": "Pontuação",
+        "desc": "Preço, UX, qualidade do resultado, suporte — pontuados em comparação com os concorrentes."
+      },
+      "publish": {
+        "title": "Publicar",
+        "desc": "Veredicto honesto com prós, contras e para quem realmente é."
+      }
+    },
+    "category_names": {
+      "video": "Ferramentas de Vídeo IA",
+      "writing": "Ferramentas de Escrita IA",
+      "coding": "Ferramentas de Programação IA",
+      "automation": "Automação IA",
+      "image": "Ferramentas de Imagem IA",
+      "all": "Todas as Ferramentas"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Criadores",
+        "title": "Criadores e YouTubers",
+        "desc": "Legendas, edição, miniaturas e locuções — o stack que realmente produz vídeos."
+      },
+      "marketing": {
+        "role": "Marketing",
+        "title": "Marketers e Crescimento",
+        "desc": "De escrita SEO a criatividade para anúncios, encontre ferramentas testadas em campanhas reais, não em demonstrações."
+      },
+      "developers": {
+        "role": "Desenvolvedores",
+        "title": "Desenvolvedores e Hackers Individuais",
+        "desc": "Copilotos de código, agentes e ferramentas de desenvolvimento classificados pelo custo real em escala."
+      },
+      "founders": {
+        "role": "Fundadores",
+        "title": "Fundadores e Pequenas Equipes",
+        "desc": "Substitua 3 assinaturas SaaS por 1 fluxo de trabalho IA — sem surpresas de lock-in."
+      },
+      "education": {
+        "role": "Educação",
+        "title": "Estudantes e Educadores",
+        "desc": "Níveis gratuitos, companheiros de estudo e auxílios de escrita que não vão te colocar em problemas."
+      },
+      "agencies": {
+        "role": "Agências",
+        "title": "Agências e Consultorias",
+        "desc": "Ferramentas seguras para clientes com planos de equipe, controles de dados e opções de exportação adequadas."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Programação agêntica vs fluxos de trabalho de terminal primeiro",
+      "sonnet_vs_glm": "Qualidade quase insigne vs custo de peso aberto",
+      "fable_vs_mythos": "Mesmos pesos, diferentes níveis de acesso"
+    }
+  },
+  "common": {
+    "read_more": "Ler mais",
+    "view_all": "Ver tudo",
+    "loading": "Carregando...",
+    "error": "Algo deu errado",
+    "search": "Pesquisar",
+    "subscribe": "Inscrever-se",
+    "free": "Grátis",
+    "paid": "Pago",
+    "vs": "vs",
+    "open_comparison": "Abrir comparação",
+    "build_own": "Criar a sua",
+    "read_review": "Ler avaliação",
+    "visit": "Visitar",
+    "all_tools": "Todas as ferramentas",
+    "start_quiz": "Iniciar questionário",
+    "see_picks": "Ver seleções",
+    "listed_on": "Listado em",
+    "all_rights": "Todos os direitos reservados. As classificações de ferramentas IA são baseadas em testes independentes.",
+    "independent": "HyzenPro é uma publicação independente. Nomes de marcas e logotipos são propriedade de seus respectivos donos.",
+    "footer_ai_tools": "Ferramentas IA",
+    "footer_compare": "Comparar",
+    "footer_resources": "Recursos",
+    "footer_company": "Empresa",
+    "footer_side_by_side": "Comparação lado a lado",
+    "footer_find_quiz": "Quiz de seleção",
+    "footer_editors_choice": "Escolha do editor",
+    "footer_buyers_quiz": "Quiz do comprador",
+    "footer_how_we_review": "Como avaliamos",
+    "footer_submit": "Enviar ferramenta IA",
+    "footer_about": "Sobre o HyzenPro",
+    "footer_advertise": "Publicidade",
+    "footer_privacy": "Política de Privacidade",
+    "footer_terms": "Termos de Serviço",
+    "footer_privacy_short": "Privacidade",
+    "footer_terms_short": "Termos",
+    "footer_contact": "Contato",
+    "footer_submit_short": "Enviar",
+    "footer_tagline": "Avaliações e comparações independentes das melhores ferramentas IA para criadores, profissionais de marketing, desenvolvedores e pequenas equipes. Financiado pelos leitores — nunca pay-to-play."
+  }
+}

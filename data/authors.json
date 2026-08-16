@@ -1,0 +1,87 @@
+{
+    "authors": [
+        {
+            "slug": "ali-malik",
+            "name": "Ali Malik",
+            "role": "AI Tools Editor",
+            "avatar": "",
+            "bio": "Ali Malik reviews AI software for creators, marketers, and small teams. His HyzenPro coverage focuses on hands-on workflow testing, pricing clarity, practical limitations, and how each tool fits into a real production stack.",
+            "social": {
+                "twitter": "",
+                "linkedin": "",
+                "website": "https://hyzenpro.com/about-us/"
+            },
+            "verified": true,
+            "expertise": [
+                "AI Tools",
+                "AI Marketing",
+                "Creator Workflows"
+            ]
+        },
+        {
+            "slug": "rana-aqib",
+            "name": "Rana Aqib",
+            "role": "AI Workflow Researcher",
+            "avatar": "",
+            "bio": "Rana Aqib covers AI automation, video tools, coding assistants, and emerging productivity software. His reviews emphasize repeatable testing, buyer tradeoffs, and clear recommendations for different user types.",
+            "social": {
+                "twitter": "",
+                "linkedin": "",
+                "website": "https://hyzenpro.com/about-us/"
+            },
+            "verified": true,
+            "expertise": [
+                "AI Automation",
+                "AI Coding Tools",
+                "Productivity Software"
+            ]
+        },
+        {
+            "slug": "hyzenpro-team",
+            "name": "HyzenPro Team",
+            "role": "Editorial Team",
+            "avatar": "",
+            "bio": "The HyzenPro team consists of AI enthusiasts, tech experts, and professional reviewers dedicated to providing accurate, unbiased reviews of AI tools.",
+            "social": {
+                "twitter": "https://twitter.com/hyzenpro",
+                "linkedin": ""
+            },
+            "verified": true,
+            "expertise": [
+                "AI Tools",
+                "Technology",
+                "Software Reviews"
+            ]
+        },
+        {
+            "slug": "admin",
+            "name": "HyzenPro Admin",
+            "role": "Chief Editor",
+            "avatar": "",
+            "bio": "Leading the HyzenPro editorial team with years of experience in AI and technology journalism.",
+            "social": {
+                "twitter": "",
+                "linkedin": ""
+            },
+            "verified": true,
+            "expertise": [
+                "AI Tools",
+                "Machine Learning",
+                "Tech Reviews"
+            ]
+        }
+    ],
+    "_instructions": {
+        "how_to_add": "Add new authors to the 'authors' array above",
+        "fields": {
+            "slug": "Unique identifier matching WordPress author slug",
+            "name": "Display name",
+            "role": "Job title or role",
+            "avatar": "Optional: URL to avatar image (leave empty for auto-generated)",
+            "bio": "Short biography",
+            "social": "Social media links",
+            "verified": "true/false for verified badge",
+            "expertise": "Array of expertise areas"
+        }
+    }
+}

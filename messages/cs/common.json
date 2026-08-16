@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Zjednodušujeme AI pro každého"
+  },
+  "nav": {
+    "home": "Domů",
+    "tools": "AI nástroje",
+    "blog": "Blog",
+    "compare": "Porovnat",
+    "about": "O nás",
+    "contact": "Kontakt",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "Najděte nejlepší AI nástroje",
+    "hero_subtitle": "Nezávislé recenze, srovnání vedle sebe a praktické nákupní rady pro tvůrce, marketéry a malé týmy.",
+    "trending": "Trendy",
+    "featured": "Doporučené",
+    "categories": "Kategorie",
+    "guides": "Nejnovější průvodce",
+    "faq": "Často kladené otázky",
+    "newsletter": "Newsletter",
+    "quiz_cta": "Nevíte, kde začít? Udělejte si kvíz.",
+    "quiz_button": "Spustit kvíz",
+    "how_we_review": "Jak testujeme",
+    "no_fluff": "Žádné plané řeči, jen fakta",
+    "browse_categories": "Procházet kategorie",
+    "pick_category": "Vyberte kategorii k prozkoumání",
+    "use_cases_title": "Případy použití",
+    "use_cases_subtitle": "Podívejte se, jak týmy používají tyto nástroje",
+    "head_to_head": "Přímé srovnání",
+    "editors_pick": "Výběr redakce",
+    "latest_guides": "Nejnovější průvodce",
+    "long_reads": "Hloubkové články",
+    "changelog": "Protokol změn",
+    "last_30_days": "Posledních 30 dní",
+    "stats_tools": "Otestovaných nástrojů",
+    "stats_guides": "Publikovaných průvodců",
+    "stats_categories": "Kategorií",
+    "faq_title": "Často kladené otázky",
+    "faq_subtitle": "Vše, co potřebujete vědět",
+    "newsletter_title": "Buďte v obraze",
+    "newsletter_subtitle": "Získejte nejnovější recenze a průvodce AI nástroji přímo do své schránky.",
+    "email_placeholder": "Zadejte svůj e-mail",
+    "footer_description": "Nezávislé recenze a srovnání AI nástrojů, které vám pomohou přijímat lepší rozhodnutí.",
+    "all_rights": "Všechna práva vyhrazena.",
+    "independent": "Nezávislé a nestranné",
+    "review_steps": {
+      "test": {
+        "title": "Test",
+        "desc": "Každý nástroj testujeme na reálném projektu alespoň týden."
+      },
+      "score": {
+        "title": "Skóre",
+        "desc": "Cena, UX, kvalita výstupu, podpora — hodnoceno vůči konkurentům."
+      },
+      "publish": {
+        "title": "Publikovat",
+        "desc": "Upřímný verdikt s klady, zápory a pro koho je skutečně určen."
+      }
+    },
+    "category_names": {
+      "video": "AI video nástroje",
+      "writing": "AI psací nástroje",
+      "coding": "AI kódovací nástroje",
+      "automation": "AI automatizace",
+      "image": "AI obrazové nástroje",
+      "all": "Všechny nástroje"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Tvořitelé",
+        "title": "Tvořitelé & YouTuberi",
+        "desc": "Titulky, střih, náhledy a dabing — sada, která skutečně produkuje videa."
+      },
+      "marketing": {
+        "role": "Marketing",
+        "title": "Marketéři & Růst",
+        "desc": "Od SEO psaní po reklamní kreativitu, najděte nástroje otestované na reálných kampaních, ne na demech."
+      },
+      "developers": {
+        "role": "Vývojáři",
+        "title": "Vývojáři & Indie Hackeři",
+        "desc": "Kódovací pomocníci, agenti a vývojové nástroje ohodnocené podle skutečných nákladů při škálování."
+      },
+      "founders": {
+        "role": "Zakladatelé",
+        "title": "Zakladatelé & Malé týmy",
+        "desc": "Nahraďte 3 SaaS předplatná 1 AI workflow — bez překvapení s uzamčením."
+      },
+      "education": {
+        "role": "Vzdělávání",
+        "title": "Studenti & Pedagogové",
+        "desc": "Bezplatné úrovně, studijní pomocníci a psací nástroje, které vás nedostanou do potíží."
+      },
+      "agencies": {
+        "role": "Agentury",
+        "title": "Agentury & Poradenství",
+        "desc": "Pro klienty bezpečné nástroje s týmovými plány, řízením dat a odpovídajícími možnostmi exportu."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Agentní kódování vs terminálem řízené pracovní postupy",
+      "sonnet_vs_glm": "Téměř vlajková kvalita vs open-weight náklady",
+      "fable_vs_mythos": "Stejné váhy, různé úrovně přístupu"
+    }
+  },
+  "common": {
+    "read_more": "Přečíst více",
+    "view_all": "Zobrazit vše",
+    "loading": "Načítání...",
+    "error": "Něco se pokazilo",
+    "search": "Hledat",
+    "subscribe": "Přihlásit se",
+    "free": "Zdarma",
+    "paid": "Placené",
+    "vs": "vs",
+    "open_comparison": "Otevřít srovnání",
+    "build_own": "Vytvořte si vlastní",
+    "read_review": "Přečíst recenzi",
+    "visit": "Navštívit",
+    "all_tools": "Všechny nástroje",
+    "start_quiz": "Spustit kvíz",
+    "see_picks": "Zobrazit výběry",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
+  }
+}

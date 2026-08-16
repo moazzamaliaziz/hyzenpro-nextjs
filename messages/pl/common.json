@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Upraszczamy AI dla każdego"
+  },
+  "nav": {
+    "home": "Strona główna",
+    "tools": "Narzędzia AI",
+    "blog": "Blog",
+    "compare": "Porównaj",
+    "about": "O nas",
+    "contact": "Kontakt",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "Znajdź najlepsze narzędzia AI",
+    "hero_subtitle": "Niezależne recenzje, porównania obok siebie i praktyczne porady zakupowe dla twórców, marketerów i małych zespołów.",
+    "trending": "Popularne",
+    "featured": "Polecane",
+    "categories": "Kategorie",
+    "guides": "Najnowsze poradniki",
+    "faq": "Najczęściej zadawane pytania",
+    "newsletter": "Newsletter",
+    "quiz_cta": "Nie wiesz, od czego zacząć? Rozwiąż quiz.",
+    "quiz_button": "Rozpocznij quiz",
+    "how_we_review": "Jak testujemy",
+    "no_fluff": "Bez ściemy, same fakty",
+    "browse_categories": "Przeglądaj kategorie",
+    "pick_category": "Wybierz kategorię do odkrycia",
+    "use_cases_title": "Przypadki użycia",
+    "use_cases_subtitle": "Zobacz, jak zespoły korzystają z tych narzędzi",
+    "head_to_head": "Bezpośrednie porównanie",
+    "editors_pick": "Wybór redakcji",
+    "latest_guides": "Najnowsze poradniki",
+    "long_reads": "Długie artykuły",
+    "changelog": "Dziennik zmian",
+    "last_30_days": "Ostatnie 30 dni",
+    "stats_tools": "Przetestowanych narzędzi",
+    "stats_guides": "Opublikowanych poradników",
+    "stats_categories": "Kategorii",
+    "faq_title": "Najczęściej zadawane pytania",
+    "faq_subtitle": "Wszystko, co musisz wiedzieć",
+    "newsletter_title": "Bądź na bieżąco",
+    "newsletter_subtitle": "Otrzymuj najnowsze recenzje i poradniki dotyczące narzędzi AI prosto do swojej skrzynki.",
+    "email_placeholder": "Wpisz swój adres e-mail",
+    "footer_description": "Niezależne recenzje i porównania narzędzi AI, które pomogą Ci podejmować lepsze decyzje.",
+    "all_rights": "Wszelkie prawa zastrzeżone.",
+    "independent": "Niezależne i obiektywne",
+    "review_steps": {
+      "test": {
+        "title": "Test",
+        "desc": "Testujemy każde narzędzie na prawdziwym projekcie przez co najmniej tydzień."
+      },
+      "score": {
+        "title": "Ocena",
+        "desc": "Cena, UX, jakość wyjścia, wsparcie — oceniane w porównaniu z konkurentami."
+      },
+      "publish": {
+        "title": "Publikacja",
+        "desc": "Uczciwy werdykt z zaletami, wadami i dla kogo jest naprawdę przeznaczony."
+      }
+    },
+    "category_names": {
+      "video": "Narzędzia AI do wideo",
+      "writing": "Narzędzia AI do pisania",
+      "coding": "Narzędzia AI do kodowania",
+      "automation": "Automatyzacja AI",
+      "image": "Narzędzia AI do obrazów",
+      "all": "Wszystkie narzędzia"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Twórcy",
+        "title": "Twórcy i YouTuberzy",
+        "desc": "Napisy, edycja, miniaturki i lektor — zestaw, który naprawdę produkuje filmy."
+      },
+      "marketing": {
+        "role": "Marketing",
+        "title": "Marketerzy i wzrost",
+        "desc": "Od pisania SEO po kreatywność reklamową — znajdź narzędzia przetestowane w prawdziwych kampaniach, nie w demonstracjach."
+      },
+      "developers": {
+        "role": "Deweloperzy",
+        "title": "Deweloperzy i indie hackerzy",
+        "desc": "Copilota kodowania, agenci i narzędzia deweloperskie ocenione pod kątem rzeczywistych kosztów w skali."
+      },
+      "founders": {
+        "role": "Założyciele",
+        "title": "Założyciele i małe zespoły",
+        "desc": "Zamień 3 subskrypcje SaaS na 1 przepływ pracy AI — bez niespodzianek z blokowaniem."
+      },
+      "education": {
+        "role": "Edukacja",
+        "title": "Studenci i edukatorzy",
+        "desc": "Darmowe plany, towarzysze nauki i narzędzia do pisania, które nie sprawią kłopotów."
+      },
+      "agencies": {
+        "role": "Agencje",
+        "title": "Agencje i konsultingi",
+        "desc": "Bezpieczne dla klientów narzędzia z planami zespołowymi, kontrolą danych i odpowiednimi opcjami eksportu."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Kodowanie agentowe vs przepływy pracy terminal-first",
+      "sonnet_vs_glm": "Jakość bliska flagowej vs koszt open-weight",
+      "fable_vs_mythos": "Te same wagi, różne poziomy dostępu"
+    }
+  },
+  "common": {
+    "read_more": "Czytaj więcej",
+    "view_all": "Zobacz wszystko",
+    "loading": "Ładowanie...",
+    "error": "Coś poszło nie tak",
+    "search": "Szukaj",
+    "subscribe": "Subskrybuj",
+    "free": "Darmowe",
+    "paid": "Płatne",
+    "vs": "vs",
+    "open_comparison": "Otwórz porównanie",
+    "build_own": "Stwórz własne",
+    "read_review": "Przeczytaj recenzję",
+    "visit": "Odwiedź",
+    "all_tools": "Wszystkie narzędzia",
+    "start_quiz": "Rozpocznij quiz",
+    "see_picks": "Zobacz wybory",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
+  }
+}

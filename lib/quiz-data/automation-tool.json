@@ -1,0 +1,220 @@
+{
+  "category": "automation-tool",
+  "title": "AI Automation Tool Matcher",
+  "subtitle": "Find the workflow builder that actually fits how your team works.",
+  "description": "Answer a few focused questions and we will point you to the automation platform that matches your setup, budget, and technical comfort level.",
+  "cardDescription": "Compare automation tools based on complexity, hosting style, flexibility, and budget in about a minute.",
+  "estimatedTime": "60 seconds",
+  "toolCount": 4,
+  "icon": "zap",
+  "trustItems": [
+    "Shortlisted from live HyzenPro reviews",
+    "Built for founders, operators, and agencies",
+    "No signup required"
+  ],
+  "intro": [
+    "Automation tools can look interchangeable until you are the one building the workflow. We found that the real gap shows up when your use case gets more complex, your team grows, or you need cleaner control over data and handoffs.",
+    "This matcher focuses on the tradeoffs that matter in practice: visual simplicity, logic depth, hosting preference, and how much control you actually want after week one."
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "How technical is the team that will build the workflows?",
+      "helper": "Choose the option that matches the main operator, not the most technical person in the company.",
+      "options": [
+        { "id": "beginner", "label": "Beginner-friendly", "description": "We want a visual builder that feels obvious on day one." },
+        { "id": "mixed", "label": "Mixed team", "description": "Some people are technical, but most workflows should still be easy to maintain." },
+        { "id": "technical", "label": "Technical operators", "description": "We are comfortable with APIs, logic branches, and self-hosted setups." }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": "What kind of automations are you trying to build most often?",
+      "helper": "Think about the workflows that will drive the most value this quarter.",
+      "options": [
+        { "id": "simple", "label": "Simple app-to-app tasks", "description": "Lead routing, alerts, spreadsheet updates, and quick team automations." },
+        { "id": "multi-step", "label": "Multi-step business workflows", "description": "Approval chains, conditional branching, and cross-functional handoffs." },
+        { "id": "agentic", "label": "AI-heavy agent workflows", "description": "Automations that combine LLMs, context, and autonomous task execution." }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": "Which hosting model fits your company best?",
+      "helper": "This usually decides whether ease or control should win.",
+      "options": [
+        { "id": "cloud", "label": "Managed cloud", "description": "We want the fastest setup and the least infrastructure work." },
+        { "id": "hybrid", "label": "Flexible either way", "description": "Cloud is fine, but we do not want to be boxed in later." },
+        { "id": "self-hosted", "label": "Self-hosted or private", "description": "We want tighter control over data, security, or custom infrastructure." }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": "Which tradeoff matters most right now?",
+      "helper": "Pick the factor that would make you switch tools six months from now.",
+      "options": [
+        { "id": "speed", "label": "Fastest setup", "description": "We need working automations quickly, even if customization is lighter." },
+        { "id": "flexibility", "label": "Deep flexibility", "description": "We want the tool that can handle messy workflows without fighting us." },
+        { "id": "ai", "label": "Built around AI use cases", "description": "We want automations that feel designed for AI agents and assistants." }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": "What budget range feels realistic?",
+      "helper": "Use the real operating budget, not the ideal one.",
+      "options": [
+        { "id": "lean", "label": "Keep it lean", "description": "Low monthly cost matters because we are still validating the workflow." },
+        { "id": "growth", "label": "Mid-market spend", "description": "We will pay more if the platform saves serious time." },
+        { "id": "premium", "label": "Enterprise-ready", "description": "Reliability and control matter more than squeezing cost." }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "make",
+      "toolSlug": "make",
+      "name": "Make",
+      "reviewUrl": "/ai-tools-directory/ai-marketing-tools/make/",
+      "websiteUrl": "https://www.make.com/",
+      "toolCategorySlug": "ai-marketing-tools",
+      "bestFor": "Operations teams that need visual workflows without giving up advanced logic.",
+      "standout": "Scenario builder with strong branching, routing, and app coverage.",
+      "whyItMatches": "When we tested automation builders, Make consistently hit the sweet spot between approachable UX and genuinely deep workflow control.",
+      "scores": {
+        "q1:beginner": 4,
+        "q1:mixed": 5,
+        "q1:technical": 4,
+        "q2:simple": 3,
+        "q2:multi-step": 5,
+        "q2:agentic": 4,
+        "q3:cloud": 5,
+        "q3:hybrid": 4,
+        "q3:self-hosted": 1,
+        "q4:speed": 4,
+        "q4:flexibility": 5,
+        "q4:ai": 3,
+        "q5:lean": 3,
+        "q5:growth": 5,
+        "q5:premium": 4
+      }
+    },
+    {
+      "id": "zapier",
+      "toolSlug": "zapier",
+      "name": "Zapier",
+      "reviewUrl": "/ai-tools-directory/ai-automation-tools/zapier/",
+      "websiteUrl": "https://zapier.com/",
+      "toolCategorySlug": "ai-automation-tools",
+      "bestFor": "Teams that want the quickest path from idea to live automation.",
+      "standout": "Huge integration catalog and easy onboarding for non-technical teams.",
+      "whyItMatches": "We found Zapier is still the easiest recommendation when speed matters more than edge-case logic or hosting control.",
+      "scores": {
+        "q1:beginner": 5,
+        "q1:mixed": 4,
+        "q1:technical": 2,
+        "q2:simple": 5,
+        "q2:multi-step": 3,
+        "q2:agentic": 3,
+        "q3:cloud": 5,
+        "q3:hybrid": 2,
+        "q3:self-hosted": 0,
+        "q4:speed": 5,
+        "q4:flexibility": 2,
+        "q4:ai": 3,
+        "q5:lean": 2,
+        "q5:growth": 4,
+        "q5:premium": 3
+      }
+    },
+    {
+      "id": "n8n",
+      "toolSlug": "n8n",
+      "name": "n8n",
+      "reviewUrl": "/ai-tools-directory/ai-automation-tools/n8n/",
+      "websiteUrl": "https://n8n.io/",
+      "toolCategorySlug": "ai-automation-tools",
+      "bestFor": "Technical teams that want self-hosting, custom logic, and better data control.",
+      "standout": "Flexible open workflow engine with strong AI and code-level extensibility.",
+      "whyItMatches": "In our experience, n8n becomes the right answer when control, self-hosting, or complex custom behavior matters more than beginner simplicity.",
+      "scores": {
+        "q1:beginner": 1,
+        "q1:mixed": 3,
+        "q1:technical": 5,
+        "q2:simple": 2,
+        "q2:multi-step": 5,
+        "q2:agentic": 5,
+        "q3:cloud": 2,
+        "q3:hybrid": 4,
+        "q3:self-hosted": 5,
+        "q4:speed": 1,
+        "q4:flexibility": 5,
+        "q4:ai": 5,
+        "q5:lean": 4,
+        "q5:growth": 4,
+        "q5:premium": 5
+      }
+    },
+    {
+      "id": "lindy-ai",
+      "toolSlug": "lindy-ai",
+      "name": "Lindy",
+      "reviewUrl": "/ai-tools-directory/ai-automation-tools/lindy-ai/",
+      "websiteUrl": "https://www.lindy.ai/",
+      "toolCategorySlug": "ai-automation-tools",
+      "bestFor": "Teams experimenting with AI agents, inbox automation, and assistant-led workflows.",
+      "standout": "Agent-first automation experience built around AI task execution.",
+      "whyItMatches": "Lindy feels most compelling when the workflow is not just app automation, but an AI teammate handling real steps for you.",
+      "scores": {
+        "q1:beginner": 3,
+        "q1:mixed": 4,
+        "q1:technical": 3,
+        "q2:simple": 2,
+        "q2:multi-step": 3,
+        "q2:agentic": 5,
+        "q3:cloud": 5,
+        "q3:hybrid": 2,
+        "q3:self-hosted": 0,
+        "q4:speed": 3,
+        "q4:flexibility": 2,
+        "q4:ai": 5,
+        "q5:lean": 2,
+        "q5:growth": 4,
+        "q5:premium": 3
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is the best AI automation tool for beginners?",
+      "answer": "For most beginner teams, Zapier is still the easiest place to start because setup is fast and the interface is easier to understand. Make becomes the better fit once workflows need more branches, routers, or deeper logic."
+    },
+    {
+      "question": "Is Make better than Zapier for complex workflows?",
+      "answer": "Usually yes. We found Make handles branching, mapping, and multi-step logic more comfortably once workflows become more operational than just app-to-app glue."
+    },
+    {
+      "question": "When should I choose n8n instead of a hosted tool?",
+      "answer": "n8n makes more sense when your team wants self-hosting, deeper customization, or tighter control over data. It asks more from the operator, but it gives more room to grow."
+    },
+    {
+      "question": "Which automation platform is best for AI agents?",
+      "answer": "If AI-led workflows are the main goal, n8n and Lindy usually rise to the top. Lindy is more agent-centric out of the box, while n8n gives technical teams more control under the hood."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "label": "Read our Make review",
+      "href": "/ai-tools-directory/ai-marketing-tools/make/",
+      "description": "See where Make wins, where it slows down, and who should actually buy it."
+    },
+    {
+      "label": "Compare Zapier alternatives",
+      "href": "/ai-tools-directory/ai-automation-tools/zapier/",
+      "description": "Use this if you want the fastest setup but need to check whether the cost still makes sense."
+    },
+    {
+      "label": "Review n8n for self-hosted workflows",
+      "href": "/ai-tools-directory/ai-automation-tools/n8n/",
+      "description": "Best next read if privacy, infrastructure control, or complex agents matter."
+    }
+  ]
+}

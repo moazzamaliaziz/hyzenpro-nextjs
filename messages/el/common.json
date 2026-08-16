@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Απλοποιούμε την τεχνητή νοημοσύνη για όλους"
+  },
+  "nav": {
+    "home": "Αρχική",
+    "tools": "Εργαλεία AI",
+    "blog": "Ιστολόγιο",
+    "compare": "Σύγκριση",
+    "about": "Σχετικά",
+    "contact": "Επικοινωνία",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "Βρείτε τα καλύτερα εργαλεία AI",
+    "hero_subtitle": "Ανεξάρτητες κριτικές, συγκρίσεις πλάιν-πλάιν και πρακτική οδηγία αγοράς για δημιουργούς, μάρκετερς και μικρές ομάδες.",
+    "trending": "Τάσεις",
+    "featured": "Προτεινόμενα",
+    "categories": "Κατηγορίες",
+    "guides": "Τελευταίοι οδηγοί",
+    "faq": "Συχνές ερωτήσεις",
+    "newsletter": "Ενημερωτικό",
+    "quiz_cta": "Δεν ξέρετε από πού να ξεκινήσετε; Κάντε το κουίζ.",
+    "quiz_button": "Ξεκινήστε το κουίζ",
+    "how_we_review": "Πώς αξιολογούμε",
+    "no_fluff": "Χωρίς γεμισμό, μόνο γεγονότα",
+    "browse_categories": "Περιηγηθείτε στις κατηγορίες",
+    "pick_category": "Επιλέξτε μια κατηγορία για εξερεύνηση",
+    "use_cases_title": "Περιπτώσεις χρήσης",
+    "use_cases_subtitle": "Δείτε πώς οι ομάδες χρησιμοποιούν αυτά τα εργαλεία",
+    "head_to_head": "Άμεση σύγκριση",
+    "editors_pick": "Επιλογή σύνταξης",
+    "latest_guides": "Τελευταίοι οδηγοί",
+    "long_reads": "Βαθιά άρθρα",
+    "changelog": "Αρχείο αλλαγών",
+    "last_30_days": "Τελευταίες 30 ημέρες",
+    "stats_tools": "Εργαλεία που αξιολογήθηκαν",
+    "stats_guides": "Οδηγοί που δημοσιεύθηκαν",
+    "stats_categories": "Κατηγορίες",
+    "faq_title": "Συχνές ερωτήσεις",
+    "faq_subtitle": "Τα πάντα που χρειάζεστε να ξέρετε",
+    "newsletter_title": "Παραμείνετε ενήμεροι",
+    "newsletter_subtitle": "Λάβετε τις τελευταίες κριτικές και οδηγούς εργαλείων AI απευθείας στο email σας.",
+    "email_placeholder": "Εισάγετε το email σας",
+    "footer_description": "Ανεξάρτητες κριτικές και συγκρίσεις εργαλείων AI για να σας βοηθήσουν να λαμβάνετε καλύτερες αποφάσεις.",
+    "all_rights": "Με επιφύλαξη παντός δικαιώματος.",
+    "independent": "Ανεξάρτητο και αμερόληπτο",
+    "review_steps": {
+      "test": {
+        "title": "Δοκιμή",
+        "desc": "Χρησιμοποιούμε κάθε εργαλείο σε πραγματικό έργο για τουλάχιστον μια εβδομάδα."
+      },
+      "score": {
+        "title": "Βαθμολογία",
+        "desc": "Τιμή, εμπειρία χρήστη, ποιότητα εξόδου, υποστήριξη — αξιολογείται σε σχέση με τους ανταγωνιστές."
+      },
+      "publish": {
+        "title": "Δημοσίευση",
+        "desc": "Ειλικρινής κρίση με πλεονεκτήματα, μειονεκτήματα και για ποιον πραγματικά προορίζεται."
+      }
+    },
+    "category_names": {
+      "video": "Εργαλεία Βίντεο AI",
+      "writing": "Εργαλεία Γραφής AI",
+      "coding": "Εργαλεία Προγραμματισμού AI",
+      "automation": "Αυτοματοποίηση AI",
+      "image": "Εργαλεία Εικόνας AI",
+      "all": "Όλα τα Εργαλεία"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Δημιουργοί",
+        "title": "Δημιουργοί & YouTubers",
+        "desc": "Υπότιτλοι, επεξεργασία, μικρογραφίες και φωνή — το σύνολο που παράγει πραγματικά βίντεο."
+      },
+      "marketing": {
+        "role": "Μάρκετινγκ",
+        "title": "Μάρκετερς & Ανάπτυξη",
+        "desc": "Από γραφή SEO έως δημιουργικότητα διαφημίσεων, βρείτε εργαλεία δοκιμασμένα σε πραγματικές καμπάνιες, όχι σε demos."
+      },
+      "developers": {
+        "role": "Προγραμματιστές",
+        "title": "Προγραμματιστές & Indie Hackers",
+        "desc": "Βοηθοί προγραμματισμού, πράκτορες και εργαλεία ανάπτυξης κατατεταγμένα κατά το πραγματικό κόστος σε κλίμακα."
+      },
+      "founders": {
+        "role": "Ιδρυτές",
+        "title": "Ιδρυτές & Μικρές Ομάδες",
+        "desc": "Αντικαταστήστε 3 συνδρομές SaaS με 1 ροή εργασίας AI — χωρίς εκπλήξεις κλειδώματος."
+      },
+      "education": {
+        "role": "Εκπαίδευση",
+        "title": "Φοιτητές & Εκπαιδευτικοί",
+        "desc": "Δωρεάν επίπεδα, σύντροφοι μελέτης και εργαλεία γραφής που δεν θα σας φέρουν σε δυσκολίες."
+      },
+      "agencies": {
+        "role": "Πρακτορεία",
+        "title": "Πρακτορεία & Σύμβουλοι",
+        "desc": "Ασφαλή εργαλεία για πελάτες με ομαδικά πλάνα, έλεγχο δεδομένων και κατάλληλες επιλογές εξαγωγής."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Πράκτορας κωδικοποίησης vs ροές εργασίας τερματικού-πρώτα",
+      "sonnet_vs_glm": "Ποιότητα σχεδόν σημαίας vs κόστος open-weight",
+      "fable_vs_mythos": "Ίδια βάρη, διαφορετικά επίπεδα πρόσβασης"
+    }
+  },
+  "common": {
+    "read_more": "Περισσότερα",
+    "view_all": "Προβολή όλων",
+    "loading": "Φόρτωση...",
+    "error": "Κάτι πήγε στραβά",
+    "search": "Αναζήτηση",
+    "subscribe": "Εγγραφή",
+    "free": "Δωρεάν",
+    "paid": "Επί πληρωμή",
+    "vs": "vs",
+    "open_comparison": "Άνοιγμα σύγκρισης",
+    "build_own": "Δημιουργήστε το δικό σας",
+    "read_review": "Διαβάστε κριτική",
+    "visit": "Επισκεφθείτε",
+    "all_tools": "Όλα τα εργαλεία",
+    "start_quiz": "Ξεκινήστε το κουίζ",
+    "see_picks": "Δείτε τις επιλογές",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
+  }
+}

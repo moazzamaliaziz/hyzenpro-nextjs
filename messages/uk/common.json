@@ -1,0 +1,169 @@
+{
+  "site": {
+    "name": "HyzenPro",
+    "tagline": "Спрощуємо ШІ для кожного"
+  },
+  "nav": {
+    "home": "Головна",
+    "tools": "Інструменти ШІ",
+    "blog": "Блог",
+    "compare": "Порівняти",
+    "about": "Про нас",
+    "contact": "Контакти",
+    "categories": "Categories",
+    "find_tools": "Find Tools",
+    "submit_tool": "Submit AI tool",
+    "popular_categories": "Popular Categories",
+    "discover": "Discover",
+    "all_tools": "All Tools",
+    "all_tools_desc": "Browse the full directory",
+    "find_tools_desc": "Take the guided matcher quiz",
+    "video_tools": "AI Video Tools",
+    "video_tools_desc": "Editors, generators, captions",
+    "writing_tools": "AI Writing Tools",
+    "writing_tools_desc": "Content, copy, and SEO writing",
+    "coding_tools": "AI Coding Tools",
+    "coding_tools_desc": "Assistants for developers",
+    "image_tools": "AI Image Tools",
+    "image_tools_desc": "Art generators, editors",
+    "automation_tools": "AI Automation",
+    "automation_tools_desc": "Workflow and task automation",
+    "from_the_blog": "From the Blog",
+    "latest_insights": "Latest insights on AI tools",
+    "read_article": "Read article"
+  },
+  "homepage": {
+    "hero_title": "Знайдіть найкращі інструменти ШІ",
+    "hero_subtitle": "Незалежні огляди, порівняння поруч та практичні рекомендації для творців, маркетологів і малих команд.",
+    "trending": "У тренді",
+    "featured": "Рекомендовано",
+    "categories": "Категорії",
+    "guides": "Останні путівники",
+    "faq": "Часті питання",
+    "newsletter": "Розсилка",
+    "quiz_cta": "Не знаєте, з чого почати? Пройдіть тест.",
+    "quiz_button": "Почати тест",
+    "how_we_review": "Як ми тестуємо",
+    "no_fluff": "Без води, лише факти",
+    "browse_categories": "Переглянути категорії",
+    "pick_category": "Оберіть категорію для вивчення",
+    "use_cases_title": "Сценарії використання",
+    "use_cases_subtitle": "Подивіться, як команди використовують ці інструменти",
+    "head_to_head": "Порівняння безпосередньо",
+    "editors_pick": "Вибір редакції",
+    "latest_guides": "Останні путівники",
+    "long_reads": "Довгі статті",
+    "changelog": "Журнал змін",
+    "last_30_days": "Останні 30 днів",
+    "stats_tools": "Протестованих інструментів",
+    "stats_guides": "Опублікованих путівників",
+    "stats_categories": "Категорій",
+    "faq_title": "Часті питання",
+    "faq_subtitle": "Все, що вам потрібно знати",
+    "newsletter_title": "Будьте в курсі",
+    "newsletter_subtitle": "Отримуйте останні огляди та путівники по інструментах ШІ прямо на свою пошту.",
+    "email_placeholder": "Введіть ваш email",
+    "footer_description": "Незалежні огляди та порівняння інструментів ШІ, які допоможуть вам приймати кращі рішення.",
+    "all_rights": "Всі права захищені.",
+    "independent": "Незалежно та об'єктивно",
+    "review_steps": {
+      "test": {
+        "title": "Тест",
+        "desc": "Ми використовуємо кожен інструмент на реальному проєкті щонайменше тиждень."
+      },
+      "score": {
+        "title": "Оцінка",
+        "desc": "Ціна, UX, якість виведення, підтримка — оцінюється порівняно з конкурентами."
+      },
+      "publish": {
+        "title": "Публікація",
+        "desc": "Чесний вердикт з плюсами, мінусами і для кого він дійсно призначений."
+      }
+    },
+    "category_names": {
+      "video": "Інструменти відео ШІ",
+      "writing": "Інструменти письма ШІ",
+      "coding": "Інструменти кодування ШІ",
+      "automation": "Автоматизація ШІ",
+      "image": "Інструменти зображень ШІ",
+      "all": "Усі інструменти"
+    },
+    "use_cases": {
+      "creators": {
+        "role": "Творці",
+        "title": "Творці та YouTubери",
+        "desc": "Субтитри, монтаж, мініатюри та озвучення — набір, який дійсно створює відео."
+      },
+      "marketing": {
+        "role": "Маркетинг",
+        "title": "Маркетологи та зростання",
+        "desc": "Від SEO-текстів до рекламного креативу, знайдіть інструменти, перевірені на реальних кампаніях, а не на демо."
+      },
+      "developers": {
+        "role": "Розробники",
+        "title": "Розробники та інді-хакери",
+        "desc": "Кодуючі помічники, агенти та інструменти розробки, оцінені за реальною вартістю при масштабуванні."
+      },
+      "founders": {
+        "role": "Засновники",
+        "title": "Засновники та малі команди",
+        "desc": "Замініть 3 підписки SaaS на 1 робочий процес ШІ — без сюрпризів блокування."
+      },
+      "education": {
+        "role": "Освіта",
+        "title": "Студенти та викладачі",
+        "desc": "Безкоштовні рівні, навчальні помічники та інструменти письма, які не створюватимуть проблем."
+      },
+      "agencies": {
+        "role": "Агенції",
+        "title": "Агенції та консалтинг",
+        "desc": "Безпечні для клієнтів інструменти з командними планами, контролем даних та належними опціями експорту."
+      }
+    },
+    "h2h_verdicts": {
+      "opus_vs_codex": "Агентне кодування vs робочі процеси термінал-перші",
+      "sonnet_vs_glm": "Якість майже флагманська vs вартість відкритої ваги",
+      "fable_vs_mythos": "Однакові ваги, різні рівні доступу"
+    }
+  },
+  "common": {
+    "read_more": "Читати далі",
+    "view_all": "Переглянути все",
+    "loading": "Завантаження...",
+    "error": "Щось пішло не так",
+    "search": "Пошук",
+    "subscribe": "Підписатися",
+    "free": "Безкоштовно",
+    "paid": "Платно",
+    "vs": "vs",
+    "open_comparison": "Відкрити порівняння",
+    "build_own": "Створити своє",
+    "read_review": "Читати огляд",
+    "visit": "Відвідати",
+    "all_tools": "Усі інструменти",
+    "start_quiz": "Почати тест",
+    "see_picks": "Переглянути підбірки",
+    "listed_on": "Listed On",
+    "all_rights": "All rights reserved. AI tool ratings are based on independent testing.",
+    "independent": "HyzenPro is an independent publication. Brand names and logos are property of their respective owners.",
+    "footer_ai_tools": "AI Tools",
+    "footer_compare": "Compare",
+    "footer_resources": "Resources",
+    "footer_company": "Company",
+    "footer_side_by_side": "Side-by-side Compare",
+    "footer_find_quiz": "Find Tools Quiz",
+    "footer_editors_choice": "Editor's choice",
+    "footer_buyers_quiz": "Buyer's quiz",
+    "footer_how_we_review": "How we review",
+    "footer_submit": "Submit AI Tool",
+    "footer_about": "About HyzenPro",
+    "footer_advertise": "Advertise",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_privacy_short": "Privacy",
+    "footer_terms_short": "Terms",
+    "footer_contact": "Contact",
+    "footer_submit_short": "Submit Tool",
+    "footer_tagline": "Independent reviews and side-by-side comparisons of the best AI tools for creators, marketers, developers and small teams. Reader-funded — never pay-to-play."
+  }
+}
