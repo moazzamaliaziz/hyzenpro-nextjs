@@ -66,11 +66,10 @@ export default function Header() {
   const t = useTranslations('nav');
   const tc = useTranslations('common');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const lastScrollY = useRef(0);
+  const scrollSentinelRef = useRef<HTMLDivElement | null>(null);
 
   const localePrefix = locale === 'en' ? '' : `/${locale}`;
 
@@ -122,32 +121,16 @@ export default function Header() {
     pathname?.startsWith('/portal-auth');
 
   useEffect(() => {
-    const onScroll = () => {
-      const currentY = window.scrollY;
-      setIsScrolled(currentY > 8);
+    const sentinel = scrollSentinelRef.current;
+    if (!sentinel) return;
 
-      if (isMenuOpen || openMenu) {
-        setIsHidden(false);
-        lastScrollY.current = currentY;
-        return;
-      }
-
-      const scrollingDown = currentY > lastScrollY.current + 6;
-      const scrollingUp = currentY < lastScrollY.current - 3;
-
-      if (currentY < 72 || scrollingUp) {
-        setIsHidden(false);
-      } else if (scrollingDown) {
-        setIsHidden(true);
-      }
-
-      lastScrollY.current = currentY;
-    };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [isMenuOpen, openMenu]);
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsScrolled(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : '';
@@ -155,6 +138,9 @@ export default function Header() {
   }, [isMenuOpen]);
 
   useEffect(() => {
+    // Route changes must close transient navigation UI; this runs only when
+    // pathname changes, never on scroll or continuous layout events.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMenuOpen(false);
     setOpenMenu(null);
   }, [pathname]);
@@ -188,8 +174,9 @@ export default function Header() {
 
   return (
     <>
+      <div ref={scrollSentinelRef} className={styles.scrollSentinel} aria-hidden="true" />
       <header
-        className={`${styles.header} ${isHidden ? styles.headerHidden : ''}`}
+        className={styles.header}
         role="banner"
         onMouseLeave={handleLeave}
       >
@@ -246,7 +233,7 @@ export default function Header() {
             <Link href={localizedHref('/find-tools/')} className={styles.searchButton} aria-label="Search and find AI tools">
               <Search className={styles.searchIcon} aria-hidden="true" />
             </Link>
-            <Link href={localizedHref('/submit-ai-tool/')} className={styles.ctaButton}>
+            <Link href={localizedHref('/submit-ai-tool/')} className={styles.ctaButton} aria-label={t('submit_tool')}>
               <span>{t('submit_tool')}</span>
               <ArrowUpRight className={styles.ctaIcon} aria-hidden="true" />
             </Link>
@@ -265,13 +252,15 @@ export default function Header() {
           </div>
         </div>
 
-        <div className={styles.megaLayer} aria-hidden={!openMenu}>
+        <div className={styles.megaLayer} aria-hidden={!openMenu} inert={!openMenu}>
           {navItems.filter((item) => item.columns || item.blog).map((item) => {
             const isOpen = openMenu === item.label;
             return (
               <div
                 key={item.label}
                 className={`${styles.megaPanel} ${isOpen ? styles.megaPanelOpen : ''}`}
+                aria-hidden={!isOpen}
+                inert={!isOpen}
                 onMouseEnter={() => handleEnter(item.label)}
               >
                 {item.blog ? (
@@ -331,6 +320,7 @@ export default function Header() {
         id="mobile-menu"
         className={`${styles.drawer} ${isMenuOpen ? styles.drawerOpen : ''}`}
         aria-hidden={!isMenuOpen}
+        inert={!isMenuOpen}
         role="dialog"
         aria-modal="true"
         aria-label="Site navigation"
@@ -373,6 +363,7 @@ export default function Header() {
           <Link
             href={localizedHref('/submit-ai-tool/')}
             className={styles.drawerCta}
+            aria-label={t('submit_tool')}
             onClick={() => setIsMenuOpen(false)}
           >
             {t('submit_tool')}
@@ -380,7 +371,7 @@ export default function Header() {
         </div>
       </div>
 
-      {isMenuOpen && <button className={styles.backdrop} aria-label="Close navigation menu" onClick={() => setIsMenuOpen(false)} />}
+      {isMenuOpen && <button type="button" className={styles.backdrop} aria-label="Close navigation menu" onClick={() => setIsMenuOpen(false)} />}
     </>
   );
 }

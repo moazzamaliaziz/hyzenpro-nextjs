@@ -2,7 +2,9 @@ import { setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import prisma from '@/lib/prisma';
 import { getAlternateLinks, getPostTranslation } from '@/lib/locale-helpers';
+import { getBaseUrl } from '@/lib/utils';
 import { getBlogDisplayTitle, getBlogDisplayExcerpt, getBlogFeaturedImage } from '@/lib/blog-seo';
+import { resolveBlogImageSource } from '@/lib/blog-images';
 import { getSerpFriendlyTitle } from '@/lib/seo-titles';
 import BlogPostPageContent from '@/components/pages/BlogPostPageContent';
 
@@ -32,6 +34,8 @@ export async function generateMetadata({
             : getSerpFriendlyTitle(post.slug, seo?.metaTitle || `${getBlogDisplayTitle(post)} | HyzenPro Blog`);
 
         const description = translation?.excerpt || seo?.metaDescription || getBlogDisplayExcerpt(post) || '';
+        const image = resolveBlogImageSource(seo?.ogImage || getBlogFeaturedImage(post));
+        const imageUrl = image.startsWith('http') ? image : `${getBaseUrl()}${image}`;
 
         const { canonical, languages } = getAlternateLinks(locale, `/blog/${post.slug}`);
 
@@ -46,6 +50,7 @@ export async function generateMetadata({
                 title,
                 description,
                 locale: locale === 'en' ? 'en_US' : locale,
+                images: [imageUrl],
             },
         };
     } catch {

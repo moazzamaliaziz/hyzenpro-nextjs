@@ -38,7 +38,7 @@ const COLORS = {
 };
 
 function BarCell({ value, max, color }: { value: number | null; max: number; color: string }) {
-    if (value === null) return <td className="py-3 px-3 text-sm text-gray-400">—</td>;
+    if (value === null) return <td className="py-3 px-3 text-sm text-gray-700">—</td>;
     const pct = max > 0 ? (value / max) * 100 : 0;
     return (
         <td className="py-3 px-3">
@@ -69,7 +69,7 @@ export default function Fable5Chart() {
         <div ref={ref} className="bg-white border border-gray-200 rounded-xl overflow-hidden my-8">
             <div className="px-6 py-4 border-b border-gray-100">
                 <h3 className="font-heading font-bold text-lg text-gray-900 mb-1">Claude Fable 5 vs. the Competition — Full Benchmark Table</h3>
-                <p className="text-xs text-gray-400">All scores sourced from Anthropic's June 9, 2026 announcement.</p>
+                <p className="text-xs text-gray-700">All scores sourced from Anthropic&apos;s June 9, 2026 announcement.</p>
             </div>
 
             <div className="px-6 py-3 flex gap-4 flex-wrap text-xs font-medium">
@@ -83,7 +83,7 @@ export default function Fable5Chart() {
                 <table className="w-full text-sm min-w-[600px]">
                     <thead>
                         <tr className="border-b-2 border-gray-200">
-                            <th className="text-left text-xs font-semibold text-gray-500 uppercase tracking-wide py-3 px-3 w-[200px]">Benchmark</th>
+                            <th className="text-left text-xs font-semibold text-gray-700 uppercase tracking-wide py-3 px-3 w-[200px]">Benchmark</th>
                             <th className="text-left text-xs font-semibold uppercase tracking-wide py-3 px-3" style={{ color: COLORS.fable }}>Fable 5</th>
                             <th className="text-left text-xs font-semibold uppercase tracking-wide py-3 px-3" style={{ color: COLORS.opus }}>Opus 4.8</th>
                             <th className="text-left text-xs font-semibold uppercase tracking-wide py-3 px-3" style={{ color: COLORS.gpt }}>GPT 5.5</th>
@@ -100,7 +100,7 @@ export default function Fable5Chart() {
                                         <span className="font-semibold text-gray-900">{row.benchmark}</span>
                                         {row.sota && <span className="ml-1.5 inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-sm uppercase" style={{ background: COLORS.fable, color: '#fff' }}>SOTA</span>}
                                         {row.mythos && <span className="ml-1.5 inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-sm uppercase" style={{ background: '#1E3A5F', color: '#fff' }}>MYTHOS</span>}
-                                        <br /><span className="text-xs text-gray-400 font-normal">{row.sub}</span>
+                                        <br /><span className="text-xs text-gray-700 font-normal">{row.sub}</span>
                                     </td>
                                     <BarCell value={row.fable} max={max} color={COLORS.fable} />
                                     <BarCell value={row.opus} max={max} color={COLORS.opus} />
@@ -113,7 +113,7 @@ export default function Fable5Chart() {
                 </table>
             </div>
 
-            <p className="text-xs text-gray-400 px-6 py-4 border-t border-gray-100">
+            <p className="text-xs text-gray-700 px-6 py-4 border-t border-gray-100">
                 * Cybersecurity, Biology, Health benchmarks show a larger gap because Fable 5 includes fallback routing to Opus 4.8 on sensitive inputs. Mythos 5 (no fallback) scores higher. Computer Use top score: Mythos 5 (85.4%) vs Fable 5 (85.0%).
             </p>
         </div>

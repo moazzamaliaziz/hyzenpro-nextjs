@@ -32,6 +32,8 @@ export default function TableOfContents({ items = [] }: TableOfContentsProps) {
             };
         });
 
+        // The heading list is derived from the post DOM once after mount.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setToc(items);
 
         const observer = new IntersectionObserver(
@@ -67,7 +69,7 @@ export default function TableOfContents({ items = [] }: TableOfContentsProps) {
                     >
                         <a
                             href={`#${item.id}`}
-                            className={`text-sm transition-colors hover:text-black ${activeId === item.id ? 'text-black font-bold' : 'text-gray-500'
+                            className={`text-sm transition-colors hover:text-black ${activeId === item.id ? 'text-black font-bold' : 'text-gray-700'
                                 }`}
                         >
                             {item.text}

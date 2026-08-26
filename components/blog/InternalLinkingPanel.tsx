@@ -12,7 +12,7 @@ export default function InternalLinkingPanel({ links }: InternalLinkingPanelProp
 
     return (
         <section className="my-12 border-y border-gray-200 py-8" aria-labelledby="continue-research-heading">
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">Continue your research</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-700">Continue your research</p>
             <h2 id="continue-research-heading" className="mt-3 font-heading text-3xl text-black">
                 Build a stronger shortlist
             </h2>
@@ -24,7 +24,7 @@ export default function InternalLinkingPanel({ links }: InternalLinkingPanelProp
                         className="rounded-xl border border-gray-200 bg-gray-50 p-5 transition-colors hover:border-black hover:bg-white"
                     >
                         <span className="font-semibold text-black">{item.label}</span>
-                        <span className="mt-2 block text-sm leading-6 text-gray-600">{item.description}</span>
+                        <span className="mt-2 block text-sm leading-6 text-gray-700">{item.description}</span>
                     </Link>
                 ))}
             </div>

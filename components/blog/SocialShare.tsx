@@ -30,7 +30,7 @@ export default function SocialShare({ url, title }: SocialShareProps) {
                 href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white border border-gray-200 rounded-full text-gray-500 hover:text-blue-500 hover:border-blue-500 transition-colors shadow-sm"
+                className="p-3 bg-white border border-gray-200 rounded-full text-gray-700 hover:text-blue-500 hover:border-blue-500 transition-colors shadow-sm"
                 aria-label="Share on X (Twitter)"
             >
                 <Twitter className="w-5 h-5 fill-current" />
@@ -40,7 +40,7 @@ export default function SocialShare({ url, title }: SocialShareProps) {
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white border border-gray-200 rounded-full text-gray-500 hover:text-blue-700 hover:border-blue-700 transition-colors shadow-sm"
+                className="p-3 bg-white border border-gray-200 rounded-full text-gray-700 hover:text-blue-700 hover:border-blue-700 transition-colors shadow-sm"
                 aria-label="Share on LinkedIn"
             >
                 <Linkedin className="w-5 h-5 fill-current" />
@@ -50,7 +50,7 @@ export default function SocialShare({ url, title }: SocialShareProps) {
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white border border-gray-200 rounded-full text-gray-500 hover:text-blue-600 hover:border-blue-600 transition-colors shadow-sm"
+                className="p-3 bg-white border border-gray-200 rounded-full text-gray-700 hover:text-blue-600 hover:border-blue-600 transition-colors shadow-sm"
                 aria-label="Share on Facebook"
             >
                 <Facebook className="w-5 h-5 fill-current" />
@@ -58,7 +58,7 @@ export default function SocialShare({ url, title }: SocialShareProps) {
 
             <button
                 onClick={handleCopy}
-                className="p-3 bg-white border border-gray-200 rounded-full text-gray-500 hover:text-black hover:border-black transition-colors shadow-sm relative group"
+                className="p-3 bg-white border border-gray-200 rounded-full text-gray-700 hover:text-black hover:border-black transition-colors shadow-sm relative group"
                 aria-label="Copy link"
             >
                 <LinkIcon className="w-5 h-5" />

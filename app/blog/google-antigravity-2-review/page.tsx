@@ -16,6 +16,7 @@ import MatcherDiscoveryCard from '@/components/quiz/MatcherDiscoveryCard';
 import { getMatcherDiscoveryContext } from '@/lib/matcher-discovery';
 import { getBlogDisplayExcerpt, getBlogDisplayTitle, getBlogFeaturedImage, getInternalLinkRecommendations, normalizeEvergreenYear } from '@/lib/blog-seo';
 import * as cheerio from 'cheerio';
+import { sanitizeBlogHtml } from '@/lib/sanitize-blog-html';
 
 const SLUG = 'google-antigravity-2-review';
 const FEATURED_IMAGE = 'https://hyzenpro.com/media/6a0cd85f260a9268d663e19e/google-antigravity.png';
@@ -210,7 +211,7 @@ export default async function AntigravityReviewPage() {
     const matcherContext = getMatcherDiscoveryContext();
 
     // Parse HTML for TOC headings
-    const $ = cheerio.load(POST_HTML);
+    const $ = cheerio.load(sanitizeBlogHtml(POST_HTML));
     const headingIds = new Map<string, number>();
     const tocItems: Array<{ id: string; text: string; level: number }> = [];
     $('h2, h3').each((i, el) => {
@@ -298,7 +299,7 @@ export default async function AntigravityReviewPage() {
                                 <Link
                                     key={cat}
                                     href={`/blog/?category=${encodeURIComponent(cat)}`}
-                                    className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-600 hover:border-black hover:text-black transition-colors"
+                                    className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-700 hover:border-black hover:text-black transition-colors"
                                 >
                                     {cat}
                                 </Link>
@@ -310,12 +311,12 @@ export default async function AntigravityReviewPage() {
                             Google Antigravity 2.0 Review: The AI Agent Platform That Built an OS in 12 Hours
                         </h1>
 
-                        <p className="text-gray-500 text-lg leading-relaxed mb-6">
+                        <p className="text-gray-700 text-lg leading-relaxed mb-6">
                             Google&apos;s new AI agent platform built a working OS in 12 hours using 93 parallel agents and Gemini 3.5 Flash — for under $1,000. Here&apos;s our full review of what it means for developers.
                         </p>
 
                         {/* Meta */}
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pb-6 border-b border-gray-200">
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-700 pb-6 border-b border-gray-200">
                             <span className="flex items-center gap-1.5">
                                 <User className="w-3.5 h-3.5" />
                                 {POST_AUTHOR.name}
@@ -338,7 +339,7 @@ export default async function AntigravityReviewPage() {
                             alt="Google Antigravity 2.0 — AI Agent Platform That Built an OS in 12 Hours"
                             fill
                             className="object-cover"
-                            priority
+                            preload
                             sizes="(max-width: 1024px) 100vw, 1024px"
                         />
                     </div>
@@ -358,11 +359,11 @@ export default async function AntigravityReviewPage() {
                   prose-headings:font-heading prose-headings:text-black prose-headings:scroll-mt-28
                   prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
                   prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-                  prose-p:text-gray-600 prose-p:leading-relaxed
+                  prose-p:text-gray-700 prose-p:leading-relaxed
                   prose-strong:text-gray-800
-                  prose-ul:text-gray-600 prose-ol:text-gray-600
-                  prose-li:marker:text-gray-500
-                  prose-blockquote:border-gray-300 prose-blockquote:text-gray-500 prose-blockquote:italic
+                  prose-ul:text-gray-700 prose-ol:text-gray-700
+                  prose-li:marker:text-gray-700
+                  prose-blockquote:border-gray-300 prose-blockquote:text-gray-700 prose-blockquote:italic
                   prose-img:rounded-2xl prose-img:border prose-img:border-gray-200 prose-img:shadow-sm"
                                 dangerouslySetInnerHTML={{ __html: parsedContent }}
                             />
@@ -371,12 +372,12 @@ export default async function AntigravityReviewPage() {
                             {POST_TAGS.length > 0 && (
                                 <div className="mb-10 pt-6 border-t border-gray-100">
                                     <div className="flex items-center gap-2 flex-wrap">
-                                         <Tag className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+                                         <Tag className="w-3.5 h-3.5 text-gray-700 flex-shrink-0" />
                                         {POST_TAGS.map((tag) => (
                                             <Link
                                                 key={tag}
                                                 href={`/blog/?tag=${encodeURIComponent(tag)}`}
-                                                className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[11px] font-medium text-gray-500 hover:bg-black hover:text-white hover:border-black transition-colors"
+                                                className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[11px] font-medium text-gray-700 hover:bg-black hover:text-white hover:border-black transition-colors"
                                             >
                                                 {tag}
                                             </Link>
@@ -393,13 +394,13 @@ export default async function AntigravityReviewPage() {
 
                             {/* Author Box */}
                             <div className="mt-16 pt-12 border-t border-gray-200">
-                                <h3 className="font-heading text-sm text-gray-500 uppercase tracking-widest mb-6">About the Author</h3>
+                                <h3 className="font-heading text-sm text-gray-700 uppercase tracking-widest mb-6">About the Author</h3>
                                 <AuthorBox author={POST_AUTHOR} variant="full" />
                             </div>
 
                             {/* Mobile Social Share */}
                             <div className="lg:hidden mt-8 pt-8 border-t border-gray-100">
-                                <h3 className="font-heading text-sm text-gray-500 uppercase tracking-widest mb-4">Share This Article</h3>
+                                <h3 className="font-heading text-sm text-gray-700 uppercase tracking-widest mb-4">Share This Article</h3>
                                 <SocialShare url={CURRENT_URL} title="Google Antigravity 2.0 Review: The AI Agent Platform That Built an OS in 12 Hours" />
                             </div>
                         </div>

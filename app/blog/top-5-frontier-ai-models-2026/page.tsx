@@ -7,12 +7,14 @@ import InternalLinkingPanel from '@/components/blog/InternalLinkingPanel';
 import MatcherDiscoveryCard from '@/components/quiz/MatcherDiscoveryCard';
 import PostCard from '@/components/blog/PostCard';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import prisma from '@/lib/prisma';
 import { getBaseUrl, formatDate, calculateReadingTime } from '@/lib/utils';
 import { getEditorialAuthor } from '@/lib/editorial-authors';
 import { Calendar, Clock, User, Tag } from 'lucide-react';
 import * as cheerio from 'cheerio';
+import { sanitizeBlogHtml } from '@/lib/sanitize-blog-html';
 import AIBenchmarkChart from '@/components/blog/AIBenchmarkChart';
 import { getInternalLinkRecommendations } from '@/lib/blog-seo';
 import { getMatcherDiscoveryContext } from '@/lib/matcher-discovery';
@@ -323,7 +325,7 @@ export default async function FrontierModelsPage() {
         } catch {}
     }
 
-    const combinedHtml = POST_HTML_PART1 + POST_HTML_PART2;
+    const combinedHtml = sanitizeBlogHtml(POST_HTML_PART1 + POST_HTML_PART2);
     const $ = cheerio.load(combinedHtml);
     const headingIds = new Map<string, number>();
     const tocItems: Array<{ id: string; text: string; level: number }> = [];
@@ -342,8 +344,8 @@ export default async function FrontierModelsPage() {
         tocItems.push({ id, text, level: el.tagName.toLowerCase() === 'h2' ? 2 : 3 });
     });
 
-    const $1 = cheerio.load(POST_HTML_PART1);
-    const $2 = cheerio.load(POST_HTML_PART2);
+    const $1 = cheerio.load(sanitizeBlogHtml(POST_HTML_PART1));
+    const $2 = cheerio.load(sanitizeBlogHtml(POST_HTML_PART2));
 
     const part1Ids = new Map<string, number>();
     $1('h2, h3').each((i, el) => {
@@ -409,7 +411,7 @@ export default async function FrontierModelsPage() {
                                 <Link
                                     key={cat}
                                     href={`/blog/?category=${encodeURIComponent(cat)}`}
-                                    className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-600 hover:border-black hover:text-black transition-colors"
+                                    className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-700 hover:border-black hover:text-black transition-colors"
                                 >
                                     {cat}
                                 </Link>
@@ -420,9 +422,9 @@ export default async function FrontierModelsPage() {
                             {POST_TITLE}
                         </h1>
 
-                        <p className="text-gray-500 text-lg leading-relaxed mb-6">{POST_EXCERPT}</p>
+                        <p className="text-gray-700 text-lg leading-relaxed mb-6">{POST_EXCERPT}</p>
 
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pb-6 border-b border-gray-200">
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-700 pb-6 border-b border-gray-200">
                             <span className="flex items-center gap-1.5">
                                 <User className="w-3.5 h-3.5" />
                                 {POST_AUTHOR.name}
@@ -439,10 +441,14 @@ export default async function FrontierModelsPage() {
                     </header>
 
                     <div className="max-w-5xl mx-auto relative w-full aspect-[2/1] md:aspect-[21/9] rounded-3xl overflow-hidden mb-16 border border-gray-200 shadow-xl">
-                        <img
+                        <Image
                             src={FEATURED_IMAGE}
-                            alt={POST_TITLE}
-                            className="h-full w-full object-cover"
+                            alt={`${POST_TITLE} — HyzenPro article cover`}
+                            fill
+                            preload
+                            unoptimized
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 1024px"
                         />
                     </div>
 
@@ -458,13 +464,13 @@ export default async function FrontierModelsPage() {
                                 prose-headings:font-heading prose-headings:text-black prose-headings:scroll-mt-28
                                 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
                                 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-                                prose-p:text-gray-600 prose-p:leading-relaxed
+                                prose-p:text-gray-700 prose-p:leading-relaxed
                                 prose-strong:text-gray-800
                                 prose-a:text-black prose-a:underline prose-a:underline-offset-2 prose-a:decoration-gray-300 hover:prose-a:decoration-black
-                                prose-ul:text-gray-600 prose-ol:text-gray-600
-                                prose-li:marker:text-gray-500
-                                prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:text-gray-500 prose-blockquote:italic prose-blockquote:bg-gray-50 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-r-lg
-                                prose-table:text-sm prose-th:bg-gray-50 prose-th:text-gray-600
+                                prose-ul:text-gray-700 prose-ol:text-gray-700
+                                prose-li:marker:text-gray-700
+                                prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:text-gray-700 prose-blockquote:italic prose-blockquote:bg-gray-50 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-r-lg
+                                prose-table:text-sm prose-th:bg-gray-50 prose-th:text-gray-700
                                 prose-img:rounded-2xl prose-img:border prose-img:border-gray-200 prose-img:shadow-sm">
                                 <div dangerouslySetInnerHTML={{ __html: parsedPart1 }} />
 
@@ -478,12 +484,12 @@ export default async function FrontierModelsPage() {
                             {POST_TAGS.length > 0 && (
                                 <div className="mb-10 pt-6 border-t border-gray-100">
                                     <div className="flex items-center gap-2 flex-wrap">
-                                         <Tag className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+                                         <Tag className="w-3.5 h-3.5 text-gray-700 flex-shrink-0" />
                                         {POST_TAGS.map((tag) => (
                                             <Link
                                                 key={tag}
                                                 href={`/blog/?tag=${encodeURIComponent(tag)}`}
-                                                className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[11px] font-medium text-gray-500 hover:bg-black hover:text-white hover:border-black transition-colors"
+                                                className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[11px] font-medium text-gray-700 hover:bg-black hover:text-white hover:border-black transition-colors"
                                             >
                                                 {tag}
                                             </Link>
@@ -499,12 +505,12 @@ export default async function FrontierModelsPage() {
                             </div>
 
                             <div className="mt-16 pt-12 border-t border-gray-200">
-                                <h3 className="font-heading text-sm text-gray-500 uppercase tracking-widest mb-6">About the Author</h3>
+                                <h3 className="font-heading text-sm text-gray-700 uppercase tracking-widest mb-6">About the Author</h3>
                                 <AuthorBox author={POST_AUTHOR} variant="full" />
                             </div>
 
                             <div className="lg:hidden mt-8 pt-8 border-t border-gray-100">
-                                <h3 className="font-heading text-sm text-gray-500 uppercase tracking-widest mb-4">Share This Article</h3>
+                                <h3 className="font-heading text-sm text-gray-700 uppercase tracking-widest mb-4">Share This Article</h3>
                                 <SocialShare url={CURRENT_URL} title={POST_TITLE} />
                             </div>
                         </div>

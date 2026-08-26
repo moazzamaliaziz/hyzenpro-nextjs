@@ -388,9 +388,9 @@ export default function AIBenchmarkChart() {
 
       <div className="bmc-root">
         <div className="bmc-header">
-          <p className="bmc-eyebrow">// benchmark analysis · may 2026</p>
+          <p className="bmc-eyebrow">Benchmark analysis · May 2026</p>
           <h2 className="bmc-title">Frontier AI Model Rankings</h2>
-          <p className="bmc-subtitle">Verified scores from SWE-Bench, AIME 2025, ARC-AGI-2 & more · May 2026</p>
+          <p className="bmc-subtitle">Verified scores from SWE-Bench, AIME 2025, ARC-AGI-2 &amp; more · May 2026</p>
         </div>
 
         <div className="model-cards">

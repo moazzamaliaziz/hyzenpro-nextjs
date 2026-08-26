@@ -4,6 +4,7 @@ import { getBaseUrl } from '@/lib/utils';
 import { DEDICATED_BLOG_SLUGS, getBlogDisplayTitle, getBlogDisplayExcerpt, getBlogFeaturedImage, getCanonicalBlogSlug } from '@/lib/blog-seo';
 import { getSerpFriendlyTitle } from '@/lib/seo-titles';
 import { resolvePostAuthor } from '@/lib/post-author';
+import { resolveBlogImageSource } from '@/lib/blog-images';
 import BlogPostPageContent from '@/components/pages/BlogPostPageContent';
 
 export const revalidate = 86400;
@@ -44,7 +45,7 @@ export async function generateMetadata({
         const seo = post.seo as any;
         const title = getSerpFriendlyTitle(post.slug, seo?.metaTitle || `${getBlogDisplayTitle(post)} | HyzenPro Blog`);
         const description = seo?.metaDescription || getBlogDisplayExcerpt(post) || '';
-        const image = seo?.ogImage || getBlogFeaturedImage(post);
+        const image = resolveBlogImageSource(seo?.ogImage || getBlogFeaturedImage(post));
         const imageUrl = image.startsWith('http') ? image : `${getBaseUrl()}${image}`;
         const fallbackAuthor = resolvePostAuthor(post);
         const authorName = fallbackAuthor.name;

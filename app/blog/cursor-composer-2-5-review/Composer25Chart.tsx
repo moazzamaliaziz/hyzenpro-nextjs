@@ -44,8 +44,8 @@ const ScatterTooltip = ({ active, payload }: { active?: boolean; payload?: Array
     return (
         <div className={`bg-white border rounded-lg shadow-lg p-3 text-sm ${d.highlight ? 'border-orange-400' : 'border-gray-200'}`}>
             <p className={`font-bold mb-1 ${d.highlight ? 'text-orange-500' : 'text-gray-900'}`}>{d.model}</p>
-            <p className="text-gray-500">Score: <strong className="text-gray-800">{d.score}%</strong></p>
-            <p className="text-gray-500">Avg cost: <strong className="text-gray-800">${d.cost}</strong></p>
+            <p className="text-gray-700">Score: <strong className="text-gray-800">{d.score}%</strong></p>
+            <p className="text-gray-700">Avg cost: <strong className="text-gray-800">${d.cost}</strong></p>
         </div>
     );
 };
@@ -55,6 +55,8 @@ export default function Composer25Chart() {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        // The chart reads browser dimensions only after hydration.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsMounted(true);
     }, []);
 
@@ -77,7 +79,7 @@ export default function Composer25Chart() {
             {/* Header */}
             <div className="bg-gray-50 border-b border-gray-200 px-6 py-4 flex flex-wrap justify-between items-start gap-3">
                 <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-0.5">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-700 mb-0.5">
                         AI Coding Daily Leaderboard
                     </p>
                     <h3 className="font-heading text-base text-black">
@@ -92,7 +94,7 @@ export default function Composer25Chart() {
                             className={`text-[11px] px-3 py-1.5 rounded-full font-medium border transition-colors ${
                                 view === v
                                     ? "bg-black text-white border-black"
-                                    : "bg-white text-gray-500 border-gray-200 hover:border-gray-400"
+                                    : "bg-white text-gray-700 border-gray-200 hover:border-gray-400"
                             }`}
                         >
                             {v === "scatter" ? "Score vs Cost" : "Score Ranking"}
@@ -105,7 +107,7 @@ export default function Composer25Chart() {
                 {/* SCATTER */}
                 {view === "scatter" && (
                     <>
-                        <p className="text-xs text-gray-400 mb-4">
+                        <p className="text-xs text-gray-700 mb-4">
                             Top-right = best value. The <span className="font-bold text-orange-500">orange dot</span> (Composer 2.5) shows frontier-level score at near-zero cost.
                         </p>
                         <ResponsiveContainer width="100%" height={340}>
@@ -144,11 +146,11 @@ export default function Composer25Chart() {
                             </ScatterChart>
                         </ResponsiveContainer>
                         <div className="flex gap-5 mt-3">
-                            <div className="flex items-center gap-2 text-xs text-gray-400">
+                            <div className="flex items-center gap-2 text-xs text-gray-700">
                                 <span className="w-3 h-3 rounded-full bg-orange-400 inline-block" />
                                 Composer 2.5
                             </div>
-                            <div className="flex items-center gap-2 text-xs text-gray-400">
+                            <div className="flex items-center gap-2 text-xs text-gray-700">
                                 <span className="w-3 h-3 rounded-full bg-gray-300 inline-block" />
                                 Other models
                             </div>
@@ -159,7 +161,7 @@ export default function Composer25Chart() {
                 {/* BAR */}
                 {view === "bar" && (
                     <>
-                        <p className="text-xs text-gray-400 mb-4">
+                        <p className="text-xs text-gray-700 mb-4">
                             Composer 2.5 sits in the top 3, above all Opus-4.7 and GPT-5.5 mid-tier variants.
                         </p>
                         <ResponsiveContainer width="100%" height={380}>
@@ -185,8 +187,8 @@ export default function Composer25Chart() {
                                         return (
                                             <div className="bg-white border border-gray-200 rounded-lg shadow p-3 text-xs">
                                                 <p className="font-bold text-gray-900 mb-1">{d.model}</p>
-                                                <p className="text-gray-500">Score: <strong className={d.highlight ? "text-orange-500" : "text-gray-800"}>{d.score}%</strong></p>
-                                                <p className="text-gray-500">Cost: <strong className="text-gray-800">${d.cost}</strong></p>
+                                                <p className="text-gray-700">Score: <strong className={d.highlight ? "text-orange-500" : "text-gray-800"}>{d.score}%</strong></p>
+                                                <p className="text-gray-700">Cost: <strong className="text-gray-800">${d.cost}</strong></p>
                                             </div>
                                         );
                                     }}
@@ -207,7 +209,7 @@ export default function Composer25Chart() {
             </div>
 
             <div className="bg-gray-50 border-t border-gray-100 px-6 py-3">
-                <p className="text-[11px] text-gray-400">
+                <p className="text-[11px] text-gray-700">
                     Source: AI Coding Daily — Independent benchmark across Laravel/PHP projects (5 runs each, automated test suites).
                 </p>
             </div>

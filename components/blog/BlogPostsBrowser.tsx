@@ -47,7 +47,7 @@ function FilterForm({
         <form method="get" action={basePath} className="space-y-4" role="search">
             {filters.category && <input type="hidden" name="category" value={filters.category} />}
             <div>
-                <label htmlFor={`${idPrefix}-search`} className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
+                <label htmlFor={`${idPrefix}-search`} className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-gray-700">
                     Search articles
                 </label>
                 <input
@@ -56,11 +56,11 @@ function FilterForm({
                     type="search"
                     defaultValue={filters.q}
                     placeholder="Try a tool, workflow, or model"
-                    className="min-h-11 w-full rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-black focus:ring-2 focus:ring-black/10"
+                    className="min-h-11 w-full rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-950 outline-none transition placeholder:text-gray-700 focus:border-black focus:ring-2 focus:ring-black/10"
                 />
             </div>
             <div>
-                <label htmlFor={`${idPrefix}-tag`} className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
+                <label htmlFor={`${idPrefix}-tag`} className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-gray-700">
                     Filter by tag
                 </label>
                 <input
@@ -70,7 +70,7 @@ function FilterForm({
                     list={`${idPrefix}-popular-tags`}
                     defaultValue={filters.tag}
                     placeholder="e.g. Claude or benchmarks"
-                    className="min-h-11 w-full rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-black focus:ring-2 focus:ring-black/10"
+                    className="min-h-11 w-full rounded-2xl border border-gray-200 bg-white px-4 text-sm text-gray-950 outline-none transition placeholder:text-gray-700 focus:border-black focus:ring-2 focus:ring-black/10"
                 />
                 <datalist id={`${idPrefix}-popular-tags`}>
                     {popularTags.map((tag) => <option key={tag.name} value={tag.name} />)}
@@ -101,7 +101,7 @@ function CategoryLinks({
         <div className="space-y-1" aria-label="Blog categories">
             <Link
                 href={buildBlogHref({ tag: filters.tag, q: filters.q }, basePath)}
-                className={`flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black ${!filters.category ? 'bg-black font-semibold text-white' : 'text-gray-600 hover:bg-gray-100 hover:text-black'}`}
+                className={`flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black ${!filters.category ? 'bg-black font-semibold text-white' : 'text-gray-700 hover:bg-gray-100 hover:text-black'}`}
             >
                 <span>All articles</span>
             </Link>
@@ -112,16 +112,16 @@ function CategoryLinks({
                         key={category.name}
                         href={buildBlogHref({ category: category.name, tag: filters.tag, q: filters.q }, basePath)}
                         aria-current={active ? 'page' : undefined}
-                        className={`flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black ${active ? 'bg-gray-100 font-semibold text-black' : 'text-gray-600 hover:bg-gray-100 hover:text-black'}`}
+                        className={`flex items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black ${active ? 'bg-gray-100 font-semibold text-black' : 'text-gray-700 hover:bg-gray-100 hover:text-black'}`}
                     >
                         <span>{category.name}</span>
-                        <span className="text-xs text-gray-400">{category.count}</span>
+                        <span className="text-xs text-gray-700">{category.count}</span>
                     </Link>
                 );
             })}
             {moreCategories.length > 0 && (
                 <details className="pt-2">
-                    <summary className="cursor-pointer rounded-xl px-3 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-black">
+                    <summary className="cursor-pointer rounded-xl px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-black">
                         More categories
                     </summary>
                     <div className="mt-1 space-y-1 border-l border-gray-200 pl-2">
@@ -129,10 +129,10 @@ function CategoryLinks({
                             <Link
                                 key={category.name}
                                 href={buildBlogHref({ category: category.name, tag: filters.tag, q: filters.q }, basePath)}
-                                className="flex items-center justify-between rounded-xl px-3 py-2 text-sm text-gray-600 transition-colors hover:bg-gray-100 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                                className="flex items-center justify-between rounded-xl px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
                             >
                                 <span>{category.name}</span>
-                                <span className="text-xs text-gray-400">{category.count}</span>
+                                <span className="text-xs text-gray-700">{category.count}</span>
                             </Link>
                         ))}
                     </div>
@@ -161,18 +161,18 @@ function FilterPanel({
         <div className="space-y-6">
             <FilterForm filters={filters} basePath={basePath} popularTags={popularTags} idPrefix={mobile ? 'mobile-blog' : 'desktop-blog'} />
             <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Browse by category</p>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-700">Browse by category</p>
                 <CategoryLinks categories={categories} moreCategories={moreCategories} filters={filters} basePath={basePath} />
             </div>
             {popularTags.length > 0 && (
                 <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Popular tags</p>
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-700">Popular tags</p>
                     <div className="flex flex-wrap gap-2">
                         {popularTags.slice(0, 10).map((tag) => (
                             <Link
                                 key={tag.name}
                                 href={buildBlogHref({ category: filters.category, tag: tag.name, q: filters.q }, basePath)}
-                                className="rounded-full border border-gray-200 px-3 py-1.5 text-xs text-gray-600 transition-colors hover:border-black hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                                className="rounded-full border border-gray-200 px-3 py-1.5 text-xs text-gray-700 transition-colors hover:border-black hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
                             >
                                 {tag.name}
                             </Link>
@@ -188,7 +188,7 @@ function FilterPanel({
             <details className="mb-8 rounded-3xl border border-gray-200 bg-white p-4 shadow-sm lg:hidden">
                 <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between rounded-2xl px-2 text-sm font-semibold text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black [&::-webkit-details-marker]:hidden">
                     <span>Filter and search</span>
-                    <span className="text-xs font-normal text-gray-500">{filters.category || filters.tag || filters.q ? 'Filters active' : 'Browse the archive'}</span>
+                    <span className="text-xs font-normal text-gray-700">{filters.category || filters.tag || filters.q ? 'Filters active' : 'Browse the archive'}</span>
                 </summary>
                 <div className="mt-4 border-t border-gray-100 pt-4">{content}</div>
             </details>
@@ -308,24 +308,24 @@ function ListingContent({
         <section aria-labelledby="blog-results-heading">
             <div className="mb-5 flex flex-col gap-3 border-b border-gray-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">The archive</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-700">The archive</p>
                     <h2 id="blog-results-heading" className="mt-1 font-heading text-2xl text-black sm:text-3xl">
                         {isFiltered ? 'Your shortlist' : 'Latest insights'}
                     </h2>
                 </div>
-                <p className="text-sm text-gray-500" aria-live="polite">
+                <p className="text-sm text-gray-700" aria-live="polite">
                     {totalCount} article{totalCount === 1 ? '' : 's'}
                     {totalPages > 1 ? ` · Page ${currentPage} of ${totalPages}` : ''}
                 </p>
             </div>
 
             {isFiltered && (
-                <div className="mb-6 flex flex-wrap items-center gap-2 rounded-2xl bg-gray-50 px-4 py-3 text-sm text-gray-600">
-                    <span className="font-medium text-gray-900">Active filters:</span>
+                <div className="mb-6 flex flex-wrap items-center gap-2 rounded-2xl bg-gray-50 px-4 py-3 text-sm text-gray-700">
+                    <span className="font-medium text-gray-950">Active filters:</span>
                     {filters.category && <span className="rounded-full bg-white px-3 py-1">{filters.category}</span>}
                     {filters.tag && <span className="rounded-full bg-white px-3 py-1">{filters.tag}</span>}
                     {filters.q && <span className="rounded-full bg-white px-3 py-1">“{filters.q}”</span>}
-                    <Link href={basePath} className="ml-auto font-semibold text-gray-500 underline underline-offset-4 hover:text-black">Clear all</Link>
+                    <Link href={basePath} className="ml-auto font-semibold text-gray-700 underline underline-offset-4 hover:text-black">Clear all</Link>
                 </div>
             )}
 
@@ -333,7 +333,7 @@ function ListingContent({
                 <>
                     <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                         {posts.map((post, index) => (
-                            <PostCard key={post.id} post={post} priority={index === 0 && currentPage === 1} locale={locale} />
+                            <PostCard key={post.id} post={post} priority={index < 3 && currentPage === 1} locale={locale} />
                         ))}
                     </div>
                     <Pagination currentPage={currentPage} totalPages={totalPages} basePath={basePath} filters={paginationFilters} />
@@ -350,7 +350,7 @@ function ListingContent({
             ) : (
                 <div className="rounded-3xl border border-gray-200 bg-gray-50 px-6 py-16 text-center">
                     <h3 className="font-heading text-xl text-black">No articles match these filters</h3>
-                    <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-gray-500">Try a broader search or clear the active filters to browse the full HyzenPro archive.</p>
+                    <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-gray-700">Try a broader search or clear the active filters to browse the full HyzenPro archive.</p>
                     <Link href={basePath} className="mt-6 inline-flex min-h-11 items-center rounded-full bg-black px-5 text-sm font-semibold text-white hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2">View all articles</Link>
                 </div>
             )}

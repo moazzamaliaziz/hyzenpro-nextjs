@@ -86,6 +86,8 @@ const nextConfig = {
             "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://www.google.com https://*.sentry.io https://*.ingest.sentry.io https://*.vercel-insights.com https://challenges.cloudflare.com https://analytics.ahrefs.com",
             "frame-src 'self' https://www.youtube.com https://platform.twitter.com https://syndication.twitter.com https://www.google.com https://challenges.cloudflare.com",
             "frame-ancestors 'none'",
+            "object-src 'none'",
+            "manifest-src 'self'",
             "base-uri 'self'",
             "form-action 'self'",
         ].join('; ');

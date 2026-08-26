@@ -120,7 +120,7 @@ export default function OpusVsGptChart() {
                                 ? key === 'swe' || key === 'computer' || key === 'reasoning' || key === 'chinese'
                                     ? 'text-[#c94f2a] border-[#c94f2a]'
                                     : 'text-[#10a37f] border-[#10a37f]'
-                                : 'text-gray-400 border-transparent hover:text-gray-700'
+                                : 'text-gray-700 border-transparent hover:text-gray-700'
                         }`}
                     >
                         {TAB_LABELS[key]}
@@ -131,14 +131,14 @@ export default function OpusVsGptChart() {
             <div className="px-5 py-4">
                 <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
                     <span className="text-xs font-bold font-heading tracking-widest uppercase text-gray-800">{bench.title}</span>
-                    <span className="text-[10px] text-gray-400">{bench.source}</span>
+                    <span className="text-[10px] text-gray-700">{bench.source}</span>
                 </div>
 
                 <div className="flex flex-col gap-3">
                     {bench.models.map((model) => (
                         <div key={model.name} className="flex flex-col gap-1.5">
                             <div className="flex justify-between items-baseline">
-                                <span className="text-[13px] font-semibold text-gray-600">
+                                <span className="text-[13px] font-semibold text-gray-700">
                                     {model.name}
                                     {model.winner && (
                                         <span className="ml-1.5 inline-block text-[10px] font-bold tracking-wider px-1.5 py-0.5 rounded-sm uppercase" style={{ background: `${model.color}15`, color: model.color, border: `1px solid ${model.color}40` }}>
@@ -163,7 +163,7 @@ export default function OpusVsGptChart() {
                     ))}
                 </div>
 
-                <p className="text-[11px] text-gray-400 mt-4 pt-3 border-t border-gray-100">
+                <p className="text-[11px] text-gray-700 mt-4 pt-3 border-t border-gray-100">
                     {activeTab === 'terminal'
                         ? '⚠ Harness caveat: GPT-5.5 scores 78.2% using the Terminus-2 public harness. Using OpenAI\'s own Codex CLI, the score rises to 83.4%.'
                         : activeTab === 'swe'

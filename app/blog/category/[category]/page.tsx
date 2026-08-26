@@ -61,9 +61,9 @@ export default async function CategoryArchivePage({ params, searchParams }: Prop
                         className="mb-8"
                     />
                     <header className="mb-10 max-w-3xl">
-                        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">Category archive</p>
+                        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-700">Category archive</p>
                         <h1 className="font-serif text-4xl leading-tight text-black sm:text-5xl">{displayName}</h1>
-                        <p className="mt-4 text-base leading-7 text-gray-600">
+                        <p className="mt-4 text-base leading-7 text-gray-700">
                             {listing.totalCount} article{listing.totalCount === 1 ? '' : 's'} in this HyzenPro category.
                         </p>
                     </header>

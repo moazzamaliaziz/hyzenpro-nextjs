@@ -44,20 +44,20 @@ export default function Pagination({
                 <Link
                     href={pageHref(basePath, currentPage - 1, filters)}
                     rel="prev"
-                    className="inline-flex min-h-10 items-center gap-1 rounded-full border border-gray-200 px-3 text-sm text-gray-600 transition-colors hover:border-black hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+                    className="inline-flex min-h-10 items-center gap-1 rounded-full border border-gray-300 px-3 text-sm text-gray-700 transition-colors hover:border-black hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
                 >
                     <ChevronLeft aria-hidden="true" className="h-4 w-4" />
                     <span className="sr-only sm:not-sr-only">Previous</span>
                 </Link>
             ) : (
-                <span aria-disabled="true" className="inline-flex min-h-10 items-center gap-1 rounded-full border border-gray-100 px-3 text-sm text-gray-300">
+                <span aria-disabled="true" className="inline-flex min-h-10 items-center gap-1 rounded-full border border-gray-200 px-3 text-sm text-gray-700">
                     <ChevronLeft aria-hidden="true" className="h-4 w-4" />
                     <span className="sr-only sm:not-sr-only">Previous</span>
                 </span>
             )}
 
             {pages.map((page, index) => page === '…' ? (
-                <span key={`ellipsis-${index}`} aria-hidden="true" className="px-2 text-gray-400">…</span>
+                <span key={`ellipsis-${index}`} aria-hidden="true" className="px-2 text-gray-700">…</span>
             ) : (
                 <Link
                     key={page}
@@ -65,7 +65,7 @@ export default function Pagination({
                     aria-current={currentPage === page ? 'page' : undefined}
                     className={`inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border px-3 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 ${currentPage === page
                         ? 'border-black bg-black font-semibold text-white'
-                        : 'border-gray-200 text-gray-600 hover:border-black hover:text-black'
+                        : 'border-gray-300 text-gray-700 hover:border-black hover:text-black'
                         }`}
                 >
                     {page}
@@ -76,13 +76,13 @@ export default function Pagination({
                 <Link
                     href={pageHref(basePath, currentPage + 1, filters)}
                     rel="next"
-                    className="inline-flex min-h-10 items-center gap-1 rounded-full border border-gray-200 px-3 text-sm text-gray-600 transition-colors hover:border-black hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+                    className="inline-flex min-h-10 items-center gap-1 rounded-full border border-gray-300 px-3 text-sm text-gray-700 transition-colors hover:border-black hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
                 >
                     <span className="sr-only sm:not-sr-only">Next</span>
                     <ChevronRight aria-hidden="true" className="h-4 w-4" />
                 </Link>
             ) : (
-                <span aria-disabled="true" className="inline-flex min-h-10 items-center gap-1 rounded-full border border-gray-100 px-3 text-sm text-gray-300">
+                <span aria-disabled="true" className="inline-flex min-h-10 items-center gap-1 rounded-full border border-gray-200 px-3 text-sm text-gray-700">
                     <span className="sr-only sm:not-sr-only">Next</span>
                     <ChevronRight aria-hidden="true" className="h-4 w-4" />
                 </span>

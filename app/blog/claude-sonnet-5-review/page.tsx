@@ -16,6 +16,7 @@ import MatcherDiscoveryCard from '@/components/quiz/MatcherDiscoveryCard';
 import { getMatcherDiscoveryContext } from '@/lib/matcher-discovery';
 import { getInternalLinkRecommendations } from '@/lib/blog-seo';
 import * as cheerio from 'cheerio';
+import { sanitizeBlogHtml } from '@/lib/sanitize-blog-html';
 import SonnetFiveBenchmarkChart from './SonnetFiveBenchmarkChart';
 
 const SLUG = 'claude-sonnet-5-review';
@@ -214,7 +215,7 @@ export default async function ClaudeSonnet5ReviewPage() {
 
     const matcherContext = getMatcherDiscoveryContext();
 
-    const combinedHtml = POST_HTML_PART1 + POST_HTML_PART2;
+    const combinedHtml = sanitizeBlogHtml(POST_HTML_PART1 + POST_HTML_PART2);
     const $ = cheerio.load(combinedHtml);
     const headingIds = new Map<string, number>();
     const tocItems: Array<{ id: string; text: string; level: number }> = [];
@@ -232,8 +233,8 @@ export default async function ClaudeSonnet5ReviewPage() {
         tocItems.push({ id, text, level: el.tagName.toLowerCase() === 'h2' ? 2 : 3 });
     });
 
-    const $1 = cheerio.load(POST_HTML_PART1);
-    const $2 = cheerio.load(POST_HTML_PART2);
+    const $1 = cheerio.load(sanitizeBlogHtml(POST_HTML_PART1));
+    const $2 = cheerio.load(sanitizeBlogHtml(POST_HTML_PART2));
     const part1Ids = new Map<string, number>();
     $1('h2, h3').each((i, el) => {
         const text = $1(el).text();
@@ -289,13 +290,13 @@ export default async function ClaudeSonnet5ReviewPage() {
                     <header className="max-w-4xl mx-auto mb-12">
                         <div className="flex gap-2 mb-4 flex-wrap">
                             {POST_CATEGORIES.map((cat) => (
-                                <Link key={cat} href={`/blog/?category=${encodeURIComponent(cat)}`} className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-600 hover:border-black hover:text-black transition-colors">{cat}</Link>
+                                <Link key={cat} href={`/blog/?category=${encodeURIComponent(cat)}`} className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-700 hover:border-black hover:text-black transition-colors">{cat}</Link>
                             ))}
                         </div>
 
                         <div className="flex gap-2 mb-4 flex-wrap">
                             <span className="px-3 py-1 bg-[#fef3ef] border border-[#f5c3b3] rounded-full text-[10px] font-bold uppercase tracking-wider text-[#c94f2a]">Anthropic</span>
-                            <span className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-500">July 2026</span>
+                            <span className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-700">July 2026</span>
                             <span className="px-3 py-1 bg-[#edfaf5] border border-[#b3e8d9] rounded-full text-[10px] font-bold uppercase tracking-wider text-[#10a37f]">4.6 / 5</span>
                         </div>
 
@@ -303,11 +304,11 @@ export default async function ClaudeSonnet5ReviewPage() {
                             Claude Sonnet 5 Review: Benchmarks, Pricing, and How It Compares to <span className="text-[#c94f2a]">Opus 4.8</span>
                         </h1>
 
-                        <p className="text-gray-500 text-lg leading-relaxed mb-6">
+                        <p className="text-gray-700 text-lg leading-relaxed mb-6">
                             Anthropic&apos;s mid-tier model just closed most of the gap with its own flagship — at less than half the price. Here&apos;s what actually changed, with the real numbers.
                         </p>
 
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pb-6 border-b border-gray-200">
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-700 pb-6 border-b border-gray-200">
                             <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5" />{POST_AUTHOR.name}</span>
                             <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{formatDate(publishedDate)}</span>
                             <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />{readingTime} min read</span>
@@ -326,7 +327,7 @@ export default async function ClaudeSonnet5ReviewPage() {
                         ].map((stat) => (
                             <div key={stat.label} className="rounded-xl border border-gray-200 p-3 text-center">
                                 <div className="text-xl font-bold text-gray-900">{stat.value}</div>
-                                <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
+                                <div className="text-xs text-gray-700 mt-1">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -343,13 +344,13 @@ export default async function ClaudeSonnet5ReviewPage() {
                                 prose-headings:font-heading prose-headings:text-black prose-headings:scroll-mt-28
                                 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
                                 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-                                prose-p:text-gray-600 prose-p:leading-relaxed
+                                prose-p:text-gray-700 prose-p:leading-relaxed
                                 prose-strong:text-gray-800
                                 prose-a:text-black prose-a:underline prose-a:underline-offset-2 prose-a:decoration-gray-300 hover:prose-a:decoration-black
-                                prose-ul:text-gray-600 prose-ol:text-gray-600
-                                prose-li:marker:text-gray-500
-                                prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:text-gray-500 prose-blockquote:italic prose-blockquote:bg-gray-50 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-r-lg
-                                prose-table:text-sm prose-th:bg-gray-50 prose-th:text-gray-600
+                                prose-ul:text-gray-700 prose-ol:text-gray-700
+                                prose-li:marker:text-gray-700
+                                prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:text-gray-700 prose-blockquote:italic prose-blockquote:bg-gray-50 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-r-lg
+                                prose-table:text-sm prose-th:bg-gray-50 prose-th:text-gray-700
                                 prose-img:rounded-2xl prose-img:border prose-img:border-gray-200 prose-img:shadow-sm">
                                 <div dangerouslySetInnerHTML={{ __html: parsedPart1 }} />
 
@@ -407,7 +408,7 @@ export default async function ClaudeSonnet5ReviewPage() {
                                         </tbody>
                                     </table>
                                 </div>
-                                <p className="text-sm text-gray-500">
+                                <p className="text-sm text-gray-700">
                                     Note: the coding row is <strong>SWE-bench Pro</strong>, the harder variant. Don&apos;t confuse it with SWE-bench Verified, where scores for most models run noticeably higher.
                                 </p>
 
@@ -424,9 +425,9 @@ export default async function ClaudeSonnet5ReviewPage() {
                             {POST_TAGS.length > 0 && (
                                 <div className="mb-10 pt-6 border-t border-gray-100">
                                     <div className="flex items-center gap-2 flex-wrap">
-                                         <Tag className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+                                         <Tag className="w-3.5 h-3.5 text-gray-700 flex-shrink-0" />
                                         {POST_TAGS.map((tag) => (
-                                            <Link key={tag} href={`/blog/?tag=${encodeURIComponent(tag)}`} className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[11px] font-medium text-gray-500 hover:bg-black hover:text-white hover:border-black transition-colors">{tag}</Link>
+                                            <Link key={tag} href={`/blog/?tag=${encodeURIComponent(tag)}`} className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[11px] font-medium text-gray-700 hover:bg-black hover:text-white hover:border-black transition-colors">{tag}</Link>
                                         ))}
                                     </div>
                                 </div>
@@ -437,12 +438,12 @@ export default async function ClaudeSonnet5ReviewPage() {
                             <div className="mb-16"><MatcherDiscoveryCard context={matcherContext} /></div>
 
                             <div className="mt-16 pt-12 border-t border-gray-200">
-                                <h3 className="font-heading text-sm text-gray-500 uppercase tracking-widest mb-6">About the Author</h3>
+                                <h3 className="font-heading text-sm text-gray-700 uppercase tracking-widest mb-6">About the Author</h3>
                                 <AuthorBox author={POST_AUTHOR} variant="full" />
                             </div>
 
                             <div className="lg:hidden mt-8 pt-8 border-t border-gray-100">
-                                <h3 className="font-heading text-sm text-gray-500 uppercase tracking-widest mb-4">Share This Article</h3>
+                                <h3 className="font-heading text-sm text-gray-700 uppercase tracking-widest mb-4">Share This Article</h3>
                                 <SocialShare url={CURRENT_URL} title="Claude Sonnet 5 Review: Benchmarks, Pricing & How It Compares to Opus 4.8" />
                             </div>
                         </div>

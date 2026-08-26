@@ -17,6 +17,8 @@ import * as cheerio from 'cheerio';
 import { getMatcherDiscoveryContext } from '@/lib/matcher-discovery';
 import { resolvePostAuthor } from '@/lib/post-author';
 import { getEditorialAuthor } from '@/lib/editorial-authors';
+import { resolveBlogImageSource } from '@/lib/blog-images';
+import { sanitizeBlogHtml } from '@/lib/sanitize-blog-html';
 import {
     getBlogDisplayExcerpt,
     getBlogDisplayTitle,
@@ -45,7 +47,7 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
     const matcherContext = getMatcherDiscoveryContext();
     const displayTitle = getBlogDisplayTitle(post);
     const displayExcerpt = getBlogDisplayExcerpt(post);
-    const featuredImage = getBlogFeaturedImage(post);
+    const featuredImage = resolveBlogImageSource(getBlogFeaturedImage(post));
     const isSvgFeaturedImage = featuredImage.toLowerCase().split('?')[0].endsWith('.svg');
     const featuredImageUrl = featuredImage.startsWith('http') ? featuredImage : `${getBaseUrl()}${featuredImage}`;
     const internalLinks = getInternalLinkRecommendations(post);
@@ -104,7 +106,7 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
     };
 
     // Server-side HTML parsing for TOC IDs
-    const $ = cheerio.load(post.content);
+    const $ = cheerio.load(sanitizeBlogHtml(post.content));
     $('h1').each((_, el) => {
         const $heading = $(el);
         if (!$heading.text().trim()) {
@@ -224,7 +226,7 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
                                     <Link
                                         key={cat}
                                         href={`/blog/?category=${encodeURIComponent(cat)}`}
-                                        className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-600 hover:border-black hover:text-black transition-colors"
+                                        className="px-3 py-1.5 bg-gray-100 border border-gray-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-gray-700 hover:border-black hover:text-black transition-colors"
                                     >
                                         {cat}
                                     </Link>
@@ -238,11 +240,11 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
                         </h1>
 
                         {displayExcerpt && (
-                            <p className="text-gray-500 text-lg leading-relaxed mb-6">{displayExcerpt}</p>
+                            <p className="text-gray-700 text-lg leading-relaxed mb-6">{displayExcerpt}</p>
                         )}
 
                         {/* Meta */}
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pb-6 border-b border-gray-200">
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-700 pb-6 border-b border-gray-200">
                             <span className="flex items-center gap-1.5">
                                 <User className="w-3.5 h-3.5" />
                                 {authorData.name}
@@ -264,22 +266,15 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
 
                     {/* Featured Image */}
                     <div className="max-w-5xl mx-auto relative w-full aspect-[2/1] md:aspect-[21/9] rounded-3xl overflow-hidden mb-16 border border-gray-200 shadow-xl">
-                        {isSvgFeaturedImage ? (
-                            <img
-                                src={featuredImage}
-                                alt={displayTitle}
-                                className="h-full w-full object-cover"
-                            />
-                        ) : (
-                            <Image
-                                src={featuredImage}
-                                alt={displayTitle}
-                                fill
-                                className="object-cover"
-                                priority
-                                sizes="(max-width: 1024px) 100vw, 1024px"
-                            />
-                        )}
+                        <Image
+                            src={featuredImage}
+                            alt={`${displayTitle} — HyzenPro article cover`}
+                            fill
+                            preload
+                            unoptimized={isSvgFeaturedImage}
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 1024px"
+                        />
                     </div>
 
                     <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -297,12 +292,12 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
                   prose-headings:font-heading prose-headings:text-black prose-headings:scroll-mt-28
                   prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
                   prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-                  prose-p:text-gray-600 prose-p:leading-relaxed
+                  prose-p:text-gray-700 prose-p:leading-relaxed
                   prose-strong:text-gray-800
                   prose-a:text-blue-700 prose-a:underline prose-a:decoration-blue-300 prose-a:underline-offset-4 hover:prose-a:text-blue-900 hover:prose-a:decoration-blue-700
-                  prose-ul:text-gray-600 prose-ol:text-gray-600
-                  prose-li:marker:text-gray-500
-                  prose-blockquote:border-gray-300 prose-blockquote:text-gray-500 prose-blockquote:italic
+                  prose-ul:text-gray-700 prose-ol:text-gray-700
+                  prose-li:marker:text-gray-700
+                  prose-blockquote:border-gray-400 prose-blockquote:text-gray-700 prose-blockquote:italic
                   prose-table:text-sm prose-th:bg-gray-950 prose-th:text-white
                   prose-img:rounded-2xl prose-img:border prose-img:border-gray-200 prose-img:shadow-sm"
                             >
@@ -313,12 +308,12 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
                             {postTags.length > 0 && (
                                 <div className="mb-10 pt-6 border-t border-gray-100">
                                     <div className="flex items-center gap-2 flex-wrap">
-                                         <Tag className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+                                         <Tag className="w-3.5 h-3.5 text-gray-700 flex-shrink-0" />
                                         {postTags.map((tag: string) => (
                                             <Link
                                                 key={tag}
                                                 href={`/blog/?tag=${encodeURIComponent(tag)}`}
-                                                className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[11px] font-medium text-gray-500 hover:bg-black hover:text-white hover:border-black transition-colors"
+                                                className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-[11px] font-medium text-gray-700 hover:bg-black hover:text-white hover:border-black transition-colors"
                                             >
                                                 {tag}
                                             </Link>
@@ -335,13 +330,13 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
 
                             {/* Author Box Footer */}
                             <div className="mt-16 pt-12 border-t border-gray-200">
-                                <h3 className="font-heading text-sm text-gray-500 uppercase tracking-widest mb-6">About the Author</h3>
+                                <h3 className="font-heading text-sm text-gray-700 uppercase tracking-widest mb-6">About the Author</h3>
                                 <AuthorBox author={{ ...authorData, avatar: authorData.avatar ?? undefined }} variant="full" />
                             </div>
 
                             {/* Mobile Social Share */}
                             <div className="lg:hidden mt-8 pt-8 border-t border-gray-100">
-                                <h3 className="font-heading text-sm text-gray-500 uppercase tracking-widest mb-4">Share This Article</h3>
+                                <h3 className="font-heading text-sm text-gray-700 uppercase tracking-widest mb-4">Share This Article</h3>
                                 <SocialShare url={currentUrl} title={displayTitle} />
                             </div>
                         </div>

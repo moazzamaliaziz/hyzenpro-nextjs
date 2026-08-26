@@ -1,6 +1,4 @@
-import { DEFAULT_SITE_SHARE_IMAGE_URL } from '@/lib/branding';
-
-export const DEFAULT_BLOG_FEATURED_IMAGE = DEFAULT_SITE_SHARE_IMAGE_URL;
+export const DEFAULT_BLOG_FEATURED_IMAGE = '/images/blog/hyzenpro-blog-default.png';
 export const FRONTIER_MODELS_BLOG_SLUG = 'top-5-frontier-ai-models-2026';
 
 export const DEDICATED_BLOG_SLUGS = new Set([
