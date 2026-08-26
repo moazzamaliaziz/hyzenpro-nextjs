@@ -1,41 +1,18 @@
 import type { Metadata } from 'next';
-import prisma from '@/lib/prisma';
 import { getBaseUrl } from '@/lib/utils';
 import { routing } from '@/i18n/routing';
-import { normalizeCategories } from '@/lib/normalize-category';
-import { mergeDedicatedBlogPosts } from '@/lib/dedicated-blog-registry';
 import BlogPageContent from '@/components/pages/BlogPageContent';
+import {
+    buildBlogQuery,
+    getBlogListing,
+    getPageValue,
+    getQueryValue,
+} from '@/lib/blog-query';
 
-export const dynamic = 'force-dynamic';
-
-async function getData() {
-    try {
-        const rawPosts = await prisma.post.findMany({
-            where: { status: 'published' },
-            include: {
-                authorModel: {
-                    select: { id: true, name: true, slug: true, image: true },
-                },
-            },
-            orderBy: { publishedAt: 'desc' },
-        });
-        const prismaPosts = rawPosts.map((post) => ({
-            ...post,
-            categories: normalizeCategories(post.categories),
-            publishedAt: post.publishedAt ? post.publishedAt.toISOString() : null,
-            createdAt: post.createdAt.toISOString(),
-            updatedAt: post.updatedAt.toISOString(),
-        }));
-        return mergeDedicatedBlogPosts(prismaPosts);
-    } catch (error) {
-        console.error('[Blog] Failed to fetch posts:', error);
-        return mergeDedicatedBlogPosts([]);
-    }
-}
+export const revalidate = 300;
 
 function getSearchParamValue(value: string | string[] | undefined) {
-    if (Array.isArray(value)) return value[0] || '';
-    return value || '';
+    return getQueryValue(value);
 }
 
 export async function generateMetadata({
@@ -44,46 +21,46 @@ export async function generateMetadata({
     searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }): Promise<Metadata> {
     const resolvedSearchParams = await searchParams;
-    const selectedCategory = getSearchParamValue(resolvedSearchParams?.category);
-    const selectedTag = getSearchParamValue(resolvedSearchParams?.tag);
-    const posts = selectedCategory || selectedTag ? await getData() : [];
-    const normalizedCategory = selectedCategory.trim().toLowerCase();
-    const normalizedTag = selectedTag.trim().toLowerCase();
-    const filteredCount = posts.filter((post: any) => {
-        const matchesCategory = normalizedCategory
-            ? normalizeCategories(post.categories).some((cat) => cat.toLowerCase() === normalizedCategory)
-            : true;
-        const matchesTag = normalizedTag
-            ? (Array.isArray(post.tags) ? post.tags : []).some((tag: string) => tag.trim().toLowerCase() === normalizedTag)
-            : true;
-        return matchesCategory && matchesTag;
-    }).length;
-    const isThinArchive = Boolean((selectedCategory || selectedTag) && filteredCount < 5);
-
+    const category = getSearchParamValue(resolvedSearchParams?.category);
+    const tag = getSearchParamValue(resolvedSearchParams?.tag);
+    const q = getSearchParamValue(resolvedSearchParams?.q);
+    const page = getPageValue(resolvedSearchParams?.page);
+    const hasFilters = Boolean(category || tag || q);
+    const listing = hasFilters || page > 1 ? await getBlogListing({ category, tag, q, page }) : undefined;
+    const query = buildBlogQuery({ category, tag, q, page: listing?.currentPage || page });
+    const canonical = `${getBaseUrl()}/blog/${query}`;
     const languages: Record<string, string> = {};
-    for (const loc of routing.locales) {
-        languages[loc] = loc === 'en' ? `${getBaseUrl()}/blog/` : `${getBaseUrl()}/${loc}/blog/`;
+
+    for (const locale of routing.locales) {
+        const localizedBase = locale === 'en' ? `${getBaseUrl()}/blog/` : `${getBaseUrl()}/${locale}/blog/`;
+        languages[locale] = `${localizedBase}${query}`;
     }
-    languages['x-default'] = `${getBaseUrl()}/blog/`;
+    languages['x-default'] = `${getBaseUrl()}/blog/${query}`;
+
+    const filteredCount = listing?.totalCount;
 
     return {
-        title: 'AI Tool Blog — Reviews, Tutorials & Comparisons in 2026',
-        description:
-            'Read 2026 AI tool reviews, buying guides, tutorials, and comparisons for creators, marketers, developers, and lean teams.',
+        title: hasFilters
+            ? `AI Tool Blog${category ? `: ${category}` : tag ? `: ${tag}` : ''}`
+            : 'AI Tool Blog — Reviews, Tutorials & Comparisons in 2026',
+        description: hasFilters
+            ? `Browse HyzenPro articles${category ? ` in ${category}` : ''}${tag ? ` tagged ${tag}` : ''}${q ? ` matching “${q}”` : ''}.`
+            : 'Read 2026 AI tool reviews, buying guides, tutorials, and comparisons for creators, marketers, developers, and lean teams.',
         keywords: ['AI tools blog', 'AI reviews', 'AI comparisons', 'AI tutorials', 'AI tool guides', 'best AI tools 2026'],
         alternates: {
-            canonical: `${getBaseUrl()}/blog/`,
+            canonical,
             languages,
         },
         openGraph: {
-            url: `${getBaseUrl()}/blog/`,
-            title: 'AI Tool Blog — Reviews, Tutorials & Comparisons in 2026',
-            description:
-                'Read 2026 AI tool reviews, buying guides, tutorials, and comparisons for creators, marketers, developers, and lean teams.',
+            url: canonical,
+            title: hasFilters ? `AI Tool Blog${category ? `: ${category}` : ''}` : 'AI Tool Blog — Reviews, Tutorials & Comparisons in 2026',
+            description: hasFilters
+                ? `Browse ${filteredCount || 0} HyzenPro article${filteredCount === 1 ? '' : 's'} matching this selection.`
+                : 'Read 2026 AI tool reviews, buying guides, tutorials, and comparisons for creators, marketers, developers, and lean teams.',
             type: 'website',
         },
         robots: {
-            index: !isThinArchive,
+            index: !hasFilters,
             follow: true,
         },
     };

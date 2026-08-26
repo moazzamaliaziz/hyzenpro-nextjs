@@ -1,67 +1,57 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import BlogPostsBrowser from '@/components/blog/BlogPostsBrowser';
-import prisma from '@/lib/prisma';
+import { buildBlogQuery, getBlogListing, getPageValue, getQueryValue } from '@/lib/blog-query';
 import { getBaseUrl } from '@/lib/utils';
-import { normalizeCategories } from '@/lib/normalize-category';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 interface Props {
     params: Promise<{ tag: string }>;
+    searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+function displayNameFromParam(value: string) {
+    return decodeURIComponent(value)
+        .replace(/[-_]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
     const { tag } = await params;
-    const displayName = decodeURIComponent(tag).split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const resolved = await searchParams;
+    const category = getQueryValue(resolved?.category);
+    const q = getQueryValue(resolved?.q);
+    const page = getPageValue(resolved?.page);
+    const listing = await getBlogListing({ tag, category, q, page });
+    const displayName = displayNameFromParam(tag);
+    const query = buildBlogQuery({ category, q, page: listing.currentPage });
+    const canonical = `${getBaseUrl()}/blog/tag/${encodeURIComponent(tag)}/${query}`;
 
     return {
-        title: `Tagged "${displayName}" - AI Tool Blog`,
-        description: `Browse all blog posts tagged with "${displayName}". Reviews, tutorials, and comparisons for 2026.`,
-        alternates: {
-            canonical: `${getBaseUrl()}/blog/tag/${tag}/`,
-        },
+        title: `AI Tool Articles Tagged “${displayName}”`,
+        description: `Browse ${listing.totalCount} HyzenPro article${listing.totalCount === 1 ? '' : 's'} tagged ${displayName}.`,
+        alternates: { canonical },
+        robots: { index: listing.totalCount >= 3 && !category && !q, follow: true },
     };
 }
 
-export default async function TagArchivePage({ params }: Props) {
+export default async function TagArchivePage({ params, searchParams }: Props) {
     const { tag } = await params;
-    const displayName = decodeURIComponent(tag).split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-
-    let posts: any[] = [];
-
-    try {
-        // Fetch posts that have this tag (MongoDB array contains)
-        posts = await prisma.post.findMany({
-            where: {
-                status: 'published',
-                tags: { has: tag },
-            },
-            include: {
-                authorModel: {
-                    select: { id: true, name: true, slug: true, image: true },
-                },
-            },
-            orderBy: { publishedAt: 'desc' },
-            take: 50,
-        });
-
-        posts = posts.map(post => ({
-            ...post,
-            categories: normalizeCategories(post.categories),
-            publishedAt: post.publishedAt ? post.publishedAt.toISOString() : null,
-            createdAt: post.createdAt.toISOString(),
-            updatedAt: post.updatedAt.toISOString(),
-        }));
-    } catch (error) {
-        console.error('[Blog] Failed to fetch tag posts:', error);
-    }
+    const resolved = await searchParams;
+    const category = getQueryValue(resolved?.category);
+    const q = getQueryValue(resolved?.q);
+    const page = getPageValue(resolved?.page);
+    const listing = await getBlogListing({ tag, category, q, page });
+    const displayName = displayNameFromParam(tag);
+    const basePath = `/blog/tag/${encodeURIComponent(tag)}/`;
 
     return (
         <>
-            <main className="pt-28 pb-20 min-h-screen">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <main id="main-content" tabIndex={-1} className="min-h-screen pb-20 pt-28">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <Breadcrumbs
                         items={[
                             { label: 'Blog', href: '/blog/' },
@@ -70,28 +60,26 @@ export default async function TagArchivePage({ params }: Props) {
                         ]}
                         className="mb-8"
                     />
-
-                    <div className="text-center mb-12">
-                        <h1 className="font-heading text-4xl md:text-5xl text-black mb-4">
-                            Tagged: {displayName}
-                        </h1>
-                        <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-                            {posts.length} article{posts.length !== 1 ? 's' : ''} tagged with "{displayName}"
+                    <header className="mb-10 max-w-3xl">
+                        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">Tag archive</p>
+                        <h1 className="font-serif text-4xl leading-tight text-black sm:text-5xl">{displayName}</h1>
+                        <p className="mt-4 text-base leading-7 text-gray-600">
+                            {listing.totalCount} article{listing.totalCount === 1 ? '' : 's'} tagged with this topic.
                         </p>
-                    </div>
-
-                    {posts.length === 0 ? (
-                        <div className="text-center py-16">
-                            <p className="text-gray-500 text-lg">No posts found with this tag.</p>
-                        </div>
-                    ) : (
-                        <BlogPostsBrowser
-                            posts={posts}
-                            categories={[]}
-                            tags={[tag]}
-                            selectedTag={tag}
-                        />
-                    )}
+                    </header>
+                    <BlogPostsBrowser
+                        posts={listing.posts}
+                        totalCount={listing.totalCount}
+                        totalPages={listing.totalPages}
+                        currentPage={listing.currentPage}
+                        selectedTag={tag}
+                        selectedCategory={category}
+                        searchQuery={q}
+                        basePath={basePath}
+                        showFilters={false}
+                        showMatcher={false}
+                        paginationFilters={{ category, q }}
+                    />
                 </div>
             </main>
             <Footer />

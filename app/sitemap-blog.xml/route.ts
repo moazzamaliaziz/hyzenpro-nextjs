@@ -1,26 +1,23 @@
-import prisma from '@/lib/prisma';
+import { getBlogInventory } from '@/lib/blog-query';
 import { getBlogPostPath } from '@/lib/blog-seo';
 import { renderSitemap, xmlResponse } from '@/lib/sitemap-xml';
 import { getBaseUrl } from '@/lib/utils';
 import { routing } from '@/i18n/routing';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 const LOCALES = routing.locales;
 const DEFAULT_LOCALE = routing.defaultLocale;
 
 export async function GET() {
     const baseUrl = getBaseUrl();
-    const posts = await prisma.post.findMany({
-        where: { status: 'published' },
-        select: { slug: true, updatedAt: true },
-    });
+    const posts = await getBlogInventory();
 
     return xmlResponse(
         renderSitemap(
             posts.map((post) => ({
                 url: `${baseUrl}${getBlogPostPath(post.slug)}`,
-                lastModified: post.updatedAt,
+                lastModified: new Date(post.updatedAt || post.publishedAt || Date.now()),
                 changeFrequency: 'weekly',
                 priority: 0.7,
                 locales: LOCALES,

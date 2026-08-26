@@ -1,108 +1,107 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, ArrowRight, User } from 'lucide-react';
-import { getBlogDisplayExcerpt, getBlogDisplayTitle, getBlogFeaturedImage, getBlogPostPath } from '@/lib/blog-seo';
+import {
+    getBlogDisplayExcerpt,
+    getBlogDisplayTitle,
+    getBlogFeaturedImage,
+    getBlogPostPath,
+} from '@/lib/blog-seo';
 import { formatDateShort, calculateReadingTime, stripHtml, truncate } from '@/lib/utils';
 import { resolvePostAuthor } from '@/lib/post-author';
+import type { BlogPostSummary } from '@/lib/blog-query';
 
 interface PostCardProps {
-    post: {
-        title: string;
-        slug: string;
-        excerpt?: string | null;
+    post: BlogPostSummary & {
         content?: string;
-        featuredImage?: string | null;
-        categories?: string[] | null;
-        author?: string | null;
-        authorModel?: {
-            id: string;
-            name: string;
-            slug: string;
-            image?: string | null;
-        } | null;
         publishedAt?: Date | string | null;
     };
     priority?: boolean;
+    locale?: string;
 }
 
-export default function PostCard({ post, priority = false }: PostCardProps) {
-    const readingTime = post.content ? calculateReadingTime(post.content) : 5;
+export default function PostCard({ post, priority = false, locale = 'en' }: PostCardProps) {
+    const readingTime = post.readingTime || (post.content ? calculateReadingTime(post.content) : 5);
     const title = getBlogDisplayTitle(post);
     const excerpt = getBlogDisplayExcerpt(post) || (post.content ? truncate(stripHtml(post.content), 120) : '');
     const featuredImage = getBlogFeaturedImage(post);
     const isSvgImage = featuredImage.toLowerCase().split('?')[0].endsWith('.svg');
     const categories = Array.isArray(post.categories) ? post.categories.filter(Boolean) : [];
     const resolvedAuthor = resolvePostAuthor(post);
+    const postHref = locale === 'en' ? getBlogPostPath(post.slug) : `/${locale}${getBlogPostPath(post.slug)}`;
 
     return (
-        <Link
-            href={getBlogPostPath(post.slug)}
-            className="group relative bg-white border border-gray-200 rounded-3xl overflow-hidden hover:border-gray-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-        >
-            <div className="relative h-48 overflow-hidden bg-gray-50 rounded-t-3xl">
+        <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-lg">
+            <Link
+                href={postHref}
+                className="relative block aspect-[16/10] overflow-hidden bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black"
+                aria-label={`Read ${title}`}
+            >
                 {isSvgImage ? (
                     <img
                         src={featuredImage}
-                        alt={title}
+                        alt=""
                         loading={priority ? 'eager' : 'lazy'}
-                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        decoding="async"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                 ) : (
                     <Image
                         src={featuredImage}
-                        alt={title}
+                        alt=""
                         fill
                         priority={priority}
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     />
                 )}
-
                 {categories.length > 0 && (
-                    <div className="absolute top-3 left-3 flex gap-1.5">
-                        {categories.slice(0, 2).map((cat) => (
-                            <span
-                                key={cat}
-                                className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white bg-black/70 backdrop-blur-sm rounded-full"
-                            >
-                                {cat}
+                    <div className="absolute left-3 top-3 flex max-w-[calc(100%-1.5rem)] flex-wrap gap-1.5" aria-label={`Categories: ${categories.slice(0, 2).join(', ')}`}>
+                        {categories.slice(0, 2).map((category) => (
+                            <span key={category} className="rounded-full bg-black/75 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                                {category}
                             </span>
                         ))}
                     </div>
                 )}
-            </div>
+            </Link>
 
-            <div className="p-5">
-                <div className="flex items-center gap-3 text-[11px] text-gray-600 mb-3">
+            <div className="flex flex-1 flex-col p-5">
+                <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-gray-600">
                     <span className="flex items-center gap-1">
-                        <User className="w-3 h-3" />
+                        <User aria-hidden="true" className="h-3 w-3" />
                         {resolvedAuthor.name}
                     </span>
                     {post.publishedAt && (
-                        <span className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
+                        <time dateTime={new Date(post.publishedAt).toISOString()} className="flex items-center gap-1">
+                            <Calendar aria-hidden="true" className="h-3 w-3" />
                             {formatDateShort(post.publishedAt)}
-                        </span>
+                        </time>
                     )}
                     <span className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
+                        <Clock aria-hidden="true" className="h-3 w-3" />
                         {readingTime} min
                     </span>
                 </div>
 
-                <h3 className="font-heading text-xl text-black group-hover:text-gray-600 transition-colors duration-300 line-clamp-2 mb-2">
-                    {title}
+                <h3 className="font-heading mb-2 line-clamp-2 text-xl leading-tight text-black transition-colors duration-300 group-hover:text-gray-600">
+                    <Link href={postHref} className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2">
+                        {title}
+                    </Link>
                 </h3>
 
-                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">
+                <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-gray-500">
                     {excerpt}
                 </p>
 
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400 group-hover:text-black transition-colors duration-300 flex items-center gap-1">
-                    Read More
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </span>
+                <Link
+                    href={postHref}
+                    className="mt-auto inline-flex w-fit items-center gap-1 text-xs font-bold uppercase tracking-wider text-gray-400 transition-colors duration-300 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+                >
+                    Read article
+                    <ArrowRight aria-hidden="true" className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                </Link>
             </div>
-        </Link>
+        </article>
     );
 }

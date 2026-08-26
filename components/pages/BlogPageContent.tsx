@@ -1,86 +1,69 @@
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import BlogPostsBrowser from '@/components/blog/BlogPostsBrowser';
-import prisma from '@/lib/prisma';
-import { normalizeCategories } from '@/lib/normalize-category';
-import { mergeDedicatedBlogPosts } from '@/lib/dedicated-blog-registry';
-
-async function getData() {
-    try {
-        const rawPosts = await prisma.post.findMany({
-            where: { status: 'published' },
-            include: {
-                authorModel: {
-                    select: { id: true, name: true, slug: true, image: true },
-                },
-            },
-            orderBy: { publishedAt: 'desc' },
-        });
-        const prismaPosts = rawPosts.map((post) => ({
-            ...post,
-            categories: normalizeCategories(post.categories),
-            publishedAt: post.publishedAt ? post.publishedAt.toISOString() : null,
-            createdAt: post.createdAt.toISOString(),
-            updatedAt: post.updatedAt.toISOString(),
-        }));
-        return mergeDedicatedBlogPosts(prismaPosts);
-    } catch (error) {
-        console.error('[Blog] Failed to fetch posts:', error);
-        return mergeDedicatedBlogPosts([]);
-    }
-}
-
-function getSearchParamValue(value: string | string[] | undefined) {
-    if (Array.isArray(value)) return value[0] || '';
-    return value || '';
-}
+import {
+    getBlogInventory,
+    getBlogListing,
+    getCategoryOptions,
+    getPageValue,
+    getPopularTagOptions,
+    getQueryValue,
+} from '@/lib/blog-query';
 
 export default async function BlogPageContent({
     searchParams,
+    locale = 'en',
 }: {
     searchParams?: Promise<Record<string, string | string[] | undefined>>;
+    locale?: string;
 }) {
-    const posts = await getData();
     const resolvedSearchParams = await searchParams;
-    const selectedCategory = getSearchParamValue(resolvedSearchParams?.category);
-    const selectedTag = getSearchParamValue(resolvedSearchParams?.tag);
-
-    const allCategories = Array.from(
-        new Set(
-            posts.flatMap((p: any) => normalizeCategories(p.categories))
-        )
-    ).sort((a, b) => a.localeCompare(b)) as string[];
-
-    const allTags = Array.from(
-        new Set(
-            posts.flatMap((p: any) => (Array.isArray(p.tags) ? p.tags.filter(Boolean) : []))
-        )
-    ).sort((a, b) => a.localeCompare(b)) as string[];
+    const filters = {
+        category: getQueryValue(resolvedSearchParams?.category),
+        tag: getQueryValue(resolvedSearchParams?.tag),
+        q: getQueryValue(resolvedSearchParams?.q),
+        page: getPageValue(resolvedSearchParams?.page),
+    };
+    const [inventory, listing] = await Promise.all([
+        getBlogInventory(),
+        getBlogListing(filters),
+    ]);
+    const { curated, more } = getCategoryOptions(inventory);
+    const popularTags = getPopularTagOptions(inventory);
+    const basePath = locale === 'en' ? '/blog/' : `/${locale}/blog/`;
 
     return (
         <>
-            <main id="main-content" tabIndex={-1} className="pt-28 pb-20 min-h-screen">
-                <div className="max-w-6xl mx-auto px-6">
-                    <Breadcrumbs items={[{ label: 'Blog', href: '/blog/' }]} className="mb-8" />
+            <main id="main-content" tabIndex={-1} className="min-h-screen pb-20 pt-28">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <Breadcrumbs items={[{ label: 'Blog', href: basePath }]} className="mb-8" />
 
-                    <div className="text-center mb-12">
-                        <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">From the blog</p>
-                        <h1 className="font-serif text-4xl md:text-5xl text-black mb-4">AI Tool <span className="italic text-gray-500">Insights</span></h1>
-                        <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-                            2026 AI tool reviews, comparison guides, and practical tutorials for building a sharper software shortlist.
+                    <header className="mb-12 max-w-3xl">
+                        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">From the HyzenPro desk</p>
+                        <h1 className="font-serif text-4xl leading-tight text-black sm:text-5xl lg:text-6xl">
+                            AI tools, explained with <span className="italic text-gray-500">judgment.</span>
+                        </h1>
+                        <p className="mt-5 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
+                            Independent reviews, comparisons, and practical guides for choosing better software without the noise.
                         </p>
-                    </div>
+                    </header>
 
                     <BlogPostsBrowser
-                        posts={posts}
-                        categories={allCategories}
-                        tags={allTags}
-                        selectedCategory={selectedCategory}
-                        selectedTag={selectedTag}
+                        posts={listing.posts}
+                        totalCount={listing.totalCount}
+                        totalPages={listing.totalPages}
+                        currentPage={listing.currentPage}
+                        categories={curated}
+                        moreCategories={more}
+                        popularTags={popularTags}
+                        selectedCategory={listing.filters.category}
+                        selectedTag={listing.filters.tag}
+                        searchQuery={listing.filters.q}
+                        basePath={basePath}
+                        locale={locale}
                     />
                 </div>
             </main>
-
             <Footer />
         </>
     );
