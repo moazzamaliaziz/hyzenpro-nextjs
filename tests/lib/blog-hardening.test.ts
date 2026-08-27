@@ -13,10 +13,12 @@ describe('blog hardening helpers', () => {
 
     it('preserves generated internal image routes', () => {
         expect(resolveBlogImageSource('/ai-tools-directory/ai-chatbots/example/opengraph-image')).toBe('/ai-tools-directory/ai-chatbots/example/opengraph-image');
+        expect(resolveBlogImageSource('https://hyzenpro.com/ai-tools-directory/ai-chatbots/example/opengraph-image')).toBe('/ai-tools-directory/ai-chatbots/example/opengraph-image');
     });
 
     it('rejects unsafe remote and traversal sources', () => {
         expect(resolveBlogImageSource('http://example.com/image.png')).toBe('/images/blog/hyzenpro-blog-default.png');
+        expect(resolveBlogImageSource('//example.com/image.png')).toBe('/images/blog/hyzenpro-blog-default.png');
         expect(resolveBlogImageSource('/images/../secrets.png')).toBe('/images/blog/hyzenpro-blog-default.png');
     });
 
