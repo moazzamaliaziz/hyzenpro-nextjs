@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         );
         const isHermesDirectoryPage = tool.slug === 'hermes-agent';
         const finalTitle = isHermesDirectoryPage
-            ? 'Hermes Agent Features, Pricing & Alternatives | HyzenPro'
+            ? 'Hermes Agent Features, Pricing & Alternatives'
             : getSerpFriendlyTitle(tool.slug, seoTitle || generatedTitle);
         const finalDescription = isHermesDirectoryPage
             ? 'Compare Hermes Agent features, pricing, setup, memory, and alternatives for browser-based AI automation.'
