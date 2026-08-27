@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Suspense } from 'react';
 import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
+import { isSupportedLocale, routing } from '@/i18n/routing';
 import prisma from '@/lib/prisma';
 import Footer from '@/components/layout/Footer';
 import ToolCard from '@/components/tools/ToolCard';
@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import { getAlternateLinks } from '@/lib/locale-helpers';
+import { notFound } from 'next/navigation';
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({locale}));
@@ -85,6 +86,9 @@ export default async function LocaleHomePage({
     params: Promise<{locale: string}>;
 }) {
     const { locale } = await params;
+    if (!isSupportedLocale(locale)) {
+        notFound();
+    }
     setRequestLocale(locale);
 
     const [featuredTools, latestPosts, toolCount, postCount, categoryCount] = await Promise.all([
@@ -385,7 +389,10 @@ function TranslatedHomeContent({
                 <div className="mt-10 space-y-0 divide-y divide-foreground/10 rounded-2xl border border-foreground/10 bg-card">
                     {latestPosts.map((post) => {
                         const dateStr = post.publishedAt
-                            ? new Date(post.publishedAt).toLocaleDateString(locale, { month: 'short', day: 'numeric' })
+                            ? new Date(post.publishedAt).toLocaleDateString(
+                                isSupportedLocale(locale) ? locale : routing.defaultLocale,
+                                { month: 'short', day: 'numeric' },
+                            )
                             : '';
                         return (
                             <Link key={post.id} href={`/blog/${post.slug}/`} className="flex gap-6 px-6 py-5 transition hover:bg-foreground/[0.02]">

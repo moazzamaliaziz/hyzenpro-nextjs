@@ -24,3 +24,9 @@ export const localeNames: Record<string, string> = {
 };
 
 export const rtlLocales = ['ar', 'he'];
+
+export type SupportedLocale = (typeof routing.locales)[number];
+
+export function isSupportedLocale(locale: string): locale is SupportedLocale {
+  return routing.locales.includes(locale as SupportedLocale);
+}

@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { isSupportedLocale } from '@/i18n/routing';
 import { describe, expect, it } from 'vitest';
 import { toSecureExternalUrl } from '@/lib/secure-external-url';
 import {
@@ -44,6 +45,22 @@ describe('technical SEO URL compatibility', () => {
     expect(resolveToolCanonicalUrl('https://hyzenpro.com/blog/claude-4-7-opus-review/', generated)).toBe(
       'https://hyzenpro.com/blog/claude-4-7-opus-review/',
     );
+  });
+
+  it('accepts only configured locales and rejects URL slugs as locales', () => {
+    expect(isSupportedLocale('en')).toBe(true);
+    expect(isSupportedLocale('ur')).toBe(false);
+    expect(isSupportedLocale('checkout-2')).toBe(false);
+    expect(isSupportedLocale('privacy-policy-2')).toBe(false);
+    expect(isSupportedLocale('kling-3-0-ai-video-generator')).toBe(false);
+  });
+
+  it('keeps dynamic OG image styles within the supported Satori display subset', () => {
+    const source = readFileSync(
+      resolve(process.cwd(), 'app/ai-tools-directory/[category]/[slug]/opengraph-image.tsx'),
+      'utf8',
+    );
+    expect(source).not.toContain("display: 'inline-flex'");
   });
 
   it('does not retain the confirmed methodology self-redirect', () => {
