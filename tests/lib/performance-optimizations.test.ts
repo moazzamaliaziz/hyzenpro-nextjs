@@ -47,6 +47,14 @@ describe('directory performance boundaries', () => {
 
     expect(panel).not.toContain("from 'framer-motion'");
     expect(panel).toContain('/api/user/saved-tools?toolIds=');
+    expect(panel).toContain('const INITIAL_VISIBLE_TOOLS = 24');
+    expect(panel).toContain('const VISIBLE_TOOLS_INCREMENT = 24');
+    expect(panel).toContain('const visibleTools = useMemo');
+    expect(panel).toContain('setVisibleCount(INITIAL_VISIBLE_TOOLS)');
+    expect(panel).toContain('Load more tools');
+    expect(panel.match(/sortedTools\.slice\(0, visibleCount\)/g)).toHaveLength(1);
+    expect(panel.match(/visibleTools\.map\(/g)).toHaveLength(2);
+    expect(panel.match(/visibleTools\.length < sortedTools\.length/g)).toHaveLength(2);
     expect(card).toContain('prefetch={priority}');
   });
 });
