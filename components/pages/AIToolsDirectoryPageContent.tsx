@@ -6,6 +6,7 @@ import AIToolsSEOContent from '@/components/tools/AIToolsSEOContent';
 import prisma from '@/lib/prisma';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import { getBaseUrl } from '@/lib/utils';
+import { directoryCategorySelect, directoryToolSelect } from '@/lib/directory-data';
 import { Video, PenLine, Code2, Workflow, Rocket, GraduationCap } from 'lucide-react';
 
 const AUDIENCES = [
@@ -23,9 +24,11 @@ async function getData() {
             prisma.tool.findMany({
                 where: { status: 'published' },
                 orderBy: { name: 'asc' },
+                select: directoryToolSelect,
             }),
             prisma.category.findMany({
                 orderBy: { name: 'asc' },
+                select: directoryCategorySelect,
             }),
         ]);
         return { tools, categories };
@@ -150,20 +153,7 @@ export default async function AIToolsDirectoryPageContent() {
 
                 {/* Filter + Grid */}
                 <section className="max-w-6xl mx-auto px-6 mb-16">
-                    <UnifiedFilterPanel
-                        tools={tools.map((t: any) => ({
-                            ...t,
-                            rating: t.rating,
-                            logo: t.logo,
-                            primaryCategory: t.primaryCategory,
-                        }))}
-                        categories={categories.map((c: any) => ({
-                            id: c.id,
-                            name: c.name,
-                            slug: c.slug,
-                            toolCount: c.toolCount,
-                        }))}
-                    />
+                    <UnifiedFilterPanel tools={tools} categories={categories} />
                 </section>
 
                 {/* Category links */}

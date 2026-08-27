@@ -48,7 +48,11 @@ export async function GET(req: NextRequest) {
             },
         });
 
-        return NextResponse.json(tools);
+        return NextResponse.json(tools, {
+            headers: {
+                'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+            },
+        });
     } catch (error) {
         console.error('Failed to recommend tools:', error);
         return NextResponse.json({ error: 'Failed to fetch recommendations' }, { status: 500 });

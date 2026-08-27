@@ -23,6 +23,9 @@ interface ToolCardProps {
         isTrending?: boolean;
     };
     priority?: boolean;
+    saved?: boolean;
+    savedStateLoading?: boolean;
+    onSavedChange?: (toolId: string, saved: boolean) => void;
 }
 
 const PRICING_STYLES: Record<string, string> = {
@@ -39,7 +42,13 @@ const PRICING_LABELS: Record<string, string> = {
     enterprise: 'Enterprise',
 };
 
-export default function ToolCard({ tool, priority = false }: ToolCardProps) {
+export default function ToolCard({
+    tool,
+    priority = false,
+    saved,
+    savedStateLoading = false,
+    onSavedChange,
+}: ToolCardProps) {
     const category = tool.primaryCategory || 'ai-general-tools';
     const toolUrl = `/ai-tools-directory/${category}/${tool.slug}/`;
     const categoryLabel = tool.categoryLabel || category.replace(/-/g, ' ').replace(/^ai /, '');
@@ -104,18 +113,25 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
                             logo: tool.logo,
                             category: tool.primaryCategory
                         }} />
-                        <SaveToolButton toolId={tool.id ?? "temp"} />
+                        <SaveToolButton
+                            toolId={tool.id ?? 'temp'}
+                            initialSaved={saved ?? false}
+                            skipInitialFetch={saved !== undefined}
+                            externalLoading={savedStateLoading}
+                            onSavedChange={onSavedChange}
+                        />
                     </div>
                 </div>
 
                 {/* Brand row: logo + name + rating */}
                 <div className="flex items-center gap-3 mb-3">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-muted border border-border rounded-xl overflow-hidden">
-                        <ToolLogo logo={tool.logo} name={tool.name} size="sm" />
+                        <ToolLogo logo={tool.logo} name={tool.name} size="sm" priority={priority} />
                     </div>
                     <div className="flex-1 min-w-0">
                         <h3 className="font-serif text-base text-foreground group-hover:text-muted-foreground transition-colors duration-300 truncate">
-                            <Link href={toolUrl} prefetch={true} className="focus:outline-none" aria-label={`View details for ${tool.name}`}>
+                                                            <Link href={toolUrl} prefetch={priority} className="focus:outline-none" aria-label={`View details for ${tool.name}`}>
+
                                 <span className="absolute inset-0 z-20" aria-hidden="true" />
                                 <span itemProp="name">{tool.name}</span>
                             </Link>
@@ -174,7 +190,7 @@ export default function ToolCard({ tool, priority = false }: ToolCardProps) {
                 <div className="mt-auto pt-3 border-t border-border flex items-center justify-between">
                     <Link
                         href={toolUrl}
-                        prefetch={true}
+                        prefetch={priority}
                         className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
                     >
                         Read review

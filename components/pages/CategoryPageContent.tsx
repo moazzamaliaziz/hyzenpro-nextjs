@@ -7,6 +7,7 @@ import prisma from '@/lib/prisma';
 import { getBaseUrl, getCategoryIcon } from '@/lib/utils';
 import { getMatcherDiscoveryContext } from '@/lib/matcher-discovery';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
+import { directoryToolSelect } from '@/lib/directory-data';
 
 const NOINDEX_EMPTY_CATEGORIES = new Set([
     'ai-subtitle-generators',
@@ -32,6 +33,7 @@ export default async function CategoryPageContent({ category }: { category: stri
                     ],
                 },
                 orderBy: { name: 'asc' },
+                select: directoryToolSelect,
             });
         }
     } catch { }

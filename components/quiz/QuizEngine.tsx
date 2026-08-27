@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, useTransition } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import QuizProgressBar from '@/components/quiz/QuizProgressBar';
@@ -30,6 +30,8 @@ export default function QuizEngine({
   const [stepIndex, setStepIndex] = useState(0);
   const [isPending, startTransition] = useTransition();
   const hasTrackedStart = useRef(false);
+  const questionTitleId = useId();
+  const questionHelperId = useId();
   const question = config.questions[stepIndex];
 
   const rankedTools = useMemo(
@@ -84,17 +86,22 @@ export default function QuizEngine({
   }
 
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-6 md:p-8">
-      <QuizProgressBar currentStep={stepIndex + 1} totalSteps={config.questions.length} />
+    <section
+      className="rounded-lg border border-gray-200 bg-white p-6 md:p-8"
+      aria-labelledby={questionTitleId}
+    >
+      <div aria-live="polite">
+        <QuizProgressBar currentStep={stepIndex + 1} totalSteps={config.questions.length} />
+      </div>
 
       <div className="mt-8">
         <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gray-500">
           {config.title}
         </div>
-        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-black">
+        <h2 id={questionTitleId} className="mt-3 text-3xl font-semibold tracking-tight text-black">
           {question.prompt}
         </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-7 text-gray-600">
+        <p id={questionHelperId} className="mt-3 max-w-2xl text-sm leading-7 text-gray-600">
           {question.helper}
         </p>
       </div>
@@ -107,6 +114,8 @@ export default function QuizEngine({
               key={option.id}
               type="button"
               onClick={() => setAnswer(option.id)}
+              aria-pressed={isActive}
+              aria-describedby={questionHelperId}
               className={`rounded-lg border p-5 text-left transition-colors ${
                 isActive
                   ? 'border-black bg-gray-50'

@@ -39,7 +39,11 @@ export async function GET(req: NextRequest) {
         // Prisma doesn't guarantee the order of `in`, so we map the array back to match the requested ID order
         const sortedTools = idArray.map((id) => tools.find((t) => t.id === id)).filter(Boolean);
 
-        return NextResponse.json(sortedTools);
+        return NextResponse.json(sortedTools, {
+            headers: {
+                'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+            },
+        });
     } catch (error) {
         console.error("Failed to fetch compare tools", error);
         return NextResponse.json({ error: 'Failed to fetch tools' }, { status: 500 });

@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useMemo, useRef, useId } from 'react';
+import { useState, useMemo, useRef, useId, useEffect, useCallback } from 'react';
 import { Search, X, ChevronRight, ChevronLeft, Filter, SlidersHorizontal, ArrowDownUp, Check } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { useSession } from 'next-auth/react';
 import ToolCard from '@/components/tools/ToolCard';
 
 interface Tool {
@@ -55,7 +55,55 @@ export default function UnifiedFilterPanel({
     const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
     const [sortBy, setSortBy] = useState<SortOption>('popular');
     const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
+    const [savedToolIds, setSavedToolIds] = useState<Set<string>>(new Set());
+    const [savedStateLoading, setSavedStateLoading] = useState(false);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const { data: session } = useSession();
+
+    const toolIdsParam = useMemo(
+        () => tools.map((tool) => tool.id).filter(Boolean).slice(0, 200).join(','),
+        [tools],
+    );
+
+    useEffect(() => {
+        if (!session || !toolIdsParam) {
+            setSavedToolIds(new Set());
+            setSavedStateLoading(false);
+            return;
+        }
+
+        let cancelled = false;
+        setSavedStateLoading(true);
+        fetch(`/api/user/saved-tools?toolIds=${encodeURIComponent(toolIdsParam)}`, {
+            credentials: 'include',
+            cache: 'no-store',
+        })
+            .then(async (response) => (response.ok ? response.json() : { savedToolIds: [] }))
+            .then((data: { savedToolIds?: string[] }) => {
+                if (!cancelled) {
+                    setSavedToolIds(new Set(Array.isArray(data.savedToolIds) ? data.savedToolIds : []));
+                }
+            })
+            .catch(() => {
+                if (!cancelled) setSavedToolIds(new Set());
+            })
+            .finally(() => {
+                if (!cancelled) setSavedStateLoading(false);
+            });
+
+        return () => {
+            cancelled = true;
+        };
+    }, [session, toolIdsParam]);
+
+    const handleSavedChange = useCallback((toolId: string, saved: boolean) => {
+        setSavedToolIds((current) => {
+            const next = new Set(current);
+            if (saved) next.add(toolId);
+            else next.delete(toolId);
+            return next;
+        });
+    }, []);
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollContainerRef.current) {
@@ -136,20 +184,6 @@ export default function UnifiedFilterPanel({
     const topCategories = useMemo(() => {
         return [...categories].sort((a, b) => b.toolCount - a.toolCount).slice(0, 15);
     }, [categories]);
-
-    const containerVariants: Variants = {
-        hidden: { opacity: 0, y: 15 },
-        show: {
-            opacity: 1,
-            y: 0,
-            transition: { staggerChildren: 0.05, duration: 0.4, ease: 'easeOut' }
-        }
-    };
-
-    const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 12 },
-        show: { opacity: 1, y: 0 }
-    };
 
     return (
         <div className="w-full">
@@ -356,21 +390,13 @@ export default function UnifiedFilterPanel({
                     </aside>
 
                     {/* Mobile Filters Drawer */}
-                    <AnimatePresence>
-                        {isMobileFiltersOpen && (
+                    {isMobileFiltersOpen && (
                             <>
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
+                                <div
                                     onClick={() => setIsMobileFiltersOpen(false)}
                                     className="fixed inset-0 bg-foreground/60 backdrop-blur-sm z-50 lg:hidden"
                                 />
-                                <motion.div
-                                    initial={{ x: '-100%' }}
-                                    animate={{ x: 0 }}
-                                    exit={{ x: '-100%' }}
-                                    transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                                <div
                                     className="fixed inset-y-0 left-0 w-80 max-w-full bg-card p-6 shadow-2xl z-50 lg:hidden flex flex-col"
                                 >
                                     <div className="flex items-center justify-between pb-4 border-b border-border">
@@ -432,10 +458,9 @@ export default function UnifiedFilterPanel({
                                             Apply
                                         </button>
                                     </div>
-                                </motion.div>
+                                </div>
                             </>
                         )}
-                    </AnimatePresence>
 
                     {/* Main Content */}
                     <div className="flex-1">
@@ -462,13 +487,18 @@ export default function UnifiedFilterPanel({
                         </div>
 
                         {sortedTools.length > 0 ? (
-                            <motion.div variants={containerVariants} initial="hidden" animate="show" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {sortedTools.map((tool) => (
-                                    <motion.div key={tool.id} variants={itemVariants}>
-                                        <ToolCard tool={tool} />
-                                    </motion.div>
+                                    <div key={tool.id}>
+                                        <ToolCard
+                                            tool={tool}
+                                            saved={savedToolIds.has(tool.id)}
+                                            savedStateLoading={savedStateLoading}
+                                            onSavedChange={handleSavedChange}
+                                        />
+                                    </div>
                                 ))}
-                            </motion.div>
+                            </div>
                         ) : (
                             <div className="text-center py-24 bg-muted border border-border rounded-2xl">
                                 <SlidersHorizontal className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
@@ -500,13 +530,19 @@ export default function UnifiedFilterPanel({
                     </div>
 
                     {sortedTools.length > 0 ? (
-                        <motion.div variants={containerVariants} initial="hidden" animate="show" className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                             {sortedTools.map((tool, i) => (
-                                <motion.div key={tool.id} variants={itemVariants}>
-                                    <ToolCard tool={tool} priority={i < 8} />
-                                </motion.div>
+                                <div key={tool.id}>
+                                    <ToolCard
+                                        tool={tool}
+                                        priority={i < 8}
+                                        saved={savedToolIds.has(tool.id)}
+                                        savedStateLoading={savedStateLoading}
+                                        onSavedChange={handleSavedChange}
+                                    />
+                                </div>
                             ))}
-                        </motion.div>
+                        </div>
                     ) : (
                         <div className="text-center py-24 bg-muted border border-border rounded-2xl">
                             <Search className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />

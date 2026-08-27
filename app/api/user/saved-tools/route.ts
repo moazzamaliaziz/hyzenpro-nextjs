@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 import prisma from '@/lib/prisma';
+import { getSavedToolIds, parseToolIds } from '@/lib/saved-tool-ids';
 
 // Check if a tool is saved
 export async function GET(request: Request) {
@@ -12,8 +13,10 @@ export async function GET(request: Request) {
 
         const { searchParams } = new URL(request.url);
         const toolId = searchParams.get('toolId');
+        const requestedToolIds = parseToolIds(searchParams.get('toolIds'));
+        const requestAll = searchParams.get('all') === 'true';
 
-        if (!toolId) {
+        if (!toolId && requestedToolIds.length === 0 && !requestAll) {
             return NextResponse.json({ error: 'Tool ID is required' }, { status: 400 });
         }
 
@@ -23,10 +26,22 @@ export async function GET(request: Request) {
         });
 
         if (!user) {
-            return NextResponse.json({ saved: false });
+            return toolId
+                ? NextResponse.json({ saved: false })
+                : NextResponse.json({ savedToolIds: [] });
         }
 
-        const isSaved = user.savedToolIds.includes(toolId);
+        if (requestAll) {
+            return NextResponse.json({ savedToolIds: user.savedToolIds });
+        }
+
+        if (requestedToolIds.length > 0) {
+            return NextResponse.json({
+                savedToolIds: getSavedToolIds(user.savedToolIds, requestedToolIds),
+            });
+        }
+
+        const isSaved = user.savedToolIds.includes(toolId!);
         return NextResponse.json({ saved: isSaved });
     } catch (error) {
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
