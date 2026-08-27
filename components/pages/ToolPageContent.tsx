@@ -30,6 +30,7 @@ import {
 } from '@/lib/tool-page';
 import { buildToolCanonicalPath } from '@/lib/tool-paths';
 import { getPricingLabel, stripHtml } from '@/lib/utils';
+import { toSecureExternalUrl } from '@/lib/secure-external-url';
 
 export default async function ToolPageContent({ category, slug }: { category: string; slug: string }) {
     let tool;
@@ -78,7 +79,31 @@ export default async function ToolPageContent({ category, slug }: { category: st
 
     const pageMeta = buildToolPageMeta(tool as any, relatedTools as any, tool.categories as any);
     const displayName = pageMeta.displayName || tool.name;
-    const displayLogo = pageMeta.displayLogo || tool.logo;
+    const displayLogo = toSecureExternalUrl(pageMeta.displayLogo || tool.logo);
+    const websiteUrl = toSecureExternalUrl(tool.websiteUrl);
+    const pricingTiers = (pageMeta.pricingTiers || []).map((tier) => ({
+        ...tier,
+        ctaUrl: toSecureExternalUrl(tier.ctaUrl),
+    }));
+    const reviewSources = (pageMeta.reviewSources || []).map((source) => ({
+        ...source,
+        url: toSecureExternalUrl(source.url),
+    }));
+    const screenshots = (pageMeta.screenshots || []).map((screenshot) => ({
+        ...screenshot,
+        url: toSecureExternalUrl(screenshot.url),
+    }));
+    const videos = (pageMeta.videos || []).map((video) => ({
+        ...video,
+        channelAvatar: toSecureExternalUrl(video.channelAvatar),
+    }));
+    const socialLinks = (pageMeta.socialLinks || []).map((link) => ({
+        ...link,
+        url: toSecureExternalUrl(link.url),
+    }));
+    const currentDeal = pageMeta.currentDeal
+        ? { ...pageMeta.currentDeal, ctaUrl: toSecureExternalUrl(pageMeta.currentDeal.ctaUrl) }
+        : undefined;
     const theme = getToolPageTheme(tool.primaryCategory);
     const overallRating = getToolOverallRating(tool as any, pageMeta);
     const matcherContext = getMatcherDiscoveryContext(tool.primaryCategory);
@@ -180,7 +205,7 @@ export default async function ToolPageContent({ category, slug }: { category: st
                         reviewCount={pageMeta.reviewCount}
                         verified={pageMeta.verified !== false}
                         lastReviewedDate={pageMeta.lastReviewedDate}
-                        websiteUrl={tool.websiteUrl}
+                        websiteUrl={websiteUrl}
                         stats={pageMeta.heroStats || []}
                         accent={theme.accent}
                         accentSoft={theme.accentSoft}
@@ -209,7 +234,7 @@ export default async function ToolPageContent({ category, slug }: { category: st
 
                             <ToolPagePricing
                                 toolName={displayName}
-                                tiers={pageMeta.pricingTiers || []}
+                                tiers={pricingTiers}
                                 accent={theme.accent}
                                 accentSoft={theme.accentSoft}
                                 lastReviewedDate={pageMeta.lastReviewedDate}
@@ -226,7 +251,7 @@ export default async function ToolPageContent({ category, slug }: { category: st
                             <ToolPageReviews
                                 toolName={displayName}
                                 intro={pageMeta.reviewsIntro}
-                                reviewSources={pageMeta.reviewSources || []}
+                                reviewSources={reviewSources}
                             />
 
                             <ToolPageRatingBreakdown
@@ -239,13 +264,13 @@ export default async function ToolPageContent({ category, slug }: { category: st
 
                             <ToolPageVideos
                                 toolName={displayName}
-                                videos={pageMeta.videos || []}
+                                videos={videos}
                                 accent={theme.accent}
                             />
 
                             <ToolPageGallery
                                 toolName={displayName}
-                                screenshots={pageMeta.screenshots || []}
+                                screenshots={screenshots}
                             />
 
                             <ToolPageVerdict
@@ -253,7 +278,7 @@ export default async function ToolPageContent({ category, slug }: { category: st
                                 verdictHtml={pageMeta.verdict || ''}
                                 bestFor={pageMeta.bestFor || []}
                                 skipIf={pageMeta.skipIf || []}
-                                websiteUrl={tool.websiteUrl}
+                                websiteUrl={websiteUrl}
                                 accent={theme.accent}
                                 accentSoft={theme.accentSoft}
                             />
@@ -279,9 +304,9 @@ export default async function ToolPageContent({ category, slug }: { category: st
                                 sections={tableOfContents as any}
                                 accent={theme.accent}
                                 toolName={displayName}
-                                websiteUrl={tool.websiteUrl}
-                                socialLinks={pageMeta.socialLinks || []}
-                                currentDeal={pageMeta.currentDeal}
+                                websiteUrl={websiteUrl}
+                                socialLinks={socialLinks}
+                                currentDeal={currentDeal}
                                 bestValueNote={pageMeta.bestValueNote}
                             />
 

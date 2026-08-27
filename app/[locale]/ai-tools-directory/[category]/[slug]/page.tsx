@@ -4,7 +4,10 @@ import ToolPageContent from '@/components/pages/ToolPageContent';
 import prisma from '@/lib/prisma';
 import { getAlternateLinks, getToolTranslation } from '@/lib/locale-helpers';
 import { buildToolPageMeta } from '@/lib/tool-page';
-import { buildToolCanonicalPath } from '@/lib/tool-paths';
+import {
+    buildPreferredToolCanonicalPath,
+    resolveToolCanonicalUrl,
+} from '@/lib/tool-paths';
 import { getSerpFriendlyTitle } from '@/lib/seo-titles';
 
 export const dynamic = 'force-dynamic';
@@ -24,7 +27,7 @@ export async function generateMetadata({
         const translation = await getToolTranslation(tool.id, locale);
         const pageMeta = buildToolPageMeta(tool as any);
         const seo = tool.seo as any;
-        const canonicalPath = buildToolCanonicalPath(tool.primaryCategory || category, tool.slug);
+        const canonicalPath = buildPreferredToolCanonicalPath(tool.primaryCategory || category, tool.slug);
 
         const displayName = translation?.name || pageMeta.displayName || tool.name;
         const currentYear = new Date().getFullYear();
@@ -36,14 +39,15 @@ export async function generateMetadata({
             || `Honest ${displayName} review. Pricing, real pros and cons, and top alternatives.`;
 
         const { canonical, languages } = getAlternateLinks(locale, canonicalPath);
+        const canonicalUrl = resolveToolCanonicalUrl(seo?.canonicalUrl, canonical);
 
         return {
             title,
             description,
-            alternates: { canonical: seo?.canonicalUrl || canonical, languages },
+            alternates: { canonical: canonicalUrl, languages },
             robots: { index: !(seo?.noIndex === true), follow: !(seo?.noIndex === true) },
             openGraph: {
-                url: seo?.canonicalUrl || canonical,
+                url: canonicalUrl,
                 title,
                 description,
                 type: 'article',

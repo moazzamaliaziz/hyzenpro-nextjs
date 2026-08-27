@@ -181,11 +181,6 @@ const nextConfig = {
                 permanent: true,
             },
             {
-                source: '/how-we-test',
-                destination: '/how-we-test/',
-                permanent: true,
-            },
-            {
                 source: '/tag/:slug/',
                 destination: '/blog/',
                 permanent: true,

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, ExternalLink, Star, Ticket } from 'lucide-react';
 import type { ScoredQuizTool } from '@/lib/quiz-data/types';
+import { toSecureExternalUrl } from '@/lib/secure-external-url';
 
 interface QuizResultCardProps {
   tool: ScoredQuizTool;
@@ -15,6 +16,8 @@ export default function QuizResultCard({
   title,
   href,
 }: QuizResultCardProps) {
+  const externalUrl = toSecureExternalUrl(tool.currentDeal?.ctaUrl || tool.websiteUrl);
+
   return (
     <article className="rounded-lg border border-gray-200 bg-white p-6">
       <div className="mb-5 flex items-start justify-between gap-4">
@@ -62,7 +65,7 @@ export default function QuizResultCard({
 
       <div className="mt-6 flex flex-wrap gap-3">
         <a
-          href={tool.currentDeal?.ctaUrl || tool.websiteUrl}
+          href={externalUrl}
           target="_blank"
           rel="noopener noreferrer sponsored"
           className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-black px-5 text-sm font-semibold text-white transition-colors hover:bg-gray-900"

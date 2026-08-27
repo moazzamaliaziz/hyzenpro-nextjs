@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { ArrowRightLeft, ExternalLink } from 'lucide-react';
 import { useCompare, type CompareTool } from '@/components/compare/CompareContext';
 import { trackMatcherEvent } from '@/lib/quiz-tracking';
+import { toSecureExternalUrl } from '@/lib/secure-external-url';
 
 interface MatcherResultActionsProps {
   category: string;
@@ -18,6 +19,7 @@ export default function MatcherResultActions({
 }: MatcherResultActionsProps) {
   const router = useRouter();
   const { setTools } = useCompare();
+  const secureWebsiteUrl = toSecureExternalUrl(primary.websiteUrl);
 
   function handleCompare() {
     const selection = [primary, ...runnerUps].slice(0, 3);
@@ -52,7 +54,7 @@ export default function MatcherResultActions({
 
       <div className="mt-6 flex flex-wrap gap-3">
         <a
-          href={primary.websiteUrl}
+          href={secureWebsiteUrl}
           target="_blank"
           rel="noopener noreferrer sponsored"
           onClick={handleVisit}

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { getToolInitials } from '@/lib/tool-page';
 import { cn } from '@/lib/utils';
 import { HermesAgent, OpenClaw } from '@lobehub/icons';
+import { toSecureExternalUrl } from '@/lib/secure-external-url';
 
 interface ToolLogoProps {
     logo?: string | null;
@@ -47,11 +48,12 @@ export default function ToolLogo({
     const [hasError, setHasError] = useState(false);
 
     const handleError = () => setHasError(true);
+    const secureLogo = toSecureExternalUrl(logo);
     const { container, fontSize, iconSize } = SIZE_MAP[size];
 
     // LobeHub icons
-    if (logo && logo.startsWith('lobehub:')) {
-        const iconName = logo.substring(8);
+    if (secureLogo && secureLogo.startsWith('lobehub:')) {
+        const iconName = secureLogo.substring(8);
         return (
             <div
                 className={cn('flex items-center justify-center overflow-hidden rounded-[8px] border border-[#E5E7EB] bg-white', container, containerClassName)}
@@ -64,7 +66,7 @@ export default function ToolLogo({
     }
 
     // Broken or missing logo → initials fallback
-    if (!logo || hasError) {
+    if (!secureLogo || hasError) {
         return (
             <div
                 className={cn('flex items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-white font-semibold text-[#0F0F0F]', container, fontSize, containerClassName)}
@@ -84,7 +86,7 @@ export default function ToolLogo({
             className={cn('overflow-hidden rounded-[8px] border border-[#E5E7EB] bg-white', container, containerClassName)}
         >
             <img
-                src={logo}
+                src={secureLogo}
                 alt={`${name} logo`}
                 width={w}
                 height={h}
@@ -109,9 +111,10 @@ export function ToolLogoInline({
     className?: string;
 }) {
     const [hasError, setHasError] = useState(false);
+    const secureLogo = toSecureExternalUrl(logo);
 
-    if (logo && logo.startsWith('lobehub:')) {
-        const iconName = logo.substring(8);
+    if (secureLogo && secureLogo.startsWith('lobehub:')) {
+        const iconName = secureLogo.substring(8);
         return (
             <div className={cn('flex items-center justify-center w-full h-full p-0.5 bg-white rounded-full overflow-hidden', className)}>
                 {iconName === 'HermesAgent' && <HermesAgent size={20} />}
@@ -120,7 +123,7 @@ export function ToolLogoInline({
         );
     }
 
-    if (!logo || hasError) {
+    if (!secureLogo || hasError) {
         return (
             <span className={cn('font-serif text-xl text-foreground/40', className)}>
                 {name.charAt(0)}
@@ -130,7 +133,7 @@ export function ToolLogoInline({
 
     return (
         <img
-            src={logo}
+            src={secureLogo}
             alt={`${name} logo`}
             className={cn('w-full h-full object-cover rounded-full', className)}
             onError={() => setHasError(true)}

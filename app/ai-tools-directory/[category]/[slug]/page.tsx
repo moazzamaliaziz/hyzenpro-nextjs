@@ -5,7 +5,10 @@ import { getSerpFriendlyTitle, stripTitleBrand } from '@/lib/seo-titles';
 import {
     buildToolPageMeta,
 } from '@/lib/tool-page';
-import { buildToolCanonicalPath } from '@/lib/tool-paths';
+import {
+    buildPreferredToolCanonicalPath,
+    resolveToolCanonicalUrl,
+} from '@/lib/tool-paths';
 
 export const revalidate = 86400;
 export const dynamicParams = true;
@@ -33,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             year: 'numeric',
         });
         const currentYear = new Date().getFullYear();
-        const canonicalPath = buildToolCanonicalPath(tool.primaryCategory || category, tool.slug);
+        const canonicalPath = buildPreferredToolCanonicalPath(tool.primaryCategory || category, tool.slug);
         const generatedTitle = `${displayName} Review ${currentYear}: Pricing & Alternatives`;
         const generatedDescription = `Honest ${displayName} review. Pricing breakdown, Magic Clips notes, real pros and cons, review sources, and top alternatives. Updated ${reviewedLabel}.`;
         const seo = tool.seo as Record<string, unknown> | null;
@@ -51,13 +54,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         const seoOgTitle = replaceBrandName(seo?.ogTitle);
         const seoOgDescription = replaceBrandName(seo?.ogDescription);
 
-        const canonicalUrl = typeof seo?.canonicalUrl === 'string' && seo.canonicalUrl.trim()
-            ? seo.canonicalUrl
-            : `${baseUrl}${canonicalPath}`;
+        const canonicalUrl = resolveToolCanonicalUrl(
+            seo?.canonicalUrl,
+            `${baseUrl}${canonicalPath}`,
+        );
+        const isHermesDirectoryPage = tool.slug === 'hermes-agent';
+        const finalTitle = isHermesDirectoryPage
+            ? 'Hermes Agent Features, Pricing & Alternatives | HyzenPro'
+            : getSerpFriendlyTitle(tool.slug, seoTitle || generatedTitle);
+        const finalDescription = isHermesDirectoryPage
+            ? 'Compare Hermes Agent features, pricing, setup, memory, and alternatives for browser-based AI automation.'
+            : (seoDescription || generatedDescription);
+        const finalOgTitle = isHermesDirectoryPage
+            ? 'Hermes Agent Features, Pricing & Alternatives'
+            : (seoOgTitle ? stripTitleBrand(seoOgTitle) : generatedTitle);
+        const finalOgDescription = isHermesDirectoryPage
+            ? finalDescription
+            : (seoOgDescription || generatedDescription);
 
         return {
-            title: getSerpFriendlyTitle(tool.slug, seoTitle || generatedTitle),
-            description: seoDescription || generatedDescription,
+            title: finalTitle,
+            description: finalDescription,
             alternates: {
                 canonical: canonicalUrl,
             },
@@ -67,15 +84,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             },
             openGraph: {
                 url: canonicalUrl,
-                title: seoOgTitle ? stripTitleBrand(seoOgTitle) : generatedTitle,
-                description: seoOgDescription || generatedDescription,
+                title: finalOgTitle,
+                description: finalOgDescription,
                 type: 'article',
                 images: [openGraphImage],
             },
             twitter: {
                 card: 'summary_large_image',
-                title: seoOgTitle ? stripTitleBrand(seoOgTitle) : generatedTitle,
-                description: seoOgDescription || generatedDescription,
+                title: finalOgTitle,
+                description: finalOgDescription,
                 images: [openGraphImage],
             },
             keywords: [

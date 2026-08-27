@@ -14,6 +14,16 @@ export const CATEGORY_SLUG_ALIASES: Record<string, string> = {
 
 export const DEFAULT_PRIMARY_CATEGORY = 'ai-general-tools';
 
+/**
+ * A small compatibility map for records whose legacy SEO metadata still
+ * points at a previous category path. Keep this scoped to confirmed records;
+ * other admin-managed canonical overrides remain untouched.
+ */
+export const TOOL_CANONICAL_CATEGORY_OVERRIDES: Record<string, string> = {
+    'claude-4-7-opus': 'ai-chatbots',
+    'gpt-3-5-turbo': 'ai-chatbots',
+};
+
 export function normalizeToolSlug(raw: string): string {
     return slugify(raw).slice(0, 120) || 'tool';
 }
@@ -29,6 +39,28 @@ export function normalizePrimaryCategorySlug(raw: string | null | undefined): st
 export function buildToolCanonicalPath(primaryCategory: string | null | undefined, slug: string): string {
     const category = normalizePrimaryCategorySlug(primaryCategory);
     return `/ai-tools-directory/${category}/${slug}/`;
+}
+
+export function buildPreferredToolCanonicalPath(primaryCategory: string | null | undefined, slug: string): string {
+    const category = TOOL_CANONICAL_CATEGORY_OVERRIDES[slug] || normalizePrimaryCategorySlug(primaryCategory);
+    return `/ai-tools-directory/${category}/${slug}/`;
+}
+
+export function resolveToolCanonicalUrl(storedUrl: unknown, generatedUrl: string): string {
+    if (typeof storedUrl !== 'string' || !storedUrl.trim()) {
+        return generatedUrl;
+    }
+
+    try {
+        const stored = new URL(storedUrl, generatedUrl);
+        if (/(?:^|\/)ai-tools-directory\//.test(stored.pathname)) {
+            return generatedUrl;
+        }
+    } catch {
+        // Preserve malformed or non-URL admin input rather than rewriting data.
+    }
+
+    return storedUrl;
 }
 
 export function buildDefaultToolSeo(name: string, slug: string, primaryCategory: string, shortDescription: string) {

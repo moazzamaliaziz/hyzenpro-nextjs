@@ -35,6 +35,12 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
         description: `Browse ${listing.totalCount} HyzenPro article${listing.totalCount === 1 ? '' : 's'} tagged ${displayName}.`,
         alternates: { canonical },
         robots: { index: listing.totalCount >= 3 && !category && !q, follow: true },
+        openGraph: {
+            url: canonical,
+            title: `AI Tool Articles Tagged “${displayName}”`,
+            description: `Browse ${listing.totalCount} HyzenPro article${listing.totalCount === 1 ? '' : 's'} tagged ${displayName}.`,
+            type: 'website',
+        },
     };
 }
 
