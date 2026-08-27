@@ -72,6 +72,8 @@ describe('directory performance boundaries', () => {
     expect(analytics).not.toContain('NEXT_PUBLIC_GA_ID');
     expect(analytics).not.toContain('gtag/js');
     expect(analytics).not.toContain('ga-config');
+    expect(analytics).toContain('setLoaded(true), 8000');
+    expect(analytics).not.toContain("addEventListener('scroll'");
     expect(compare).not.toContain('useEffect');
     expect(compare).not.toContain('mounted');
     expect(directorySave).not.toContain('useSession');

@@ -10,22 +10,24 @@ export default function Analytics() {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        // Load after 3 seconds or first user interaction
-        const timer = setTimeout(() => setLoaded(true), 3000);
+        // Load after the initial render window or the first deliberate interaction.
+        // Avoid using scroll as a trigger because automated and touch scrolling can
+        // compete with the page's first meaningful paint.
+        const timer = window.setTimeout(() => setLoaded(true), 8000);
 
         const handleInteraction = () => {
             setLoaded(true);
             window.removeEventListener('click', handleInteraction);
-            window.removeEventListener('scroll', handleInteraction);
+            window.removeEventListener('keydown', handleInteraction);
         };
 
         window.addEventListener('click', handleInteraction, { once: true });
-        window.addEventListener('scroll', handleInteraction, { once: true });
+        window.addEventListener('keydown', handleInteraction, { once: true });
 
         return () => {
-            clearTimeout(timer);
+            window.clearTimeout(timer);
             window.removeEventListener('click', handleInteraction);
-            window.removeEventListener('scroll', handleInteraction);
+            window.removeEventListener('keydown', handleInteraction);
         };
     }, []);
 
