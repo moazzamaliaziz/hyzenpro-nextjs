@@ -1,5 +1,5 @@
 export const DEFAULT_SITE_LOGO_URL = 'https://media.hyzenpro.com/media/2026/06/21/jwq5nh41_c596008d-e19b-4e53-95b6-a9c6b1bf31e8-removalai-preview.png';
-export const DEFAULT_SITE_FAVICON_URL = '/logo-main.png';
+export const DEFAULT_SITE_FAVICON_URL = '/favicon.png';
 export const DEFAULT_SITE_SHARE_IMAGE_URL = '/logo-main.png';
 export const DEFAULT_HERO_IMAGE_URL = 'https://hyzenpro.com/media/6a0a0d05e3696d2314b63070/hyzenpro.png';
 

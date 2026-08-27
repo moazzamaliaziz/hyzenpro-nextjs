@@ -1,8 +1,8 @@
 import ToolLogo from '@/components/ui/ToolLogo';
 import Link from 'next/link';
 import { Star, ExternalLink, Check } from 'lucide-react';
-import { getCategoryIcon } from '@/lib/utils';
 import SaveToolButton from './SaveToolButton';
+import DirectorySaveToolButton from './DirectorySaveToolButton';
 import AddToCompareButton from '@/components/compare/AddToCompareButton';
 
 interface ToolCardProps {
@@ -26,6 +26,9 @@ interface ToolCardProps {
     saved?: boolean;
     savedStateLoading?: boolean;
     onSavedChange?: (toolId: string, saved: boolean) => void;
+    isAuthenticated?: boolean;
+    authLoading?: boolean;
+    onLogin?: () => void;
 }
 
 const PRICING_STYLES: Record<string, string> = {
@@ -48,6 +51,9 @@ export default function ToolCard({
     saved,
     savedStateLoading = false,
     onSavedChange,
+    isAuthenticated = false,
+    authLoading = false,
+    onLogin,
 }: ToolCardProps) {
     const category = tool.primaryCategory || 'ai-general-tools';
     const toolUrl = `/ai-tools-directory/${category}/${tool.slug}/`;
@@ -113,13 +119,25 @@ export default function ToolCard({
                             logo: tool.logo,
                             category: tool.primaryCategory
                         }} />
-                        <SaveToolButton
-                            toolId={tool.id ?? 'temp'}
-                            initialSaved={saved ?? false}
-                            skipInitialFetch={saved !== undefined}
-                            externalLoading={savedStateLoading}
-                            onSavedChange={onSavedChange}
-                        />
+                        {onLogin ? (
+                            <DirectorySaveToolButton
+                                toolId={tool.id ?? 'temp'}
+                                initialSaved={saved ?? false}
+                                externalLoading={savedStateLoading}
+                                isAuthenticated={isAuthenticated}
+                                authLoading={authLoading}
+                                onLogin={onLogin}
+                                onSavedChange={onSavedChange}
+                            />
+                        ) : (
+                            <SaveToolButton
+                                toolId={tool.id ?? 'temp'}
+                                initialSaved={saved ?? false}
+                                skipInitialFetch={saved !== undefined}
+                                externalLoading={savedStateLoading}
+                                onSavedChange={onSavedChange}
+                            />
+                        )}
                     </div>
                 </div>
 

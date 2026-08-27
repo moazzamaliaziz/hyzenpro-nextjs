@@ -3,6 +3,8 @@
 import { useState, useMemo, useRef, useId, useEffect, useCallback } from 'react';
 import { Search, X, ChevronRight, ChevronLeft, Filter, SlidersHorizontal, ArrowDownUp, Check } from 'lucide-react';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { buildAdminLoginUrl } from '@/lib/admin';
 import ToolCard from '@/components/tools/ToolCard';
 
 interface Tool {
@@ -62,7 +64,11 @@ export default function UnifiedFilterPanel({
     const [savedToolIds, setSavedToolIds] = useState<Set<string>>(new Set());
     const [savedStateLoading, setSavedStateLoading] = useState(false);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const { data: session } = useSession();
+    const router = useRouter();
+    const { data: session, status: sessionStatus } = useSession();
+    const handleLogin = useCallback(() => {
+        router.push(buildAdminLoginUrl(window.location.href));
+    }, [router]);
 
     const toolIdsParam = useMemo(
         () => tools.map((tool) => tool.id).filter(Boolean).slice(0, 200).join(','),
@@ -509,6 +515,9 @@ export default function UnifiedFilterPanel({
                                             saved={savedToolIds.has(tool.id)}
                                             savedStateLoading={savedStateLoading}
                                             onSavedChange={handleSavedChange}
+                                            isAuthenticated={sessionStatus === 'authenticated'}
+                                            authLoading={sessionStatus === 'loading'}
+                                            onLogin={handleLogin}
                                         />
                                     </div>
                                 ))}
@@ -567,6 +576,9 @@ export default function UnifiedFilterPanel({
                                         saved={savedToolIds.has(tool.id)}
                                         savedStateLoading={savedStateLoading}
                                         onSavedChange={handleSavedChange}
+                                        isAuthenticated={sessionStatus === 'authenticated'}
+                                        authLoading={sessionStatus === 'loading'}
+                                        onLogin={handleLogin}
                                     />
                                 </div>
                             ))}

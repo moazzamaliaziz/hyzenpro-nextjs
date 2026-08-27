@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import Footer from '@/components/layout/Footer';
 import UnifiedFilterPanel from '@/components/tools/UnifiedFilterPanel';
@@ -177,8 +178,12 @@ export default async function AIToolsDirectoryPageContent() {
                     </nav>
                 )}
 
-                <DirectoryCTA />
-                <AIToolsSEOContent />
+                <Suspense fallback={null}>
+                    <DirectoryCTA />
+                </Suspense>
+                <Suspense fallback={null}>
+                    <AIToolsSEOContent />
+                </Suspense>
             </main>
 
             <Footer />

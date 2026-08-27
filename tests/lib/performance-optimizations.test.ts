@@ -44,17 +44,40 @@ describe('directory performance boundaries', () => {
       'utf8',
     );
     const card = readFileSync(resolve(process.cwd(), 'components/tools/ToolCard.tsx'), 'utf8');
+    const analytics = readFileSync(resolve(process.cwd(), 'components/Analytics.tsx'), 'utf8');
+    const compare = readFileSync(resolve(process.cwd(), 'components/compare/AddToCompareButton.tsx'), 'utf8');
+    const directorySave = readFileSync(
+      resolve(process.cwd(), 'components/tools/DirectorySaveToolButton.tsx'),
+      'utf8',
+    );
+    const branding = readFileSync(resolve(process.cwd(), 'lib/branding.ts'), 'utf8');
+    const directoryPage = readFileSync(
+      resolve(process.cwd(), 'components/pages/AIToolsDirectoryPageContent.tsx'),
+      'utf8',
+    );
 
     expect(panel).not.toContain("from 'framer-motion'");
     expect(panel).toContain('/api/user/saved-tools?toolIds=');
     expect(panel).toContain('const INITIAL_VISIBLE_TOOLS = 24');
     expect(panel).toContain('const VISIBLE_TOOLS_INCREMENT = 24');
     expect(panel).toContain('const visibleTools = useMemo');
+    expect(panel.match(/useSession\(\)/g)).toHaveLength(1);
     expect(panel).toContain('setVisibleCount(INITIAL_VISIBLE_TOOLS)');
     expect(panel).toContain('Load more tools');
     expect(panel.match(/sortedTools\.slice\(0, visibleCount\)/g)).toHaveLength(1);
     expect(panel.match(/visibleTools\.map\(/g)).toHaveLength(2);
     expect(panel.match(/visibleTools\.length < sortedTools\.length/g)).toHaveLength(2);
     expect(card).toContain('prefetch={priority}');
+    expect(card).toContain('DirectorySaveToolButton');
+    expect(analytics).not.toContain('NEXT_PUBLIC_GA_ID');
+    expect(analytics).not.toContain('gtag/js');
+    expect(analytics).not.toContain('ga-config');
+    expect(compare).not.toContain('useEffect');
+    expect(compare).not.toContain('mounted');
+    expect(directorySave).not.toContain('useSession');
+    expect(directorySave).not.toContain('useRouter');
+    expect(directorySave).toContain('/api/user/saved-tools?toolId=');
+    expect(branding).toContain("DEFAULT_SITE_FAVICON_URL = '/favicon.png'");
+    expect(directoryPage.match(/<Suspense fallback=\{null\}>/g)).toHaveLength(2);
   });
 });

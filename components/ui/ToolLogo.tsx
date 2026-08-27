@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { getToolInitials } from '@/lib/tool-page';
 import { cn } from '@/lib/utils';
 import { HermesAgent, OpenClaw } from '@lobehub/icons';
