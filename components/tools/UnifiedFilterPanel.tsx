@@ -37,6 +37,9 @@ interface UnifiedFilterPanelProps {
 
 type SortOption = 'popular' | 'rating' | 'alphabetical';
 
+const INITIAL_VISIBLE_TOOLS = 24;
+const VISIBLE_TOOLS_INCREMENT = 24;
+
 export default function UnifiedFilterPanel({
     tools,
     categories = [],
@@ -55,6 +58,7 @@ export default function UnifiedFilterPanel({
     const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
     const [sortBy, setSortBy] = useState<SortOption>('popular');
     const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
+    const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_TOOLS);
     const [savedToolIds, setSavedToolIds] = useState<Set<string>>(new Set());
     const [savedStateLoading, setSavedStateLoading] = useState(false);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -159,6 +163,15 @@ export default function UnifiedFilterPanel({
         if (isCategoryPage) return selectedPricingList.length > 0 || selectedFeatures.length > 0;
         return search || selectedCategory !== 'all' || selectedPricing !== 'all' || minRating > 0;
     }, [isCategoryPage, search, selectedCategory, selectedPricing, selectedPricingList, selectedFeatures, minRating]);
+
+    useEffect(() => {
+        setVisibleCount(INITIAL_VISIBLE_TOOLS);
+    }, [search, selectedCategory, selectedPricing, minRating, selectedPricingList, selectedFeatures, sortBy]);
+
+    const visibleTools = useMemo(
+        () => sortedTools.slice(0, visibleCount),
+        [sortedTools, visibleCount],
+    );
 
     const clearAllFilters = () => {
         setSearch('');
@@ -487,8 +500,9 @@ export default function UnifiedFilterPanel({
                         </div>
 
                         {sortedTools.length > 0 ? (
+                            <>
                             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {sortedTools.map((tool) => (
+                                {visibleTools.map((tool) => (
                                     <div key={tool.id}>
                                         <ToolCard
                                             tool={tool}
@@ -499,6 +513,19 @@ export default function UnifiedFilterPanel({
                                     </div>
                                 ))}
                             </div>
+                            {visibleTools.length < sortedTools.length && (
+                                <div className="mt-8 flex justify-center">
+                                    <button
+                                        type="button"
+                                        onClick={() => setVisibleCount((count) => count + VISIBLE_TOOLS_INCREMENT)}
+                                        className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-muted"
+                                    >
+                                        Load more tools
+                                        <ChevronRight className="h-4 w-4" />
+                                    </button>
+                                </div>
+                            )}
+                            </>
                         ) : (
                             <div className="text-center py-24 bg-muted border border-border rounded-2xl">
                                 <SlidersHorizontal className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
@@ -530,8 +557,9 @@ export default function UnifiedFilterPanel({
                     </div>
 
                     {sortedTools.length > 0 ? (
+                        <>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                            {sortedTools.map((tool, i) => (
+                            {visibleTools.map((tool, i) => (
                                 <div key={tool.id}>
                                     <ToolCard
                                         tool={tool}
@@ -543,6 +571,19 @@ export default function UnifiedFilterPanel({
                                 </div>
                             ))}
                         </div>
+                        {visibleTools.length < sortedTools.length && (
+                            <div className="mt-8 flex justify-center">
+                                <button
+                                    type="button"
+                                    onClick={() => setVisibleCount((count) => count + VISIBLE_TOOLS_INCREMENT)}
+                                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground hover:bg-muted"
+                                >
+                                    Load more tools
+                                    <ChevronRight className="h-4 w-4" />
+                                </button>
+                            </div>
+                        )}
+                        </>
                     ) : (
                         <div className="text-center py-24 bg-muted border border-border rounded-2xl">
                             <Search className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
