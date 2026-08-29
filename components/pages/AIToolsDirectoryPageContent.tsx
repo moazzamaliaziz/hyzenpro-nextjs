@@ -178,6 +178,28 @@ export default async function AIToolsDirectoryPageContent() {
                     </nav>
                 )}
 
+                {/* Crawlable editorial links for recently published review pages. */}
+                <section aria-labelledby="featured-reviews-heading" className="max-w-6xl mx-auto px-6 mb-16 border-t border-border pt-8">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Editorial picks</p>
+                    <h2 id="featured-reviews-heading" className="mt-2 font-serif text-2xl text-foreground">
+                        Reviews worth comparing
+                    </h2>
+                    <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                        <Link href="/blog/cursor-composer-2-5-review/" className="rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground underline-offset-4 hover:bg-muted hover:underline">
+                            Cursor Composer 2.5 review
+                        </Link>
+                        <Link href="/ai-tools-directory/ai-automation-tools/simplygrow/" className="rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground underline-offset-4 hover:bg-muted hover:underline">
+                            SimplyGrow review
+                        </Link>
+                        <Link href="/ai-tools-directory/copywriting/loqua/" className="rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground underline-offset-4 hover:bg-muted hover:underline">
+                            Loqua review
+                        </Link>
+                        <Link href="/ai-tools-directory/ai-general-tools/mindvault/" className="rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground underline-offset-4 hover:bg-muted hover:underline">
+                            MindVault review
+                        </Link>
+                    </div>
+                </section>
+
                 <Suspense fallback={null}>
                     <DirectoryCTA />
                 </Suspense>

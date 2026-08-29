@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import BlogPostsBrowser from '@/components/blog/BlogPostsBrowser';
@@ -62,6 +63,28 @@ export default async function BlogPageContent({
                         basePath={basePath}
                         locale={locale}
                     />
+
+                    {/* Server-rendered editorial links keep key articles discoverable to crawlers. */}
+                    <section aria-labelledby="featured-research-heading" className="mt-14 border-t border-border pt-8">
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Featured research</p>
+                        <h2 id="featured-research-heading" className="mt-2 font-serif text-2xl text-foreground">
+                            More AI tool reviews worth reading
+                        </h2>
+                        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                            <Link href="/blog/cursor-composer-2-5-review/" className="rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground underline-offset-4 hover:bg-muted hover:underline">
+                                Cursor Composer 2.5 review
+                            </Link>
+                            <Link href="/ai-tools-directory/ai-automation-tools/simplygrow/" className="rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground underline-offset-4 hover:bg-muted hover:underline">
+                                SimplyGrow review
+                            </Link>
+                            <Link href="/ai-tools-directory/copywriting/loqua/" className="rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground underline-offset-4 hover:bg-muted hover:underline">
+                                Loqua review
+                            </Link>
+                            <Link href="/ai-tools-directory/ai-general-tools/mindvault/" className="rounded-xl border border-border bg-card px-4 py-4 text-sm text-foreground underline-offset-4 hover:bg-muted hover:underline">
+                                MindVault review
+                            </Link>
+                        </div>
+                    </section>
                 </div>
             </main>
             <Footer />

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
             'Partner with HyzenPro to reach creators, marketers, and developers actively researching AI tools.',
     },
     robots: {
-        index: false,
+        index: true,
         follow: true,
     },
 };
