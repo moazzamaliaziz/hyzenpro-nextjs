@@ -6,6 +6,7 @@ import { getSerpFriendlyTitle } from '@/lib/seo-titles';
 import { resolvePostAuthor } from '@/lib/post-author';
 import { resolveBlogImageSource } from '@/lib/blog-images';
 import BlogPostPageContent from '@/components/pages/BlogPostPageContent';
+import { applyEditorialArticleOverride } from '@/lib/editorial-article-overrides';
 
 export const revalidate = 86400;
 
@@ -42,12 +43,13 @@ export async function generateMetadata({
             return { title: 'Post Not Found | HyzenPro' };
         }
 
-        const seo = post.seo as any;
-        const title = getSerpFriendlyTitle(post.slug, seo?.metaTitle || `${getBlogDisplayTitle(post)} | HyzenPro Blog`);
-        const description = seo?.metaDescription || getBlogDisplayExcerpt(post) || '';
-        const image = resolveBlogImageSource(seo?.ogImage || getBlogFeaturedImage(post));
+        const resolvedPost = applyEditorialArticleOverride(post);
+        const seo = resolvedPost.seo as any;
+        const title = getSerpFriendlyTitle(resolvedPost.slug, seo?.metaTitle || `${getBlogDisplayTitle(resolvedPost)} | HyzenPro Blog`);
+        const description = seo?.metaDescription || getBlogDisplayExcerpt(resolvedPost) || '';
+        const image = resolveBlogImageSource(seo?.ogImage || getBlogFeaturedImage(resolvedPost));
         const imageUrl = image.startsWith('http') ? image : `${getBaseUrl()}${image}`;
-        const fallbackAuthor = resolvePostAuthor(post);
+        const fallbackAuthor = resolvePostAuthor(resolvedPost);
         const authorName = fallbackAuthor.name;
 
         return {
@@ -58,15 +60,15 @@ export async function generateMetadata({
                 follow: !(seo?.noIndex === true),
             },
             alternates: {
-                canonical: seo?.canonicalUrl || `${getBaseUrl()}/blog/${post.slug}/`,
+                canonical: seo?.canonicalUrl || `${getBaseUrl()}/blog/${resolvedPost.slug}/`,
             },
             openGraph: {
                 type: 'article',
-                url: seo?.canonicalUrl || `${getBaseUrl()}/blog/${post.slug}/`,
+                url: seo?.canonicalUrl || `${getBaseUrl()}/blog/${resolvedPost.slug}/`,
                 title,
                 description,
                 images: [imageUrl],
-                publishedTime: post.publishedAt ? post.publishedAt.toISOString() : post.createdAt.toISOString(),
+                publishedTime: resolvedPost.publishedAt ? resolvedPost.publishedAt.toISOString() : resolvedPost.createdAt.toISOString(),
                 authors: [authorName],
             },
             twitter: {

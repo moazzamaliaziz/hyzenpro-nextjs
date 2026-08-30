@@ -84,7 +84,7 @@ const nextConfig = {
             "img-src 'self' data: blob: https: https://*.googleusercontent.com https://*.supabase.co https://*.supabase.in https://images.unsplash.com https://logo.clearbit.com https://cdn.sanity.io https://*.r2.dev https://media.hyzenpro.com https://*.cloudflarestorage.com",
             "font-src 'self' https://fonts.gstatic.com",
             "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://www.google.com https://*.sentry.io https://*.ingest.sentry.io https://*.vercel-insights.com https://challenges.cloudflare.com https://analytics.ahrefs.com",
-            "frame-src 'self' https://www.youtube.com https://platform.twitter.com https://syndication.twitter.com https://www.google.com https://challenges.cloudflare.com",
+            "frame-src 'self' https://www.youtube.com https://platform.twitter.com https://syndication.twitter.com https://www.google.com https://drive.google.com https://challenges.cloudflare.com",
             "frame-ancestors 'none'",
             "object-src 'none'",
             "manifest-src 'self'",

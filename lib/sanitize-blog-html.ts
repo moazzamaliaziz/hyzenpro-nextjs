@@ -6,19 +6,31 @@ const ALLOWED_TAGS = new Set([
     'a', 'b', 'blockquote', 'br', 'code', 'cite', 'div', 'em', 'figcaption',
     'figure', 'h2', 'h3', 'h4', 'hr', 'i', 'img', 'li', 'mark', 'ol', 'p',
     'pre', 'small', 'span', 'strong', 'sub', 'sup', 'table', 'tbody', 'td',
-    'th', 'thead', 'tr', 'ul',
+    'th', 'thead', 'tr', 'ul', 'iframe',
 ]);
 
 const GLOBAL_ATTRIBUTES = new Set(['class', 'id', 'title', 'aria-label', 'aria-hidden']);
 const TAG_ATTRIBUTES: Record<string, Set<string>> = {
     a: new Set(['href', 'target', 'rel']),
     img: new Set(['src', 'alt', 'width', 'height', 'loading', 'decoding']),
+    iframe: new Set(['src', 'title', 'loading', 'allow', 'allowfullscreen', 'referrerpolicy']),
     td: new Set(['colspan', 'rowspan', 'scope']),
     th: new Set(['colspan', 'rowspan', 'scope']),
 };
 
 function isSafeUrl(value: string) {
     return /^(?:(?:https?|mailto):|\/|#)/i.test(value.trim());
+}
+
+function isAllowedIframeUrl(value: string) {
+    try {
+        const url = new URL(value.trim());
+        return url.protocol === 'https:'
+            && url.hostname === 'drive.google.com'
+            && /^\/file\/[^/]+\/preview$/.test(url.pathname);
+    } catch {
+        return false;
+    }
 }
 
 /**
@@ -43,7 +55,8 @@ export function sanitizeBlogHtml(html: string) {
             const unsafeEvent = name.startsWith('on') || name === 'srcdoc';
             const urlAttribute = name === 'href' || name === 'src';
 
-            if (!allowed || unsafeEvent || (urlAttribute && !isSafeUrl(rawValue))) {
+            const unsafeIframe = tagName === 'iframe' && name === 'src' && !isAllowedIframeUrl(rawValue);
+            if (!allowed || unsafeEvent || (urlAttribute && !isSafeUrl(rawValue)) || unsafeIframe) {
                 $(element).removeAttr(rawName);
             }
         }

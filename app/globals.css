@@ -2093,3 +2093,72 @@ main {
 .admin-rich-text-editor .ProseMirror li {
     margin: 0.25rem 0;
 }
+
+
+/* Article-specific media blocks: responsive, contained, and safe for long-form reading. */
+@layer components {
+    .prose.blog-article .article-media {
+        margin: 2.5rem 0;
+    }
+
+    .prose.blog-article .article-media img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 34rem;
+        object-fit: contain;
+        background: #f8fafc;
+    }
+
+    .prose.blog-article .article-media figcaption {
+        margin-top: 0.75rem;
+        color: #64748b;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .prose.blog-article .article-cta {
+        margin: 2.5rem 0;
+        padding: 1.25rem 1.5rem;
+        border: 1px solid #bfdbfe;
+        border-radius: 1rem;
+        background: linear-gradient(135deg, #eff6ff 0%, #f0fdfa 100%);
+    }
+
+    .prose.blog-article .article-cta p {
+        margin: 0;
+        color: #1e3a5f;
+    }
+
+    .prose.blog-article .article-cta a {
+        font-weight: 800;
+    }
+
+    .prose.blog-article .video-embed {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        border-radius: 1rem;
+        background: #0f172a;
+    }
+
+    .prose.blog-article .video-embed iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    @media (max-width: 640px) {
+        .prose.blog-article .article-cta {
+            padding: 1rem;
+        }
+
+        .prose.blog-article .article-media figcaption {
+            font-size: 0.8125rem;
+        }
+    }
+}

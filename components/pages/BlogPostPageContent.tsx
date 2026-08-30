@@ -19,6 +19,7 @@ import { resolvePostAuthor } from '@/lib/post-author';
 import { getEditorialAuthor } from '@/lib/editorial-authors';
 import { resolveBlogImageSource } from '@/lib/blog-images';
 import { sanitizeBlogHtml } from '@/lib/sanitize-blog-html';
+import { applyEditorialArticleOverride } from '@/lib/editorial-article-overrides';
 import {
     getBlogDisplayExcerpt,
     getBlogDisplayTitle,
@@ -43,6 +44,7 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
         notFound();
     }
 
+    post = applyEditorialArticleOverride(post);
     const readingTime = calculateReadingTime(post.content);
     const matcherContext = getMatcherDiscoveryContext();
     const displayTitle = getBlogDisplayTitle(post);
