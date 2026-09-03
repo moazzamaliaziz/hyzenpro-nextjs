@@ -56,13 +56,13 @@ export const DEDICATED_BLOG_ENTRIES: DedicatedBlogEntry[] = [
     },
     {
         slug: 'claude-fable-5-mythos-5',
-        title: "Claude Fable 5 & Mythos 5 -- Anthropic's Mythos-Class Model Goes Public",
+        title: 'Claude Fable 5.1 and Mythos 5.1: What Anthropic Actually Announced',
         description:
-            'Claude Fable 5 is the first Mythos-class AI ever made generally available -- 80.3% SWE-Bench Pro, 29.3% FrontierCode Diamond, $10/M tokens. Full breakdown.',
-        featuredImage: null,
-        publishedAt: '2026-06-09T10:00:00.000Z',
+            'Anthropic’s Claude Fable 5.1 and Mythos 5.1 explained: availability, pricing claims, safeguards, benchmark context, and what the release means for coding and research.',
+        featuredImage: '/images/blog/claude-fable-51/featured.png',
+        publishedAt: '2026-09-03T08:00:00.000Z',
         categories: ['AI Chatbots', 'AI Tools'],
-        tags: ['Claude Fable 5', 'Claude Mythos 5', 'Anthropic', 'AI Benchmarks', 'SWE-Bench Pro', 'FrontierCode Diamond', 'Agentic AI', 'Claude Code', 'AI Safety'],
+        tags: ['Claude Fable 5.1', 'Claude Mythos 5.1', 'Anthropic', 'AI Benchmarks', 'Frontier AI Models', 'Agentic AI', 'Claude Code', 'AI Safety'],
         author: 'Rana Aqib',
     },
     {
