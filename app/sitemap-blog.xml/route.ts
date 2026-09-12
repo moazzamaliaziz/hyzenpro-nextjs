@@ -1,4 +1,4 @@
-import { getBlogInventory } from '@/lib/blog-query';
+﻿import { getBlogInventory, type BlogPostSummary } from '@/lib/blog-query';
 import { getBlogPostPath } from '@/lib/blog-seo';
 import { renderSitemap, xmlResponse } from '@/lib/sitemap-xml';
 import { getBaseUrl } from '@/lib/utils';
@@ -11,7 +11,12 @@ const DEFAULT_LOCALE = routing.defaultLocale;
 
 export async function GET() {
     const baseUrl = getBaseUrl();
-    const posts = await getBlogInventory();
+    let posts: BlogPostSummary[] = [];
+    try {
+        posts = await getBlogInventory();
+    } catch (error) {
+        console.error('[Sitemap] Database unavailable, serving empty sitemap:', error);
+    }
 
     return xmlResponse(
         renderSitemap(

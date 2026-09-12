@@ -2,11 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import prisma from '@/lib/prisma';
+import type { SiteContent } from '@prisma/client';
 
 export default async function DirectoryCTA() {
-    const ctaSection = await prisma.siteContent.findUnique({
-        where: { sectionId: 'directory-cta' }
-    });
+    let ctaSection: SiteContent | null = null;
+    try {
+        ctaSection = await prisma.siteContent.findUnique({
+            where: { sectionId: 'directory-cta' }
+        });
+    } catch (error) {
+        console.error('[DirectoryCTA] Database unavailable:', error);
+    }
 
     if (!ctaSection || !ctaSection.enabled) return null;
 

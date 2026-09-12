@@ -165,31 +165,82 @@ const faqData = [
     { q: 'Who is behind HyzenPro?', a: 'An independent editorial team focused on AI tooling for creators, marketers, and small teams. We\'re reader-funded and ad-supported — never pay-to-play.' },
 ];
 
+interface HomeTool {
+    id: string;
+    name: string;
+    slug: string;
+    shortDescription: string;
+    logo: string | null;
+    pricingType: string;
+    rating: number | null;
+    primaryCategory: string | null;
+    featured: boolean;
+}
+
+interface HomeCompareTool {
+    id: string;
+    name: string;
+    slug: string;
+    shortDescription: string;
+    logo: string | null;
+    pricingType: string;
+    rating: number | null;
+    primaryCategory: string | null;
+}
+
+interface HomePost {
+    id: string;
+    slug: string;
+    title: string;
+    excerpt: string | null;
+    categories: string[];
+    featuredImage: string | null;
+    publishedAt: Date | null;
+    createdAt: Date;
+}
+
+interface HomeSiteContent {
+    sectionId: string;
+    content: unknown;
+}
+
 export default async function HomePage() {
-    const [featuredTools, compareTools, latestPosts, toolCount, postCount, categoryCount, siteContent] = await Promise.all([
-        prisma.tool.findMany({
-            where: { status: 'published' },
-            orderBy: { createdAt: 'desc' },
-            take: 6,
-            select: { id: true, name: true, slug: true, shortDescription: true, logo: true, pricingType: true, rating: true, primaryCategory: true, featured: true },
-        }),
-        prisma.tool.findMany({
-            where: { status: 'published' },
-            orderBy: { rating: 'desc' },
-            take: 30,
-            select: { id: true, name: true, slug: true, shortDescription: true, logo: true, pricingType: true, rating: true, primaryCategory: true },
-        }),
-        prisma.post.findMany({
-            where: { status: 'published' },
-            orderBy: { publishedAt: 'desc' },
-            take: 4,
-            select: { id: true, slug: true, title: true, excerpt: true, categories: true, featuredImage: true, publishedAt: true, createdAt: true },
-        }),
-        prisma.tool.count({ where: { status: 'published' } }),
-        prisma.post.count({ where: { status: 'published' } }),
-        prisma.category.count(),
-        prisma.siteContent.findMany({ orderBy: { sortOrder: 'asc' } }),
-    ]);
+    let featuredTools: HomeTool[] = [];
+    let compareTools: HomeCompareTool[] = [];
+    let latestPosts: HomePost[] = [];
+    let toolCount = 0;
+    let postCount = 0;
+    let categoryCount = 0;
+    let siteContent: HomeSiteContent[] = [];
+
+    try {
+        ([featuredTools, compareTools, latestPosts, toolCount, postCount, categoryCount, siteContent] = await Promise.all([
+            prisma.tool.findMany({
+                where: { status: 'published' },
+                orderBy: { createdAt: 'desc' },
+                take: 6,
+                select: { id: true, name: true, slug: true, shortDescription: true, logo: true, pricingType: true, rating: true, primaryCategory: true, featured: true },
+            }),
+            prisma.tool.findMany({
+                where: { status: 'published' },
+                orderBy: { rating: 'desc' },
+                take: 30,
+                select: { id: true, name: true, slug: true, shortDescription: true, logo: true, pricingType: true, rating: true, primaryCategory: true },
+            }),
+            prisma.post.findMany({
+                where: { status: 'published' },
+                orderBy: { publishedAt: 'desc' },
+                take: 4,
+                select: { id: true, slug: true, title: true, excerpt: true, categories: true, featuredImage: true, publishedAt: true, createdAt: true },
+            }),
+            prisma.tool.count({ where: { status: 'published' } }),
+            prisma.post.count({ where: { status: 'published' } }),
+            prisma.category.count(),
+            prisma.siteContent.findMany({ orderBy: { sortOrder: 'asc' } }),
+        ]));
+    } catch (error) {
+        console.error('[Home] Database unavailable, serving fallback:', error);
+    }
 
     const getSection = (id: string) => siteContent.find(s => s.sectionId === id);
     const socialSection = getSection('social-proof');

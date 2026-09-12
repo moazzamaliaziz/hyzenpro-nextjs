@@ -1,5 +1,6 @@
 import { auth } from '@/lib/auth';
 import prisma from '@/lib/prisma';
+import type { Tool } from '@prisma/client';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import ToolCard from '@/components/tools/ToolCard';
@@ -19,24 +20,34 @@ export default async function MyStackPage() {
         redirect(buildAdminLoginUrl('/my-stack'));
     }
 
-    const user = await prisma.user.findUnique({
-        where: { email: session.user.email },
-        select: { savedToolIds: true, name: true }
-    });
+    let user: { savedToolIds: string[]; name: string | null } | null = null;
+    try {
+        user = await prisma.user.findUnique({
+            where: { email: session.user.email },
+            select: { savedToolIds: true, name: true }
+        });
+    } catch (error) {
+        console.error('[MyStack] Database unavailable:', error);
+    }
 
     if (!user) {
         redirect(buildAdminLoginUrl('/my-stack'));
     }
 
     // Fetch the actual tools
-    const savedTools = await prisma.tool.findMany({
-        where: {
-            id: {
-                in: user.savedToolIds
-            },
-            status: 'published'
-        }
-    });
+    let savedTools: Tool[] = [];
+    try {
+        savedTools = await prisma.tool.findMany({
+            where: {
+                id: {
+                    in: user.savedToolIds
+                },
+                status: 'published'
+            }
+        });
+    } catch (error) {
+        console.error('[MyStack] Database unavailable:', error);
+    }
 
     return (
         <main className="min-h-screen pt-32 pb-24 bg-white">

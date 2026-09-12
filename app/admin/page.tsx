@@ -216,7 +216,7 @@ export default async function AdminDashboardPage() {
 
     const stats = await getStats();
     const gaId = process.env.NEXT_PUBLIC_GA_ID;
-    const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
+    const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 
     return (
         <div>
@@ -355,7 +355,7 @@ export default async function AdminDashboardPage() {
                             </div>
                             <div className="flex items-center gap-2 text-white/60">
                                 <span className={adsenseId ? 'text-green-400' : 'text-red-400'}>{adsenseId ? '✓' : '✗'}</span>
-                                AdSense {adsenseId ? '✓ Active' : '— Set NEXT_PUBLIC_ADSENSE_ID'}
+                                AdSense {adsenseId ? '✓ Active' : '— Set NEXT_PUBLIC_ADSENSE_CLIENT'}
                             </div>
                         </div>
                     </div>

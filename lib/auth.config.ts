@@ -117,19 +117,23 @@ export const authConfig = {
             }
 
             if (token.id) {
-                const dbUser = await prisma.user.findUnique({
-                    where: { id: token.id },
-                    select: {
-                        role: true,
-                        isTwoFactorEnabled: true,
-                        mustChangePassword: true,
-                    },
-                });
+                try {
+                    const dbUser = await prisma.user.findUnique({
+                        where: { id: token.id },
+                        select: {
+                            role: true,
+                            isTwoFactorEnabled: true,
+                            mustChangePassword: true,
+                        },
+                    });
 
-                if (dbUser) {
-                    token.role = dbUser.role as 'admin' | 'user';
-                    token.isTwoFactorEnabled = dbUser.isTwoFactorEnabled;
-                    token.mustChangePassword = dbUser.mustChangePassword;
+                    if (dbUser) {
+                        token.role = dbUser.role as 'admin' | 'user';
+                        token.isTwoFactorEnabled = dbUser.isTwoFactorEnabled;
+                        token.mustChangePassword = dbUser.mustChangePassword;
+                    }
+                } catch (error) {
+                    console.error('[Auth] Database unavailable during JWT refresh:', error);
                 }
             }
 

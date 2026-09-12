@@ -11,10 +11,15 @@ const DEFAULT_LOCALE = routing.defaultLocale;
 export async function GET() {
     const baseUrl = getBaseUrl();
 
-    const personaPages = await prisma.personaPage.findMany({
-        where: { status: 'published' },
-        select: { slug: true, updatedAt: true },
-    });
+    let personaPages: { slug: string; updatedAt: Date }[] = [];
+    try {
+        personaPages = await prisma.personaPage.findMany({
+            where: { status: 'published' },
+            select: { slug: true, updatedAt: true },
+        });
+    } catch (error) {
+        console.error('[Sitemap] Database unavailable, serving empty sitemap:', error);
+    }
 
     return xmlResponse(
         renderSitemap(

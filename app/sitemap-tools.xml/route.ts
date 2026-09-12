@@ -19,15 +19,21 @@ const EXCLUDED_EMPTY_CATEGORIES = new Set([
 
 export async function GET() {
     const baseUrl = getBaseUrl();
-    const [tools, categories] = await Promise.all([
-        prisma.tool.findMany({
-            where: { status: 'published' },
-            select: { slug: true, primaryCategory: true, updatedAt: true },
-        }),
-        prisma.category.findMany({
-            select: { id: true, slug: true, updatedAt: true },
-        }),
-    ]);
+    let tools: { slug: string; primaryCategory: string | null; updatedAt: Date }[] = [];
+    let categories: { id: string; slug: string; updatedAt: Date }[] = [];
+    try {
+        ([tools, categories] = await Promise.all([
+            prisma.tool.findMany({
+                where: { status: 'published' },
+                select: { slug: true, primaryCategory: true, updatedAt: true },
+            }),
+            prisma.category.findMany({
+                select: { id: true, slug: true, updatedAt: true },
+            }),
+        ]));
+    } catch (error) {
+        console.error('[Sitemap] Database unavailable, serving empty sitemap:', error);
+    }
 
     const categoryEntries = categories
         .filter((category) => !EXCLUDED_EMPTY_CATEGORIES.has(category.slug))
