@@ -31,10 +31,13 @@ const MAINTENANCE_HTML = `<!DOCTYPE html>
 </body>
 </html>`;
 
+// ponytail: hardcoded ON — env var didn't propagate on Hostinger. Set to false when DB is fixed.
+const MAINTENANCE_FORCE = true;
+
 export async function middleware(request: NextRequest) {
     // ponytail: 503 + Retry-After preserves SEO rankings (Google treats as temporary).
     // Admin/api/static are excluded by the matcher below, so the owner keeps full access.
-    if (process.env.MAINTENANCE_MODE === 'true') {
+    if (MAINTENANCE_FORCE || process.env.MAINTENANCE_MODE === 'true') {
         return new NextResponse(MAINTENANCE_HTML, {
             status: 503,
             headers: {
