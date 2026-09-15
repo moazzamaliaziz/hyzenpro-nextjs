@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 import { routing } from './i18n/routing';
 
@@ -9,7 +9,7 @@ const MAINTENANCE_HTML = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HyzenPro — Scheduled Maintenance</title>
+<title>HyzenPro â€” Scheduled Maintenance</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: ui-serif, Georgia, 'Times New Roman', serif; background: #0a0a0a; color: #fafafa; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
@@ -26,13 +26,13 @@ const MAINTENANCE_HTML = `<!DOCTYPE html>
   <span class="badge">HyzenPro</span>
   <h1>We&rsquo;ll be right back.</h1>
   <p>HyzenPro is undergoing scheduled maintenance <span class="dot">&bull;</span></p>
-  <p>Our reviews, comparisons, and the AI tools directory will return shortly. Nothing is lost — check back soon.</p>
+  <p>Our reviews, comparisons, and the AI tools directory will return shortly. Nothing is lost â€” check back soon.</p>
 </main>
 </body>
 </html>`;
 
-// ponytail: hardcoded ON — env var didn't propagate on Hostinger. Set to false when DB is fixed.
-const MAINTENANCE_FORCE = true;
+// ponytail: hardcoded ON â€” env var didn't propagate on Hostinger. Set to false when DB is fixed.
+const MAINTENANCE_FORCE = false;
 
 export async function middleware(request: NextRequest) {
     // ponytail: 503 + Retry-After preserves SEO rankings (Google treats as temporary).
@@ -49,7 +49,7 @@ export async function middleware(request: NextRequest) {
     }
     const { pathname, searchParams } = request.nextUrl;
 
-    // ── Admin UI routes — bypass i18n, apply auth ──────────────
+    // â”€â”€ Admin UI routes â€” bypass i18n, apply auth â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     if (pathname.startsWith('/admin')) {
         const token = await getToken({
             req: request,
@@ -82,16 +82,16 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(loginUrl);
     }
 
-    // ── Validate locale prefix — redirect invalid locales to / ──
+    // â”€â”€ Validate locale prefix â€” redirect invalid locales to / â”€â”€
     const segments = pathname.split('/');
     if (segments.length > 1 && VALID_LOCALES.has(segments[1])) {
-        // Valid locale prefix — let Next.js route to [locale]/ pages naturally
+        // Valid locale prefix â€” let Next.js route to [locale]/ pages naturally
         const response = NextResponse.next();
         response.headers.set('x-locale', segments[1]);
         return response;
     }
 
-    // ── Root path — pass through (serves original English page) ─
+    // â”€â”€ Root path â€” pass through (serves original English page) â”€
     return NextResponse.next();
 }
 
@@ -100,3 +100,4 @@ export const config = {
         '/((?!admin|api|sitemap|robots|feed|_next|images|favicon.ico|apple-icon.png|icon.png).*)'
     ]
 };
+
