@@ -60,7 +60,7 @@ async function assignCoverImages() {
                 skipped++;
             }
         } catch (error) {
-            console.error(`  ✗ ${slug} — error:`, error);
+            console.error(`  œ— ${slug} — error:`, error);
         }
     }
 

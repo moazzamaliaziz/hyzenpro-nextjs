@@ -497,7 +497,7 @@ export default function Composer25Shell({ data, fontVariables }: Props) {
             <StatPill label="Benchmark Score" value="63.2%" sub="vs 64.8% for Opus max" />
             <StatPill label="Avg Cost / Task" value="$0.55" sub="vs $11.02 for Opus max" />
             <StatPill label="vs Composer 2" value="+11pp" sub="52.2% → 63.2%" />
-            <StatPill label="Synthetic Tasks" value="25×" sub="more than Composer 2" />
+            <StatPill label="Synthetic Tasks" value="25—" sub="more than Composer 2" />
             <StatPill label="Standard Pricing" value="$0.50" sub="per 1M input tokens" />
           </div>
         </div>
@@ -542,7 +542,7 @@ export default function Composer25Shell({ data, fontVariables }: Props) {
               </p>
               <p style={p()}>
                 Cursor also announced a partnership with SpaceXAI, training a significantly larger next-generation
-                model using 10× more total compute on Colossus 2. Composer 2.5 is a stepping stone toward
+                model using 10— more total compute on Colossus 2. Composer 2.5 is a stepping stone toward
                 that, not the end destination.
               </p>
               <Callout icon="💡" type="info">
@@ -608,7 +608,7 @@ export default function Composer25Shell({ data, fontVariables }: Props) {
                 to communication style without corrupting the broader RL objective.
               </p>
 
-              <h3 style={h3()}>25× More Synthetic Tasks</h3>
+              <h3 style={h3()}>25— More Synthetic Tasks</h3>
               <p style={p()}>
                 Composer 2.5 was trained on 25 times more synthetic tasks than Composer 2. These aren&apos;t
                 random text — they&apos;re grounded in real codebases. One technique Cursor used was{" "}
@@ -802,7 +802,7 @@ export default function Composer25Shell({ data, fontVariables }: Props) {
                 Framework-specific gaps are real — the filament admin panel test was a clear weak point.
                 The Theo controversy suggests there are task types where it underperforms relative to
                 expectations. And the next-generation model being trained with SpaceXAI on Colossus 2 — using
-                10× more compute — is the real future bet. Composer 2.5 may end up looking like a capable
+                10— more compute — is the real future bet. Composer 2.5 may end up looking like a capable
                 interim step.
               </p>
 

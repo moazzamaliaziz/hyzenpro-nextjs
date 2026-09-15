@@ -55,7 +55,7 @@ async function addComposerPost() {
     console.log(`  Slug: ${post.slug}`);
     console.log(`  Published: ${post.publishedAt}`);
   } catch (error) {
-    console.error('✗ Error adding blog post:', error);
+    console.error('œ— Error adding blog post:', error);
     process.exit(1);
   } finally {
     await prisma.$disconnect();

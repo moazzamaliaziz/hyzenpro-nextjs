@@ -323,7 +323,7 @@ export default function PostForm({ initialData, isEditing }: PostFormProps) {
                                 <option value="draft">📝 Draft</option>
                                 <option value="published">✅ Published</option>
                                 <option value="scheduled">⏰ Scheduled</option>
-                                <option value="trash">🗑️ Trash</option>
+                                <option value="trash">Ÿ—‘️ Trash</option>
                             </select>
                         </div>
 

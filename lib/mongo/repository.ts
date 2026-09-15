@@ -1,10 +1,10 @@
-﻿// Model repository: implements the Prisma model API (findMany, findUnique,
+// Model repository: implements the Prisma model API (findMany, findUnique,
 // create, update, ...) on top of a MongoDB collection. Deliberately boring:
 // one explicit method per Prisma operation, `any` internally, no engine.
 
 import type { Db } from 'mongodb';
 import { ObjectId } from 'mongodb';
-import { Prisma } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@/lib/prisma-error';
 import { getModelMeta, type ModelMeta, type RelationMeta } from './meta';
 import {
     translateWhere,
@@ -25,7 +25,7 @@ function isDuplicateKeyError(err: unknown): boolean {
 }
 
 function knownError(code: string, message: string) {
-    return new Prisma.PrismaClientKnownRequestError(message, {
+    return new PrismaClientKnownRequestError(message, {
         code,
         clientVersion: PRISMA_CLIENT_VERSION,
     });

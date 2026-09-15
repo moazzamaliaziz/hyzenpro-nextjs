@@ -93,7 +93,7 @@ export const CATEGORY_ICONS: Record<string, string> = {
     'avatar-generators': '👤',
     'copywriting': '📝',
     'seo-tools': '🔍',
-    'text-to-speech': '🗣️',
+    'text-to-speech': 'Ÿ—️',
 };
 
 export function getCategoryIcon(slug: string): string {

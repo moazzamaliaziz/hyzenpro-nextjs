@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminToken } from '@/lib/api-auth';
 import prisma from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@/lib/prisma';
 import { isR2Configured, deleteFromR2 } from '@/lib/r2';
 import {
     buildMediaPath,
@@ -140,7 +140,7 @@ export async function PATCH(
 
         return NextResponse.json({ item: serializeMediaAsset(asset) });
     } catch (error) {
-        if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2025') {
+        if (error instanceof PrismaClientKnownRequestError && error.code === 'P2025') {
             return NextResponse.json({ error: 'Media asset not found.' }, { status: 404 });
         }
 

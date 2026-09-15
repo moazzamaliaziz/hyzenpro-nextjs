@@ -159,7 +159,7 @@ const POST_HTML_PART2 = `
 
 <h2 id="pricing">Pricing: What Sonnet 5 Actually Costs</h2>
 
-<p>There's a catch worth budgeting for. Sonnet 5 uses an updated tokenizer that maps the same text to roughly <strong>1.0–1.35× more tokens</strong> than Sonnet 4.6 did. Anthropic set the introductory pricing to be roughly cost-neutral during the transition, which means the real question isn't the rate card — it's what happens on September 1, when standard pricing kicks in at the same $3/$15 list price as Sonnet 4.6, but against a token count that may be meaningfully higher for the same prompts and outputs. Agencies billing clients on a per-project basis should run a sample of real workloads through both models before assuming a flat swap.</p>
+<p>There's a catch worth budgeting for. Sonnet 5 uses an updated tokenizer that maps the same text to roughly <strong>1.0–1.35— more tokens</strong> than Sonnet 4.6 did. Anthropic set the introductory pricing to be roughly cost-neutral during the transition, which means the real question isn't the rate card — it's what happens on September 1, when standard pricing kicks in at the same $3/$15 list price as Sonnet 4.6, but against a token count that may be meaningfully higher for the same prompts and outputs. Agencies billing clients on a per-project basis should run a sample of real workloads through both models before assuming a flat swap.</p>
 
 <h2 id="who-should-use">Who Should Actually Use Claude Sonnet 5?</h2>
 <p><strong>Founders and solo builders:</strong> Sonnet 5 is a sensible default. Near-Opus quality on coding and knowledge work at a third of the price is the kind of margin that matters when you're watching a token bill closely. Save Opus 4.8 for the handful of tasks that genuinely need the extra accuracy.</p>
@@ -172,7 +172,7 @@ const POST_HTML_PART2 = `
 <h3>What is Claude Sonnet 5's model ID and context window?</h3>
 <p>The Claude API model ID is <code>claude-sonnet-5</code> (<code>anthropic.claude-sonnet-5</code> on AWS Bedrock). The context window is 1 million tokens, with 128K max output tokens, raisable to 300K via a batch-API beta header.</p>
 <h3>How much does Claude Sonnet 5 cost?</h3>
-<p>Introductory pricing is $2 per million input tokens and $10 per million output tokens through August 31, 2026, then $3/$15 from September 1 — the same list price as Sonnet 4.6, though the new tokenizer counts roughly 1.0–1.35× more tokens for the same text.</p>
+<p>Introductory pricing is $2 per million input tokens and $10 per million output tokens through August 31, 2026, then $3/$15 from September 1 — the same list price as Sonnet 4.6, though the new tokenizer counts roughly 1.0–1.35— more tokens for the same text.</p>
 <h3>Is Claude Sonnet 5 better than Opus 4.8?</h3>
 <p>Not across the board. Sonnet 5 edges past Opus 4.8 only on GDPval-AA v2 knowledge work and nearly matches it on Humanity's Last Exam with tools. Opus 4.8 still leads on SWE-bench Pro, Terminal-Bench 2.1, OSWorld-Verified, and HLE without tools. Sonnet 5 wins on price and speed.</p>
 <h3>Where can I use Claude Sonnet 5?</h3>

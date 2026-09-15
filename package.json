@@ -14,7 +14,7 @@
     "db:seed": "tsx scripts/seed.ts",
     "publish:agentic": "tsx scripts/publish-agentic-tools.ts",
     "fix:vendor-tools": "tsx scripts/fix-published-vendor-tools.ts",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate || true"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.0.0",

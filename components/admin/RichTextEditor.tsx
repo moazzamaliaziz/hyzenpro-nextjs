@@ -277,7 +277,7 @@ export default function RichTextEditor({ value, onChange, placeholder }: RichTex
                             {!editor.isActive('table') ? (
                                 <button type="button" onClick={insertTable}
                                     className="w-full text-left px-3 py-1.5 text-sm text-white/70 hover:bg-white/10 flex items-center gap-2">
-                                    <Plus className="w-3.5 h-3.5" /> Insert Table (3×3)
+                                    <Plus className="w-3.5 h-3.5" /> Insert Table (3—3)
                                 </button>
                             ) : (
                                 <>

@@ -15,12 +15,12 @@ export const routing = defineRouting({
 export const localeNames: Record<string, string> = {
   en: 'English', es: 'Español', pt: 'Português', de: 'Deutsch',
   fr: 'Français', it: 'Italiano', hi: 'हिन्दी', ar: 'العربية',
-  he: 'עברית', ja: '日本語', ko: '한국어', zh: '中文',
+  he: 'עברית', ja: '—本語', ko: '한국어', zh: '中文',
   ru: 'Русский', nl: 'Nederlands', pl: 'Polski', tr: 'Türkçe',
-  vi: 'Tiếng Việt', th: 'ไทย', id: 'Bahasa Indonesia',
+  vi: 'Tiếng Việt', th: 'ไ—ย', id: 'Bahasa Indonesia',
   ms: 'Bahasa Melayu', sv: 'Svenska', no: 'Norsk', da: 'Dansk',
   fi: 'Suomi', cs: 'Čeština', el: 'Ελληνικά', ro: 'Română',
-  hu: 'Magyar', uk: 'Українська', bn: 'বাংলা', ta: 'தமிழ்'
+  hu: 'Magyar', uk: 'Укра—нська', bn: 'বাংলা', ta: 'தமிழ்'
 };
 
 export const rtlLocales = ['ar', 'he'];

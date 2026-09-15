@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminToken } from '@/lib/api-auth';
 import prisma from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 import { z } from 'zod';
 
 const DirectoryUpdateSchema = z.object({

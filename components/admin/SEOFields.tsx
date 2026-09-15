@@ -84,7 +84,7 @@ export default function SEOFields({ seo, onChange, title, slug }: SEOFieldsProps
                 <div className="space-y-1.5">
                     {checks.map((c, i) => (
                         <div key={i} className="flex items-center gap-2 text-xs">
-                            <span className={c.pass ? 'text-green-400' : 'text-red-400'}>{c.pass ? '✓' : '✗'}</span>
+                            <span className={c.pass ? 'text-green-400' : 'text-red-400'}>{c.pass ? '✓' : 'œ—'}</span>
                             <span className={c.pass ? 'text-white/50' : 'text-white/70'}>{c.label}</span>
                         </div>
                     ))}

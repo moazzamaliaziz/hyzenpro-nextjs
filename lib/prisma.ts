@@ -12,6 +12,7 @@
 // loads the engine binary.
 
 import type { PrismaClient } from '@prisma/client';
+import { PrismaClientKnownRequestError } from './prisma-error';
 import { getDb, getMongoClient, closeMongoClient } from './mongo/client';
 import { createModelRepository } from './mongo/repository';
 import { MODELS } from './mongo/meta';
@@ -66,3 +67,5 @@ export const prisma = globalThis.prisma ?? client;
 globalThis.prisma = prisma;
 
 export default prisma;
+
+export { PrismaClientKnownRequestError } from './prisma-error';

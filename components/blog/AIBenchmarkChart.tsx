@@ -396,7 +396,7 @@ export default function AIBenchmarkChart() {
         <div className="model-cards">
           {MODELS.map((m) => (
             <div key={m.id} className="model-card" style={{ color: m.color }}>
-              <div className="card-icon" style={{ color: m.color }}>◆</div>
+              <div className="card-icon" style={{ color: m.color }}>—†</div>
               <div className="card-name">{m.name}</div>
               <div className="card-vendor">{m.vendor}</div>
               <div className="card-badges">

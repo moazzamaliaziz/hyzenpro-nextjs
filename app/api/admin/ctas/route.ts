@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminToken } from '@/lib/api-auth';
 import prisma from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@/lib/prisma-error';
 import { CtaUpdateSchema } from '@/lib/schemas/cta.schema';
 import { z } from 'zod';
 
@@ -57,7 +58,7 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json(cta, { status: 201 });
     } catch (error) {
-        if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+        if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
             return NextResponse.json({ error: 'A CTA with this name or slug already exists' }, { status: 409 });
         }
         return NextResponse.json({ error: 'Failed to create CTA' }, { status: 500 });

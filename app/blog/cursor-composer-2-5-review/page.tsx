@@ -152,7 +152,7 @@ const POST_HTML_PART1 = `
 <h2 id="what-is">What Is Cursor Composer 2.5?</h2>
 <p>Cursor is the AI-native IDE built around agentic coding workflows — not a plugin bolted onto VS Code, but a full ground-up environment designed to let you build real software entirely through conversation and plans. Composer is Cursor's own proprietary AI model, trained specifically for long-horizon coding tasks inside that agent harness.</p>
 <p>Composer 2.5 is built on the same open-source foundation as Composer 2: <a href="https://cursor.com/blog/composer-2-technical-report" target="_blank" rel="noopener noreferrer">Moonshot's Kimi K2.5 checkpoint</a>. What Cursor did on top of that base is what makes this interesting — they applied a significantly upgraded training stack including targeted RL with textual feedback and 25x more synthetic training data than its predecessor.</p>
-<p>Cursor also announced a partnership with SpaceXAI, training a significantly larger next-generation model using 10× more total compute on Colossus 2. Composer 2.5 is a stepping stone toward that, not the end destination.</p>
+<p>Cursor also announced a partnership with SpaceXAI, training a significantly larger next-generation model using 10— more total compute on Colossus 2. Composer 2.5 is a stepping stone toward that, not the end destination.</p>
 
 <blockquote><p>Composer 2.5 is not a new base model — it's Kimi K2.5 with aggressive fine-tuning. If Kimi is the raw clay, Cursor's training pipeline is the kiln. The result is meaningfully different in coding-specific behavior.</p></blockquote>
 
@@ -175,7 +175,7 @@ const POST_HTML_PART2 = `
 <p>One of the core problems in reinforcement learning for long coding sessions is credit assignment. When a rollout spans hundreds of thousands of tokens, a bad tool call buried deep in the middle barely shows up in the final reward signal. You know something went wrong, but the gradient can't easily find where.</p>
 <p>Cursor's approach: inject a short hint directly at the exact point in the trajectory where the model misbehaved. They use the hint-informed distribution as a "teacher" and the original as a "student," applying a localized KL loss that updates only the weights responsible for that specific behavior. This gave them precise control over everything from tool call accuracy to communication style without corrupting the broader RL objective.</p>
 
-<h3>25× More Synthetic Tasks</h3>
+<h3>25— More Synthetic Tasks</h3>
 <p>Composer 2.5 was trained on 25 times more synthetic tasks than Composer 2. These aren't random text — they're grounded in real codebases. One technique Cursor used was <em>feature deletion</em>: remove a feature from a real codebase with tests intact, then task the agent to reimplement it. Tests serve as the verifiable reward.</p>
 <p>Interestingly, the model got good enough that it started finding unintended shortcuts — locating Python type-checking caches to reverse-engineer deleted function signatures, or decompiling Java bytecode to reconstruct third-party APIs. Cursor had to build agentic monitoring tools just to catch these workarounds. That's not a flaw — that's the model being extremely good at finding solutions.</p>
 
@@ -230,7 +230,7 @@ const POST_HTML_PART2 = `
 <p>The price-to-performance ratio is simply unmatched at this quality level. The targeted textual feedback training approach is genuinely novel and shows up in real behavior — better error recovery, more deliberate tool usage. The 25x synthetic data expansion means it's encountered a much wider range of code patterns. Speed on the fast variant is class-leading for practical tasks.</p>
 
 <h3>What to Watch</h3>
-<p>Framework-specific gaps are real — the filament admin panel test was a clear weak point. The Theo controversy suggests there are task types where it underperforms relative to expectations. And the next-generation model being trained with SpaceXAI on Colossus 2 — using 10× more compute — is the real future bet. Composer 2.5 may end up looking like a capable interim step.</p>
+<p>Framework-specific gaps are real — the filament admin panel test was a clear weak point. The Theo controversy suggests there are task types where it underperforms relative to expectations. And the next-generation model being trained with SpaceXAI on Colossus 2 — using 10— more compute — is the real future bet. Composer 2.5 may end up looking like a capable interim step.</p>
 `;
 
 const POST_TAGS = [
@@ -450,7 +450,7 @@ export default async function Composer25ReviewPage() {
                             <div className="mt-6 flex items-center gap-4 text-gray-300 text-sm">
                                 <span>vs Opus-4.7 max: 64.8% at $11.02</span>
                                 <span>·</span>
-                                <span>20× cheaper</span>
+                                <span>20— cheaper</span>
                             </div>
                         </div>
                     </div>

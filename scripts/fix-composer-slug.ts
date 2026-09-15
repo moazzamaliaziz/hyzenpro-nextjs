@@ -55,7 +55,7 @@ async function fixComposerPost() {
     console.log(`  Featured Image: ${post.featuredImage}`);
     console.log(`  SEO Meta Title: ${post.seo?.metaTitle}`);
   } catch (error) {
-    console.error('✗ Error fixing blog post:', error);
+    console.error('œ— Error fixing blog post:', error);
     process.exit(1);
   } finally {
     await prisma.$disconnect();

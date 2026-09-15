@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminToken } from '@/lib/api-auth';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 import prisma from '@/lib/prisma';
 import {
     ADS_SECTION_ID,

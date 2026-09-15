@@ -267,13 +267,13 @@ export default async function AdminDashboardPage() {
                     </div>
                     <div className="flex items-center gap-3 mt-1">
                         <span className={`text-xs px-2 py-1 rounded-md font-bold ${gaId ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
-                            GA4 {gaId ? '✓' : '✗'}
+                            GA4 {gaId ? '✓' : 'œ—'}
                         </span>
                         <span className={`text-xs px-2 py-1 rounded-md font-bold ${stats.adEnabledCount > 0 ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
-                            AdSense {adsenseId ? '✓' : '✗'}
+                            AdSense {adsenseId ? '✓' : 'œ—'}
                         </span>
                         <span className={`text-xs px-2 py-1 rounded-md font-bold ${adminUser.isTwoFactorEnabled ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
-                            2FA {adminUser.isTwoFactorEnabled ? '✓' : '✗'}
+                            2FA {adminUser.isTwoFactorEnabled ? '✓' : 'œ—'}
                         </span>
                     </div>
                 </div>
@@ -350,11 +350,11 @@ export default async function AdminDashboardPage() {
                         <h3 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-3">Setup Checklist</h3>
                         <div className="space-y-2 text-sm">
                             <div className="flex items-center gap-2 text-white/60">
-                                <span className={gaId ? 'text-green-400' : 'text-red-400'}>{gaId ? '✓' : '✗'}</span>
+                                <span className={gaId ? 'text-green-400' : 'text-red-400'}>{gaId ? '✓' : 'œ—'}</span>
                                 Google Analytics {gaId ? `(${gaId})` : '— Set NEXT_PUBLIC_GA_ID'}
                             </div>
                             <div className="flex items-center gap-2 text-white/60">
-                                <span className={adsenseId ? 'text-green-400' : 'text-red-400'}>{adsenseId ? '✓' : '✗'}</span>
+                                <span className={adsenseId ? 'text-green-400' : 'text-red-400'}>{adsenseId ? '✓' : 'œ—'}</span>
                                 AdSense {adsenseId ? '✓ Active' : '— Set NEXT_PUBLIC_ADSENSE_CLIENT'}
                             </div>
                         </div>

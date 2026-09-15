@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@/lib/prisma';
 import { auth } from '@/lib/auth';
 import { isAdminSession } from '@/lib/admin';
 import { ReviewUpdateSchema } from '@/lib/schemas/review.schema';
@@ -71,7 +71,7 @@ export async function PUT(
 
         return NextResponse.json(review);
     } catch (error) {
-        if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+        if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
             return NextResponse.json({ error: 'A review with this slug already exists' }, { status: 409 });
         }
         return NextResponse.json({ error: 'Failed to update review' }, { status: 500 });

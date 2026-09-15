@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@/lib/prisma-error';
 import { auth } from '@/lib/auth';
 import { isAdminSession } from '@/lib/admin';
 import { prepareToolForSave, revalidateToolPaths, syncToolCategoryRelations } from '@/lib/tool-publish';
@@ -130,7 +131,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(tool, { status: 201 });
     } catch (error) {
         console.error('Error creating tool:', error);
-        if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+        if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
             return NextResponse.json({ error: 'A tool with this slug already exists' }, { status: 409 });
         }
         return NextResponse.json({ error: 'Failed to create tool' }, { status: 500 });

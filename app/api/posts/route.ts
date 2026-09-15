@@ -8,7 +8,8 @@ import { calculateReadingTime } from '@/lib/utils';
 import { pingNewPost } from '@/lib/seo-ping';
 import { parsePagination, paginatedResponse } from '@/lib/pagination';
 import { revalidateContent } from '@/lib/revalidation';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@/lib/prisma-error';
 import { VALID_POST_STATUSES, PostCreateSchema } from '@/lib/schemas/post.schema';
 
 // GET /api/posts — List all posts (admin only, supports ?page=1&pageSize=20)
@@ -153,7 +154,7 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json(post, { status: 201 });
     } catch (error) {
-        if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+        if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
             return NextResponse.json({ error: 'A post with this slug already exists' }, { status: 409 });
         }
         return NextResponse.json({ error: 'Failed to create post' }, { status: 500 });

@@ -629,7 +629,7 @@ export default function MediaLibraryClient() {
                                         <span className="text-xs text-white/30 w-20 text-right">{item.extension.toUpperCase()}</span>
                                         <span className="text-xs text-white/30 w-16 text-right">{formatBytes(item.size)}</span>
                                         <span className="text-xs text-white/30 w-24 text-right">
-                                            {item.width && item.height ? `${item.width}×${item.height}` : '—'}
+                                            {item.width && item.height ? `${item.width}—${item.height}` : '—'}
                                         </span>
                                         <span className="text-xs text-white/30 w-28 text-right">
                                             {new Date(item.createdAt).toLocaleDateString()}

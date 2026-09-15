@@ -31,7 +31,7 @@ async function checkComposerPosts() {
       console.log(`   ID: ${post.id}`);
     });
   } catch (error) {
-    console.error('✗ Error checking posts:', error);
+    console.error('œ— Error checking posts:', error);
     process.exit(1);
   } finally {
     await prisma.$disconnect();

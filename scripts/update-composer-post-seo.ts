@@ -52,7 +52,7 @@ async function updateComposerPost() {
     console.log(`  SEO Meta Title: ${post.seo?.metaTitle}`);
     console.log(`  SEO Focus Keyword: ${post.seo?.focusKeyword}`);
   } catch (error) {
-    console.error('✗ Error updating blog post:', error);
+    console.error('œ— Error updating blog post:', error);
     process.exit(1);
   } finally {
     await prisma.$disconnect();

@@ -146,7 +146,7 @@ const POST_HTML_PART2 = `
 <p><a href="/ai-tools-directory/ai-chatbots/gpt-5-5/" title="GPT-5.5 Review on HyzenPro">GPT-5.5</a> leads on Terminal-Bench 2.1 (78.2% vs 74.6%), and if you accept OpenAI's own Codex CLI harness numbers, that lead is even wider. For dev teams whose entire workflow lives in the terminal — scripting, deployments, CI tasks — GPT-5.5 in Codex is currently the more battle-tested setup.</p>
 
 <h3>Very large codebases (DeepSWE)</h3>
-<p>A benchmark called DeepSWE, which tests models on 113 tasks averaging 668 lines of code across 7 files — roughly 5.5× more code than SWE-bench Pro — shows GPT-5.5 at 70%. Claude Opus 4.7 scored 54% on the same benchmark. Opus 4.8 hasn't been formally evaluated on DeepSWE yet, but this is worth monitoring if your work involves very large, multi-file refactors where context and coherence across a massive diff is critical.</p>
+<p>A benchmark called DeepSWE, which tests models on 113 tasks averaging 668 lines of code across 7 files — roughly 5.5— more code than SWE-bench Pro — shows GPT-5.5 at 70%. Claude Opus 4.7 scored 54% on the same benchmark. Opus 4.8 hasn't been formally evaluated on DeepSWE yet, but this is worth monitoring if your work involves very large, multi-file refactors where context and coherence across a massive diff is critical.</p>
 
 <h3>Native multimodality</h3>
 <p>GPT-5.5 is natively omnimodal — it processes text, images, audio, and video in a single unified system. Opus 4.8 handles images well but doesn't natively support audio or video as inputs. For teams building products that involve audio analysis, video processing, or real-time multimodal interaction, GPT-5.5 is the more complete platform today.</p>
@@ -157,7 +157,7 @@ const POST_HTML_PART2 = `
 <div class="wp-block-table"><table><tbody>
 <tr><td><strong>Model / Tier</strong></td><td><strong>Input / 1M tokens</strong></td><td><strong>Output / 1M tokens</strong></td><td><strong>Notes</strong></td></tr>
 <tr><td><strong>Claude Opus 4.8 Standard</strong></td><td>$5.00</td><td>$25.00</td><td>Unchanged from Opus 4.7. Prompt caching can cut effective input cost significantly.</td></tr>
-<tr><td><strong>Claude Opus 4.8 Fast mode</strong></td><td>$10.00</td><td>$50.00</td><td>3× cheaper than Opus 4.7 Fast ($30/$150). Same model, ~2.5× speed.</td></tr>
+<tr><td><strong>Claude Opus 4.8 Fast mode</strong></td><td>$10.00</td><td>$50.00</td><td>3— cheaper than Opus 4.7 Fast ($30/$150). Same model, ~2.5— speed.</td></tr>
 <tr><td><strong>GPT-5.5 (list price)</strong></td><td>~$5.00</td><td>~$20.00</td><td>Cheaper per token. 72% more token-efficient per task output.</td></tr>
 <tr><td><strong>Cursor Composer 2.5</strong></td><td>$0.50</td><td>$2.50</td><td>Fine-tuned on Kimi K2.5. Strong on CursorBench v3.1 at 63.2% — see our <a href="/blog/cursor-composer-2-5-review/">Composer 2.5 review</a>.</td></tr>
 </tbody></table></div>

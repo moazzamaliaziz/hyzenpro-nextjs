@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminToken } from '@/lib/api-auth';
 import { revalidatePath } from 'next/cache';
 import prisma from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 import { getLiveQuizCards } from '@/lib/quiz-data';
 import { getResolvedQuizCards } from '@/lib/quiz-data/server';
 import { getMatcherSectionId } from '@/lib/quiz-data/overrides';

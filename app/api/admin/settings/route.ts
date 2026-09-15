@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdminToken } from '@/lib/api-auth';
 import prisma from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 import { DEFAULT_SITE_LOGO_URL } from '@/lib/branding';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
