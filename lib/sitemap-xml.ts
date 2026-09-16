@@ -1,3 +1,5 @@
+import { toIsoOrFallback } from '@/lib/safe-date';
+
 export type SitemapEntry = {
     url: string;
     lastModified: string | Date;
@@ -16,8 +18,8 @@ function escapeXml(value: string) {
         .replace(/'/g, '&apos;');
 }
 
-function formatDateToIso(value: string | Date) {
-    return new Date(value).toISOString();
+function formatDateToIso(value: unknown) {
+    return toIsoOrFallback(value);
 }
 
 export function xmlResponse(xml: string) {

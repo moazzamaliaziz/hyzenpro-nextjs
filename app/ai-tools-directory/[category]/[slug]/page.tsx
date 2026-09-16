@@ -7,6 +7,7 @@ import {
 } from '@/lib/tool-page';
 import {
     buildPreferredToolCanonicalPath,
+    normalizePrimaryCategorySlug,
     resolveToolCanonicalUrl,
 } from '@/lib/tool-paths';
 
@@ -116,7 +117,7 @@ export async function generateStaticParams() {
         });
 
         return tools.map((tool) => ({
-            category: tool.primaryCategory || 'ai-general-tools',
+            category: normalizePrimaryCategorySlug(tool.primaryCategory),
             slug: tool.slug,
         }));
     } catch {

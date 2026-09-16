@@ -28,7 +28,7 @@ import {
     getToolPageTheme,
     TOOL_PAGE_SECTION_DEFINITIONS,
 } from '@/lib/tool-page';
-import { buildToolCanonicalPath } from '@/lib/tool-paths';
+import { buildToolCanonicalPath, normalizePrimaryCategorySlug } from '@/lib/tool-paths';
 import { getPricingLabel, stripHtml } from '@/lib/utils';
 import { toSecureExternalUrl } from '@/lib/secure-external-url';
 
@@ -47,8 +47,8 @@ export default async function ToolPageContent({ category, slug }: { category: st
         notFound();
     }
 
-    const canonicalCategory = tool.primaryCategory || 'ai-general-tools';
-    if (category !== canonicalCategory) {
+    const canonicalCategory = normalizePrimaryCategorySlug(tool.primaryCategory);
+    if (normalizePrimaryCategorySlug(category) !== canonicalCategory) {
         permanentRedirect(buildToolCanonicalPath(canonicalCategory, tool.slug));
     }
 

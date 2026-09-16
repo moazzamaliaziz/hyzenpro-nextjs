@@ -1,6 +1,7 @@
 import prisma from '@/lib/prisma';
 import { renderSitemap, xmlResponse } from '@/lib/sitemap-xml';
 import { getBaseUrl } from '@/lib/utils';
+import { normalizePrimaryCategorySlug } from '@/lib/tool-paths';
 import { routing } from '@/i18n/routing';
 
 export const dynamic = 'force-dynamic';
@@ -36,12 +37,16 @@ export async function GET() {
     }
 
     const categoryEntries = categories
-        .filter((category) => !EXCLUDED_EMPTY_CATEGORIES.has(category.slug))
+        .map((category) => ({
+            ...category,
+            canonicalSlug: normalizePrimaryCategorySlug(category.slug),
+        }))
+        .filter((category) => !EXCLUDED_EMPTY_CATEGORIES.has(category.canonicalSlug))
         .filter((category) =>
-            tools.some((tool) => tool.primaryCategory === category.slug),
+            tools.some((tool) => normalizePrimaryCategorySlug(tool.primaryCategory) === category.canonicalSlug),
         )
         .map((category) => ({
-            url: `${baseUrl}/ai-tools-directory/${category.slug}/`,
+            url: `${baseUrl}/ai-tools-directory/${category.canonicalSlug}/`,
             lastModified: category.updatedAt,
             changeFrequency: 'weekly' as const,
             priority: 0.7,
@@ -50,7 +55,7 @@ export async function GET() {
         }));
 
     const toolEntries = tools.map((tool) => ({
-        url: `${baseUrl}/ai-tools-directory/${tool.primaryCategory || 'ai-general-tools'}/${tool.slug}/`,
+        url: `${baseUrl}/ai-tools-directory/${normalizePrimaryCategorySlug(tool.primaryCategory)}/${tool.slug}/`,
         lastModified: tool.updatedAt,
         changeFrequency: 'weekly' as const,
         priority: 0.8,

@@ -1,0 +1,26 @@
+New issue
+We notified recently active members in the sentry-emerald-school project of this issue
+Issue
+PrismaClientInitializationError GET /sitemap-personas.xml
+Invalid `prisma.personaPage.findMany()` invocation: Error in connector: Error creating a datab...
+ID: ebd98475dca0464596b7f550133d1dba
+Sept. 13, 2026, 10:18:13 a.m. UTC
+Project	sentry-emerald-school
+environment	production
+Level	error
+Exception
+PrismaClientInitializationError: 
+Invalid `prisma.personaPage.findMany()` invocation:
+
+
+Error in connector: Error creating a database connection. (Kind: An error occurred during DNS resolution: io error: Error parsing resolv.conf: option at line 5 is not recognized, labels: {}, source: None)
+  File "../../../app/sitemap-personas.xml/route.ts", line 14, in b
+    const personaPages = await prisma.personaPage.findMany({
+...
+(6 additional frame(s) were not displayed)
+Request
+URL	https://hyzenpro.com/sitemap-personas.xml
+Method	GET
+User
+Tags
+browser = PetalBot browser.name = PetalBot environment = production handled = no interface_type = exception level = error mechanism = auto.function.nextjs.on_request_error os = Linux os.name = Linux runtime = node v24.6.0 runtime.name = node release = 323698929353c8e8bfa5020f36b289918da05131 server_name = lt-bnk-web924.main-hosting.eu transaction = GET /sitemap-personas.xml turbopack = True url = https://hyzenpro.com/sitemap-personas.xml

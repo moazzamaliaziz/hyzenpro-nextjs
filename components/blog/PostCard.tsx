@@ -10,6 +10,7 @@ import {
 import { resolveBlogImageSource } from '@/lib/blog-images';
 import { formatDateShort, calculateReadingTime, stripHtml, truncate } from '@/lib/utils';
 import { resolvePostAuthor } from '@/lib/post-author';
+import { toIsoOrFallback } from '@/lib/safe-date';
 import type { BlogPostSummary } from '@/lib/blog-query';
 
 interface PostCardProps {
@@ -67,7 +68,7 @@ export default function PostCard({ post, priority = false, locale = 'en' }: Post
                         {resolvedAuthor.name}
                     </span>
                     {post.publishedAt && (
-                        <time dateTime={new Date(post.publishedAt).toISOString()} className="flex items-center gap-1">
+                        <time dateTime={toIsoOrFallback(post.publishedAt)} className="flex items-center gap-1">
                             <Calendar aria-hidden="true" className="h-3 w-3" />
                             {formatDateShort(post.publishedAt)}
                         </time>

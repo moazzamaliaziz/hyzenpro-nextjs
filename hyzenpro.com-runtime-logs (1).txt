@@ -1,0 +1,366 @@
+SEP 16,22:51:16.731
+▲ Next.js 16.1.6
+SEP 16,22:51:16.732
+- Local: http://0.0.0.0:3000
+SEP 16,22:51:16.732
+- Network: http://0.0.0.0:3000
+SEP 16,22:51:16.732
+✓ Starting...
+SEP 16,22:51:16.735
+▲ Next.js 16.1.6
+SEP 16,22:51:16.735
+- Local: http://0.0.0.0:3000
+SEP 16,22:51:16.735
+- Network: http://0.0.0.0:3000
+SEP 16,22:51:16.735
+✓ Starting...
+SEP 16,22:51:16.982
+✓ Ready in 255ms
+SEP 16,22:51:18.239
+[mongo-shim] DATABASE_URL carries no database name — falling back to "hyzenpro". Atlas URLs must include the db in the path (mongodb+srv://user:pass@host/<db>?...).
+SEP 16,22:51:18.598
+✓ Ready in 1873ms
+SEP 16,22:51:24.016
+Error: Server is not running.
+at Server.close (node:net:2359:12)
+at Object.onceWrapper (node:events:622:28)
+at Server.emit (node:events:520:35)
+at emitCloseNT (node:net:2419:8)
+at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+SEP 16,22:51:33.041
+▲ Next.js 16.1.6
+SEP 16,22:51:33.042
+- Local: http://0.0.0.0:3000
+SEP 16,22:51:33.042
+- Network: http://0.0.0.0:3000
+SEP 16,22:51:33.043
+✓ Starting...
+SEP 16,22:51:33.046
+▲ Next.js 16.1.6
+SEP 16,22:51:33.046
+- Local: http://0.0.0.0:3000
+SEP 16,22:51:33.046
+- Network: http://0.0.0.0:3000
+SEP 16,22:51:33.046
+✓ Starting...
+SEP 16,22:51:33.344
+✓ Ready in 312ms
+SEP 16,22:51:34.486
+[mongo-shim] DATABASE_URL carries no database name — falling back to "hyzenpro". Atlas URLs must include the db in the path (mongodb+srv://user:pass@host/<db>?...).
+SEP 16,22:51:34.888
+✓ Ready in 1857ms
+SEP 16,22:51:37.751
+⨯ TypeError: fetch failed
+at node:internal/deps/undici/undici:15422:13
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+at async fetchExternalImage (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/image-optimizer.js:819:17)
+at async NextNodeServer.imageOptimizer (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:817:48)
+at async cacheEntry.imageResponseCache.get.routeKind (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:271:85)
+at async ResponseCache.handleRevalidate (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/response-cache/index.js:256:40)
+at async /home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/lib/batcher.js:48:32
+SEP 16,22:51:38.303
+⨯ TypeError: fetch failed
+at node:internal/deps/undici/undici:15422:13
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+at async fetchExternalImage (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/image-optimizer.js:819:17)
+at async NextNodeServer.imageOptimizer (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:817:48)
+at async cacheEntry.imageResponseCache.get.routeKind (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:271:85)
+at async ResponseCache.handleRevalidate (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/response-cache/index.js:256:40)
+at async /home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/lib/batcher.js:48:32
+SEP 16,22:51:39.923
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,22:52:27.994
+▲ Next.js 16.1.6
+SEP 16,22:52:27.995
+- Local: http://0.0.0.0:3000
+SEP 16,22:52:27.995
+- Network: http://0.0.0.0:3000
+SEP 16,22:52:27.995
+✓ Starting...
+SEP 16,22:52:27.998
+▲ Next.js 16.1.6
+SEP 16,22:52:27.999
+- Local: http://0.0.0.0:3000
+SEP 16,22:52:27.999
+- Network: http://0.0.0.0:3000
+SEP 16,22:52:27.999
+✓ Starting...
+SEP 16,22:52:28.302
+✓ Ready in 313ms
+SEP 16,22:52:29.567
+[mongo-shim] DATABASE_URL carries no database name — falling back to "hyzenpro". Atlas URLs must include the db in the path (mongodb+srv://user:pass@host/<db>?...).
+SEP 16,22:52:29.954
+✓ Ready in 1965ms
+SEP 16,22:56:07.175
+▲ Next.js 16.1.6
+SEP 16,22:56:07.176
+- Local: http://0.0.0.0:3000
+SEP 16,22:56:07.176
+- Network: http://0.0.0.0:3000
+SEP 16,22:56:07.177
+✓ Starting...
+SEP 16,22:56:07.181
+▲ Next.js 16.1.6
+SEP 16,22:56:07.181
+- Local: http://0.0.0.0:3000
+SEP 16,22:56:07.181
+- Network: http://0.0.0.0:3000
+SEP 16,22:56:07.181
+✓ Starting...
+SEP 16,22:56:07.475
+✓ Ready in 308ms
+SEP 16,22:56:08.535
+[mongo-shim] DATABASE_URL carries no database name — falling back to "hyzenpro". Atlas URLs must include the db in the path (mongodb+srv://user:pass@host/<db>?...).
+SEP 16,22:56:08.884
+Unexpected root span type 'ResolveMetadata.generateMetadata'. Please report this Next.js issue https://github.com/vercel/next.js
+SEP 16,22:56:08.890
+✓ Ready in 1724ms
+SEP 16,22:56:14.025
+Error: Server is not running.
+at Server.close (node:net:2359:12)
+at Object.onceWrapper (node:events:622:28)
+at Server.emit (node:events:520:35)
+at emitCloseNT (node:net:2419:8)
+at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+SEP 16,22:56:35.243
+▲ Next.js 16.1.6
+SEP 16,22:56:35.244
+- Local: http://0.0.0.0:3000
+SEP 16,22:56:35.244
+- Network: http://0.0.0.0:3000
+SEP 16,22:56:35.244
+✓ Starting...
+SEP 16,22:56:35.247
+▲ Next.js 16.1.6
+SEP 16,22:56:35.247
+- Local: http://0.0.0.0:3000
+SEP 16,22:56:35.247
+- Network: http://0.0.0.0:3000
+SEP 16,22:56:35.247
+✓ Starting...
+SEP 16,22:56:35.491
+✓ Ready in 253ms
+SEP 16,22:56:36.533
+[mongo-shim] DATABASE_URL carries no database name — falling back to "hyzenpro". Atlas URLs must include the db in the path (mongodb+srv://user:pass@host/<db>?...).
+SEP 16,22:56:36.876
+✓ Ready in 1639ms
+SEP 16,22:56:44.020
+Error: Server is not running.
+at Server.close (node:net:2359:12)
+at Object.onceWrapper (node:events:622:28)
+at Server.emit (node:events:520:35)
+at emitCloseNT (node:net:2419:8)
+at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+SEP 16,22:56:50.895
+▲ Next.js 16.1.6
+SEP 16,22:56:50.896
+- Local: http://0.0.0.0:3000
+SEP 16,22:56:50.896
+- Network: http://0.0.0.0:3000
+SEP 16,22:56:50.896
+✓ Starting...
+SEP 16,22:56:50.899
+▲ Next.js 16.1.6
+SEP 16,22:56:50.899
+- Local: http://0.0.0.0:3000
+SEP 16,22:56:50.899
+- Network: http://0.0.0.0:3000
+SEP 16,22:56:50.899
+✓ Starting...
+SEP 16,22:56:51.175
+✓ Ready in 285ms
+SEP 16,22:56:52.427
+[mongo-shim] DATABASE_URL carries no database name — falling back to "hyzenpro". Atlas URLs must include the db in the path (mongodb+srv://user:pass@host/<db>?...).
+SEP 16,22:56:52.769
+✓ Ready in 1880ms
+SEP 16,22:57:42.940
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:00:05.513
+⨯ TypeError: fetch failed
+at node:internal/deps/undici/undici:15422:13
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+at async fetchExternalImage (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/image-optimizer.js:819:17)
+at async NextNodeServer.imageOptimizer (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:817:48)
+at async cacheEntry.imageResponseCache.get.routeKind (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:271:85)
+at async ResponseCache.handleRevalidate (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/response-cache/index.js:256:40)
+at async /home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/lib/batcher.js:48:32
+SEP 16,23:00:07.187
+⨯ TypeError: fetch failed
+at node:internal/deps/undici/undici:15422:13
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+at async fetchExternalImage (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/image-optimizer.js:819:17)
+at async NextNodeServer.imageOptimizer (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:817:48)
+at async cacheEntry.imageResponseCache.get.routeKind (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:271:85)
+at async ResponseCache.handleRevalidate (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/response-cache/index.js:256:40)
+at async /home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/lib/batcher.js:48:32
+SEP 16,23:00:11.847
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:03.871
+⨯ The requested resource isn't a valid image for /media/6a2b07db75855914dca04179/best-ai-productivity-automation-tools-for-businesses.png received null
+SEP 16,23:01:03.880
+⨯ The requested resource isn't a valid image for /media/6a2b06a075855914dca04178/best-ai-productivity-tools.png received null
+SEP 16,23:01:03.946
+⨯ The requested resource isn't a valid image for /media/6a2b05b8c161dcd69643f5bf/best-ai-automation-tools-for-businesses.png received null
+SEP 16,23:01:04.383
+⨯ The requested resource isn't a valid image for /media/6a12b690ec6a852a5c71f7ec/manus-ai.png received null
+SEP 16,23:01:05.900
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:05.911
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:05.963
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:07.364
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:07.398
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:09.560
+⨯ The requested resource "/media/6a0cd85f260a9268d663e19e/google-antigravity.png" has type "image/svg+xml" but dangerouslyAllowSVG is disabled. Consider adding the "unoptimized" property to the <Image>.
+SEP 16,23:01:10.052
+⨯ The requested resource "/media/6a0e7c49706bfebf28f46cd5/cursor-composer-25-review.png" has type "image/svg+xml" but dangerouslyAllowSVG is disabled. Consider adding the "unoptimized" property to the <Image>.
+SEP 16,23:01:10.117
+⨯ The requested resource "/media/6a13e057df51a7c02bf56a7a/openclaw.png" has type "image/svg+xml" but dangerouslyAllowSVG is disabled. Consider adding the "unoptimized" property to the <Image>.
+SEP 16,23:01:10.449
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:10.888
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:10.889
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:12.149
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:12.451
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:12.565
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:12.602
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:12.613
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:12.615
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:17.641
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:17.652
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:17.872
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:17.952
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:18.172
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:18.202
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:18.512
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:23.094
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:23.431
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:23.455
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:24.463
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:41.660
+⨯ The requested resource isn't a valid image for /media/6a12b690ec6a852a5c71f7ec/manus-ai.png received null
+SEP 16,23:01:41.740
+⨯ The requested resource isn't a valid image for /media/6a2b05b8c161dcd69643f5bf/best-ai-automation-tools-for-businesses.png received null
+SEP 16,23:01:41.740
+⨯ The requested resource isn't a valid image for /media/6a2b06a075855914dca04178/best-ai-productivity-tools.png received null
+SEP 16,23:01:41.747
+⨯ The requested resource isn't a valid image for /media/6a2b07db75855914dca04179/best-ai-productivity-automation-tools-for-businesses.png received null
+SEP 16,23:01:41.864
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:01:53.730
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:02:11.456
+⨯ TypeError: fetch failed
+at node:internal/deps/undici/undici:15422:13
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+at async fetchExternalImage (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/image-optimizer.js:819:17)
+at async NextNodeServer.imageOptimizer (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:817:48)
+at async cacheEntry.imageResponseCache.get.routeKind (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/next-server.js:271:85)
+at async ResponseCache.handleRevalidate (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/server/response-cache/index.js:256:40)
+at async /home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/lib/batcher.js:48:32
+SEP 16,23:02:22.090
+[31m[auth][error][0m CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+SEP 16,23:02:22.091
+at Object.authorize (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/_bd59c245._.js:405:67040)
+at async rQ (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/_bd59c245._.js:405:41497)
+at async r8 (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/_bd59c245._.js:405:51260)
+at async r7 (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/_bd59c245._.js:405:55827)
+at async rW.do (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:20169)
+at async rW.handle (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:5:24949)
+at async u (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/[root-of-the-server]__3d5d5032._.js:2:6041)
+at async rW.handleResponse (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js:1:104149)
+at async l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/[root-of-the-server]__3d5d5032._.js:2:7082)
+at async Module._ (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/[root-of-the-server]__3d5d5032._.js:2:8149)
+SEP 16,23:02:33.715
+(node:1500659) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+SEP 16,23:04:15.717
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+SEP 16,23:05:53.259
+[Blog] Failed to generate metadata: TypeError: Cannot read properties of undefined (reading 'toISOString')
+at Module.l (/home/u112585083/domains/hyzenpro.com/hbuilds/versions/01a0ab55-79e9-7128-95e6-f7ccb8840744/nodejs/.next/server/chunks/ssr/[root-of-the-server]__db19f2ba._.js:2:19762)
+at process.processTicksAndRejecti

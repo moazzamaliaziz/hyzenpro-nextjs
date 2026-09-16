@@ -14,6 +14,16 @@ function isValidUrl(value: string) {
     }
 }
 
+const VALID_CATEGORY_SLUGS = [
+    'ai-writing-tools', 'ai-image-tools', 'ai-video-tools', 'ai-coding-tools',
+    'ai-design-tools', 'ai-chatbots', 'ai-marketing-tools', 'ai-automation-tools',
+    'seo-tools', 'ai-general-tools',
+];
+
+const VALID_SUBMITTER_ROLES = ['Founder / maker', 'Team member', 'Fan / user', 'Affiliate'];
+
+const VALID_PRICING_OPTIONS = ['Free', 'Freemium', 'Free trial', 'Paid', 'Open source'];
+
 export async function POST(request: NextRequest) {
     const ip = getClientIp(request.headers);
     const rateLimit = consumeRateLimit({
@@ -45,14 +55,9 @@ export async function POST(request: NextRequest) {
     const description = sanitizeInput(body.description);
     const reviewNotes = sanitizeInput(body.reviewNotes);
 
-    // ── Category normalization ────────────────────────────────────────────────
-    const VALID_CATEGORY_SLUGS = [
-        'ai-writing-tools', 'ai-image-tools', 'ai-video-tools', 'ai-coding-tools',
-        'ai-design-tools', 'ai-chatbots', 'ai-marketing-tools', 'ai-automation-tools',
-        'seo-tools', 'ai-general-tools',
-    ];
+    // ── Category (validated below, never silently coerced) ────────────────────
     const rawCategory = sanitizeInput(body.category);
-    const category = VALID_CATEGORY_SLUGS.includes(rawCategory) ? rawCategory : 'ai-general-tools';
+    const category = rawCategory;
 
     // ── Lists ─────────────────────────────────────────────────────────────────
     const audiences = Array.isArray(body.audiences)
@@ -67,9 +72,10 @@ export async function POST(request: NextRequest) {
     const cons = Array.isArray(body.cons)
         ? body.cons.map((c: unknown) => sanitizeInput(c)).filter(Boolean).slice(0, 8)
         : [];
-    const screenshots = Array.isArray(body.screenshots)
-        ? body.screenshots.map((s: unknown) => sanitizeInput(s)).filter(Boolean).slice(0, 6)
+    const allScreenshots = Array.isArray(body.screenshots)
+        ? body.screenshots.map((s: unknown) => sanitizeInput(s)).filter(Boolean)
         : [];
+    const screenshots = allScreenshots.slice(0, 6);
     const demoVideo = sanitizeInput(body.demoVideo);
 
     // ── Persona page resolution from audiences ────────────────────────────────
@@ -134,16 +140,17 @@ export async function POST(request: NextRequest) {
 
     // ── FAQs ─────────────────────────────────────────────────────────────────
     const rawFaqs = Array.isArray(body.faqs) ? body.faqs : [];
-    const faqs = rawFaqs
+    const faqDrafts = rawFaqs
         .filter((f: unknown) => f && typeof f === 'object')
         .map((f: unknown) => {
             const r = f as Record<string, unknown>;
-            const question = sanitizeInput(r.question);
-            const answer = sanitizeInput(r.answer);
-            if (!question || !answer) return null;
-            return { question, answer };
-        })
-        .filter(Boolean)
+            return {
+                question: sanitizeInput(r.question),
+                answer: sanitizeInput(r.answer),
+            };
+        });
+    const faqs = faqDrafts
+        .filter((faq) => faq.question && faq.answer)
         .slice(0, 3);
 
     // ── Agreement flags ───────────────────────────────────────────────────────
@@ -198,6 +205,79 @@ export async function POST(request: NextRequest) {
 
     if (faqs.length < 3) {
         return NextResponse.json({ error: 'Please provide at least 3 FAQs about your tool.' }, { status: 400 });
+    }
+
+    // ── Server-side validation mirrored from the submit wizard ────────────────
+    if (description.length > 600) {
+        return NextResponse.json({ error: 'Description must be under 600 characters.' }, { status: 400 });
+    }
+
+    if (reviewNotes.length > 1000) {
+        return NextResponse.json({ error: 'Review notes must be under 1,000 characters.' }, { status: 400 });
+    }
+
+    if (logo && !isValidUrl(logo)) {
+        return NextResponse.json({ error: 'Logo must be a valid http:// or https:// URL.' }, { status: 400 });
+    }
+
+    if (!VALID_CATEGORY_SLUGS.includes(rawCategory)) {
+        return NextResponse.json({ error: 'Please choose a valid primary category.' }, { status: 400 });
+    }
+
+    if (audiences.length < 1) {
+        return NextResponse.json({ error: 'Please select at least one audience.' }, { status: 400 });
+    }
+
+    if (keyFeatures.length < 3) {
+        return NextResponse.json({ error: 'Please add at least 3 standout features.' }, { status: 400 });
+    }
+
+    if (pros.length < 1) {
+        return NextResponse.json({ error: 'Please add at least 1 strength.' }, { status: 400 });
+    }
+
+    if (cons.length < 1) {
+        return NextResponse.json({ error: 'Please add at least 1 honest limitation.' }, { status: 400 });
+    }
+
+    if (allScreenshots.length > 6) {
+        return NextResponse.json({ error: 'Please provide no more than 6 screenshots.' }, { status: 400 });
+    }
+
+    if (allScreenshots.some((url) => !isValidUrl(url))) {
+        return NextResponse.json({ error: 'Every screenshot must be a valid http:// or https:// URL.' }, { status: 400 });
+    }
+
+    if (demoVideo && !isValidUrl(demoVideo)) {
+        return NextResponse.json({ error: 'Demo video must be a valid http:// or https:// URL.' }, { status: 400 });
+    }
+
+    if (Object.values(socials as Record<string, unknown>).some((value) => typeof value === 'string' && value.length > 0 && !isValidUrl(value))) {
+        return NextResponse.json({ error: 'Each social link must be a valid http:// or https:// URL.' }, { status: 400 });
+    }
+
+    if (submitterName.length > 100) {
+        return NextResponse.json({ error: 'Submitter name must be under 100 characters.' }, { status: 400 });
+    }
+
+    if (faqDrafts.some((faq) => faq.question.length > 180)) {
+        return NextResponse.json({ error: 'Each FAQ question must be under 180 characters.' }, { status: 400 });
+    }
+
+    if (faqDrafts.some((faq) => faq.answer.length > 800)) {
+        return NextResponse.json({ error: 'Each FAQ answer must be under 800 characters.' }, { status: 400 });
+    }
+
+    if (pricingTiers.some((tier: any) => tier.ctaUrl && !isValidUrl(tier.ctaUrl))) {
+        return NextResponse.json({ error: 'Each pricing plan CTA must be a valid http:// or https:// URL.' }, { status: 400 });
+    }
+
+    if (!VALID_SUBMITTER_ROLES.includes(submitterRole)) {
+        return NextResponse.json({ error: 'Please choose a valid submitter role.' }, { status: 400 });
+    }
+
+    if (!VALID_PRICING_OPTIONS.includes(pricing)) {
+        return NextResponse.json({ error: 'Please choose a valid pricing model.' }, { status: 400 });
     }
 
     const slug = await createUniqueSlug(name);

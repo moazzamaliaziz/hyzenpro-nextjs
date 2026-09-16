@@ -7,6 +7,19 @@ export const dynamic = 'force-dynamic';
 const LOCALES = routing.locales;
 const DEFAULT_LOCALE = routing.defaultLocale;
 
+// Only these static paths have a localized counterpart under app/[locale]/.
+const LOCALIZED_STATIC_PATHS = new Set([
+    '/',
+    '/ai-tools-directory/',
+    '/find-tools/',
+    '/blog/',
+    '/contact/',
+    '/compare/tools/',
+    '/compare/opus-4-8-vs-codex-5-5-pro/',
+    '/compare/sonnet-5-vs-glm-5-2/',
+    '/compare/claude-fable-5-vs-claude-mythos-5/',
+]);
+
 const staticPages = [
     { path: '/', lastModified: '2026-06-09', changeFrequency: 'daily' as const, priority: 1.0 },
     { path: '/ai-tools-directory/', lastModified: '2026-06-09', changeFrequency: 'daily' as const, priority: 0.9 },
@@ -32,13 +45,14 @@ export async function GET() {
         renderSitemap(
             staticPages.map((page) => {
                 const enUrl = `${baseUrl}${page.path}`;
+                const hasLocalizedRoute = LOCALIZED_STATIC_PATHS.has(page.path);
                 return {
                     url: enUrl,
                     lastModified: page.lastModified,
                     changeFrequency: page.changeFrequency,
                     priority: page.priority,
-                    locales: LOCALES,
-                    defaultLocale: DEFAULT_LOCALE,
+                    locales: hasLocalizedRoute ? LOCALES : undefined,
+                    defaultLocale: hasLocalizedRoute ? DEFAULT_LOCALE : undefined,
                 };
             }),
         ),

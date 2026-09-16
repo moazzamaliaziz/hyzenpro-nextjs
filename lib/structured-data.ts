@@ -1,4 +1,5 @@
 import { getBaseUrl } from './utils';
+import { toIsoOrFallback } from '@/lib/safe-date';
 import { DEFAULT_SITE_LOGO_URL, DEFAULT_SITE_SHARE_IMAGE_URL } from '@/lib/branding';
 import { getBlogPostPath } from '@/lib/blog-seo';
 import type { ToolPageMeta } from '@/lib/tool-page-types';
@@ -76,12 +77,8 @@ export function generateArticleSchema(post: {
             },
         },
         url: postUrl,
-        datePublished: post.publishedAt
-            ? new Date(post.publishedAt).toISOString()
-            : undefined,
-        dateModified: post.updatedAt
-            ? new Date(post.updatedAt).toISOString()
-            : undefined,
+        datePublished: toIsoOrFallback(post.publishedAt),
+        dateModified: toIsoOrFallback(post.updatedAt),
         mainEntityOfPage: {
             '@type': 'WebPage',
             '@id': postUrl,
@@ -320,9 +317,7 @@ export function generateReviewSchema(review: {
             bestRating: '5',
             worstRating: '1',
         },
-        datePublished: review.publishedAt
-            ? new Date(review.publishedAt).toISOString()
-            : undefined,
+        datePublished: toIsoOrFallback(review.publishedAt),
         publisher: {
             '@type': 'Organization',
             name: 'HyzenPro',

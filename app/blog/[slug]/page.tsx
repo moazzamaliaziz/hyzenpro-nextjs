@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import prisma from '@/lib/prisma';
 import { getBaseUrl } from '@/lib/utils';
+import { toIsoOrFallback } from '@/lib/safe-date';
 import { DEDICATED_BLOG_SLUGS, getBlogDisplayTitle, getBlogDisplayExcerpt, getBlogFeaturedImage, getCanonicalBlogSlug } from '@/lib/blog-seo';
 import { getSerpFriendlyTitle } from '@/lib/seo-titles';
 import { resolvePostAuthor } from '@/lib/post-author';
@@ -68,7 +69,7 @@ export async function generateMetadata({
                 title,
                 description,
                 images: [imageUrl],
-                publishedTime: resolvedPost.publishedAt ? resolvedPost.publishedAt.toISOString() : resolvedPost.createdAt.toISOString(),
+                publishedTime: toIsoOrFallback((resolvedPost as any).publishedAt ?? (resolvedPost as any).createdAt),
                 authors: [authorName],
             },
             twitter: {

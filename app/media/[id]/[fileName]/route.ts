@@ -3,11 +3,13 @@ import prisma from '@/lib/prisma';
 
 export const runtime = 'nodejs';
 
+const PLACEHOLDER_PATH = '/images/logo.svg';
+
 export async function GET(
     request: NextRequest,
     { params }: { params: Promise<{ id: string; fileName: string }> }
 ) {
-    const { id } = await params;
+    const { id, fileName } = await params;
 
     const asset = await prisma.mediaAsset.findUnique({
         where: { id },
@@ -21,7 +23,7 @@ export async function GET(
     });
 
     if (!asset) {
-        return new NextResponse('Not found', { status: 404 });
+        return NextResponse.redirect(new URL(PLACEHOLDER_PATH, request.url), 302);
     }
 
     if (asset.r2Url) {
@@ -29,16 +31,24 @@ export async function GET(
     }
 
     if (!asset.data) {
-        return new NextResponse('No image data', { status: 404 });
+        return NextResponse.redirect(new URL(PLACEHOLDER_PATH, request.url), 302);
+    }
+
+    const contentType = asset.contentType || 'application/octet-stream';
+    const safeFileName = (fileName || asset.fileName || '').replace(/["\\\r\n]/g, '').trim();
+
+    const headers: Record<string, string> = {
+        'Content-Type': contentType,
+        'Cache-Control': 'public, max-age=31536000, immutable',
+        'Content-Disposition': safeFileName ? `inline; filename="${safeFileName}"` : 'inline',
+    };
+
+    if (typeof asset.size === 'number') {
+        headers['Content-Length'] = String(asset.size);
     }
 
     return new NextResponse(asset.data, {
         status: 200,
-        headers: {
-            'Content-Type': asset.contentType,
-            'Content-Length': asset.size.toString(),
-            'Cache-Control': 'public, max-age=31536000, immutable',
-            'Content-Disposition': `inline; filename="${asset.fileName}"`,
-        },
+        headers,
     });
 }

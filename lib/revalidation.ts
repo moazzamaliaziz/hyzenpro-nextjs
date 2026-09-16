@@ -41,16 +41,16 @@ export async function revalidateContent(type: ContentType, slug?: string): Promi
     if (slug) {
         switch (type) {
             case 'tools':
-                revalidatePath(`/tools/${slug}`);
+                revalidatePath(slug.startsWith('/') ? slug : `/ai-tools-directory/${slug}/`);
                 break;
             case 'posts':
-                revalidatePath(`/blog/${slug}`);
+                revalidatePath(`/blog/${slug}/`);
                 break;
             case 'categories':
-                revalidatePath(`/category/${slug}`);
+                revalidatePath(`/ai-tools-directory/${slug}/`);
                 break;
             case 'persona-pages':
-                revalidatePath(`/ai-tools-for/${slug}`);
+                revalidatePath(`/ai-tools-for/${slug}/`);
                 break;
         }
     }

@@ -69,11 +69,21 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: '*.cloudflarestorage.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'logo.clearbit.com',
+            },
+            {
+                protocol: 'https',
+                hostname: '**.r2.cloudflarestorage.com',
+            },
         ],
+        dangerouslyAllowSVG: true,
+        contentDispositionType: 'attachment',
+        contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     },
 
     trailingSlash: true,
-    skipTrailingSlashRedirect: true,
 
     // Security headers
     async headers() {

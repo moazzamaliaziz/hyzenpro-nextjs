@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 import { routing } from './i18n/routing';
 
@@ -85,9 +85,38 @@ export async function middleware(request: NextRequest) {
     // â”€â”€ Validate locale prefix â€” redirect invalid locales to / â”€â”€
     const segments = pathname.split('/');
     if (segments.length > 1 && VALID_LOCALES.has(segments[1])) {
+        const locale = segments[1];
+
+        // ponytail: only these paths actually have a file under app/[locale]/.
+        // Anything else (e.g. /es/ai-tools-for/..., /es/privacy-policy/) would
+        // 404, so redirect it to the canonical (English) path instead.
+        const rest = pathname.slice(('/' + locale).length);
+        const restSegments = rest.split('/').filter(Boolean);
+        const LOCALIZED_ROOT_SEGMENTS = new Set([
+            'about',
+            'contact',
+            'compare',
+            'blog',
+            'ai-tools-directory',
+        ]);
+        const isLocalized =
+            rest === '' ||
+            rest === '/' ||
+            LOCALIZED_ROOT_SEGMENTS.has(restSegments[0]) ||
+            (restSegments[0] === 'find-tools' && restSegments.length === 1);
+
+        if (!isLocalized) {
+            const redirectUrl = new URL(
+                '/' + restSegments.join('/') + (pathname.endsWith('/') ? '/' : ''),
+                request.url
+            );
+            redirectUrl.search = request.nextUrl.search;
+            return NextResponse.redirect(redirectUrl, 308);
+        }
+
         // Valid locale prefix â€” let Next.js route to [locale]/ pages naturally
         const response = NextResponse.next();
-        response.headers.set('x-locale', segments[1]);
+        response.headers.set('x-locale', locale);
         return response;
     }
 

@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import prisma from '@/lib/prisma';
 import { getBaseUrl, formatDate, calculateReadingTime } from '@/lib/utils';
+import { toIsoOrFallback } from '@/lib/safe-date';
 import { notFound } from 'next/navigation';
 import { Calendar, Clock, User, Tag } from 'lucide-react';
 import SocialShare from '@/components/blog/SocialShare';
@@ -151,8 +152,8 @@ export default async function BlogPostPageContent({ slug }: { slug: string }) {
         headline: displayTitle,
         description: displayExcerpt,
         image: [featuredImageUrl],
-        datePublished: post.publishedAt ? post.publishedAt.toISOString() : post.createdAt.toISOString(),
-        dateModified: post.updatedAt.toISOString(),
+        datePublished: toIsoOrFallback(post.publishedAt ?? post.createdAt),
+        dateModified: toIsoOrFallback(post.updatedAt),
         author: {
             '@type': 'Person',
             name: authorData.name,
