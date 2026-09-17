@@ -14,11 +14,11 @@ const SERP_TITLE_OVERRIDES: Record<string, string> = {
     'midjourney-vs-dall-e-3-vs-stable-diffusion': 'Midjourney vs DALL-E 3 vs Stable Diffusion',
 };
 
-function normalizeTitle(value: string) {
+export function normalizeTitle(value: unknown) {
     return decodeHtmlEntities(value).replace(/\s+/g, ' ').trim();
 }
 
-export function stripTitleBrand(value: string) {
+export function stripTitleBrand(value: unknown) {
     let title = normalizeTitle(value);
 
     while (new RegExp(`\\s*\\|\\s*${BRAND_NAME}\\s*$`, 'i').test(title)) {
@@ -28,12 +28,12 @@ export function stripTitleBrand(value: string) {
     return title;
 }
 
-export function getSerpFriendlyTitle(slug: string | undefined, fallbackTitle: string) {
+export function getSerpFriendlyTitle(slug: string | undefined, fallbackTitle: string | undefined) {
     if (slug && SERP_TITLE_OVERRIDES[slug]) {
         return SERP_TITLE_OVERRIDES[slug];
     }
 
-    return stripTitleBrand(fallbackTitle);
+    return stripTitleBrand(fallbackTitle ?? '');
 }
 
 export function getMetadataBrandName(siteName: string) {

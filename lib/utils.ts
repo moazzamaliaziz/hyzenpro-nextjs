@@ -26,29 +26,30 @@ export function formatDateShort(date: string | Date): string {
     });
 }
 
-export function slugify(text: string): string {
-    return text
+export function slugify(text: unknown): string {
+    return String(text ?? '')
         .toLowerCase()
         .replace(/[^\w\s-]/g, '')
         .replace(/[\s_]+/g, '-')
         .replace(/^-+|-+$/g, '');
 }
 
-export function truncate(text: string, length: number): string {
-    if (text.length <= length) return text;
-    return text.substring(0, length).trim() + '...';
+export function truncate(text: unknown, length: number): string {
+    const value = String(text ?? '');
+    if (value.length <= length) return value;
+    return value.substring(0, length).trim() + '...';
 }
 
-export function stripHtml(html: string): string {
-    return html.replace(/<[^>]*>/g, '');
+export function stripHtml(html: unknown): string {
+    return String(html ?? '').replace(/<[^>]*>/g, '');
 }
 
 export function sanitizeInput(value: unknown): string {
     return stripHtml(String(value || '')).trim();
 }
 
-export function decodeHtmlEntities(value: string): string {
-    return value
+export function decodeHtmlEntities(value: unknown): string {
+    return String(value ?? '')
         .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')

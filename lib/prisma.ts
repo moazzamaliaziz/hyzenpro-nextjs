@@ -1,4 +1,4 @@
-﻿// Prisma-compatible data-access shim over the official MongoDB driver.
+// Prisma-compatible data-access shim over the official MongoDB driver.
 //
 // WHY: on Hostinger shared hosting, Prisma 6's Rust query engine dies on every
 // connection with `PrismaClientInitializationError: DNS resolution: Error
@@ -37,6 +37,38 @@ function buildShim() {
                 return (arg as (tx: unknown) => unknown | Promise<unknown>)(shim);
             }
             return Promise.all(arg as Promise<unknown>[]);
+        },
+
+        // Raw Mongo passthrough used by lib/matcher-analytics.ts and
+        // app/api/matcher-leads/route.ts (the matcher tables are not exposed as
+        // Prisma models). Supported commands: insert / aggregate / count.
+        async $runCommandRaw(command: Record<string, unknown>) {
+            const db = getDb();
+            const keys = Object.keys(command ?? {});
+
+            if (typeof command.insert === 'string') {
+                const documents = Array.isArray(command.documents) ? command.documents : [];
+                await db.collection(command.insert).insertMany(documents as any[]);
+                return { ok: 1, n: documents.length };
+            }
+
+            if (typeof command.aggregate === 'string') {
+                const pipeline = Array.isArray(command.pipeline) ? command.pipeline : [];
+                const docs = await db
+                    .collection(command.aggregate)
+                    .aggregate(pipeline as any[])
+                    .toArray();
+                return { cursor: { firstBatch: docs } };
+            }
+
+            if (typeof command.count === 'string') {
+                const query =
+                    command.query && typeof command.query === 'object' ? command.query : {};
+                const n = await db.collection(command.count).countDocuments(query as any);
+                return { n };
+            }
+
+            throw new Error(`[mongo-shim] $runCommandRaw: unsupported command ${keys.join(', ')}`);
         },
 
         async $connect() {
