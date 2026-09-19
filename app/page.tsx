@@ -422,7 +422,8 @@ export default async function HomePage() {
                             </span>
                             <h3 className="mt-4 font-serif text-2xl">{uc.title}</h3>
                             <p className="mt-2 text-sm text-foreground/60 leading-relaxed">{uc.desc}</p>
-                            <Link href="/ai-tools-directory/" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground/80 hover:underline">
+                            {/* min-h-6 = 24px: this CTA measured 20px tall on mobile (WCAG 2.5.8). */}
+                            <Link href="/ai-tools-directory/" className="mt-4 inline-flex min-h-6 items-center gap-1 text-sm font-medium text-foreground/80 hover:underline">
                                 See picks <ArrowRight className="h-3.5 w-3.5" />
                             </Link>
                         </div>
