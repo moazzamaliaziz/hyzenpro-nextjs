@@ -13,9 +13,19 @@ export const metadata = {
 
 async function getTools() {
     try {
+        // Only the columns this table renders: pulling whole rows dragged
+        // longDescription/meta/seo for every listing into the RSC payload.
         return await prisma.tool.findMany({
             orderBy: { createdAt: 'desc' },
-            include: { categories: { select: { name: true } } },
+            select: {
+                id: true,
+                name: true,
+                slug: true,
+                status: true,
+                pricingType: true,
+                primaryCategory: true,
+                categories: { select: { name: true } },
+            },
         });
     } catch {
         return [];

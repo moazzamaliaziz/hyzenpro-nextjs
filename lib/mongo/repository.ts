@@ -94,7 +94,10 @@ function analyzeShape(model: string, select: any, include: any): ShapeInfo {
     }
 
     return {
-        projection: Object.keys(projection).length ? projection : null,
+        // Only `select` narrows the document. `include` means "all scalars PLUS
+        // these relations" in Prisma, so projecting here would strip every field
+        // the caller did not name — which is exactly what it does NOT ask for.
+        projection: select && Object.keys(projection).length ? projection : null,
         relations,
         countRelations,
     };
@@ -111,18 +114,25 @@ function applySelect(model: string, mappedDoc: any, select: any): any {
     return out;
 }
 
+// Map raw docs to the Prisma shape and hydrate their relations for the WHOLE
+// batch at once. Hydrating per document is what turned every list query into
+// one round trip per row.
+async function finalizeMany(
+    targetModel: string,
+    rawDocs: any[],
+    args: Record<string, any> | undefined,
+    getDb: () => Db
+): Promise<any[]> {
+    const mapped = rawDocs.map((raw) => mapDocToPrisma(targetModel, raw));
+    if (!mapped.length) return mapped;
+    const info = analyzeShape(targetModel, args?.select, args?.include);
+    await hydrateDocs(targetModel, mapped, info, getDb);
+    return args?.select ? mapped.map((d) => applySelect(targetModel, d, args.select)) : mapped;
+}
+
 async function finalizeTarget(targetModel: string, rawDoc: any, args: Record<string, any>, getDb: () => Db): Promise<any> {
-    const mapped = mapDocToPrisma(targetModel, rawDoc);
-    if (args?.select) {
-        const info = analyzeShape(targetModel, args.select, undefined);
-        await hydrateDocs(targetModel, [mapped], info, getDb);
-        return applySelect(targetModel, mapped, args.select);
-    }
-    if (args?.include) {
-        const info = analyzeShape(targetModel, undefined, args.include);
-        await hydrateDocs(targetModel, [mapped], info, getDb);
-    }
-    return mapped;
+    const [only] = await finalizeMany(targetModel, [rawDoc], args, getDb);
+    return only;
 }
 
 // Fetch related docs for an ObjectId[] linkage field, preserving id-list order
@@ -159,15 +169,32 @@ async function fetchIdList(
         Boolean(args?.take);
 
     if (hasListOps) {
-        return Promise.all(raws.map((raw) => finalizeTarget(targetModel, raw, args, getDb)));
+        return finalizeMany(targetModel, raws, args, getDb);
     }
     const byId = new Map(raws.map((raw) => [String(raw._id), raw]));
-    return Promise.all(
-        ids
-            .map((id) => byId.get(String(id)))
-            .filter((raw) => Boolean(raw))
-            .map((raw) => finalizeTarget(targetModel, raw as any, args, getDb))
-    );
+    const ordered = ids.map((id) => byId.get(String(id))).filter((raw) => Boolean(raw));
+    return finalizeMany(targetModel, ordered as any[], args, getDb);
+}
+
+// A nested relation arg that makes the result depend on the individual parent
+// (a per-parent window), so the relation cannot be fetched for all parents at once.
+function hasListArgs(args: Record<string, any> | undefined): boolean {
+    return Boolean(args?.where || args?.orderBy || args?.take || args?.skip);
+}
+
+// One $in query for every parent's related ids, keyed by stringified _id.
+async function fetchByIds(
+    collection: string,
+    ids: string[],
+    getDb: () => Db
+): Promise<Map<string, any>> {
+    const byId = new Map<string, any>();
+    if (!ids.length) return byId;
+    const raws = await getDb().collection(collection)
+        .find({ _id: { $in: ids.map((v) => new ObjectId(String(v))) } })
+        .toArray();
+    for (const raw of raws) byId.set(String(raw._id), raw);
+    return byId;
 }
 
 async function hydrateDocs(
@@ -203,23 +230,73 @@ async function hydrateDocs(
                 d[name] = raw ? await finalizeTarget(rel.model, raw, args, getDb) : null;
             }
         } else if (rel.kind === 'idList') {
-            for (const d of docs) {
-                const ids: string[] = Array.isArray(d[rel.field]) ? d[rel.field] : [];
-                d[name] = await fetchIdList(rel.model, ids, args, getDb);
+            if (hasListArgs(args)) {
+                // Per-parent where/orderBy/take/skip: one query each, since the
+                // window is defined relative to a single parent's id list.
+                for (const d of docs) {
+                    const ids: string[] = Array.isArray(d[rel.field]) ? d[rel.field] : [];
+                    d[name] = await fetchIdList(rel.model, ids, args, getDb);
+                }
+            } else {
+                const allIds = Array.from(
+                    new Set(
+                        docs
+                            .flatMap((d) => (Array.isArray(d[rel.field]) ? d[rel.field] : []))
+                            .map((v) => String(v))
+                    )
+                );
+                const byId = await fetchByIds(targetMeta.collection, allIds, getDb);
+                const uniqueRaws = Array.from(byId.values());
+                const finalized = await finalizeMany(rel.model, uniqueRaws, args, getDb);
+                // ponytail: parents sharing a related row share one object rather
+                // than each getting a copy — these results are rendered, not mutated.
+                const resultById = new Map(
+                    uniqueRaws.map((raw, i) => [String(raw._id), finalized[i]])
+                );
+                for (const d of docs) {
+                    const ids: string[] = Array.isArray(d[rel.field]) ? d[rel.field] : [];
+                    // Prisma returns id-list relations in the id array's order.
+                    d[name] = ids
+                        .map((id) => resultById.get(String(id)))
+                        .filter((row) => Boolean(row));
+                }
             }
         } else {
             // fkList: the target holds the fk pointing back at us.
-            for (const d of docs) {
-                const filter: Record<string, any> = { [rel.field]: new ObjectId(String(d.id)) };
-                const nestedWhere = args?.where ? translateWhere(rel.model, args.where) : null;
-                if (nestedWhere && Object.keys(nestedWhere).length) Object.assign(filter, nestedWhere);
-                const sort = translateOrderBy(args?.orderBy);
-                const opts: Record<string, any> = {};
-                if (Object.keys(sort).length) opts.sort = sort;
-                if (args?.skip) opts.skip = args.skip;
-                if (args?.take) opts.limit = args.take;
-                const raws = await getDb().collection(targetMeta.collection).find(filter, opts).toArray();
-                d[name] = await Promise.all(raws.map((raw) => finalizeTarget(rel.model, raw, args, getDb)));
+            if (hasListArgs(args)) {
+                for (const d of docs) {
+                    const filter: Record<string, any> = { [rel.field]: new ObjectId(String(d.id)) };
+                    const nestedWhere = args?.where ? translateWhere(rel.model, args.where) : null;
+                    if (nestedWhere && Object.keys(nestedWhere).length) Object.assign(filter, nestedWhere);
+                    const sort = translateOrderBy(args?.orderBy);
+                    const opts: Record<string, any> = {};
+                    if (Object.keys(sort).length) opts.sort = sort;
+                    if (args?.skip) opts.skip = args.skip;
+                    if (args?.take) opts.limit = args.take;
+                    const raws = await getDb().collection(targetMeta.collection).find(filter, opts).toArray();
+                    d[name] = await Promise.all(raws.map((raw) => finalizeTarget(rel.model, raw, args, getDb)));
+                }
+            } else {
+                const parentIds = docs
+                    .map((d) => d.id)
+                    .filter((id) => id !== null && id !== undefined)
+                    .map((id) => new ObjectId(String(id)));
+                const raws = parentIds.length
+                    ? await getDb().collection(targetMeta.collection)
+                        .find({ [rel.field]: { $in: parentIds } })
+                        .toArray()
+                    : [];
+                const finalized = await finalizeMany(rel.model, raws, args, getDb);
+                const byParent = new Map<string, any[]>();
+                raws.forEach((raw, i) => {
+                    const key = String(raw[rel.field]);
+                    const bucket = byParent.get(key);
+                    if (bucket) bucket.push(finalized[i]);
+                    else byParent.set(key, [finalized[i]]);
+                });
+                for (const d of docs) {
+                    d[name] = byParent.get(String(d.id)) ?? [];
+                }
             }
         }
     }
@@ -256,17 +333,8 @@ export function createModelRepository(model: string, getDb: () => Db): any {
 
     // Map a raw Mongo doc to the Prisma shape, then apply select/include.
     async function finalize(rawDoc: any, select: any, include: any): Promise<any> {
-        const mapped = mapDocToPrisma(model, rawDoc);
-        if (select) {
-            const info = analyzeShape(model, select, undefined);
-            await hydrateDocs(model, [mapped], info, getDb);
-            return applySelect(model, mapped, select);
-        }
-        if (include) {
-            const info = analyzeShape(model, undefined, include);
-            await hydrateDocs(model, [mapped], info, getDb);
-        }
-        return mapped;
+        const [only] = await finalizeMany(model, [rawDoc], { select, include }, getDb);
+        return only;
     }
 
     function findOptions(args: any, info: ShapeInfo): Record<string, any> {
@@ -302,7 +370,7 @@ export function createModelRepository(model: string, getDb: () => Db): any {
             const raws = await coll()
                 .find(translateWhere(model, args.where), findOptions(args, info))
                 .toArray();
-            return Promise.all(raws.map((raw) => finalize(raw, args.select, args.include)));
+            return finalizeMany(model, raws, args, getDb);
         },
 
         async count(args: any = {}) {

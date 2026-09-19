@@ -76,26 +76,26 @@ export async function GET(
         return NextResponse.redirect(asset.r2Url, 301);
     }
 
-    if (!asset.data) {
+    // The MongoDB driver hands back a BSON Binary, not a Node Buffer. Passing
+    // that straight to NextResponse serialises it as an object, so the bytes on
+    // the wire are not an image and the optimizer rejects the response (422).
+    const body = toBuffer(asset.data);
+    if (!body || body.length === 0) {
         return NextResponse.redirect(new URL(PLACEHOLDER_PATH, request.url), 302);
     }
 
     const contentType =
-        sniffContentType(asset.data) || asset.contentType || 'application/octet-stream';
+        sniffContentType(body) || asset.contentType || 'application/octet-stream';
     const safeFileName = (fileName || asset.fileName || '').replace(/["\\\r\n]/g, '').trim();
 
-    const headers: Record<string, string> = {
-        'Content-Type': contentType,
-        'Cache-Control': 'public, max-age=31536000, immutable',
-        'Content-Disposition': safeFileName ? `inline; filename="${safeFileName}"` : 'inline',
-    };
-
-    if (typeof asset.size === 'number') {
-        headers['Content-Length'] = String(asset.size);
-    }
-
-    return new NextResponse(asset.data, {
+    return new NextResponse(new Uint8Array(body), {
         status: 200,
-        headers,
+        headers: {
+            'Content-Type': contentType,
+            'Cache-Control': 'public, max-age=31536000, immutable',
+            'Content-Disposition': safeFileName ? `inline; filename="${safeFileName}"` : 'inline',
+            // Measured, not the stored `size`: a stale value truncates the response.
+            'Content-Length': String(body.length),
+        },
     });
 }

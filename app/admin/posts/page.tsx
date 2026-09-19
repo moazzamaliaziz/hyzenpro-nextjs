@@ -47,9 +47,24 @@ async function getPosts(status?: string, search?: string): Promise<PostRow[]> {
             where.title = { contains: search, mode: 'insensitive' };
         }
 
+        // Only the PostRow columns: whole rows dragged every post's `content`
+        // (full article HTML) into the list payload.
         const prismaPosts = await prisma.post.findMany({
             where,
-            include: {
+            select: {
+                id: true,
+                title: true,
+                slug: true,
+                author: true,
+                status: true,
+                categories: true,
+                tags: true,
+                views: true,
+                readingTime: true,
+                publishedAt: true,
+                createdAt: true,
+                scheduledAt: true,
+                featuredImage: true,
                 authorModel: { select: { name: true } },
             },
             orderBy: { createdAt: 'desc' },

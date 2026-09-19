@@ -58,7 +58,9 @@ describe('GET /media/[id]/[fileName]', () => {
 
         expect(response.status).toBe(200);
         expect(response.headers.get('Content-Type')).toBe('image/png');
-        expect(response.headers.get('Content-Length')).toBeNull();
+        // Measured from the bytes, so a missing or stale stored size cannot
+        // truncate the response.
+        expect(response.headers.get('Content-Length')).toBe('3');
         expect(response.headers.get('Cache-Control')).toContain('immutable');
         expect(response.headers.get('Content-Disposition')).toContain('logo.png');
     });
@@ -77,6 +79,28 @@ describe('GET /media/[id]/[fileName]', () => {
         expect(response.status).toBe(200);
         expect(response.headers.get('Content-Type')).toBe('application/octet-stream');
         expect(response.headers.get('Content-Length')).toBe('1');
+    });
+
+    it('serves the real bytes when Mongo hands back a BSON Binary', async () => {
+        // A 1x1 PNG header — what the driver returns for a `Bytes` column is a
+        // Binary wrapper, not a Buffer. Serialising that object instead of its
+        // bytes is what made the image optimizer reject /media responses (422).
+        const png = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+        findUnique.mockResolvedValue({
+            data: { buffer: png, sub_type: 0 },
+            contentType: null,
+            size: 999,
+            fileName: 'cover.png',
+            r2Url: null,
+        });
+
+        const response = await GET(mediaRequest(), params());
+        const body = Buffer.from(await response.arrayBuffer());
+
+        expect(response.status).toBe(200);
+        expect(response.headers.get('Content-Type')).toBe('image/png');
+        expect(response.headers.get('Content-Length')).toBe('8');
+        expect(body.equals(Buffer.from(png))).toBe(true);
     });
 
     it('301-redirects to the r2 url when one is stored', async () => {
