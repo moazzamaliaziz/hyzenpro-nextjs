@@ -547,6 +547,19 @@ function sanitizeAlternatives(value: unknown): AlternativeTool[] {
         .filter(Boolean) as AlternativeTool[];
 }
 
+// Public submissions store socials as { twitter, linkedin, ... }; the tool page
+// reads the [{ platform, url }] shape. Without this the links a submitter gave
+// us were saved but never rendered.
+function socialsObjectToLinks(value: unknown): unknown {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) {
+        return undefined;
+    }
+
+    return Object.entries(value as Record<string, unknown>)
+        .filter(([, url]) => typeof url === 'string' && url.trim().length > 0)
+        .map(([platform, url]) => ({ platform, url }));
+}
+
 function sanitizeSocialLinks(value: unknown): SocialLink[] {
     if (!Array.isArray(value)) {
         return [];
@@ -682,7 +695,7 @@ export function normalizeToolPageMeta(meta: unknown): ToolPageMeta {
         bestFor: Array.isArray(record.bestFor) ? record.bestFor.filter((item): item is string => typeof item === 'string' && item.trim().length > 0) : [],
         skipIf: Array.isArray(record.skipIf) ? record.skipIf.filter((item): item is string => typeof item === 'string' && item.trim().length > 0) : [],
         alternatives: sanitizeAlternatives(record.alternatives),
-        socialLinks: sanitizeSocialLinks(record.socialLinks),
+        socialLinks: sanitizeSocialLinks(record.socialLinks ?? socialsObjectToLinks(record.socials)),
         lastReviewedDate: asString(record.lastReviewedDate),
         verified: asBoolean(record.verified),
         reviewCount: asNumber(record.reviewCount),
@@ -793,7 +806,7 @@ export function buildToolPageMeta(
     const override = normalizeToolPageMeta(TOOL_PAGE_CONTENT[tool.slug]);
     const stored = normalizeToolPageMeta(tool.meta);
 
-    return {
+    return applyPublicFieldVisibility(tool.meta, {
         displayName: pickString(stored.displayName, override.displayName, fallback.displayName),
         displayLogo: pickString(stored.displayLogo, override.displayLogo, fallback.displayLogo),
         tagline: pickString(stored.tagline, override.tagline, fallback.tagline),
@@ -827,7 +840,41 @@ export function buildToolPageMeta(
         bestForLabel: pickString(stored.bestForLabel, override.bestForLabel, fallback.bestForLabel),
         operatingSystem: pickString(stored.operatingSystem, override.operatingSystem, fallback.operatingSystem),
         applicationCategory: pickString(stored.applicationCategory, override.applicationCategory, fallback.applicationCategory),
-    };
+    });
+}
+
+// Fields a tool's admin editor can independently hide from the live page.
+// Stored on `meta.publicFields`; absent or true means visible, so every tool
+// that predates this control keeps rendering exactly what it renders today.
+export const PUBLIC_FIELD_KEYS = [
+    'screenshots',
+    'videos',
+    'socialLinks',
+    'pricingTiers',
+    'faq',
+    'personas',
+    'reviewSources',
+] as const;
+
+export type PublicFieldKey = (typeof PUBLIC_FIELD_KEYS)[number];
+
+export function normalizePublicFields(meta: unknown): Record<PublicFieldKey, boolean> {
+    const raw = (meta && typeof meta === 'object'
+        ? (meta as Record<string, unknown>).publicFields
+        : undefined) as Record<string, unknown> | undefined;
+
+    return Object.fromEntries(
+        PUBLIC_FIELD_KEYS.map((key) => [key, raw?.[key] !== false])
+    ) as Record<PublicFieldKey, boolean>;
+}
+
+function applyPublicFieldVisibility(meta: unknown, page: ToolPageMeta): ToolPageMeta {
+    const visible = normalizePublicFields(meta);
+    const gated = { ...page };
+    for (const key of PUBLIC_FIELD_KEYS) {
+        if (!visible[key]) gated[key] = [];
+    }
+    return gated;
 }
 
 export function getToolPageTheme(primaryCategory?: string | null) {

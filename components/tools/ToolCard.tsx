@@ -111,17 +111,22 @@ export default function ToolCard({
                             {categoryLabel}
                         </span>
                     )}
+                    {/* Both controls key off the tool id. Without one they would all
+                        share a single identity, so one card's state would appear on
+                        every card — render nothing rather than something broken. */}
                     <div className="flex gap-1.5 items-center">
-                        <AddToCompareButton tool={{
-                            id: tool.id || '',
-                            name: tool.name,
-                            slug: tool.slug,
-                            logo: tool.logo,
-                            category: tool.primaryCategory
-                        }} />
-                        {onLogin ? (
+                        {tool.id && (
+                            <AddToCompareButton tool={{
+                                id: tool.id,
+                                name: tool.name,
+                                slug: tool.slug,
+                                logo: tool.logo,
+                                category: tool.primaryCategory
+                            }} />
+                        )}
+                        {tool.id && (onLogin ? (
                             <DirectorySaveToolButton
-                                toolId={tool.id ?? 'temp'}
+                                toolId={tool.id}
                                 initialSaved={saved ?? false}
                                 externalLoading={savedStateLoading}
                                 isAuthenticated={isAuthenticated}
@@ -131,13 +136,13 @@ export default function ToolCard({
                             />
                         ) : (
                             <SaveToolButton
-                                toolId={tool.id ?? 'temp'}
+                                toolId={tool.id}
                                 initialSaved={saved ?? false}
                                 skipInitialFetch={saved !== undefined}
                                 externalLoading={savedStateLoading}
                                 onSavedChange={onSavedChange}
                             />
-                        )}
+                        ))}
                     </div>
                 </div>
 

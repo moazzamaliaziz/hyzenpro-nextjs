@@ -8,6 +8,17 @@ import dynamic from 'next/dynamic';
 import SEOFields from '@/components/admin/SEOFields';
 import SlugInput from '@/components/admin/SlugInput';
 import MediaLibraryLink from '@/components/admin/MediaLibraryLink';
+import { PUBLIC_FIELD_KEYS, normalizePublicFields } from '@/lib/tool-page';
+
+const PUBLIC_FIELD_LABELS: Record<(typeof PUBLIC_FIELD_KEYS)[number], string> = {
+    screenshots: 'Screenshots',
+    videos: 'Videos',
+    socialLinks: 'Social links',
+    pricingTiers: 'Pricing table',
+    faq: 'FAQ',
+    personas: 'Who it is for',
+    reviewSources: 'Review sources',
+};
 
 const RichTextEditor = dynamic(() => import('@/components/admin/RichTextEditor'), { ssr: false });
 
@@ -40,6 +51,7 @@ export default function ToolForm({ initialData, isEditing }: ToolFormProps) {
     const [metaJson, setMetaJson] = useState(() =>
         initialData?.meta ? JSON.stringify(initialData.meta, null, 2) : ''
     );
+    const [publicFields, setPublicFields] = useState(() => normalizePublicFields(initialData?.meta));
     const [categories, setCategories] = useState<Array<{ id: string; name: string; slug: string }>>([]);
     const [personaPages, setPersonaPages] = useState<Array<{ id: string; name: string; slug: string }>>([]);
     const [selectedPersonaPages, setSelectedPersonaPages] = useState<string[]>(initialData?.personaPageIds || []);
@@ -47,7 +59,7 @@ export default function ToolForm({ initialData, isEditing }: ToolFormProps) {
         name: string; monthlyPrice: string; annualPrice: string; currency: string;
         billingPeriod: string; description: string; features: string[]; limitations: string[];
         isPopular: boolean; badge: string; ctaLabel: string; ctaUrl: string;
-        freeTrial: string; moneyBackGuarantee: string; notes: string;
+        freeTrial: string; moneyBackGuarantee: string; notes: string; annualNote: string;
     }>>(() => {
         const meta = initialData?.meta;
         if (meta?.pricingTiers && Array.isArray(meta.pricingTiers)) {
@@ -67,6 +79,7 @@ export default function ToolForm({ initialData, isEditing }: ToolFormProps) {
                 freeTrial: t.freeTrial || '',
                 moneyBackGuarantee: t.moneyBackGuarantee || '',
                 notes: t.notes || '',
+                annualNote: t.annualNote || '',
             }));
         }
         return [];
@@ -132,12 +145,17 @@ export default function ToolForm({ initialData, isEditing }: ToolFormProps) {
                     badge: t.badge,
                     ctaLabel: t.ctaLabel,
                     ctaUrl: t.ctaUrl,
-                    annualNote: null,
+                    annualNote: t.annualNote || null,
                     freeTrial: t.freeTrial || null,
                     moneyBackGuarantee: t.moneyBackGuarantee || null,
                     notes: t.notes || null,
                 }));
             }
+
+            // Per-field visibility for the live tool page. Written for every tool
+            // so the toggles survive a save even when the meta JSON is untouched.
+            if (!parsedMeta) parsedMeta = {};
+            parsedMeta.publicFields = publicFields;
 
             const body = {
                 name, slug, shortDescription, longDescription, websiteUrl,
@@ -209,7 +227,7 @@ export default function ToolForm({ initialData, isEditing }: ToolFormProps) {
             billingPeriod: 'monthly', description: '', features: [] as string[],
             limitations: [] as string[], isPopular: false, badge: '',
             ctaLabel: 'Get Started', ctaUrl: '', freeTrial: '',
-            moneyBackGuarantee: '', notes: '',
+            moneyBackGuarantee: '', notes: '', annualNote: '',
         };
     }
 
@@ -577,6 +595,29 @@ export default function ToolForm({ initialData, isEditing }: ToolFormProps) {
                                     </p>
                                 </div>
                             )}
+
+                            <div className="border-t border-white/[0.06] pt-4">
+                                <span className="text-[11px] text-white/40">Show on the live tool page</span>
+                                <div className="mt-2 space-y-1.5">
+                                    {PUBLIC_FIELD_KEYS.map((key) => (
+                                        <label key={key} className="flex items-center gap-2 text-sm text-white/75 cursor-pointer">
+                                            <input
+                                                type="checkbox"
+                                                checked={publicFields[key]}
+                                                onChange={(e) =>
+                                                    setPublicFields((prev) => ({ ...prev, [key]: e.target.checked }))
+                                                }
+                                                className="h-4 w-4 rounded border-white/20 bg-white/[0.03] accent-accent"
+                                            />
+                                            {PUBLIC_FIELD_LABELS[key]}
+                                        </label>
+                                    ))}
+                                </div>
+                                <p className="mt-2 text-[11px] leading-5 text-white/40">
+                                    Unchecking a field hides that section from the public page. The submitted data
+                                    stays saved and keeps showing here.
+                                </p>
+                            </div>
                         </div>
                     )}
 

@@ -39,3 +39,25 @@ export function getSerpFriendlyTitle(slug: string | undefined, fallbackTitle: st
 export function getMetadataBrandName(siteName: string) {
     return siteName.split('-')[0]?.trim() || BRAND_NAME;
 }
+
+const META_DESCRIPTION_MAX = 160;
+
+// An approved submission arrives with no hand-written SEO, so the auto-generated
+// description is what actually ships. Leading with the tool's own summary keeps
+// each page distinct instead of every tool sharing one boilerplate sentence.
+export function buildToolMetaDescription(input: {
+    displayName: string;
+    shortDescription?: string | null;
+    reviewedLabel: string;
+}): string {
+    const summary = input.shortDescription?.trim().replace(/\s+/g, ' ');
+    const lead = summary
+        ? `${input.displayName}: ${summary.replace(/\.+$/, '')}.`
+        : `Honest ${input.displayName} review.`;
+    const tail = ` Pricing, real pros and cons, and top alternatives. Updated ${input.reviewedLabel}.`;
+
+    const maxLead = META_DESCRIPTION_MAX - tail.length;
+    if (maxLead <= 0) return lead;
+
+    return (lead.length > maxLead ? `${lead.slice(0, maxLead - 1).trimEnd()}…` : lead) + tail;
+}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ToolPageContent from '@/components/pages/ToolPageContent';
 import prisma from '@/lib/prisma';
-import { getSerpFriendlyTitle, stripTitleBrand } from '@/lib/seo-titles';
+import { buildToolMetaDescription, getSerpFriendlyTitle, stripTitleBrand } from '@/lib/seo-titles';
 import {
     buildToolPageMeta,
 } from '@/lib/tool-page';
@@ -39,7 +39,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         const currentYear = new Date().getFullYear();
         const canonicalPath = buildPreferredToolCanonicalPath(tool.primaryCategory || category, tool.slug);
         const generatedTitle = `${displayName} Review ${currentYear}: Pricing & Alternatives`;
-        const generatedDescription = `Honest ${displayName} review. Pricing breakdown, Magic Clips notes, real pros and cons, review sources, and top alternatives. Updated ${reviewedLabel}.`;
+        const generatedDescription = buildToolMetaDescription({
+            displayName,
+            shortDescription: tool.shortDescription,
+            reviewedLabel,
+        });
         const seo = tool.seo as Record<string, unknown> | null;
         const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hyzenpro.com';
         const openGraphImage = `${baseUrl}${canonicalPath}opengraph-image`;

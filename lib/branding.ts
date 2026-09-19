@@ -10,10 +10,30 @@ const LEGACY_SITE_LOGO_URLS = new Set([
     '/images/hyzenpro-logo-lockup.png',
 ]);
 
+const SITE_HOSTS = new Set(['hyzenpro.com', 'www.hyzenpro.com']);
+
+// A logo uploaded in Settings is stored as an absolute same-origin URL
+// (https://hyzenpro.com/media/...). next/image treats that as remote and
+// fetches it back over the public internet; on Hostinger that loopback fails
+// ("TypeError: fetch failed" in the runtime logs) and the header renders no
+// logo at all. Serving it as a relative path keeps the request internal.
+export function toSameOriginPath(url: string): string {
+    if (!url.startsWith('http')) return url;
+    try {
+        const parsed = new URL(url);
+        return SITE_HOSTS.has(parsed.hostname.toLowerCase())
+            ? `${parsed.pathname}${parsed.search}`
+            : url;
+    } catch {
+        return url;
+    }
+}
+
 export function resolveSiteLogoUrl(logoUrl?: string | null) {
-    if (!logoUrl || LEGACY_SITE_LOGO_URLS.has(logoUrl)) {
+    const trimmed = logoUrl?.trim();
+    if (!trimmed || LEGACY_SITE_LOGO_URLS.has(trimmed)) {
         return DEFAULT_SITE_LOGO_URL;
     }
 
-    return logoUrl;
+    return toSameOriginPath(trimmed);
 }
